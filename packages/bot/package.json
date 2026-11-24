@@ -1,0 +1,76 @@
+{
+  "name": "@prequelui/bot",
+  "version": "2.0.0",
+  "description": "A development-only overlay that suggests and previews motion on your own page.",
+  "license": "MIT",
+  "author": "Vidhal",
+  "homepage": "https://animate.prequelui.terravidhal.me",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prequelui/prequelui-animate",
+    "directory": "bot"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "bin": {
+    "prequelui-bot-bridge": "./bin/bridge.mjs",
+    "bot-bridge": "./bin/bridge.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./dist/core.js",
+      "default": "./dist/core.js"
+    },
+    "./react": {
+      "types": "./src/adapters/react.tsx",
+      "import": "./dist/react.js",
+      "default": "./dist/react.js"
+    },
+    "./vue": {
+      "types": "./src/adapters/vue.ts",
+      "import": "./dist/vue.js",
+      "default": "./dist/vue.js"
+    },
+    "./svelte": {
+      "types": "./src/adapters/svelte.ts",
+      "svelte": "./src/adapters/PrequelBot.svelte",
+      "import": "./dist/svelte.js",
+      "default": "./dist/svelte.js"
+    },
+    "./solid": {
+      "types": "./src/adapters/solid.tsx",
+      "import": "./dist/solid.js",
+      "default": "./dist/solid.js"
+    },
+    "./script": "./dist/v2.js",
+    "./styles.css": "./src/styles/bot.css"
+  },
+  "files": [
+    "dist",
+    "src",
+    "bin",
+    "README.md"
+  ],
+  "keywords": [
+    "animation",
+    "motion",
+    "developer-tools",
+    "overlay",
+    "prequelui",
+    "react",
+    "vue",
+    "svelte",
+    "solid"
+  ],
+  "scripts": {
+    "lint:typecheck": "node /home/claude2/travail/saas/_modele/node_modules/typescript/bin/tsc -p tsconfig.json --noEmit",
+    "lint:test": "node /home/claude2/travail/saas/_modele/node_modules/vitest/vitest.mjs run --config vitest.config.mjs",
+    "lint:build": "node tools/build.mjs",
+    "lint:bridgetest": "node --test tests/bridge.test.mjs",
+    "lint:all": "npm run lint:typecheck && npm run lint:test && npm run lint:bridgetest && npm run lint:build"
+  }
+}

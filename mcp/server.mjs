@@ -7,6 +7,12 @@ import {
   suggestComponents,
 } from "./lib/tools.mjs";
 import { loadServerSdk, loadZod } from "./lib/sdk.mjs";
+import {
+  botInbox,
+  cancelBotRequest,
+  completeBotRequest,
+  getBotRequest,
+} from "./lib/bot-bridge.mjs";
 
 const SERVER_INFO = {
   name: "prequelui",
@@ -206,6 +212,93 @@ async function main() {
       }
     },
   );
+
+  if (process.env.PREQUELUI_BOT_BRIDGE) {
+    server.registerTool(
+      "get_bot_request",
+      {
+        title: "Get a PrequelUI Bot request",
+        description:
+          "Return the oldest queued request from the local PrequelUI Bot overlay, or one request by id. The request names the element, the chosen motion, the tuned options and the framework.",
+        inputSchema: {
+          id: z.string().optional().describe("Optional request id, for example req_8f3a."),
+        },
+        annotations: { readOnlyHint: true, openWorldHint: false },
+      },
+      async (args) => {
+        try {
+          return textResult(await getBotRequest(args));
+        } catch (error) {
+          return errorResult(error);
+        }
+      },
+    );
+
+    server.registerTool(
+      "complete_bot_request",
+      {
+        title: "Complete a PrequelUI Bot request",
+        description:
+          "Mark a queued PrequelUI Bot request as done. Send a short summary and the list of files changed. The overlay shows the summary and switches the mascot to happy.",
+        inputSchema: {
+          id: z.string().describe("Request id."),
+          summary: z.string().describe("One or two sentences for the developer."),
+          files: z.array(z.string()).optional().describe("Relative paths of the files changed."),
+          diff: z.string().optional().describe("Optional unified diff. Not displayed in the overlay."),
+        },
+        annotations: { readOnlyHint: false, openWorldHint: false },
+      },
+      async (args) => {
+        try {
+          return textResult(await completeBotRequest(args));
+        } catch (error) {
+          return errorResult(error);
+        }
+      },
+    );
+
+    server.registerTool(
+      "cancel_bot_request",
+      {
+        title: "Cancel a PrequelUI Bot request",
+        description: "Remove a queued PrequelUI Bot request and notify the overlay.",
+        inputSchema: {
+          id: z.string().describe("Request id."),
+          reason: z.string().optional().describe("Why the request was cancelled."),
+        },
+        annotations: { readOnlyHint: false, openWorldHint: false },
+      },
+      async (args) => {
+        try {
+          return textResult(await cancelBotRequest(args));
+        } catch (error) {
+          return errorResult(error);
+        }
+      },
+    );
+
+    server.registerResource(
+      "bot-inbox",
+      "prequelui://bot/inbox",
+      {
+        title: "PrequelUI Bot inbox",
+        description: "Queued and recently completed requests from the local overlay.",
+        mimeType: "application/json",
+      },
+      async (uri) => {
+        const value = await botInbox();
+        return {
+          contents: [
+            {
+              uri: uri.href,
+              mimeType: "application/json",
+              text: JSON.stringify(value, null, 2),
+            },
+          ],
+        };
+      },
+    );
+  }
 
   server.registerResource(
     "catalog",
