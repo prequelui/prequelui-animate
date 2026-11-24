@@ -130,6 +130,22 @@ It prints a JSON summary with the registry source, the site URL and the item
 counts, then exits without starting a session. The normal stdio mode is silent
 on stdout: logs go to stderr only.
 
+### Run from source
+
+Contributors can run the server straight from a clone. Install once in `mcp/`,
+then point the client at `server.mjs`; there is no build step.
+
+```bash
+git clone https://github.com/prequelui/prequelui-animate.git
+cd prequelui-animate/mcp
+npm install
+node server.mjs
+```
+
+In the client config, keep `"command": "node"` and pass the absolute path to
+`server.mjs`. Set `PREQUELUI_REGISTRY_DIR` to read the clone's own `r/` folder
+instead of the published one.
+
 ## Tools
 
 | Tool | Input | Returns |
