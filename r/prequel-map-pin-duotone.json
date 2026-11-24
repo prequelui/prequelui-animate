@@ -1,0 +1,52 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-map-pin-duotone",
+  "type": "registry:ui",
+  "title": "Map Pin · Duotone",
+  "description": "A location pin that drops onto its spot and pulses once. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/map-pin.json"
+  ],
+  "meta": {
+    "style": "duotone",
+    "category": "Travel",
+    "roles": [
+      "primary",
+      "accent"
+    ],
+    "closed": [
+      true,
+      true
+    ],
+    "palette": {
+      "primary": "oklch(0.6 0.13 222)",
+      "primaryDark": "oklch(0.78 0.1 222)",
+      "accent": "oklch(0.74 0.16 55)",
+      "accentDark": "oklch(0.85 0.12 55)"
+    },
+    "emoji": {
+      "primary": "oklch(0.74 0.13 232)",
+      "secondary": "oklch(0.58 0.13 232)",
+      "accent": "oklch(0.72 0.19 48)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-map-pin-duotone.tsx",
+      "target": "components/prequelui/icons/prequel-map-pin-duotone.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelMapPinIcon, type IconProps } from \"./prequel-map-pin\";\n\nexport function PrequelMapPinDuotoneIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelMapPinIcon size={size} variant=\"duotone\" {...props} />;\n}\n"
+    }
+  ]
+}

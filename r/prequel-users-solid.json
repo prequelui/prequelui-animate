@@ -1,0 +1,56 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-users-solid",
+  "type": "registry:ui",
+  "title": "Users · Solid",
+  "description": "Two profile silhouettes that bounce out of phase. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/users.json"
+  ],
+  "meta": {
+    "style": "solid",
+    "category": "People",
+    "roles": [
+      "primary",
+      "primary",
+      "accent",
+      "primary"
+    ],
+    "closed": [
+      true,
+      false,
+      true,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.64 0.16 355)",
+      "primaryDark": "oklch(0.81 0.12 355)",
+      "accent": "oklch(0.72 0.14 20)",
+      "accentDark": "oklch(0.84 0.11 20)"
+    },
+    "emoji": {
+      "primary": "oklch(0.68 0.2 27)",
+      "secondary": "oklch(0.54 0.19 25)",
+      "accent": "oklch(0.62 0.22 350)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-users-solid.tsx",
+      "target": "components/prequelui/icons/prequel-users-solid.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelUsersIcon, type IconProps } from \"./prequel-users\";\n\nexport function PrequelUsersSolidIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelUsersIcon size={size} variant=\"solid\" {...props} />;\n}\n"
+    }
+  ]
+}

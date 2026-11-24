@@ -1,0 +1,51 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-phone",
+  "type": "registry:ui",
+  "title": "Phone",
+  "description": "A handset that tips toward its ear and sends a soft ring.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json"
+  ],
+  "meta": {
+    "style": "outline",
+    "category": "Communication",
+    "roles": [
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      true,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.6 0.14 245)",
+      "primaryDark": "oklch(0.78 0.11 245)",
+      "accent": "oklch(0.7 0.13 180)",
+      "accentDark": "oklch(0.82 0.1 180)"
+    },
+    "emoji": {
+      "primary": "oklch(0.74 0.13 232)",
+      "secondary": "oklch(0.58 0.13 232)",
+      "accent": "oklch(0.78 0.14 165)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-phone.tsx",
+      "target": "components/prequelui/icons/prequel-phone.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { motion, type SVGMotionProps } from \"motion/react\";\nimport {\n  useAnimatedIconContext,\n  useIconVariants,\n  type IconAnimationSet,\n} from \"./core\";\nimport {\n  useIconPaint,\n  type IconPaletteBundle,\n  type IconVariant,\n} from \"./style\";\n\nexport type IconProps = Omit<SVGMotionProps<SVGSVGElement>, \"ref\"> & {\n  size?: number;\n  variant?: IconVariant;\n};\n\nconst palette: IconPaletteBundle = {\n  \"color\": {\n    \"primary\": \"oklch(0.6 0.14 245)\",\n    \"primaryDark\": \"oklch(0.78 0.11 245)\",\n    \"accent\": \"oklch(0.7 0.13 180)\",\n    \"accentDark\": \"oklch(0.82 0.1 180)\"\n  },\n  \"emoji\": {\n    \"primary\": \"oklch(0.74 0.13 232)\",\n    \"secondary\": \"oklch(0.58 0.13 232)\",\n    \"accent\": \"oklch(0.78 0.14 165)\"\n  }\n};\n\nexport const animations = {\n  \"hover\": {\n    \"group\": {\n      \"initial\": {\n        \"rotate\": 0\n      },\n      \"animate\": {\n        \"rotate\": [\n          0,\n          -6,\n          5,\n          -3,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 0.6,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    },\n    \"p0\": {},\n    \"p1\": {\n      \"initial\": {\n        \"opacity\": 1,\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"opacity\": [\n          1,\n          0.55,\n          1\n        ],\n        \"scale\": [\n          1,\n          1.06,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.55,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    }\n  },\n  \"tap\": {\n    \"group\": {\n      \"initial\": {\n        \"rotate\": 0\n      },\n      \"animate\": {\n        \"rotate\": [\n          0,\n          -14,\n          12,\n          -8,\n          4,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 0.95,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    },\n    \"p0\": {},\n    \"p1\": {\n      \"initial\": {\n        \"opacity\": 1,\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"opacity\": [\n          1,\n          0.4,\n          1\n        ],\n        \"scale\": [\n          1,\n          1.14,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.55,\n          \"ease\": [\n            0.22,\n            1,\n            0.36,\n            1\n          ]\n        }\n      }\n    }\n  },\n  \"loop\": {\n    \"group\": {\n      \"initial\": {\n        \"rotate\": 0\n      },\n      \"animate\": {\n        \"rotate\": [\n          0,\n          -4,\n          4,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 1.6,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    },\n    \"p0\": {},\n    \"p1\": {\n      \"initial\": {\n        \"opacity\": 1,\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"opacity\": [\n          1,\n          0.55,\n          1\n        ],\n        \"scale\": [\n          1,\n          1.05,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 1.5,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    }\n  }\n} satisfies IconAnimationSet;\n\nexport function PrequelPhoneIcon({ size = 28, variant: variantProp, ...props }: IconProps) {\n  const context = useAnimatedIconContext();\n  const variants = useIconVariants(animations);\n  const controls = context?.controls;\n  const {\n    variant,\n    weight,\n    part: paintPart,\n    halo: paintHalo,\n    flash: paintFlash,\n    sticker: paintSticker,\n    highlight: paintHighlight,\n  } = useIconPaint(palette, variantProp);\n\n  return (\n    <motion.svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth={2}\n      strokeLinecap=\"round\"\n      strokeLinejoin=\"round\"\n      aria-hidden=\"true\"\n      data-icon-style={variant}\n      data-icon-weight={weight}\n      variants={variants.group}\n      initial=\"initial\"\n      animate={controls}\n      {...props}\n    >\n\n      {(variant === \"duotone\" || variant === \"emoji\") && (\n        <motion.path\n          key={`${variant}-halo1`}\n          className=\"pi-halo\"\n          data-paint=\"halo\"\n          d={\"M15 3a6 6 0 0 1 6 6\"}\n          style={paintHalo(\"primary\")}\n          variants={variants.p1}\n          initial=\"initial\"\n          animate={controls}\n        />\n      )}\n      <motion.path\n        key={`${variant}-p0`}\n        className=\"pi-part\"\n        d={\"M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 6.5 6.5L17 13l4 1.5v3a2.5 2.5 0 0 1-2.8 2.5A17 17 0 0 1 4 6.8 2.5 2.5 0 0 1 6.5 3Z\"}\n        style={paintPart(\"primary\", true, false, false)}\n        variants={variants.p0}\n        initial=\"initial\"\n        animate={controls}\n      />\n      <motion.path\n        key={`${variant}-p1`}\n        className=\"pi-part\"\n        d={\"M15 3a6 6 0 0 1 6 6\"}\n        style={paintPart(\"primary\", false, false, true)}\n        variants={variants.p1}\n        initial=\"initial\"\n        animate={controls}\n      />\n\n      {variant === \"emoji\" && (\n        <ellipse\n          className=\"pi-highlight\"\n          cx={3.5}\n          cy={3.5}\n          rx={2.4}\n          ry={1.25}\n          transform=\"rotate(-24 3.5 3.5)\"\n          style={paintHighlight()}\n        />\n      )}\n    </motion.svg>\n  );\n}\n"
+    }
+  ]
+}

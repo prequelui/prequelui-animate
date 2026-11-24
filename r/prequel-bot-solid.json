@@ -1,0 +1,60 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-bot-solid",
+  "type": "registry:ui",
+  "title": "Bot · Solid",
+  "description": "A small assistant whose antenna bobs and whose eyes blink. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/bot.json"
+  ],
+  "meta": {
+    "style": "solid",
+    "category": "AI",
+    "roles": [
+      "primary",
+      "primary",
+      "accent",
+      "primary",
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      true,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.58 0.17 295)",
+      "primaryDark": "oklch(0.77 0.13 295)",
+      "accent": "oklch(0.7 0.14 195)",
+      "accentDark": "oklch(0.82 0.11 195)"
+    },
+    "emoji": {
+      "primary": "oklch(0.6 0.2 300)",
+      "secondary": "oklch(0.46 0.18 300)",
+      "accent": "oklch(0.74 0.13 232)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-bot-solid.tsx",
+      "target": "components/prequelui/icons/prequel-bot-solid.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelBotIcon, type IconProps } from \"./prequel-bot\";\n\nexport function PrequelBotSolidIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelBotIcon size={size} variant=\"solid\" {...props} />;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-trending-up",
+  "type": "registry:ui",
+  "title": "Trending Up",
+  "description": "A rising line that redraws while its arrowhead kicks upward.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json"
+  ],
+  "meta": {
+    "style": "outline",
+    "category": "Charts",
+    "roles": [
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      false,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.6 0.16 290)",
+      "primaryDark": "oklch(0.78 0.13 290)",
+      "accent": "oklch(0.7 0.15 310)",
+      "accentDark": "oklch(0.82 0.12 310)"
+    },
+    "emoji": {
+      "primary": "oklch(0.6 0.2 300)",
+      "secondary": "oklch(0.46 0.18 300)",
+      "accent": "oklch(0.68 0.2 27)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-trending-up.tsx",
+      "target": "components/prequelui/icons/prequel-trending-up.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { motion, type SVGMotionProps } from \"motion/react\";\nimport {\n  useAnimatedIconContext,\n  useIconVariants,\n  type IconAnimationSet,\n} from \"./core\";\nimport {\n  useIconPaint,\n  type IconPaletteBundle,\n  type IconVariant,\n} from \"./style\";\n\nexport type IconProps = Omit<SVGMotionProps<SVGSVGElement>, \"ref\"> & {\n  size?: number;\n  variant?: IconVariant;\n};\n\nconst palette: IconPaletteBundle = {\n  \"color\": {\n    \"primary\": \"oklch(0.6 0.16 290)\",\n    \"primaryDark\": \"oklch(0.78 0.13 290)\",\n    \"accent\": \"oklch(0.7 0.15 310)\",\n    \"accentDark\": \"oklch(0.82 0.12 310)\"\n  },\n  \"emoji\": {\n    \"primary\": \"oklch(0.6 0.2 300)\",\n    \"secondary\": \"oklch(0.46 0.18 300)\",\n    \"accent\": \"oklch(0.68 0.2 27)\"\n  }\n};\n\nexport const animations = {\n  \"hover\": {\n    \"group\": {\n      \"initial\": {\n        \"x\": 0\n      },\n      \"animate\": {\n        \"x\": [\n          0,\n          1.5,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 0.45,\n          \"ease\": \"easeOut\"\n        }\n      }\n    },\n    \"p0\": {\n      \"initial\": {\n        \"pathLength\": 1,\n        \"opacity\": 1\n      },\n      \"animate\": {\n        \"pathLength\": [\n          0,\n          1\n        ],\n        \"opacity\": [\n          0.35,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.65,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    },\n    \"p1\": {\n      \"initial\": {\n        \"y\": 0\n      },\n      \"animate\": {\n        \"y\": [\n          0,\n          -1.5,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 0.45,\n          \"ease\": \"easeOut\"\n        }\n      }\n    }\n  },\n  \"tap\": {\n    \"group\": {\n      \"initial\": {\n        \"x\": 0\n      },\n      \"animate\": {\n        \"x\": [\n          0,\n          5,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 0.6,\n          \"ease\": [\n            0.22,\n            1,\n            0.36,\n            1\n          ]\n        }\n      }\n    },\n    \"p0\": {\n      \"initial\": {\n        \"pathLength\": 1,\n        \"opacity\": 1\n      },\n      \"animate\": {\n        \"pathLength\": [\n          0,\n          1\n        ],\n        \"opacity\": [\n          0.35,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.8,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    },\n    \"p1\": {\n      \"initial\": {\n        \"y\": 0\n      },\n      \"animate\": {\n        \"y\": [\n          0,\n          -4,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 0.55,\n          \"ease\": [\n            0.22,\n            1,\n            0.36,\n            1\n          ]\n        }\n      }\n    }\n  },\n  \"loop\": {\n    \"group\": {\n      \"initial\": {\n        \"x\": 0\n      },\n      \"animate\": {\n        \"x\": [\n          0,\n          2.4,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 1.5,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    },\n    \"p0\": {\n      \"initial\": {\n        \"pathLength\": 1,\n        \"opacity\": 1\n      },\n      \"animate\": {\n        \"pathLength\": [\n          1,\n          0.15,\n          1\n        ],\n        \"opacity\": [\n          1,\n          0.6,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 1.7,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    },\n    \"p1\": {\n      \"initial\": {\n        \"y\": 0\n      },\n      \"animate\": {\n        \"y\": [\n          0,\n          -2,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 1.4,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    }\n  }\n} satisfies IconAnimationSet;\n\nexport function PrequelTrendingUpIcon({ size = 28, variant: variantProp, ...props }: IconProps) {\n  const context = useAnimatedIconContext();\n  const variants = useIconVariants(animations);\n  const controls = context?.controls;\n  const {\n    variant,\n    weight,\n    part: paintPart,\n    halo: paintHalo,\n    flash: paintFlash,\n    sticker: paintSticker,\n    highlight: paintHighlight,\n  } = useIconPaint(palette, variantProp);\n\n  // Generated icons use a subset of these painters; marking them keeps the\n  // file buildable in projects that enable noUnusedLocals.\n  void paintPart;\n  void paintHalo;\n  void paintFlash;\n  void paintSticker;\n  void paintHighlight;\n\n  return (\n    <motion.svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth={2}\n      strokeLinecap=\"round\"\n      strokeLinejoin=\"round\"\n      aria-hidden=\"true\"\n      data-icon-style={variant}\n      data-icon-weight={weight}\n      variants={variants.group}\n      initial=\"initial\"\n      animate={controls}\n      {...props}\n    >\n      {variant === \"emoji\" && (\n        <rect className=\"pi-sticker\" x={2} y={2} width={20} height={20} rx={7} style={paintSticker()} />\n      )}\n      {(variant === \"duotone\" || variant === \"emoji\") && (\n        <motion.polyline\n          key={`${variant}-halo0`}\n          className=\"pi-halo\"\n          data-paint=\"halo\"\n          points={\"3 17 9 11 13 15 21 7\"}\n          style={paintHalo(\"primary\")}\n          variants={variants.p0}\n          initial=\"initial\"\n          animate={controls}\n        />\n      )}\n      {(variant === \"duotone\" || variant === \"emoji\") && (\n        <motion.polyline\n          key={`${variant}-halo1`}\n          className=\"pi-halo\"\n          data-paint=\"halo\"\n          points={\"15 7 21 7 21 13\"}\n          style={paintHalo(\"primary\")}\n          variants={variants.p1}\n          initial=\"initial\"\n          animate={controls}\n        />\n      )}\n      <motion.polyline\n        key={`${variant}-p0`}\n        className=\"pi-part\"\n        points={\"3 17 9 11 13 15 21 7\"}\n        style={paintPart(\"primary\", false, true, false)}\n        variants={variants.p0}\n        initial=\"initial\"\n        animate={controls}\n      />\n      <motion.polyline\n        key={`${variant}-p1`}\n        className=\"pi-part\"\n        points={\"15 7 21 7 21 13\"}\n        style={paintPart(\"primary\", false, false, false)}\n        variants={variants.p1}\n        initial=\"initial\"\n        animate={controls}\n      />\n\n\n    </motion.svg>\n  );\n}\n"
+    }
+  ]
+}

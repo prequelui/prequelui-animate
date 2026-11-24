@@ -1,0 +1,54 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-snowflake-solid",
+  "type": "registry:ui",
+  "title": "Snowflake · Solid",
+  "description": "A six-branch flake that turns slowly and shimmers. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/snowflake.json"
+  ],
+  "meta": {
+    "style": "solid",
+    "category": "Weather",
+    "roles": [
+      "primary",
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      false,
+      false,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.62 0.14 235)",
+      "primaryDark": "oklch(0.79 0.11 235)",
+      "accent": "oklch(0.74 0.16 85)",
+      "accentDark": "oklch(0.85 0.13 85)"
+    },
+    "emoji": {
+      "primary": "oklch(0.74 0.13 232)",
+      "secondary": "oklch(0.58 0.13 232)",
+      "accent": "oklch(0.82 0.16 85)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-snowflake-solid.tsx",
+      "target": "components/prequelui/icons/prequel-snowflake-solid.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelSnowflakeIcon, type IconProps } from \"./prequel-snowflake\";\n\nexport function PrequelSnowflakeSolidIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelSnowflakeIcon size={size} variant=\"solid\" {...props} />;\n}\n"
+    }
+  ]
+}

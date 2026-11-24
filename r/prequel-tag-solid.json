@@ -1,0 +1,52 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-tag-solid",
+  "type": "registry:ui",
+  "title": "Tag · Solid",
+  "description": "A price tag that sways around its hole. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/tag.json"
+  ],
+  "meta": {
+    "style": "solid",
+    "category": "Commerce",
+    "roles": [
+      "primary",
+      "accent"
+    ],
+    "closed": [
+      true,
+      true
+    ],
+    "palette": {
+      "primary": "oklch(0.62 0.14 160)",
+      "primaryDark": "oklch(0.8 0.11 160)",
+      "accent": "oklch(0.7 0.16 130)",
+      "accentDark": "oklch(0.82 0.13 130)"
+    },
+    "emoji": {
+      "primary": "oklch(0.82 0.18 130)",
+      "secondary": "oklch(0.66 0.16 130)",
+      "accent": "oklch(0.72 0.19 48)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-tag-solid.tsx",
+      "target": "components/prequelui/icons/prequel-tag-solid.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelTagIcon, type IconProps } from \"./prequel-tag\";\n\nexport function PrequelTagSolidIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelTagIcon size={size} variant=\"solid\" {...props} />;\n}\n"
+    }
+  ]
+}

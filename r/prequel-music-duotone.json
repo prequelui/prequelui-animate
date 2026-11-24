@@ -1,0 +1,54 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-music-duotone",
+  "type": "registry:ui",
+  "title": "Music · Duotone",
+  "description": "A pair of notes whose heads bob to a steady beat. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/music.json"
+  ],
+  "meta": {
+    "style": "duotone",
+    "category": "Media",
+    "roles": [
+      "primary",
+      "primary",
+      "accent"
+    ],
+    "closed": [
+      false,
+      true,
+      true
+    ],
+    "palette": {
+      "primary": "oklch(0.62 0.18 330)",
+      "primaryDark": "oklch(0.79 0.14 330)",
+      "accent": "oklch(0.72 0.16 355)",
+      "accentDark": "oklch(0.84 0.13 355)"
+    },
+    "emoji": {
+      "primary": "oklch(0.62 0.22 350)",
+      "secondary": "oklch(0.48 0.2 350)",
+      "accent": "oklch(0.6 0.2 300)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-music-duotone.tsx",
+      "target": "components/prequelui/icons/prequel-music-duotone.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelMusicIcon, type IconProps } from \"./prequel-music\";\n\nexport function PrequelMusicDuotoneIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelMusicIcon size={size} variant=\"duotone\" {...props} />;\n}\n"
+    }
+  ]
+}

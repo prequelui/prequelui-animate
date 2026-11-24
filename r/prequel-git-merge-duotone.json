@@ -1,0 +1,56 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-git-merge-duotone",
+  "type": "registry:ui",
+  "title": "Git Merge · Duotone",
+  "description": "A branch line that draws itself into the merge node. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/git-merge.json"
+  ],
+  "meta": {
+    "style": "duotone",
+    "category": "Development",
+    "roles": [
+      "primary",
+      "accent",
+      "accent",
+      "primary"
+    ],
+    "closed": [
+      true,
+      true,
+      true,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.58 0.16 275)",
+      "primaryDark": "oklch(0.77 0.13 275)",
+      "accent": "oklch(0.7 0.16 250)",
+      "accentDark": "oklch(0.82 0.13 250)"
+    },
+    "emoji": {
+      "primary": "oklch(0.6 0.2 300)",
+      "secondary": "oklch(0.46 0.18 300)",
+      "accent": "oklch(0.78 0.14 165)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-git-merge-duotone.tsx",
+      "target": "components/prequelui/icons/prequel-git-merge-duotone.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelGitMergeIcon, type IconProps } from \"./prequel-git-merge\";\n\nexport function PrequelGitMergeDuotoneIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelGitMergeIcon size={size} variant=\"duotone\" {...props} />;\n}\n"
+    }
+  ]
+}

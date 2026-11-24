@@ -1,0 +1,56 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-clipboard-color",
+  "type": "registry:ui",
+  "title": "Clipboard · Color",
+  "description": "A clipboard whose clip snaps shut over a short checklist. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/clipboard.json"
+  ],
+  "meta": {
+    "style": "color",
+    "category": "Files",
+    "roles": [
+      "primary",
+      "accent",
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      true,
+      true,
+      false,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.62 0.13 230)",
+      "primaryDark": "oklch(0.8 0.1 230)",
+      "accent": "oklch(0.7 0.14 205)",
+      "accentDark": "oklch(0.82 0.11 205)"
+    },
+    "emoji": {
+      "primary": "oklch(0.74 0.13 232)",
+      "secondary": "oklch(0.58 0.13 232)",
+      "accent": "oklch(0.78 0.14 165)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-clipboard-color.tsx",
+      "target": "components/prequelui/icons/prequel-clipboard-color.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelClipboardIcon, type IconProps } from \"./prequel-clipboard\";\n\nexport function PrequelClipboardColorIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelClipboardIcon size={size} variant=\"color\" {...props} />;\n}\n"
+    }
+  ]
+}

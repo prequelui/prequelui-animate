@@ -1,0 +1,52 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-leaf-color",
+  "type": "registry:ui",
+  "title": "Leaf · Color",
+  "description": "A leaf that sways while its central vein draws in. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/leaf.json"
+  ],
+  "meta": {
+    "style": "color",
+    "category": "Nature",
+    "roles": [
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      true,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.6 0.15 145)",
+      "primaryDark": "oklch(0.79 0.12 145)",
+      "accent": "oklch(0.74 0.16 95)",
+      "accentDark": "oklch(0.86 0.13 95)"
+    },
+    "emoji": {
+      "primary": "oklch(0.82 0.18 130)",
+      "secondary": "oklch(0.66 0.16 130)",
+      "accent": "oklch(0.78 0.14 165)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-leaf-color.tsx",
+      "target": "components/prequelui/icons/prequel-leaf-color.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelLeafIcon, type IconProps } from \"./prequel-leaf\";\n\nexport function PrequelLeafColorIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelLeafIcon size={size} variant=\"color\" {...props} />;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-chart-line-color",
+  "type": "registry:ui",
+  "title": "Chart Line · Color",
+  "description": "An axes corner with a trend line that draws itself in. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/chart-line.json"
+  ],
+  "meta": {
+    "style": "color",
+    "category": "Charts",
+    "roles": [
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      false,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.6 0.16 290)",
+      "primaryDark": "oklch(0.78 0.13 290)",
+      "accent": "oklch(0.7 0.15 310)",
+      "accentDark": "oklch(0.82 0.12 310)"
+    },
+    "emoji": {
+      "primary": "oklch(0.6 0.2 300)",
+      "secondary": "oklch(0.46 0.18 300)",
+      "accent": "oklch(0.68 0.2 27)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-chart-line-color.tsx",
+      "target": "components/prequelui/icons/prequel-chart-line-color.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelChartLineIcon, type IconProps } from \"./prequel-chart-line\";\n\nexport function PrequelChartLineColorIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelChartLineIcon size={size} variant=\"color\" {...props} />;\n}\n"
+    }
+  ]
+}

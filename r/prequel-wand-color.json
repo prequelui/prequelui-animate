@@ -1,0 +1,56 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-wand-color",
+  "type": "registry:ui",
+  "title": "Wand · Color",
+  "description": "A wand that taps its tip and leaves a small four-point star. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/wand.json"
+  ],
+  "meta": {
+    "style": "color",
+    "category": "AI",
+    "roles": [
+      "primary",
+      "primary",
+      "primary",
+      "accent"
+    ],
+    "closed": [
+      false,
+      true,
+      false,
+      true
+    ],
+    "palette": {
+      "primary": "oklch(0.58 0.17 295)",
+      "primaryDark": "oklch(0.77 0.13 295)",
+      "accent": "oklch(0.7 0.14 195)",
+      "accentDark": "oklch(0.82 0.11 195)"
+    },
+    "emoji": {
+      "primary": "oklch(0.6 0.2 300)",
+      "secondary": "oklch(0.46 0.18 300)",
+      "accent": "oklch(0.74 0.13 232)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-wand-color.tsx",
+      "target": "components/prequelui/icons/prequel-wand-color.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelWandIcon, type IconProps } from \"./prequel-wand\";\n\nexport function PrequelWandColorIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelWandIcon size={size} variant=\"color\" {...props} />;\n}\n"
+    }
+  ]
+}

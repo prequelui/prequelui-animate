@@ -1,0 +1,53 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-lock",
+  "type": "registry:ui",
+  "title": "Lock",
+  "description": "A padlock whose shackle breathes above the body.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json"
+  ],
+  "meta": {
+    "style": "outline",
+    "category": "Tools",
+    "roles": [
+      "primary",
+      "primary",
+      "accent"
+    ],
+    "closed": [
+      true,
+      false,
+      true
+    ],
+    "palette": {
+      "primary": "oklch(0.56 0.1 225)",
+      "primaryDark": "oklch(0.78 0.08 225)",
+      "accent": "oklch(0.66 0.13 200)",
+      "accentDark": "oklch(0.8 0.1 200)"
+    },
+    "emoji": {
+      "primary": "oklch(0.74 0.13 232)",
+      "secondary": "oklch(0.58 0.13 232)",
+      "accent": "oklch(0.6 0.2 300)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-lock.tsx",
+      "target": "components/prequelui/icons/prequel-lock.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { motion, type SVGMotionProps } from \"motion/react\";\nimport {\n  useAnimatedIconContext,\n  useIconVariants,\n  type IconAnimationSet,\n} from \"./core\";\nimport {\n  useIconPaint,\n  type IconPaletteBundle,\n  type IconVariant,\n} from \"./style\";\n\nexport type IconProps = Omit<SVGMotionProps<SVGSVGElement>, \"ref\"> & {\n  size?: number;\n  variant?: IconVariant;\n};\n\nconst palette: IconPaletteBundle = {\n  \"color\": {\n    \"primary\": \"oklch(0.56 0.1 225)\",\n    \"primaryDark\": \"oklch(0.78 0.08 225)\",\n    \"accent\": \"oklch(0.66 0.13 200)\",\n    \"accentDark\": \"oklch(0.8 0.1 200)\"\n  },\n  \"emoji\": {\n    \"primary\": \"oklch(0.74 0.13 232)\",\n    \"secondary\": \"oklch(0.58 0.13 232)\",\n    \"accent\": \"oklch(0.6 0.2 300)\"\n  }\n};\n\nexport const animations = {\n  \"hover\": {\n    \"group\": {\n      \"initial\": {\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"scale\": [\n          1,\n          1.06,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.45,\n          \"ease\": \"easeOut\"\n        }\n      }\n    },\n    \"p0\": {},\n    \"p1\": {\n      \"initial\": {\n        \"opacity\": 1,\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"opacity\": [\n          1,\n          0.55,\n          1\n        ],\n        \"scale\": [\n          1,\n          1.06,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.55,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    },\n    \"p2\": {\n      \"initial\": {\n        \"opacity\": 1,\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"opacity\": [\n          1,\n          0.55,\n          1\n        ],\n        \"scale\": [\n          1,\n          1.06,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.55,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    }\n  },\n  \"tap\": {\n    \"group\": {\n      \"initial\": {\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"scale\": [\n          1,\n          0.9,\n          1.14,\n          0.98,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.55,\n          \"ease\": [\n            0.22,\n            1,\n            0.36,\n            1\n          ]\n        }\n      }\n    },\n    \"p0\": {},\n    \"p1\": {\n      \"initial\": {\n        \"opacity\": 1,\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"opacity\": [\n          1,\n          0.4,\n          1\n        ],\n        \"scale\": [\n          1,\n          1.14,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.55,\n          \"ease\": [\n            0.22,\n            1,\n            0.36,\n            1\n          ]\n        }\n      }\n    },\n    \"p2\": {\n      \"initial\": {\n        \"opacity\": 1,\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"opacity\": [\n          1,\n          0.4,\n          1\n        ],\n        \"scale\": [\n          1,\n          1.14,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.55,\n          \"ease\": [\n            0.22,\n            1,\n            0.36,\n            1\n          ]\n        }\n      }\n    }\n  },\n  \"loop\": {\n    \"group\": {\n      \"initial\": {\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"scale\": [\n          1,\n          1.04,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 1.5,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    },\n    \"p0\": {},\n    \"p1\": {\n      \"initial\": {\n        \"opacity\": 1,\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"opacity\": [\n          1,\n          0.55,\n          1\n        ],\n        \"scale\": [\n          1,\n          1.05,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 1.5,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    },\n    \"p2\": {\n      \"initial\": {\n        \"opacity\": 1,\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"opacity\": [\n          1,\n          0.55,\n          1\n        ],\n        \"scale\": [\n          1,\n          1.05,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 1.5,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    }\n  }\n} satisfies IconAnimationSet;\n\nexport function PrequelLockIcon({ size = 28, variant: variantProp, ...props }: IconProps) {\n  const context = useAnimatedIconContext();\n  const variants = useIconVariants(animations);\n  const controls = context?.controls;\n  const {\n    variant,\n    weight,\n    part: paintPart,\n    halo: paintHalo,\n    flash: paintFlash,\n    sticker: paintSticker,\n    highlight: paintHighlight,\n  } = useIconPaint(palette, variantProp);\n\n  // Generated icons use a subset of these painters; marking them keeps the\n  // file buildable in projects that enable noUnusedLocals.\n  void paintPart;\n  void paintHalo;\n  void paintFlash;\n  void paintSticker;\n  void paintHighlight;\n\n  return (\n    <motion.svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth={2}\n      strokeLinecap=\"round\"\n      strokeLinejoin=\"round\"\n      aria-hidden=\"true\"\n      data-icon-style={variant}\n      data-icon-weight={weight}\n      variants={variants.group}\n      initial=\"initial\"\n      animate={controls}\n      {...props}\n    >\n\n      {(variant === \"duotone\" || variant === \"emoji\") && (\n        <motion.path\n          key={`${variant}-halo1`}\n          className=\"pi-halo\"\n          data-paint=\"halo\"\n          d={\"M8 10V7a4 4 0 0 1 8 0v3\"}\n          style={paintHalo(\"primary\")}\n          variants={variants.p1}\n          initial=\"initial\"\n          animate={controls}\n        />\n      )}\n      <motion.rect\n        key={`${variant}-p0`}\n        className=\"pi-part\"\n        x={5}\n        y={10}\n        width={14}\n        height={11}\n        rx={2.5}\n        style={paintPart(\"primary\", true, false, false)}\n        variants={variants.p0}\n        initial=\"initial\"\n        animate={controls}\n      />\n      <motion.path\n        key={`${variant}-p1`}\n        className=\"pi-part\"\n        d={\"M8 10V7a4 4 0 0 1 8 0v3\"}\n        style={paintPart(\"primary\", false, false, false)}\n        variants={variants.p1}\n        initial=\"initial\"\n        animate={controls}\n      />\n      <motion.circle\n        key={`${variant}-p2`}\n        className=\"pi-part\"\n        cx={12}\n        cy={15}\n        r={1.2}\n        style={paintPart(\"accent\", true, false, true)}\n        variants={variants.p2}\n        initial=\"initial\"\n        animate={controls}\n      />\n\n      {variant === \"emoji\" && (\n        <ellipse\n          className=\"pi-highlight\"\n          cx={9.2}\n          cy={13.08}\n          rx={2.2}\n          ry={1.14}\n          transform=\"rotate(-24 9.2 13.08)\"\n          style={paintHighlight()}\n        />\n      )}\n    </motion.svg>\n  );\n}\n"
+    }
+  ]
+}

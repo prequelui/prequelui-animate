@@ -1,0 +1,52 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-flame-duotone",
+  "type": "registry:ui",
+  "title": "Flame · Duotone",
+  "description": "A flame whose inner core pulses brighter. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/flame.json"
+  ],
+  "meta": {
+    "style": "duotone",
+    "category": "Nature",
+    "roles": [
+      "primary",
+      "accent"
+    ],
+    "closed": [
+      true,
+      true
+    ],
+    "palette": {
+      "primary": "oklch(0.6 0.15 145)",
+      "primaryDark": "oklch(0.79 0.12 145)",
+      "accent": "oklch(0.74 0.16 95)",
+      "accentDark": "oklch(0.86 0.13 95)"
+    },
+    "emoji": {
+      "primary": "oklch(0.82 0.18 130)",
+      "secondary": "oklch(0.66 0.16 130)",
+      "accent": "oklch(0.78 0.14 165)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-flame-duotone.tsx",
+      "target": "components/prequelui/icons/prequel-flame-duotone.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelFlameIcon, type IconProps } from \"./prequel-flame\";\n\nexport function PrequelFlameDuotoneIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelFlameIcon size={size} variant=\"duotone\" {...props} />;\n}\n"
+    }
+  ]
+}

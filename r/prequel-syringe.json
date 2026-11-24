@@ -1,0 +1,57 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-syringe",
+  "type": "registry:ui",
+  "title": "Syringe",
+  "description": "A syringe that charges, presses and draws back its plunger.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json"
+  ],
+  "meta": {
+    "style": "outline",
+    "category": "Health",
+    "roles": [
+      "primary",
+      "primary",
+      "primary",
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.6 0.18 15)",
+      "primaryDark": "oklch(0.78 0.13 15)",
+      "accent": "oklch(0.68 0.13 190)",
+      "accentDark": "oklch(0.81 0.1 190)"
+    },
+    "emoji": {
+      "primary": "oklch(0.68 0.2 27)",
+      "secondary": "oklch(0.54 0.19 25)",
+      "accent": "oklch(0.78 0.14 165)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-syringe.tsx",
+      "target": "components/prequelui/icons/prequel-syringe.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { motion, type SVGMotionProps } from \"motion/react\";\nimport {\n  useAnimatedIconContext,\n  useIconVariants,\n  type IconAnimationSet,\n} from \"./core\";\nimport {\n  useIconPaint,\n  type IconPaletteBundle,\n  type IconVariant,\n} from \"./style\";\n\nexport type IconProps = Omit<SVGMotionProps<SVGSVGElement>, \"ref\"> & {\n  size?: number;\n  variant?: IconVariant;\n};\n\nconst palette: IconPaletteBundle = {\n  \"color\": {\n    \"primary\": \"oklch(0.6 0.18 15)\",\n    \"primaryDark\": \"oklch(0.78 0.13 15)\",\n    \"accent\": \"oklch(0.68 0.13 190)\",\n    \"accentDark\": \"oklch(0.81 0.1 190)\"\n  },\n  \"emoji\": {\n    \"primary\": \"oklch(0.68 0.2 27)\",\n    \"secondary\": \"oklch(0.54 0.19 25)\",\n    \"accent\": \"oklch(0.78 0.14 165)\"\n  }\n};\n\nexport const animations = {\n  \"hover\": {\n    \"group\": {\n      \"initial\": {\n        \"y\": 0\n      },\n      \"animate\": {\n        \"y\": [\n          0,\n          1.5,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 0.45,\n          \"ease\": \"easeOut\"\n        }\n      }\n    },\n    \"p0\": {},\n    \"p1\": {},\n    \"p2\": {},\n    \"p3\": {\n      \"initial\": {\n        \"y\": 0\n      },\n      \"animate\": {\n        \"y\": [\n          0,\n          -1.5,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 0.45,\n          \"ease\": \"easeOut\"\n        }\n      }\n    },\n    \"p4\": {\n      \"initial\": {\n        \"y\": 0\n      },\n      \"animate\": {\n        \"y\": [\n          0,\n          1.5,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 0.45,\n          \"ease\": \"easeOut\"\n        }\n      }\n    }\n  },\n  \"tap\": {\n    \"group\": {\n      \"initial\": {\n        \"y\": 0\n      },\n      \"animate\": {\n        \"y\": [\n          0,\n          5,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 0.6,\n          \"ease\": [\n            0.22,\n            1,\n            0.36,\n            1\n          ]\n        }\n      }\n    },\n    \"p0\": {},\n    \"p1\": {},\n    \"p2\": {},\n    \"p3\": {\n      \"initial\": {\n        \"y\": 0\n      },\n      \"animate\": {\n        \"y\": [\n          0,\n          -3,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 0.55,\n          \"ease\": [\n            0.22,\n            1,\n            0.36,\n            1\n          ]\n        }\n      }\n    },\n    \"p4\": {\n      \"initial\": {\n        \"y\": 0\n      },\n      \"animate\": {\n        \"y\": [\n          0,\n          3,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 0.55,\n          \"ease\": [\n            0.22,\n            1,\n            0.36,\n            1\n          ]\n        }\n      }\n    }\n  },\n  \"loop\": {\n    \"group\": {\n      \"initial\": {\n        \"y\": 0\n      },\n      \"animate\": {\n        \"y\": [\n          0,\n          2.4,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 1.5,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    },\n    \"p0\": {},\n    \"p1\": {},\n    \"p2\": {},\n    \"p3\": {\n      \"initial\": {\n        \"y\": 0\n      },\n      \"animate\": {\n        \"y\": [\n          0,\n          -1.5,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 1.4,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    },\n    \"p4\": {\n      \"initial\": {\n        \"y\": 0\n      },\n      \"animate\": {\n        \"y\": [\n          0,\n          1.5,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 1.4,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    }\n  }\n} satisfies IconAnimationSet;\n\nexport function PrequelSyringeIcon({ size = 28, variant: variantProp, ...props }: IconProps) {\n  const context = useAnimatedIconContext();\n  const variants = useIconVariants(animations);\n  const controls = context?.controls;\n  const {\n    variant,\n    weight,\n    part: paintPart,\n    halo: paintHalo,\n    flash: paintFlash,\n    sticker: paintSticker,\n    highlight: paintHighlight,\n  } = useIconPaint(palette, variantProp);\n\n  return (\n    <motion.svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth={2}\n      strokeLinecap=\"round\"\n      strokeLinejoin=\"round\"\n      aria-hidden=\"true\"\n      data-icon-style={variant}\n      data-icon-weight={weight}\n      variants={variants.group}\n      initial=\"initial\"\n      animate={controls}\n      {...props}\n    >\n\n      {(variant === \"duotone\" || variant === \"emoji\") && (\n        <motion.path\n          key={`${variant}-halo0`}\n          className=\"pi-halo\"\n          data-paint=\"halo\"\n          d={\"M18 6l3-3\"}\n          style={paintHalo(\"primary\")}\n          variants={variants.p0}\n          initial=\"initial\"\n          animate={controls}\n        />\n      )}\n      {(variant === \"duotone\" || variant === \"emoji\") && (\n        <motion.path\n          key={`${variant}-halo1`}\n          className=\"pi-halo\"\n          data-paint=\"halo\"\n          d={\"M15 9l3 3\"}\n          style={paintHalo(\"primary\")}\n          variants={variants.p1}\n          initial=\"initial\"\n          animate={controls}\n        />\n      )}\n      {(variant === \"duotone\" || variant === \"emoji\") && (\n        <motion.path\n          key={`${variant}-halo3`}\n          className=\"pi-halo\"\n          data-paint=\"halo\"\n          d={\"M5 19l3-3\"}\n          style={paintHalo(\"primary\")}\n          variants={variants.p3}\n          initial=\"initial\"\n          animate={controls}\n        />\n      )}\n      {(variant === \"duotone\" || variant === \"emoji\") && (\n        <motion.path\n          key={`${variant}-halo4`}\n          className=\"pi-halo\"\n          data-paint=\"halo\"\n          d={\"M3 21l2-2\"}\n          style={paintHalo(\"primary\")}\n          variants={variants.p4}\n          initial=\"initial\"\n          animate={controls}\n        />\n      )}\n      <motion.path\n        key={`${variant}-p0`}\n        className=\"pi-part\"\n        d={\"M18 6l3-3\"}\n        style={paintPart(\"primary\", false, false, false)}\n        variants={variants.p0}\n        initial=\"initial\"\n        animate={controls}\n      />\n      <motion.path\n        key={`${variant}-p1`}\n        className=\"pi-part\"\n        d={\"M15 9l3 3\"}\n        style={paintPart(\"primary\", false, false, false)}\n        variants={variants.p1}\n        initial=\"initial\"\n        animate={controls}\n      />\n      <motion.path\n        key={`${variant}-p2`}\n        className=\"pi-part\"\n        d={\"M8 16l6-6 3 3-6 6H8v-3Z\"}\n        style={paintPart(\"primary\", true, false, false)}\n        variants={variants.p2}\n        initial=\"initial\"\n        animate={controls}\n      />\n      <motion.path\n        key={`${variant}-p3`}\n        className=\"pi-part\"\n        d={\"M5 19l3-3\"}\n        style={paintPart(\"primary\", false, false, false)}\n        variants={variants.p3}\n        initial=\"initial\"\n        animate={controls}\n      />\n      <motion.path\n        key={`${variant}-p4`}\n        className=\"pi-part\"\n        d={\"M3 21l2-2\"}\n        style={paintPart(\"primary\", false, false, false)}\n        variants={variants.p4}\n        initial=\"initial\"\n        animate={controls}\n      />\n\n      {variant === \"emoji\" && (\n        <ellipse\n          className=\"pi-highlight\"\n          cx={10.7}\n          cy={12.52}\n          rx={1.44}\n          ry={0.75}\n          transform=\"rotate(-24 10.7 12.52)\"\n          style={paintHighlight()}\n        />\n      )}\n    </motion.svg>\n  );\n}\n"
+    }
+  ]
+}

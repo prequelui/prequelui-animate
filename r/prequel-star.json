@@ -1,0 +1,49 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-star",
+  "type": "registry:ui",
+  "title": "Star",
+  "description": "A star that spins a little and flashes its fill.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json"
+  ],
+  "meta": {
+    "style": "outline",
+    "category": "People",
+    "roles": [
+      "primary"
+    ],
+    "closed": [
+      true
+    ],
+    "palette": {
+      "primary": "oklch(0.64 0.16 355)",
+      "primaryDark": "oklch(0.81 0.12 355)",
+      "accent": "oklch(0.72 0.14 20)",
+      "accentDark": "oklch(0.84 0.11 20)"
+    },
+    "emoji": {
+      "primary": "oklch(0.68 0.2 27)",
+      "secondary": "oklch(0.54 0.19 25)",
+      "accent": "oklch(0.62 0.22 350)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-star.tsx",
+      "target": "components/prequelui/icons/prequel-star.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { motion, type SVGMotionProps } from \"motion/react\";\nimport {\n  useAnimatedIconContext,\n  useIconVariants,\n  type IconAnimationSet,\n} from \"./core\";\nimport {\n  useIconPaint,\n  type IconPaletteBundle,\n  type IconVariant,\n} from \"./style\";\n\nexport type IconProps = Omit<SVGMotionProps<SVGSVGElement>, \"ref\"> & {\n  size?: number;\n  variant?: IconVariant;\n};\n\nconst palette: IconPaletteBundle = {\n  \"color\": {\n    \"primary\": \"oklch(0.64 0.16 355)\",\n    \"primaryDark\": \"oklch(0.81 0.12 355)\",\n    \"accent\": \"oklch(0.72 0.14 20)\",\n    \"accentDark\": \"oklch(0.84 0.11 20)\"\n  },\n  \"emoji\": {\n    \"primary\": \"oklch(0.68 0.2 27)\",\n    \"secondary\": \"oklch(0.54 0.19 25)\",\n    \"accent\": \"oklch(0.62 0.22 350)\"\n  }\n};\n\nexport const animations = {\n  \"hover\": {\n    \"group\": {\n      \"initial\": {\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"scale\": [\n          1,\n          1.06,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.45,\n          \"ease\": \"easeOut\"\n        }\n      }\n    },\n    \"p0\": {\n      \"initial\": {\n        \"scale\": 1,\n        \"transformOrigin\": \"center\"\n      },\n      \"animate\": {\n        \"scale\": [\n          1,\n          1.07,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.5,\n          \"ease\": \"easeOut\"\n        },\n        \"transformOrigin\": \"center\"\n      }\n    },\n    \"fill\": {\n      \"initial\": {\n        \"opacity\": 0\n      },\n      \"animate\": {\n        \"opacity\": [\n          0,\n          0.35,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 0.6,\n          \"ease\": \"easeOut\"\n        }\n      }\n    }\n  },\n  \"tap\": {\n    \"group\": {\n      \"initial\": {\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"scale\": [\n          1,\n          0.9,\n          1.14,\n          0.98,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.55,\n          \"ease\": [\n            0.22,\n            1,\n            0.36,\n            1\n          ]\n        }\n      }\n    },\n    \"p0\": {\n      \"initial\": {\n        \"scale\": 1,\n        \"transformOrigin\": \"center\"\n      },\n      \"animate\": {\n        \"scale\": [\n          1,\n          0.9,\n          1.16,\n          0.97,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.65,\n          \"ease\": \"easeInOut\"\n        },\n        \"transformOrigin\": \"center\"\n      }\n    },\n    \"fill\": {\n      \"initial\": {\n        \"opacity\": 0\n      },\n      \"animate\": {\n        \"opacity\": [\n          0,\n          0.55,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 0.85,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    }\n  },\n  \"loop\": {\n    \"group\": {\n      \"initial\": {\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"scale\": [\n          1,\n          1.04,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 1.5,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    },\n    \"p0\": {\n      \"initial\": {\n        \"scale\": 1,\n        \"transformOrigin\": \"center\"\n      },\n      \"animate\": {\n        \"scale\": [\n          1,\n          1.05,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 1.4,\n          \"ease\": \"easeInOut\"\n        },\n        \"transformOrigin\": \"center\"\n      }\n    },\n    \"fill\": {\n      \"initial\": {\n        \"opacity\": 0\n      },\n      \"animate\": {\n        \"opacity\": [\n          0,\n          0.25,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 1.8,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    }\n  }\n} satisfies IconAnimationSet;\n\nexport function PrequelStarIcon({ size = 28, variant: variantProp, ...props }: IconProps) {\n  const context = useAnimatedIconContext();\n  const variants = useIconVariants(animations);\n  const controls = context?.controls;\n  const {\n    variant,\n    weight,\n    part: paintPart,\n    halo: paintHalo,\n    flash: paintFlash,\n    sticker: paintSticker,\n    highlight: paintHighlight,\n  } = useIconPaint(palette, variantProp);\n\n  // Generated icons use a subset of these painters; marking them keeps the\n  // file buildable in projects that enable noUnusedLocals.\n  void paintPart;\n  void paintHalo;\n  void paintFlash;\n  void paintSticker;\n  void paintHighlight;\n\n  return (\n    <motion.svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth={2}\n      strokeLinecap=\"round\"\n      strokeLinejoin=\"round\"\n      aria-hidden=\"true\"\n      data-icon-style={variant}\n      data-icon-weight={weight}\n      variants={variants.group}\n      initial=\"initial\"\n      animate={controls}\n      {...props}\n    >\n\n\n      <motion.path\n        key={`${variant}-p0`}\n        className=\"pi-part\"\n        d={\"M12 3l2.7 5.6 6.3.9-4.5 4.3 1 6.2-5.5-3-5.5 3 1-6.2L3 9.5l6.3-.9L12 3Z\"}\n        style={paintPart(\"primary\", true, false, false)}\n        variants={variants.p0}\n        initial=\"initial\"\n        animate={controls}\n      />\n      <motion.path\n        key={`${variant}-flash`}\n        className=\"pi-flash\"\n        d={\"M12 3l2.7 5.6 6.3.9-4.5 4.3 1 6.2-5.5-3-5.5 3 1-6.2L3 9.5l6.3-.9L12 3Z\"}\n        style={paintFlash()}\n        variants={variants.fill}\n        initial=\"initial\"\n        animate={controls}\n      />\n      {variant === \"emoji\" && (\n        <ellipse\n          className=\"pi-highlight\"\n          cx={8.4}\n          cy={7.76}\n          rx={2.4}\n          ry={1.25}\n          transform=\"rotate(-24 8.4 7.76)\"\n          style={paintHighlight()}\n        />\n      )}\n    </motion.svg>\n  );\n}\n"
+    }
+  ]
+}

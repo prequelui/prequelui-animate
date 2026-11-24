@@ -1,0 +1,56 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-watch-color",
+  "type": "registry:ui",
+  "title": "Watch · Color",
+  "description": "A wristwatch that sways while its hands sweep. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/watch.json"
+  ],
+  "meta": {
+    "style": "color",
+    "category": "Devices",
+    "roles": [
+      "primary",
+      "primary",
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      true,
+      false,
+      false,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.6 0.13 265)",
+      "primaryDark": "oklch(0.78 0.1 265)",
+      "accent": "oklch(0.7 0.15 285)",
+      "accentDark": "oklch(0.82 0.12 285)"
+    },
+    "emoji": {
+      "primary": "oklch(0.74 0.13 232)",
+      "secondary": "oklch(0.58 0.13 232)",
+      "accent": "oklch(0.6 0.2 300)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-watch-color.tsx",
+      "target": "components/prequelui/icons/prequel-watch-color.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelWatchIcon, type IconProps } from \"./prequel-watch\";\n\nexport function PrequelWatchColorIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelWatchIcon size={size} variant=\"color\" {...props} />;\n}\n"
+    }
+  ]
+}

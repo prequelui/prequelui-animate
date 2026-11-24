@@ -1,0 +1,56 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-storefront-solid",
+  "type": "registry:ui",
+  "title": "Storefront · Solid",
+  "description": "A shop front whose striped awning lifts and settles. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/storefront.json"
+  ],
+  "meta": {
+    "style": "solid",
+    "category": "Commerce",
+    "roles": [
+      "primary",
+      "primary",
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      false,
+      true,
+      false,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.62 0.14 160)",
+      "primaryDark": "oklch(0.8 0.11 160)",
+      "accent": "oklch(0.7 0.16 130)",
+      "accentDark": "oklch(0.82 0.13 130)"
+    },
+    "emoji": {
+      "primary": "oklch(0.82 0.18 130)",
+      "secondary": "oklch(0.66 0.16 130)",
+      "accent": "oklch(0.72 0.19 48)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-storefront-solid.tsx",
+      "target": "components/prequelui/icons/prequel-storefront-solid.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelStorefrontIcon, type IconProps } from \"./prequel-storefront\";\n\nexport function PrequelStorefrontSolidIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelStorefrontIcon size={size} variant=\"solid\" {...props} />;\n}\n"
+    }
+  ]
+}

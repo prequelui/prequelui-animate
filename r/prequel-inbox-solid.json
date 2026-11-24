@@ -1,0 +1,52 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-inbox-solid",
+  "type": "registry:ui",
+  "title": "Inbox · Solid",
+  "description": "A mail tray whose front lip dips as a letter lands. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/inbox.json"
+  ],
+  "meta": {
+    "style": "solid",
+    "category": "Communication",
+    "roles": [
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      true,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.6 0.14 245)",
+      "primaryDark": "oklch(0.78 0.11 245)",
+      "accent": "oklch(0.7 0.13 180)",
+      "accentDark": "oklch(0.82 0.1 180)"
+    },
+    "emoji": {
+      "primary": "oklch(0.74 0.13 232)",
+      "secondary": "oklch(0.58 0.13 232)",
+      "accent": "oklch(0.78 0.14 165)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-inbox-solid.tsx",
+      "target": "components/prequelui/icons/prequel-inbox-solid.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelInboxIcon, type IconProps } from \"./prequel-inbox\";\n\nexport function PrequelInboxSolidIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelInboxIcon size={size} variant=\"solid\" {...props} />;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-folder-open",
+  "type": "registry:ui",
+  "title": "Folder Open",
+  "description": "An open folder whose front flap swings down to show its contents.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json"
+  ],
+  "meta": {
+    "style": "outline",
+    "category": "Files",
+    "roles": [
+      "primary",
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      false,
+      true,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.62 0.13 230)",
+      "primaryDark": "oklch(0.8 0.1 230)",
+      "accent": "oklch(0.7 0.14 205)",
+      "accentDark": "oklch(0.82 0.11 205)"
+    },
+    "emoji": {
+      "primary": "oklch(0.74 0.13 232)",
+      "secondary": "oklch(0.58 0.13 232)",
+      "accent": "oklch(0.78 0.14 165)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-folder-open.tsx",
+      "target": "components/prequelui/icons/prequel-folder-open.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { motion, type SVGMotionProps } from \"motion/react\";\nimport {\n  useAnimatedIconContext,\n  useIconVariants,\n  type IconAnimationSet,\n} from \"./core\";\nimport {\n  useIconPaint,\n  type IconPaletteBundle,\n  type IconVariant,\n} from \"./style\";\n\nexport type IconProps = Omit<SVGMotionProps<SVGSVGElement>, \"ref\"> & {\n  size?: number;\n  variant?: IconVariant;\n};\n\nconst palette: IconPaletteBundle = {\n  \"color\": {\n    \"primary\": \"oklch(0.62 0.13 230)\",\n    \"primaryDark\": \"oklch(0.8 0.1 230)\",\n    \"accent\": \"oklch(0.7 0.14 205)\",\n    \"accentDark\": \"oklch(0.82 0.11 205)\"\n  },\n  \"emoji\": {\n    \"primary\": \"oklch(0.74 0.13 232)\",\n    \"secondary\": \"oklch(0.58 0.13 232)\",\n    \"accent\": \"oklch(0.78 0.14 165)\"\n  }\n};\n\nexport const animations = {\n  \"hover\": {\n    \"group\": {\n      \"initial\": {\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"scale\": [\n          1,\n          1.06,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.45,\n          \"ease\": \"easeOut\"\n        }\n      }\n    },\n    \"p0\": {\n      \"initial\": {\n        \"pathLength\": 1,\n        \"opacity\": 1\n      },\n      \"animate\": {\n        \"pathLength\": [\n          0,\n          1\n        ],\n        \"opacity\": [\n          0.35,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.65,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    },\n    \"p1\": {\n      \"initial\": {\n        \"y\": 0\n      },\n      \"animate\": {\n        \"y\": [\n          0,\n          1.5,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 0.45,\n          \"ease\": \"easeOut\"\n        }\n      }\n    },\n    \"p2\": {}\n  },\n  \"tap\": {\n    \"group\": {\n      \"initial\": {\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"scale\": [\n          1,\n          0.9,\n          1.14,\n          0.98,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.55,\n          \"ease\": [\n            0.22,\n            1,\n            0.36,\n            1\n          ]\n        }\n      }\n    },\n    \"p0\": {\n      \"initial\": {\n        \"pathLength\": 1,\n        \"opacity\": 1\n      },\n      \"animate\": {\n        \"pathLength\": [\n          0,\n          1\n        ],\n        \"opacity\": [\n          0.35,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.8,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    },\n    \"p1\": {\n      \"initial\": {\n        \"y\": 0\n      },\n      \"animate\": {\n        \"y\": [\n          0,\n          3,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 0.55,\n          \"ease\": [\n            0.22,\n            1,\n            0.36,\n            1\n          ]\n        }\n      }\n    },\n    \"p2\": {}\n  },\n  \"loop\": {\n    \"group\": {\n      \"initial\": {\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"scale\": [\n          1,\n          1.04,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 1.5,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    },\n    \"p0\": {\n      \"initial\": {\n        \"pathLength\": 1,\n        \"opacity\": 1\n      },\n      \"animate\": {\n        \"pathLength\": [\n          1,\n          0.15,\n          1\n        ],\n        \"opacity\": [\n          1,\n          0.6,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 1.7,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    },\n    \"p1\": {\n      \"initial\": {\n        \"y\": 0\n      },\n      \"animate\": {\n        \"y\": [\n          0,\n          1.5,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 1.4,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    },\n    \"p2\": {}\n  }\n} satisfies IconAnimationSet;\n\nexport function PrequelFolderOpenIcon({ size = 28, variant: variantProp, ...props }: IconProps) {\n  const context = useAnimatedIconContext();\n  const variants = useIconVariants(animations);\n  const controls = context?.controls;\n  const {\n    variant,\n    weight,\n    part: paintPart,\n    halo: paintHalo,\n    flash: paintFlash,\n    sticker: paintSticker,\n    highlight: paintHighlight,\n  } = useIconPaint(palette, variantProp);\n\n  return (\n    <motion.svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth={2}\n      strokeLinecap=\"round\"\n      strokeLinejoin=\"round\"\n      aria-hidden=\"true\"\n      data-icon-style={variant}\n      data-icon-weight={weight}\n      variants={variants.group}\n      initial=\"initial\"\n      animate={controls}\n      {...props}\n    >\n\n      {(variant === \"duotone\" || variant === \"emoji\") && (\n        <motion.path\n          key={`${variant}-halo0`}\n          className=\"pi-halo\"\n          data-paint=\"halo\"\n          d={\"M3 8V6a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v2\"}\n          style={paintHalo(\"primary\")}\n          variants={variants.p0}\n          initial=\"initial\"\n          animate={controls}\n        />\n      )}\n      {(variant === \"duotone\" || variant === \"emoji\") && (\n        <motion.path\n          key={`${variant}-halo2`}\n          className=\"pi-halo\"\n          data-paint=\"halo\"\n          d={\"M6 13h12\"}\n          style={paintHalo(\"primary\")}\n          variants={variants.p2}\n          initial=\"initial\"\n          animate={controls}\n        />\n      )}\n      <motion.path\n        key={`${variant}-p0`}\n        className=\"pi-part\"\n        d={\"M3 8V6a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v2\"}\n        style={paintPart(\"primary\", false, true, false)}\n        variants={variants.p0}\n        initial=\"initial\"\n        animate={controls}\n      />\n      <motion.path\n        key={`${variant}-p1`}\n        className=\"pi-part\"\n        d={\"M3 8h17.2a1.5 1.5 0 0 1 1.4 2l-2.2 7a2 2 0 0 1-1.9 1.4H5a2 2 0 0 1-2-2V8Z\"}\n        style={paintPart(\"primary\", true, false, false)}\n        variants={variants.p1}\n        initial=\"initial\"\n        animate={controls}\n      />\n      <motion.path\n        key={`${variant}-p2`}\n        className=\"pi-part\"\n        d={\"M6 13h12\"}\n        style={paintPart(\"primary\", false, false, true)}\n        variants={variants.p2}\n        initial=\"initial\"\n        animate={controls}\n      />\n\n      {variant === \"emoji\" && (\n        <ellipse\n          className=\"pi-highlight\"\n          cx={7.63}\n          cy={11.47}\n          rx={2.4}\n          ry={1.25}\n          transform=\"rotate(-24 7.63 11.47)\"\n          style={paintHighlight()}\n        />\n      )}\n    </motion.svg>\n  );\n}\n"
+    }
+  ]
+}

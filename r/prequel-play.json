@@ -1,0 +1,49 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-play",
+  "type": "registry:ui",
+  "title": "Play",
+  "description": "A play triangle that presses forward and rebounds.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json"
+  ],
+  "meta": {
+    "style": "outline",
+    "category": "Media",
+    "roles": [
+      "primary"
+    ],
+    "closed": [
+      true
+    ],
+    "palette": {
+      "primary": "oklch(0.62 0.18 330)",
+      "primaryDark": "oklch(0.79 0.14 330)",
+      "accent": "oklch(0.72 0.16 355)",
+      "accentDark": "oklch(0.84 0.13 355)"
+    },
+    "emoji": {
+      "primary": "oklch(0.62 0.22 350)",
+      "secondary": "oklch(0.48 0.2 350)",
+      "accent": "oklch(0.6 0.2 300)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-play.tsx",
+      "target": "components/prequelui/icons/prequel-play.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { motion, type SVGMotionProps } from \"motion/react\";\nimport {\n  useAnimatedIconContext,\n  useIconVariants,\n  type IconAnimationSet,\n} from \"./core\";\nimport {\n  useIconPaint,\n  type IconPaletteBundle,\n  type IconVariant,\n} from \"./style\";\n\nexport type IconProps = Omit<SVGMotionProps<SVGSVGElement>, \"ref\"> & {\n  size?: number;\n  variant?: IconVariant;\n};\n\nconst palette: IconPaletteBundle = {\n  \"color\": {\n    \"primary\": \"oklch(0.62 0.18 330)\",\n    \"primaryDark\": \"oklch(0.79 0.14 330)\",\n    \"accent\": \"oklch(0.72 0.16 355)\",\n    \"accentDark\": \"oklch(0.84 0.13 355)\"\n  },\n  \"emoji\": {\n    \"primary\": \"oklch(0.62 0.22 350)\",\n    \"secondary\": \"oklch(0.48 0.2 350)\",\n    \"accent\": \"oklch(0.6 0.2 300)\"\n  }\n};\n\nexport const animations = {\n  \"hover\": {\n    \"group\": {\n      \"initial\": {\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"scale\": [\n          1,\n          1.06,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.45,\n          \"ease\": \"easeOut\"\n        }\n      }\n    },\n    \"p0\": {\n      \"initial\": {\n        \"opacity\": 1,\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"opacity\": [\n          1,\n          0.55,\n          1\n        ],\n        \"scale\": [\n          1,\n          1.06,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.55,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    }\n  },\n  \"tap\": {\n    \"group\": {\n      \"initial\": {\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"scale\": [\n          1,\n          0.9,\n          1.14,\n          0.98,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.55,\n          \"ease\": [\n            0.22,\n            1,\n            0.36,\n            1\n          ]\n        }\n      }\n    },\n    \"p0\": {\n      \"initial\": {\n        \"opacity\": 1,\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"opacity\": [\n          1,\n          0.4,\n          1\n        ],\n        \"scale\": [\n          1,\n          1.14,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.55,\n          \"ease\": [\n            0.22,\n            1,\n            0.36,\n            1\n          ]\n        }\n      }\n    }\n  },\n  \"loop\": {\n    \"group\": {\n      \"initial\": {\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"scale\": [\n          1,\n          1.04,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 1.5,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    },\n    \"p0\": {\n      \"initial\": {\n        \"opacity\": 1,\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"opacity\": [\n          1,\n          0.55,\n          1\n        ],\n        \"scale\": [\n          1,\n          1.05,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 1.5,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    }\n  }\n} satisfies IconAnimationSet;\n\nexport function PrequelPlayIcon({ size = 28, variant: variantProp, ...props }: IconProps) {\n  const context = useAnimatedIconContext();\n  const variants = useIconVariants(animations);\n  const controls = context?.controls;\n  const {\n    variant,\n    weight,\n    part: paintPart,\n    halo: paintHalo,\n    flash: paintFlash,\n    sticker: paintSticker,\n    highlight: paintHighlight,\n  } = useIconPaint(palette, variantProp);\n\n  // Generated icons use a subset of these painters; marking them keeps the\n  // file buildable in projects that enable noUnusedLocals.\n  void paintPart;\n  void paintHalo;\n  void paintFlash;\n  void paintSticker;\n  void paintHighlight;\n\n  return (\n    <motion.svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth={2}\n      strokeLinecap=\"round\"\n      strokeLinejoin=\"round\"\n      aria-hidden=\"true\"\n      data-icon-style={variant}\n      data-icon-weight={weight}\n      variants={variants.group}\n      initial=\"initial\"\n      animate={controls}\n      {...props}\n    >\n\n\n      <motion.polygon\n        key={`${variant}-p0`}\n        className=\"pi-part\"\n        points={\"8,4.5 20,12 8,19.5\"}\n        style={paintPart(\"primary\", true, false, false)}\n        variants={variants.p0}\n        initial=\"initial\"\n        animate={controls}\n      />\n\n      {variant === \"emoji\" && (\n        <ellipse\n          className=\"pi-highlight\"\n          cx={11.6}\n          cy={8.7}\n          rx={1.92}\n          ry={1}\n          transform=\"rotate(-24 11.6 8.7)\"\n          style={paintHighlight()}\n        />\n      )}\n    </motion.svg>\n  );\n}\n"
+    }
+  ]
+}

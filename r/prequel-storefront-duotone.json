@@ -1,0 +1,56 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-storefront-duotone",
+  "type": "registry:ui",
+  "title": "Storefront · Duotone",
+  "description": "A shop front whose striped awning lifts and settles. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/storefront.json"
+  ],
+  "meta": {
+    "style": "duotone",
+    "category": "Commerce",
+    "roles": [
+      "primary",
+      "primary",
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      false,
+      true,
+      false,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.62 0.14 160)",
+      "primaryDark": "oklch(0.8 0.11 160)",
+      "accent": "oklch(0.7 0.16 130)",
+      "accentDark": "oklch(0.82 0.13 130)"
+    },
+    "emoji": {
+      "primary": "oklch(0.82 0.18 130)",
+      "secondary": "oklch(0.66 0.16 130)",
+      "accent": "oklch(0.72 0.19 48)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-storefront-duotone.tsx",
+      "target": "components/prequelui/icons/prequel-storefront-duotone.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelStorefrontIcon, type IconProps } from \"./prequel-storefront\";\n\nexport function PrequelStorefrontDuotoneIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelStorefrontIcon size={size} variant=\"duotone\" {...props} />;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-lungs-emoji",
+  "type": "registry:ui",
+  "title": "Lungs · Emoji",
+  "description": "A pair of lungs that fills and empties like a slow breath. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/lungs.json"
+  ],
+  "meta": {
+    "style": "emoji",
+    "category": "Health",
+    "roles": [
+      "primary",
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      false,
+      false,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.6 0.18 15)",
+      "primaryDark": "oklch(0.78 0.13 15)",
+      "accent": "oklch(0.68 0.13 190)",
+      "accentDark": "oklch(0.81 0.1 190)"
+    },
+    "emoji": {
+      "primary": "oklch(0.68 0.2 27)",
+      "secondary": "oklch(0.54 0.19 25)",
+      "accent": "oklch(0.78 0.14 165)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-lungs-emoji.tsx",
+      "target": "components/prequelui/icons/prequel-lungs-emoji.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelLungsIcon, type IconProps } from \"./prequel-lungs\";\n\nexport function PrequelLungsEmojiIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelLungsIcon size={size} variant=\"emoji\" {...props} />;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-link-solid",
+  "type": "registry:ui",
+  "title": "Link · Solid",
+  "description": "Two chain halves that pull apart and close again. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/link.json"
+  ],
+  "meta": {
+    "style": "solid",
+    "category": "Connectivity",
+    "roles": [
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      false,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.64 0.12 195)",
+      "primaryDark": "oklch(0.8 0.1 195)",
+      "accent": "oklch(0.68 0.14 170)",
+      "accentDark": "oklch(0.8 0.12 170)"
+    },
+    "emoji": {
+      "primary": "oklch(0.78 0.14 165)",
+      "secondary": "oklch(0.62 0.13 165)",
+      "accent": "oklch(0.74 0.13 232)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-link-solid.tsx",
+      "target": "components/prequelui/icons/prequel-link-solid.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelLinkIcon, type IconProps } from \"./prequel-link\";\n\nexport function PrequelLinkSolidIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelLinkIcon size={size} variant=\"solid\" {...props} />;\n}\n"
+    }
+  ]
+}

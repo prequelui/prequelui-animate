@@ -1,0 +1,56 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-bank-color",
+  "type": "registry:ui",
+  "title": "Bank · Color",
+  "description": "A neoclassical bank whose columns settle under a steady pediment. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/bank.json"
+  ],
+  "meta": {
+    "style": "color",
+    "category": "Finance",
+    "roles": [
+      "primary",
+      "primary",
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      true,
+      false,
+      false,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.58 0.14 168)",
+      "primaryDark": "oklch(0.77 0.11 168)",
+      "accent": "oklch(0.72 0.15 85)",
+      "accentDark": "oklch(0.84 0.12 85)"
+    },
+    "emoji": {
+      "primary": "oklch(0.78 0.14 165)",
+      "secondary": "oklch(0.62 0.13 165)",
+      "accent": "oklch(0.82 0.16 85)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-bank-color.tsx",
+      "target": "components/prequelui/icons/prequel-bank-color.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelBankIcon, type IconProps } from \"./prequel-bank\";\n\nexport function PrequelBankColorIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelBankIcon size={size} variant=\"color\" {...props} />;\n}\n"
+    }
+  ]
+}

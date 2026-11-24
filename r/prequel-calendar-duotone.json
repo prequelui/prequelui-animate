@@ -1,0 +1,60 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-calendar-duotone",
+  "type": "registry:ui",
+  "title": "Calendar · Duotone",
+  "description": "A calendar whose day dots blink in sequence. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/calendar.json"
+  ],
+  "meta": {
+    "style": "duotone",
+    "category": "Time",
+    "roles": [
+      "primary",
+      "primary",
+      "primary",
+      "primary",
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      true,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.68 0.14 75)",
+      "primaryDark": "oklch(0.82 0.11 75)",
+      "accent": "oklch(0.62 0.16 40)",
+      "accentDark": "oklch(0.76 0.13 40)"
+    },
+    "emoji": {
+      "primary": "oklch(0.82 0.16 85)",
+      "secondary": "oklch(0.66 0.15 80)",
+      "accent": "oklch(0.72 0.19 48)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-calendar-duotone.tsx",
+      "target": "components/prequelui/icons/prequel-calendar-duotone.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelCalendarIcon, type IconProps } from \"./prequel-calendar\";\n\nexport function PrequelCalendarDuotoneIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelCalendarIcon size={size} variant=\"duotone\" {...props} />;\n}\n"
+    }
+  ]
+}

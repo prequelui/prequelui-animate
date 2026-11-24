@@ -1,0 +1,60 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-neural-color",
+  "type": "registry:ui",
+  "title": "Neural · Color",
+  "description": "A network of nodes that pulses from the input to the output. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/neural.json"
+  ],
+  "meta": {
+    "style": "color",
+    "category": "AI",
+    "roles": [
+      "accent",
+      "accent",
+      "primary",
+      "accent",
+      "accent",
+      "primary"
+    ],
+    "closed": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.58 0.17 295)",
+      "primaryDark": "oklch(0.77 0.13 295)",
+      "accent": "oklch(0.7 0.14 195)",
+      "accentDark": "oklch(0.82 0.11 195)"
+    },
+    "emoji": {
+      "primary": "oklch(0.6 0.2 300)",
+      "secondary": "oklch(0.46 0.18 300)",
+      "accent": "oklch(0.74 0.13 232)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-neural-color.tsx",
+      "target": "components/prequelui/icons/prequel-neural-color.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelNeuralIcon, type IconProps } from \"./prequel-neural\";\n\nexport function PrequelNeuralColorIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelNeuralIcon size={size} variant=\"color\" {...props} />;\n}\n"
+    }
+  ]
+}
