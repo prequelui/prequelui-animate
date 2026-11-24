@@ -10,7 +10,7 @@ test("the registry loads and keeps every catalogue item", async () => {
     "expected the icon catalogue in every paint style",
   );
   assert.equal(catalog.counts.byCategory.components, 31);
-  assert.equal(catalog.counts.byCategory.linear, 124);
+  assert.equal(catalog.counts.byCategory.linear, 193);
   assert.equal(catalog.counts.byCategory.categories, 86);
   assert.equal(catalog.counts.byCategory.buttons, 9);
   assert.equal(catalog.counts.byCategory.texts, 10);

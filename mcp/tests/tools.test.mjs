@@ -86,7 +86,7 @@ test("install command follows the requested framework", async () => {
 
 test("linear illustrations install from their own registry folder", async () => {
   const list = await searchComponents({ category: "linear", limit: 100 });
-  assert.equal(list.totalInScope, 124);
+  assert.equal(list.totalInScope, 193);
   assert.ok(list.results.some((item) => item.name === "linear-dialog"));
 
   const result = await getInstallCommand({

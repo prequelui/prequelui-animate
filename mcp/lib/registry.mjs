@@ -1,4 +1,5 @@
 import { readFile, readdir } from "node:fs/promises";
+import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -6,13 +7,22 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 
 export const REPO_ROOT = path.resolve(HERE, "..", "..");
 
+/* Three layouts: the library repo on its own (r/ at the root), the library
+   mounted as web/library in the site (the site's web/ is the parent), or an
+   older monorepo with web/ next to mcp/. */
+const firstExisting = (...dirs) => dirs.find((dir) => existsSync(dir));
+
 export const DEFAULT_WEB_DIR = process.env.PREQUELUI_WEB_DIR
   ? path.resolve(process.env.PREQUELUI_WEB_DIR)
-  : path.join(REPO_ROOT, "web");
+  : firstExisting(
+      path.join(REPO_ROOT, "web"),
+      existsSync(path.join(REPO_ROOT, "..", "lib", "catalog.ts")) ? path.resolve(REPO_ROOT, "..") : undefined,
+    ) ?? REPO_ROOT;
 
 export const DEFAULT_REGISTRY_DIR = process.env.PREQUELUI_REGISTRY_DIR
   ? path.resolve(process.env.PREQUELUI_REGISTRY_DIR)
-  : path.join(DEFAULT_WEB_DIR, "public", "r");
+  : firstExisting(path.join(REPO_ROOT, "r"), path.join(DEFAULT_WEB_DIR, "public", "r")) ??
+    path.join(DEFAULT_WEB_DIR, "public", "r");
 
 export const DEFAULT_SITE_URL = (
   process.env.PREQUELUI_SITE_URL ||
