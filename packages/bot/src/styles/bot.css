@@ -1054,3 +1054,104 @@
     transition-duration: 1ms !important;
   }
 }
+
+/* Panel polish: one quiet tint, thin scrollbars, wrapped code, soft syntax
+   colours and outline copy buttons. Kept low in chroma on purpose: this runs
+   on top of a page in development, it must not shout over it. */
+.pb-root {
+  --pb-tint: oklch(0.58 0.14 275);
+  --pb-scroll: color-mix(in oklab, var(--pb-fg) 18%, transparent);
+}
+.pb-panel,
+.pb-code {
+  scrollbar-width: thin;
+  scrollbar-color: var(--pb-scroll) transparent;
+}
+.pb-panel::-webkit-scrollbar,
+.pb-code::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.pb-panel::-webkit-scrollbar-thumb,
+.pb-code::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+  background: var(--pb-scroll);
+}
+.pb-panel::-webkit-scrollbar-track,
+.pb-code::-webkit-scrollbar-track {
+  background: transparent;
+}
+.pb-code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  overflow-x: hidden;
+  max-height: 240px;
+  background: color-mix(in oklab, var(--pb-muted) 60%, var(--pb-card));
+}
+.pb-tok-c { color: var(--pb-muted-fg); font-style: italic; }
+.pb-tok-k { color: color-mix(in oklab, var(--pb-tint) 72%, var(--pb-fg)); }
+.pb-tok-s { color: color-mix(in oklab, oklch(0.6 0.11 160) 72%, var(--pb-fg)); }
+.pb-tok-n { color: color-mix(in oklab, oklch(0.66 0.12 65) 72%, var(--pb-fg)); }
+.pb-tok-t { color: color-mix(in oklab, oklch(0.6 0.11 235) 72%, var(--pb-fg)); }
+.pb-copy-button {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 6px;
+  height: 26px;
+  padding: 0 9px;
+  border-radius: 7px;
+  border: 1px solid var(--pb-border);
+  background: var(--pb-card);
+  color: var(--pb-muted-fg);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 120ms ease-out, background 120ms ease-out, border-color 120ms ease-out;
+}
+.pb-copy-button:hover { color: var(--pb-fg); background: var(--pb-muted); }
+.pb-copy-button:focus-visible { outline: 2px solid var(--pb-tint); outline-offset: 2px; }
+.pb-copy-button svg { flex: none; }
+.pb-copy-button[data-copied="true"] {
+  color: color-mix(in oklab, oklch(0.6 0.13 155) 80%, var(--pb-fg));
+  border-color: color-mix(in oklab, oklch(0.6 0.13 155) 40%, var(--pb-border));
+}
+.pb-output-bar .pb-muted {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pb-select-rect,
+.pb-select-selected { outline-color: color-mix(in oklab, var(--pb-tint) 80%, transparent); }
+.pb-select-selected { opacity: 0.55; }
+.pb-role-recommended {
+  color: color-mix(in oklab, var(--pb-tint) 60%, var(--pb-fg));
+  background: color-mix(in oklab, var(--pb-tint) 11%, var(--pb-card));
+  border-color: color-mix(in oklab, var(--pb-tint) 35%, var(--pb-border));
+}
+.pb-card.is-active,
+.pb-card:hover,
+.pb-card:focus-visible { border-color: color-mix(in oklab, var(--pb-tint) 40%, var(--pb-border)); }
+.pb-framework-button.is-active {
+  border-color: color-mix(in oklab, var(--pb-tint) 55%, var(--pb-border));
+  background: color-mix(in oklab, var(--pb-tint) 10%, transparent);
+}
+.pb-panel-foot .pb-muted {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pb-tune-toggle::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  margin-right: 9px;
+  vertical-align: 2px;
+  border-right: 1.5px solid var(--pb-muted-fg);
+  border-bottom: 1.5px solid var(--pb-muted-fg);
+  transform: rotate(-45deg);
+}
+.pb-tune-toggle[aria-expanded="true"]::before { transform: rotate(45deg); }

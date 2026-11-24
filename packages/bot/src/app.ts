@@ -573,6 +573,7 @@ export class BotApp implements PrequelBotHandle {
     this.stopPreview(false);
     this.picker.disarm();
     this.panel.close();
+    this.layer.hide();
     this.machine.set("idle");
     this.mascot.flash("wink", 200);
     this.mascot.setState("auto");

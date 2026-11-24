@@ -1,6 +1,7 @@
+import { SITE_DOCS } from "./site-paths.generated";
 import type { Framework } from "../types";
 
-export const SITE_URL = "https://animate.prequelui.terravidhal.me";
+export const SITE_URL = "https://prequeluianimate.terravidhal.me";
 
 export const FRAMEWORK_LABELS: Record<Framework, string> = {
   react: "React",
@@ -111,11 +112,7 @@ export type RegistryItem = {
 };
 
 function docsHref(slug: string): string {
-  if (PRIMITIVE_TITLES[slug]) {
-    const group = BASE_SLUGS.has(slug) ? "prequel" : "base-ui";
-    return `/docs/primitives/${group}/${slug}`;
-  }
-  return `/docs/primitives/prequel/${slug}`;
+  return SITE_DOCS[slug] ?? (PRIMITIVE_TITLES[slug] ? `/components/base-ui/${slug}` : "/components");
 }
 
 function item(slug: string): RegistryItem {
@@ -150,7 +147,7 @@ export function registryUrlFor(slug: string, framework: Framework, siteUrl = SIT
     return `${base}/r/vanilla/${slug}.json`;
   }
   if (framework === "react") {
-    if (entry.base) return `${base}/r/react/${slug}.json`;
+    if (PRIMITIVE_TITLES[slug]) return `${base}/r/react/${slug}.json`;
     return `${base}/r/${slug}.json`;
   }
   return `${base}/r/${framework}/${slug}.json`;
@@ -165,7 +162,7 @@ export function installCommands(
   const commands: Partial<Record<Framework, string>> = {};
   for (const framework of entry.frameworks) {
     if (framework === "vanilla") {
-      commands.vanilla = `npx degit prequelui/animate/web/registry/vanilla/${slug} components/prequelui/${slug}`;
+      commands.vanilla = `npx degit prequelui/prequelui-animate/registry/vanilla/${slug} components/prequelui/${slug}`;
       continue;
     }
     const url = registryUrlFor(slug, framework, siteUrl);

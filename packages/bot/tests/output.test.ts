@@ -40,7 +40,7 @@ describe("registry install commands", () => {
   it("exposes five frameworks for a primitive", () => {
     const commands = installCommands("tabs");
     expect(Object.keys(commands).sort()).toEqual(["react", "solid", "svelte", "vanilla", "vue"]);
-    expect(commands.react).toContain("/r/tabs.json");
+    expect(commands.react).toContain("/r/react/tabs.json");
     expect(installCommands("carousel").react).toContain("/r/react/carousel.json");
     expect(commands.vue).toContain("/r/vue/tabs.json");
     expect(commands.vanilla).toContain("npx degit");
@@ -61,8 +61,8 @@ describe("registry install commands", () => {
   });
 
   it("uses the registry documentation paths", () => {
-    expect(docsUrlFor("tabs")).toContain("/docs/primitives/base-ui/tabs");
-    expect(docsUrlFor("button")).toContain("/docs/primitives/prequel/button");
+    expect(docsUrlFor("tabs")).toContain("/components/base-ui/tabs");
+    expect(docsUrlFor("button")).toContain("/components/buttons/button");
   });
 });
 

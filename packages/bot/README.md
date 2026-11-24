@@ -85,7 +85,7 @@ uses `role="dialog"`, the cards are a radiogroup, and every status is announced.
 ## Bridge
 
 ```bash
-npx @prequelui/bot-bridge --port 4318
+npx -p @prequelui/bot prequelui-bot-bridge --port 4318
 ```
 
 The bridge binds to `127.0.0.1` only, shows a six-digit pairing code, keeps a 15-minute token in

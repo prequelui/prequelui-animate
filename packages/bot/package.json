@@ -3,12 +3,12 @@
   "version": "2.0.0",
   "description": "A development-only overlay that suggests and previews motion on your own page.",
   "license": "MIT",
-  "author": "Vidhal",
-  "homepage": "https://animate.prequelui.terravidhal.me",
+  "author": "Terra Vidhal (https://github.com/terravidhal)",
+  "homepage": "https://prequeluianimate.terravidhal.me/tools/bot",
   "repository": {
     "type": "git",
-    "url": "https://github.com/prequelui/prequelui-animate",
-    "directory": "bot"
+    "url": "git+https://github.com/prequelui/prequelui-animate.git",
+    "directory": "packages/bot"
   },
   "type": "module",
   "sideEffects": false,
@@ -71,6 +71,10 @@
     "lint:test": "node /home/claude2/travail/saas/_modele/node_modules/vitest/vitest.mjs run --config vitest.config.mjs",
     "lint:build": "node tools/build.mjs",
     "lint:bridgetest": "node --test tests/bridge.test.mjs",
-    "lint:all": "npm run lint:typecheck && npm run lint:test && npm run lint:bridgetest && npm run lint:build"
+    "lint:all": "npm run lint:typecheck && npm run lint:test && npm run lint:bridgetest && npm run lint:build",
+    "prepublishOnly": "node tools/build.mjs"
+  },
+  "bugs": {
+    "url": "https://github.com/prequelui/prequelui-animate/issues"
   }
 }

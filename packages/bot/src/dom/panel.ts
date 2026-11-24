@@ -49,6 +49,77 @@ function el<K extends keyof HTMLElementTagNameMap>(
   return node;
 }
 
+const KEYWORDS = new Set([
+  "import", "from", "export", "default", "function", "return", "const", "let", "var",
+  "if", "else", "true", "false", "null", "new", "await", "async", "type", "interface",
+]);
+
+/** Quiet syntax colours: built from text nodes only, never from HTML strings. */
+function highlight(code: string): DocumentFragment {
+  const fragment = document.createDocumentFragment();
+  const pattern =
+    /(\/\/[^\n]*|\/\*[\s\S]*?\*\/|<!--[\s\S]*?-->)|("(?:\\.|[^"\\\n])*"|'(?:\\.|[^'\\\n])*'|`(?:\\.|[^`\\])*`)|(<\/?[A-Za-z][\w.:-]*)|\b(\d+(?:\.\d+)?)\b|\b([A-Za-z_$][\w$]*)\b/g;
+  const push = (text: string, className?: string) => {
+    if (!text) return;
+    if (!className) {
+      fragment.appendChild(document.createTextNode(text));
+      return;
+    }
+    const span = document.createElement("span");
+    span.className = className;
+    span.textContent = text;
+    fragment.appendChild(span);
+  };
+  let last = 0;
+  let match: RegExpExecArray | null;
+  while ((match = pattern.exec(code))) {
+    push(code.slice(last, match.index));
+    if (match[1]) push(match[1], "pb-tok-c");
+    else if (match[2]) push(match[2], "pb-tok-s");
+    else if (match[3]) push(match[3], "pb-tok-t");
+    else if (match[4]) push(match[4], "pb-tok-n");
+    else if (match[5]) push(match[5], KEYWORDS.has(match[5]) ? "pb-tok-k" : undefined);
+    last = pattern.lastIndex;
+  }
+  push(code.slice(last));
+  return fragment;
+}
+
+function copyIcon(): SVGSVGElement {
+  const ns = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(ns, "svg");
+  for (const [key, value] of [
+    ["viewBox", "0 0 24 24"], ["width", "13"], ["height", "13"], ["fill", "none"],
+    ["stroke", "currentColor"], ["stroke-width", "2"], ["stroke-linecap", "round"],
+    ["stroke-linejoin", "round"], ["aria-hidden", "true"],
+  ]) svg.setAttribute(key, value);
+  const rect = document.createElementNS(ns, "rect");
+  for (const [key, value] of [["x", "9"], ["y", "9"], ["width", "13"], ["height", "13"], ["rx", "2"]]) rect.setAttribute(key, value);
+  const path = document.createElementNS(ns, "path");
+  path.setAttribute("d", "M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1");
+  svg.append(rect, path);
+  return svg;
+}
+
+/** A quiet outline copy button with an icon, instead of a heavy filled one. */
+function decorateCopy(node: HTMLButtonElement, label: string) {
+  node.className = "pb-copy-button";
+  const text = document.createElement("span");
+  text.textContent = label;
+  node.replaceChildren(copyIcon(), text);
+}
+
+function flashCopied(node: HTMLButtonElement, label: string) {
+  const text = node.querySelector("span");
+  if (!text) return;
+  node.dataset.copied = "true";
+  text.textContent = "Copied";
+  window.setTimeout(() => {
+    delete node.dataset.copied;
+    text.textContent = label;
+  }, 1400);
+}
+
 function button(label: string, className: string, onClick: () => void): HTMLButtonElement {
   const node = el("button", className, label);
   node.type = "button";
@@ -695,13 +766,16 @@ export class Panel {
       );
       const copy = button("Copy code", "pb-primary-button", () => {
         void copyText(code).then((ok) => {
+          if (ok) flashCopied(copy, "Copy code");
           this.callbacks.onToast(ok ? `Copied ${FRAMEWORK_LABELS[this.framework]} code` : "Copy failed. Select the code manually.");
         });
       });
+      decorateCopy(copy, "Copy code");
       bar.appendChild(note);
       bar.appendChild(copy);
       const pre = el("pre", "pb-code");
-      const codeEl = el("code", "", code);
+      const codeEl = el("code");
+      codeEl.appendChild(highlight(code));
       pre.appendChild(codeEl);
       this.codePre = pre;
       this.outputBody.appendChild(bar);
@@ -712,9 +786,11 @@ export class Panel {
       const copy = button("Copy command", "pb-primary-button", () => {
         if (!install.command) return;
         void copyText(install.command).then((ok) => {
+          if (ok) flashCopied(copy, "Copy command");
           this.callbacks.onToast(ok ? "Install command copied" : "Copy failed. Select the command manually.");
         });
       });
+      decorateCopy(copy, "Copy command");
       bar.appendChild(el("span", "pb-muted", install.available ? "shadcn CLI" : "React command"));
       bar.appendChild(copy);
       const pre = el("pre", "pb-code");
@@ -762,9 +838,11 @@ export class Panel {
         bar.appendChild(el("span", "pb-muted", "No local bridge · copy the prompt"));
         const copy = button("Copy for agent", "pb-primary-button", () => {
           void copyText(prompt).then((ok) => {
+            if (ok) flashCopied(copy, "Copy for agent");
             this.callbacks.onToast(ok ? "Agent prompt copied" : "Copy failed. Select the prompt manually.");
           });
         });
+        decorateCopy(copy, "Copy for agent");
         bar.appendChild(copy);
         this.outputBody.appendChild(bar);
       }

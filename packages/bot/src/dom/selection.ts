@@ -14,6 +14,8 @@ export class SelectionLayer {
   private selectedRect: HTMLDivElement;
   private chip: HTMLDivElement;
   private trail: HTMLDivElement;
+  private target: Element | null = null;
+  private frame = 0;
 
   constructor() {
     this.root = el("div", "pb-selection");
@@ -28,6 +30,31 @@ export class SelectionLayer {
     this.root.appendChild(this.chip);
     this.root.appendChild(this.trail);
     this.hide();
+    // The rectangles are position: fixed, so they must follow the element when
+    // the page or any scroll container moves.
+    const follow = () => {
+      if (this.frame) return;
+      this.frame = requestAnimationFrame(() => {
+        this.frame = 0;
+        this.reposition();
+      });
+    };
+    window.addEventListener("scroll", follow, { capture: true, passive: true });
+    window.addEventListener("resize", follow, { passive: true });
+  }
+
+  private reposition() {
+    const target = this.target;
+    if (!target || this.selectedRect.style.display !== "block") return;
+    if (!target.isConnected) {
+      this.hide();
+      return;
+    }
+    const rect = target.getBoundingClientRect();
+    this.selectedRect.style.left = `${rect.left}px`;
+    this.selectedRect.style.top = `${rect.top}px`;
+    this.selectedRect.style.width = `${rect.width}px`;
+    this.selectedRect.style.height = `${rect.height}px`;
   }
 
   show(element: Element, kind: TargetKind, selected = false) {
@@ -43,6 +70,7 @@ export class SelectionLayer {
     this.chip.style.left = `${Math.max(8, Math.min(window.innerWidth - 180, rect.left))}px`;
     this.chip.style.top = `${labelTop < 8 ? rect.bottom + 8 : labelTop}px`;
     if (selected) {
+      this.target = element;
       this.selectedRect.style.cssText = style;
       this.selectedRect.style.display = "block";
     } else {
@@ -51,6 +79,7 @@ export class SelectionLayer {
   }
 
   select(element: Element) {
+    this.target = element;
     const rect = element.getBoundingClientRect();
     this.selectedRect.style.cssText = `left:${rect.left}px;top:${rect.top}px;width:${rect.width}px;height:${rect.height}px;`;
     this.selectedRect.style.display = "block";
@@ -69,6 +98,7 @@ export class SelectionLayer {
   }
 
   hide() {
+    this.target = null;
     this.hoverRect.style.display = "none";
     this.hoverInner.style.display = "none";
     this.selectedRect.style.display = "none";
