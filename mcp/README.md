@@ -2,10 +2,12 @@
 
 A Model Context Protocol server for the **PrequelUI Animate** registry: animated
 shadcn/ui primitives, effects, backgrounds and icons. It lets Claude, Cursor,
-VS Code and any MCP client search the catalogue, read a component contract and
-get the exact install command for React, Vue, Svelte, Solid or plain JavaScript.
+VS Code, Windsurf and any MCP client search the catalogue, read a component
+contract and get the exact install command for React, Vue, Svelte, Solid or
+plain JavaScript.
 
-The server is read-only. It reads `web/public/r/` and never writes to it.
+The server is read-only. It reads the public registry from
+`https://prequeluianimate.terravidhal.me/r/` and never writes to it.
 
 ## Requirements
 
@@ -14,14 +16,19 @@ The server is read-only. It reads `web/public/r/` and never writes to it.
 
 ## Quick start
 
-The server is not published on npm yet. Clone this repository and point every
-client at `mcp/server.mjs` with `node`; the path below is the only value to
-replace.
+No installation or clone is required:
+
+```bash
+npx -y @prequelui/mcp
+```
+
+The process speaks MCP over stdio. Configure your client to run that command;
+the sections below show the exact file or command for each one.
 
 ### Claude Code
 
 ```bash
-claude mcp add prequelui -- node /path/to/prequelui-animate/mcp/server.mjs
+claude mcp add prequelui -- npx -y @prequelui/mcp
 ```
 
 Or commit a project-scoped `.mcp.json`:
@@ -31,8 +38,8 @@ Or commit a project-scoped `.mcp.json`:
   "mcpServers": {
     "prequelui": {
       "type": "stdio",
-      "command": "node",
-      "args": ["/path/to/prequelui-animate/mcp/server.mjs"]
+      "command": "npx",
+      "args": ["-y", "@prequelui/mcp"]
     }
   }
 }
@@ -50,14 +57,16 @@ Edit `claude_desktop_config.json`:
 {
   "mcpServers": {
     "prequelui": {
-      "command": "node",
-      "args": ["/path/to/prequelui-animate/mcp/server.mjs"]
+      "command": "npx",
+      "args": ["-y", "@prequelui/mcp"]
     }
   }
 }
 ```
 
-Restart Claude Desktop. The `prequelui` server appears in the tools menu.
+On Windows, wrap the command: `"command": "cmd", "args": ["/c", "npx", "-y",
+"@prequelui/mcp"]`. Restart Claude Desktop; the `prequelui` server appears in
+the tools menu.
 
 ### Cursor
 
@@ -67,8 +76,8 @@ Create `.cursor/mcp.json` in the project, or `~/.cursor/mcp.json` globally:
 {
   "mcpServers": {
     "prequelui": {
-      "command": "node",
-      "args": ["/path/to/prequelui-animate/mcp/server.mjs"]
+      "command": "npx",
+      "args": ["-y", "@prequelui/mcp"]
     }
   }
 }
@@ -85,8 +94,8 @@ Create `.vscode/mcp.json`:
   "servers": {
     "prequelui": {
       "type": "stdio",
-      "command": "node",
-      "args": ["/path/to/prequelui-animate/mcp/server.mjs"]
+      "command": "npx",
+      "args": ["-y", "@prequelui/mcp"]
     }
   }
 }
@@ -94,30 +103,32 @@ Create `.vscode/mcp.json`:
 
 Run **MCP: List Servers** from the command palette and start `prequelui`.
 
-### From this repository
+### Windsurf
 
-No install is needed: the server falls back to the SDK already present in
-`web/node_modules` and reads `web/public/r/` relative to its own file.
+Edit `~/.codeium/windsurf/mcp_config.json`:
 
 ```json
 {
   "mcpServers": {
     "prequelui": {
-      "command": "node",
-      "args": ["/absolute/path/to/prequelui-animate/mcp/server.mjs"]
+      "command": "npx",
+      "args": ["-y", "@prequelui/mcp"]
     }
   }
 }
 ```
 
-Check the wiring from a terminal:
+Open **Cascade → MCP Servers**, then refresh the panel.
+
+### Check the wiring
 
 ```bash
-node mcp/server.mjs --check
+npx -y @prequelui/mcp --check
 ```
 
-It prints the registry path, the site URL and the item counts. The normal
-stdio mode is silent on stdout: logs go to stderr only.
+It prints a JSON summary with the registry source, the site URL and the item
+counts, then exits without starting a session. The normal stdio mode is silent
+on stdout: logs go to stderr only.
 
 ## Tools
 
@@ -128,10 +139,14 @@ stdio mode is silent on stdout: logs go to stderr only.
 | `get_install_command` | `name`, `framework` | The exact `shadcn`, `shadcn-vue`, `shadcn-svelte`, Solid or `curl` command. |
 | `suggest_components` | `request`, `framework`, `limit` (2–3) | Two or three components that fit a plain-language request, with a reason. |
 
+When `PREQUELUI_BOT_BRIDGE` is set, three local tools are also exposed:
+`get_bot_request`, `complete_bot_request` and `cancel_bot_request`.
+
 Resources:
 
 - `prequelui://catalog` — compact JSON catalogue of every registry item.
 - `prequelui://component/{name}` — full description of one item.
+- `prequelui://bot/inbox` — queued and recent overlay requests (bridge only).
 
 ### Examples
 
@@ -159,19 +174,19 @@ treatments such as blur, fade, slide, tilt or shine.
 
 ```bash
 # React
-npx shadcn@latest add https://apercu-animate.terravidhal.me/design/r/react/accordion.json
+npx shadcn@latest add https://prequeluianimate.terravidhal.me/r/react/accordion.json
 
 # Vue 3
-npx shadcn-vue@latest add https://apercu-animate.terravidhal.me/design/r/vue/accordion.json
+npx shadcn-vue@latest add https://prequeluianimate.terravidhal.me/r/vue/accordion.json
 
 # Svelte 5
-npx shadcn-svelte@latest add https://apercu-animate.terravidhal.me/design/r/svelte/accordion.json
+npx shadcn-svelte@latest add https://prequeluianimate.terravidhal.me/r/svelte/accordion.json
 
 # Solid
-npx shadcn@latest add https://apercu-animate.terravidhal.me/design/r/solid/accordion.json
+npx shadcn@latest add https://prequeluianimate.terravidhal.me/r/solid/accordion.json
 
 # Icons (React)
-npx shadcn@latest add https://apercu-animate.terravidhal.me/design/r/react/icons/bell.json
+npx shadcn@latest add https://prequeluianimate.terravidhal.me/r/react/icons/bell.json
 ```
 
 Components that only exist for React use the root registry URL
@@ -182,39 +197,32 @@ Components that only exist for React use the root registry URL
 
 | Variable | Default | Purpose |
 | --- | --- | --- |
-| `PREQUELUI_REGISTRY_DIR` | `<repo>/web/public/r` | Registry folder to read. |
-| `PREQUELUI_WEB_DIR` | `<repo>/web` | Web app folder, used to read `lib/catalog.ts` for categories. |
-| `PREQUELUI_SITE_URL` | `https://apercu-animate.terravidhal.me/design` | Base URL used in docs links and install commands. |
+| `PREQUELUI_SITE_URL` | `https://prequeluianimate.terravidhal.me` | Base URL used to read the registry, build docs links and install commands. |
+| `PREQUELUI_REGISTRY_DIR` | auto-detected | Read a local registry folder instead of the online one. |
+| `PREQUELUI_WEB_DIR` | auto-detected | Web app folder, used to read `lib/catalog.ts` for categories. |
+| `PREQUELUI_BOT_BRIDGE` | unset | URL of a running PrequelUI Bot bridge. Enables the bot tools. |
+| `PREQUELUI_BOT_TOKEN` | `~/.prequelui-bot-token` | Bearer token for the bot bridge. |
+
+By default the server loads the catalogue from the live site. Point
+`PREQUELUI_REGISTRY_DIR` at a local `r/` folder to work offline.
 
 ## Tests
 
-From the repository root:
+From the package folder:
 
 ```bash
-npm run lint:mcp        # registry + tool unit tests
-npm run lint:mcpe2e     # spawns the server and calls it over stdio
-npm run lint:mcpcheck   # registry path and counts
+npm run lint:test     # registry + tool unit tests
+npm run lint:e2e      # spawns the server and calls it over stdio
+npm run lint:stdio    # raw JSON-RPC session against a server file
+npm run lint:check    # registry source and counts
 ```
 
-From `mcp/`:
+`lint:stdio` accepts a path to a server file, which makes it usable against a
+packed tarball:
 
 ```bash
-npm run lint:test
-npm run lint:e2e
+node tests/stdio.test.mjs node_modules/@prequelui/mcp/server.mjs
 ```
-
-## Troubleshooting
-
-**`npx @prequelui/mcp` cannot find the package.** The package is part of this
-repository and is not published on npm. Use the local `node mcp/server.mjs`
-configuration above.
-
-**`Cannot find module @modelcontextprotocol/sdk`.** Run `npm install` inside
-`mcp/`, or run from the repository where the fallback can load the SDK from
-`web/node_modules`.
-
-**No components found.** Check `node mcp/server.mjs --check`; the registry
-folder must contain `registry.json` and the framework registries.
 
 ## License
 

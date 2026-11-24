@@ -4,12 +4,15 @@
   "private": false,
   "description": "Model Context Protocol server for the PrequelUI Animate registry.",
   "license": "MIT",
-  "author": "Vidhal",
-  "homepage": "https://prequeluianimate.terravidhal.me/docs/mcp",
+  "author": "Terra Vidhal (https://github.com/terravidhal)",
+  "homepage": "https://prequeluianimate.terravidhal.me/tools/mcp",
   "repository": {
     "type": "git",
-    "url": "https://github.com/prequelui/prequelui-animate",
+    "url": "git+https://github.com/prequelui/prequelui-animate.git",
     "directory": "mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/prequelui/prequelui-animate/issues"
   },
   "type": "module",
   "bin": {
@@ -39,7 +42,9 @@
     "lint:check": "node server.mjs --check",
     "lint:test": "node --test tests/registry.test.mjs tests/tools.test.mjs",
     "lint:e2e": "node --test tests/server.test.mjs",
-    "lint:testall": "node --test tests/registry.test.mjs tests/tools.test.mjs tests/server.test.mjs"
+    "lint:stdio": "node --test tests/stdio.test.mjs",
+    "lint:testall": "node --test tests/registry.test.mjs tests/tools.test.mjs tests/server.test.mjs",
+    "prepublishOnly": "node server.mjs --check"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.26.0",

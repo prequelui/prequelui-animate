@@ -2,6 +2,7 @@ import { readFile, readdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { EMBEDDED_CATEGORIES } from "./catalog-data.mjs";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 
@@ -30,6 +31,40 @@ export const DEFAULT_SITE_URL = (
 ).replace(/\/+$/, "");
 
 export const FRAMEWORK_IDS = ["react", "vue", "svelte", "solid", "vanilla"];
+
+const FETCH_TIMEOUT_MS = 20000;
+
+async function fetchJson(url) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+  try {
+    const response = await fetch(url, {
+      signal: controller.signal,
+      headers: { accept: "application/json" },
+    });
+    if (!response.ok) {
+      throw new Error(`Registry request failed with ${response.status}: ${url}`);
+    }
+    return await response.json();
+  } catch (error) {
+    if (error?.name === "AbortError") {
+      throw new Error(`Registry request timed out: ${url}`);
+    }
+    throw error;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+function embeddedCatalog() {
+  const categories = new Map(Object.entries(EMBEDDED_CATEGORIES));
+  const sets = {};
+  for (const [slug, category] of categories) {
+    if (!sets[category]) sets[category] = new Set();
+    sets[category].add(slug);
+  }
+  return { categories, sets };
+}
 
 export const CATEGORY_LABELS = {
   components: "Components",
@@ -185,33 +220,41 @@ async function readJson(file) {
   return JSON.parse(await readFile(file, "utf8"));
 }
 
-async function readFrameworkSets(registryDir) {
+async function readFrameworkSets(registryDir, remote, frameworkIndexes) {
   const sets = {};
-  for (const framework of FRAMEWORK_IDS) {
+  for (const [index, framework] of FRAMEWORK_IDS.entries()) {
     const names = new Set();
-    try {
-      const entries = await readdir(path.join(registryDir, framework));
-      for (const entry of entries) {
-        if (entry.endsWith(".json") && entry !== "registry.json") {
-          names.add(entry.slice(0, -5));
-        }
+    if (remote) {
+      for (const item of frameworkIndexes[index]?.items ?? []) {
+        if (item?.name) names.add(item.name);
       }
-    } catch {
-      // Framework folder is optional.
+    } else {
+      try {
+        const entries = await readdir(path.join(registryDir, framework));
+        for (const entry of entries) {
+          if (entry.endsWith(".json") && entry !== "registry.json") {
+            names.add(entry.slice(0, -5));
+          }
+        }
+      } catch {
+        // Framework folder is optional.
+      }
     }
     sets[framework] = names;
   }
 
   const icons = new Set();
-  try {
-    const entries = await readdir(path.join(registryDir, "react", "icons"));
-    for (const entry of entries) {
-      if (entry.endsWith(".json") && entry !== "registry.json") {
-        icons.add(entry.slice(0, -5));
+  if (!remote) {
+    try {
+      const entries = await readdir(path.join(registryDir, "react", "icons"));
+      for (const entry of entries) {
+        if (entry.endsWith(".json") && entry !== "registry.json") {
+          icons.add(entry.slice(0, -5));
+        }
       }
+    } catch {
+      // Icon catalogue is optional.
     }
-  } catch {
-    // Icon catalogue is optional.
   }
   sets.icons = icons;
   return sets;
@@ -325,21 +368,31 @@ export async function loadCatalog(options = {}) {
   if (CACHE.has(key)) return CACHE.get(key);
 
   const promise = (async () => {
-    const [index, parsedCatalog, frameworkSets] = await Promise.all([
-      readJson(path.join(registryDir, "registry.json")),
-      parseCatalog(webDir).catch(() => ({ categories: new Map(), sets: {} })),
-      readFrameworkSets(registryDir),
-    ]);
+    const remote =
+      options.remote ??
+      !existsSync(path.join(registryDir, "registry.json"));
 
     const frameworkIndexes = await Promise.all(
       FRAMEWORK_IDS.map(async (framework) => {
         try {
-          return await readJson(path.join(registryDir, framework, "registry.json"));
+          return remote
+            ? await fetchJson(`${siteUrl}/r/${framework}/registry.json`)
+            : await readJson(path.join(registryDir, framework, "registry.json"));
         } catch {
           return { items: [] };
         }
       }),
     );
+
+    const [index, parsedCatalog, frameworkSets] = await Promise.all([
+      remote
+        ? fetchJson(`${siteUrl}/r/registry.json`)
+        : readJson(path.join(registryDir, "registry.json")),
+      parseCatalog(webDir)
+        .then((value) => (value.categories.size ? value : embeddedCatalog()))
+        .catch(() => embeddedCatalog()),
+      readFrameworkSets(registryDir, remote, frameworkIndexes),
+    ]);
 
     const rawByName = new Map();
     for (const frameworkIndex of frameworkIndexes) {
@@ -400,7 +453,8 @@ export async function loadCatalog(options = {}) {
 
     return {
       webDir,
-      registryDir,
+      registryDir: remote ? `${siteUrl}/r` : registryDir,
+      source: remote ? "remote" : "local",
       siteUrl,
       name: index.name ?? "prequelui-animate",
       homepage: index.homepage ?? siteUrl,

@@ -51,6 +51,7 @@ async function main() {
         {
           name: catalog.name,
           registryDir: catalog.registryDir,
+          source: catalog.source,
           siteUrl: catalog.siteUrl,
           counts: catalog.counts,
         },
