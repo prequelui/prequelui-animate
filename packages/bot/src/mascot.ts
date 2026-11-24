@@ -3,7 +3,6 @@ import { writePosition } from "./config";
 
 const INK = "#0b0b0f";
 const RING = "#0d0d10";
-const LABEL_BG = "#141418";
 const GRAY = "#8e8e93";
 const EASE_OUT = "cubic-bezier(.23,1,.32,1)";
 const SPHERE_R = 0.5;
@@ -424,7 +423,7 @@ export class Mascot {
       const label = el(
         "span",
         "pb-label",
-        `top:${this.D * 2.075}px;height:${labelHeight}px;font-size:${labelFont}px;background:${LABEL_BG};`,
+        `top:${this.D * 2.075}px;height:${labelHeight}px;font-size:${labelFont}px;`,
       );
       label.textContent = options.label;
       this.labelEl = label;

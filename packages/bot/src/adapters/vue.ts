@@ -8,7 +8,7 @@ export const PrequelBot = defineComponent({
     framework: { type: String as () => Framework, default: "vue" },
     position: { type: String as () => BotConfig["position"], default: "br" },
     size: { type: Number, default: 64 },
-    label: { type: String, default: "PREQUEL BOT" },
+    label: { type: String, default: "PrequelUI Bot" },
     showLabel: { type: Boolean, default: true },
     disabled: { type: Boolean, default: false },
     allowHosts: { type: Array as () => string[], default: () => [] },

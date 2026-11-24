@@ -65,5 +65,12 @@ for (const [entry, outfile, external] of [
 }
 
 await mkdir(path.join(repo, "web", "public", "bot"), { recursive: true });
-await cp(path.join(dist, "v2.js"), path.join(repo, "web", "public", "bot", "v2.js"));
-console.log("built dist + web/public/bot/v2.js");
+// Inside the site, the library sits at web/library: copy the overlay script to web/public/bot.
+const sitePublic = path.resolve(root, "..", "..", "..", "public", "bot");
+const { existsSync } = await import("node:fs");
+if (existsSync(sitePublic)) {
+  await cp(path.join(dist, "v2.js"), path.join(sitePublic, "v2.js"));
+  console.log("built dist + site public/bot/v2.js");
+} else {
+  console.log("built dist");
+}

@@ -11,7 +11,7 @@ const FRAMEWORKS: Framework[] = ["react", "vue", "svelte", "solid", "vanilla"];
 export const DEFAULT_CONFIG: BotConfig = {
   position: "br",
   size: 64,
-  label: "PREQUEL BOT",
+  label: "PrequelUI Bot",
   showLabel: true,
   framework: "react",
   allowHosts: [],
