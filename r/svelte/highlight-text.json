@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "highlight-text",
+  "type": "registry:component",
+  "title": "Highlight Text",
+  "description": "A marker highlight that draws in behind the words.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/HighlightText.svelte",
+      "target": "~/src/lib/components/prequelui/HighlightText.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount } from \"svelte\";\n  import { animate } from \"motion\";\n\n  let {\n    text = \"\",\n    delay = 0,\n    color = \"color-mix(in oklab, #f5c542 38%, transparent)\",\n    inView = false,\n    inViewOnce = true,\n    class: className = \"\",\n    ...rest\n  } = $props();\n\n  let root;\n  const controls = [];\n  let observer;\n  let played = false;\n\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  function play() {\n    if (played || !root) return;\n    played = true;\n    if (reduce()) {\n      root.style.backgroundSize = \"100% 100%\";\n      return;\n    }\n    controls.push(\n      animate(\n        root,\n        { backgroundSize: [\"0% 100%\", \"100% 100%\"] },\n        { duration: 2, ease: [0.42, 0, 0.58, 1], delay: delay / 1000 },\n      ),\n    );\n  }\n\n  onMount(() => {\n    if (!inView) {\n      play();\n      return;\n    }\n    observer = new IntersectionObserver(\n      (entries) => {\n        if (entries.some((entry) => entry.isIntersecting)) {\n          play();\n          if (inViewOnce) observer?.disconnect();\n        } else if (!inViewOnce) {\n          played = false;\n          if (root) root.style.backgroundSize = \"0% 100%\";\n        }\n      },\n      { threshold: 0.35 },\n    );\n    if (root) observer.observe(root);\n    return () => {\n      observer?.disconnect();\n      controls.forEach((control) => control.stop?.());\n    };\n  });\n</script>\n\n<span\n  bind:this={root}\n  data-slot=\"highlight-text\"\n  class={`relative inline-block ${className}`}\n  style={`background-image:linear-gradient(${color}, ${color});background-repeat:no-repeat;background-position:left center;background-size:0% 100%`}\n  {...rest}\n>\n  {text}\n</span>\n"
+    }
+  ]
+}

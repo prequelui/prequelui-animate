@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox",
+  "type": "registry:ui",
+  "title": "Checkbox",
+  "description": "A checkbox with a swelling fill and a check that draws itself.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/Checkbox.vue",
+      "target": "components/prequelui/Checkbox.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { computed, ref, watch } from \"vue\";\n\nconst props = defineProps({\n  modelValue: { type: Boolean, default: undefined },\n  defaultChecked: { type: Boolean, default: false },\n  label: { type: String, default: \"Accept terms\" },\n  disabled: { type: Boolean, default: false },\n});\nconst emit = defineEmits([\"update:modelValue\"]);\n\nconst internal = ref(props.defaultChecked);\nwatch(\n  () => props.modelValue,\n  (value) => {\n    if (value !== undefined) internal.value = value;\n  },\n);\nconst value = computed(() => (props.modelValue === undefined ? internal.value : props.modelValue));\n\nfunction toggle() {\n  if (props.disabled) return;\n  const next = !value.value;\n  if (props.modelValue === undefined) internal.value = next;\n  emit(\"update:modelValue\", next);\n}\n</script>\n\n<template>\n  <label class=\"flex items-center gap-2.5 text-[13px]\">\n    <button\n      type=\"button\"\n      role=\"checkbox\"\n      :aria-checked=\"value\"\n      :disabled=\"disabled\"\n      class=\"relative flex size-4 items-center justify-center rounded-[4px] border outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50\"\n      :class=\"value ? 'border-foreground' : 'border-input'\"\n      @click=\"toggle\"\n    >\n      <span\n        aria-hidden=\"true\"\n        class=\"absolute inset-0 rounded-[3px] bg-foreground transition-transform duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:transition-none\"\n        :style=\"{ transform: value ? 'scale(1)' : 'scale(0.5)', opacity: value ? 1 : 0 }\"\n      />\n      <svg\n        aria-hidden=\"true\"\n        viewBox=\"0 0 24 24\"\n        fill=\"none\"\n        stroke=\"currentColor\"\n        stroke-width=\"3\"\n        stroke-linecap=\"round\"\n        stroke-linejoin=\"round\"\n        class=\"relative size-3 text-background\"\n      >\n        <path\n          d=\"m5 12 4 4L19 6\"\n          :style=\"{ strokeDasharray: 20, strokeDashoffset: value ? 0 : 20, transition: 'stroke-dashoffset .25s cubic-bezier(0.23,1,0.32,1)' }\"\n        />\n      </svg>\n    </button>\n    <span>{{ label }}</span>\n  </label>\n</template>\n"
+    }
+  ]
+}

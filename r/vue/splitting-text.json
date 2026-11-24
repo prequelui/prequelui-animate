@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "splitting-text",
+  "type": "registry:ui",
+  "title": "Splitting Text",
+  "description": "Text arrives piece by piece with a staggered blur.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/SplittingText.vue",
+      "target": "components/prequelui/SplittingText.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { computed, onBeforeUnmount, onMounted, ref } from \"vue\";\nimport { animate } from \"motion\";\n\nconst props = defineProps({\n  text: { type: [String, Array], required: true },\n  type: { type: String, default: \"chars\" },\n  delay: { type: Number, default: 0 },\n  stagger: { type: Number, default: 0 },\n  disableAnimation: { type: Boolean, default: false },\n  inView: { type: Boolean, default: false },\n  inViewOnce: { type: Boolean, default: true },\n});\n\nconst root = ref(null);\nconst controls = [];\nlet observer;\nlet played = false;\n\nconst lines = computed(() => (Array.isArray(props.text) ? props.text : []));\nconst words = computed(() =>\n  Array.isArray(props.text) ? [] : (props.text.match(/\\S+/g) ?? []),\n);\nconst chars = computed(() => (Array.isArray(props.text) ? [] : Array.from(props.text)));\nconst label = computed(() => (Array.isArray(props.text) ? props.text.join(\" \") : props.text));\nconst gap = computed(() =>\n  props.stagger || (props.type === \"words\" ? 0.2 : props.type === \"lines\" ? 0.3 : 0.05),\n);\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nfunction play() {\n  if (played || !root.value) return;\n  played = true;\n  const still = props.disableAnimation || reduce();\n  const nodes = Array.from(root.value.querySelectorAll(\"[data-piece]\"));\n  nodes.forEach((node, index) => {\n    if (still) {\n      node.style.opacity = \"1\";\n      node.style.transform = \"none\";\n      return;\n    }\n    controls.push(\n      animate(\n        node,\n        { x: [150, 0], opacity: [0, 1] },\n        {\n          duration: 0.7,\n          ease: [0.23, 1, 0.32, 1],\n          delay: props.delay / 1000 + index * gap.value,\n        },\n      ),\n    );\n  });\n}\n\nonMounted(() => {\n  if (!props.inView) {\n    play();\n    return;\n  }\n  observer = new IntersectionObserver((entries) => {\n    if (!entries.some((entry) => entry.isIntersecting)) return;\n    play();\n    if (props.inViewOnce) observer?.disconnect();\n  });\n  if (root.value) observer.observe(root.value);\n});\n\nonBeforeUnmount(() => {\n  observer?.disconnect();\n  controls.forEach((control) => control.stop?.());\n});\n</script>\n\n<template>\n  <span ref=\"root\" data-slot=\"splitting-text\" class=\"inline\">\n    <span aria-hidden=\"true\">\n      <template v-if=\"lines.length\">\n        <template v-for=\"(line, index) in lines\" :key=\"`line-${index}`\">\n          <span data-piece class=\"inline-block will-change-transform\" style=\"opacity: 0\">{{ line }}</span>\n          <br v-if=\"index < lines.length - 1\" />\n        </template>\n      </template>\n      <template v-else-if=\"type === 'words'\">\n        <template v-for=\"(word, index) in words\" :key=\"`word-${index}`\">\n          <span data-piece class=\"inline-block will-change-transform\" style=\"opacity: 0\">{{ word }}</span>\n          <template v-if=\"index < words.length - 1\"> </template>\n        </template>\n      </template>\n      <template v-else>\n        <span\n          v-for=\"(char, index) in chars\"\n          :key=\"`char-${index}`\"\n          data-piece\n          class=\"inline-block whitespace-pre will-change-transform\"\n          style=\"opacity: 0\"\n        >{{ char === \" \" ? \"\\u00A0\" : char }}</span>\n      </template>\n    </span>\n    <span class=\"sr-only\">{{ label }}</span>\n  </span>\n</template>\n"
+    }
+  ]
+}

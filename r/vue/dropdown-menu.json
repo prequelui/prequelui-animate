@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dropdown-menu",
+  "type": "registry:ui",
+  "title": "Dropdown Menu",
+  "description": "A compact action menu whose items arrive in a 30 ms cascade.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/DropdownMenu.vue",
+      "target": "components/prequelui/DropdownMenu.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { onBeforeUnmount, onMounted, ref } from \"vue\";\nimport { ChevronDown } from \"@lucide/vue\";\n\ndefineProps({\n  trigger: { type: String, default: \"Actions\" },\n  items: { type: Array, default: () => [] },\n  align: { type: String, default: \"start\" },\n});\n\nconst open = ref(false);\nconst root = ref(null);\n\nfunction onPointer(event) {\n  if (open.value && root.value && !root.value.contains(event.target)) open.value = false;\n}\nfunction onKey(event) {\n  if (event.key === \"Escape\") open.value = false;\n}\nonMounted(() => {\n  document.addEventListener(\"pointerdown\", onPointer);\n  document.addEventListener(\"keydown\", onKey);\n});\nonBeforeUnmount(() => {\n  document.removeEventListener(\"pointerdown\", onPointer);\n  document.removeEventListener(\"keydown\", onKey);\n});\nfunction select(item) {\n  item.onSelect?.();\n  open.value = false;\n}\n</script>\n\n<template>\n  <div ref=\"root\" class=\"relative inline-block\">\n    <button\n      type=\"button\"\n      aria-haspopup=\"menu\"\n      :aria-expanded=\"open\"\n      class=\"inline-flex h-8 items-center gap-1.5 rounded-md border px-3 text-[13px] font-medium\"\n      @click=\"open = !open\"\n    >\n      {{ trigger }}\n      <ChevronDown class=\"size-3.5 text-muted-foreground\" />\n    </button>\n    <Transition name=\"menu\">\n      <div\n        v-if=\"open\"\n        role=\"menu\"\n        class=\"absolute top-full z-40 mt-1.5 min-w-[190px] rounded-xl border bg-background p-1 shadow-xl\"\n        :class=\"align === 'end' ? 'right-0' : 'left-0'\"\n      >\n        <template v-for=\"(item, index) in items\" :key=\"item.label ?? index\">\n          <div v-if=\"item.separator\" role=\"separator\" class=\"my-1 h-px bg-border\" />\n          <button\n            v-else\n            type=\"button\"\n            role=\"menuitem\"\n            class=\"menu-item flex w-full items-center justify-between gap-6 rounded-md px-2 py-1.5 text-left text-[13px] hover:bg-accent\"\n            :style=\"{ animationDelay: `${index * 30}ms` }\"\n            @click=\"select(item)\"\n          >\n            <span>{{ item.label }}</span>\n            <span v-if=\"item.shortcut\" class=\"font-mono text-[13px] text-muted-foreground\">{{ item.shortcut }}</span>\n          </button>\n        </template>\n      </div>\n    </Transition>\n  </div>\n</template>\n\n<style>\n.menu-enter-active, .menu-leave-active { transition: opacity 220ms cubic-bezier(0.215, 0.61, 0.355, 1); }\n.menu-leave-active { transition-duration: 150ms; transition-timing-function: cubic-bezier(0, 0, 0.58, 1); }\n.menu-enter-from, .menu-leave-to { opacity: 0; }\n.menu-enter-active .menu-item { animation: menu-item-in 220ms cubic-bezier(0.215, 0.61, 0.355, 1) both; }\n@keyframes menu-item-in { from { opacity: 0; transform: translateY(-4px); filter: blur(2px); } }\n@media (prefers-reduced-motion: reduce) {\n  .menu-enter-active, .menu-leave-active, .menu-enter-active .menu-item { transition: none; animation: none; }\n}\n</style>\n"
+    }
+  ]
+}

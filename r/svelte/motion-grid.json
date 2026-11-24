@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "motion-grid",
+  "type": "registry:component",
+  "title": "Motion Grid",
+  "description": "A dot grid that plays frame-by-frame motion as a loader or state.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/MotionGrid.svelte",
+      "target": "~/src/lib/components/prequelui/MotionGrid.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount } from \"svelte\";\n  import { animate } from \"motion\";\n\n  let {\n    count = 35,\n    columns = 7,\n    dotSize = 8,\n    gap = 10,\n    speed = 1.4,\n    stagger = 0.07,\n    pauseOnHover = true,\n    class: className = \"\",\n    ...rest\n  } = $props();\n\n  let root;\n  const controls = [];\n\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  function play() {\n    controls.length = 0;\n    if (!root || reduce()) return;\n    const nodes = Array.from(root.children);\n    nodes.forEach((node, index) => {\n      const row = Math.floor(index / columns);\n      const column = index % columns;\n      controls.push(\n        animate(\n          node,\n          { scale: [0.65, 1, 0.65], opacity: [0.3, 1, 0.3] },\n          {\n            duration: speed,\n            repeat: Infinity,\n            delay: (row + column) * stagger,\n            ease: \"easeInOut\",\n          },\n        ),\n      );\n    });\n  }\n\n  function pause() {\n    if (!pauseOnHover || !root) return;\n    controls.forEach((control) => control.stop?.());\n    Array.from(root.children).forEach((node) => {\n      node.style.opacity = \"0.35\";\n      node.style.transform = \"scale(1)\";\n    });\n  }\n\n  onMount(() => {\n    play();\n    return () => controls.forEach((control) => control.stop?.());\n  });\n</script>\n\n<div\n  bind:this={root}\n  data-slot=\"motion-grid\"\n  aria-hidden=\"true\"\n  class={`grid w-fit ${className}`}\n  style={`grid-template-columns:repeat(${columns}, minmax(0, 1fr));gap:${gap}px`}\n  onpointerenter={pause}\n  onpointerleave={play}\n  {...rest}\n>\n  {#each Array.from({ length: count }) as _, index (index)}\n    <span\n      class=\"rounded-full bg-foreground\"\n      style={`width:${dotSize}px;height:${dotSize}px;opacity:0.55`}\n    ></span>\n  {/each}\n</div>\n"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip",
+  "type": "registry:ui",
+  "title": "Tooltip",
+  "description": "A tooltip that blooms from 70% and warms up its next appearance.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/tooltip.js",
+      "target": "components/prequelui/tooltip.js",
+      "type": "registry:ui",
+      "content": "let uid = 0;\nlet styled = false;\n\nfunction ensureStyles() {\n  if (styled) return;\n  styled = true;\n  const style = document.createElement(\"style\");\n  style.textContent = `\n    .tip { animation: tip-in 320ms cubic-bezier(0.23,1,0.32,1) both; }\n    .tip.instant { animation-duration: 1ms; }\n    @keyframes tip-in { from { opacity: 0; transform: scale(0.7); filter: blur(6px); } }\n    @media (prefers-reduced-motion: reduce) { .tip { animation: tip-fade 200ms linear both; } @keyframes tip-fade { from { opacity: 0; } } }`;\n  document.head.appendChild(style);\n}\n\nconst store = (globalThis.__prequelTip = globalThis.__prequelTip ?? {\n  open: new Set(),\n  cooledAt: 0,\n});\n\nconst sides = {\n  top: \"bottom-full left-1/2 -translate-x-1/2 mb-2\",\n  bottom: \"top-full left-1/2 -translate-x-1/2 mt-2\",\n  left: \"right-full top-1/2 -translate-y-1/2 mr-2\",\n  right: \"left-full top-1/2 -translate-y-1/2 ml-2\",\n};\n\nexport function createTooltip(root, options = {}) {\n  ensureStyles();\n  const {\n    trigger = \"Hover me\",\n    content = \"Saved just now\",\n    side = \"top\",\n    delay = 180,\n    closeDelay = 80,\n  } = options;\n  const id = `tip-${++uid}`;\n  const key = Symbol(id);\n  let open = false;\n  let instant = false;\n  let openTimer;\n  let closeTimer;\n\n  root.innerHTML = `\n    <span class=\"relative inline-flex\" data-tooltip=\"${id}\">\n      <button type=\"button\" class=\"inline-flex h-8 items-center rounded-md border px-3 text-[13px] font-medium\">${trigger}</button>\n    </span>`;\n  const host = root.querySelector(`[data-tooltip=\"${id}\"]`);\n\n  function render() {\n    host.querySelector(\".tip\")?.remove();\n    if (!open) return;\n    const tip = document.createElement(\"span\");\n    tip.setAttribute(\"role\", \"tooltip\");\n    tip.className = `tip pointer-events-none absolute z-50 whitespace-nowrap rounded-md bg-primary px-2 py-1 text-[13px] font-medium text-primary-foreground shadow-md ${sides[side]}${instant ? \" instant\" : \"\"}`;\n    tip.textContent = content;\n    host.appendChild(tip);\n  }\n\n  function show() {\n    clearTimeout(closeTimer);\n    clearTimeout(openTimer);\n    const warm = store.open.size > 0 || Date.now() - store.cooledAt < 300;\n    instant = warm;\n    openTimer = setTimeout(\n      () => {\n        store.open.add(key);\n        open = true;\n        render();\n      },\n      warm ? 0 : delay,\n    );\n  }\n  function hide() {\n    clearTimeout(openTimer);\n    clearTimeout(closeTimer);\n    closeTimer = setTimeout(() => {\n      store.open.delete(key);\n      if (store.open.size === 0) store.cooledAt = Date.now();\n      open = false;\n      instant = false;\n      render();\n    }, closeDelay);\n  }\n\n  host.addEventListener(\"pointerenter\", show);\n  host.addEventListener(\"pointerleave\", hide);\n  host.addEventListener(\"focusin\", show);\n  host.addEventListener(\"focusout\", hide);\n\n  return {\n    get open() { return open; },\n    destroy() {\n      clearTimeout(openTimer);\n      clearTimeout(closeTimer);\n      store.open.delete(key);\n      root.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

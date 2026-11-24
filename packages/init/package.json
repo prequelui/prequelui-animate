@@ -1,0 +1,46 @@
+{
+  "name": "prequelui-animate",
+  "version": "0.1.0",
+  "description": "One-command setup for PrequelUI Animate: detect the project, show the plan, install the proven recipe and create an example page.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "prequelui-animate": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "assets",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "node tests/run.mjs",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.0",
+    "typescript": "^5.9.3"
+  },
+  "keywords": [
+    "prequelui",
+    "animate",
+    "shadcn",
+    "registry",
+    "react",
+    "vue",
+    "svelte",
+    "solid"
+  ]
+}

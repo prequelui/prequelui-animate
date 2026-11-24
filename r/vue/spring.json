@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spring",
+  "type": "registry:ui",
+  "title": "Spring",
+  "description": "A draggable element tied to its home by a visible spring.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/Spring.vue",
+      "target": "components/prequelui/Spring.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { onBeforeUnmount, ref } from \"vue\";\nimport { animate } from \"motion\";\n\nconst props = defineProps({\n  stiffness: { type: Number, default: 200 },\n  damping: { type: Number, default: 16 },\n  elastic: { type: Number, default: 0.7 },\n  snapBack: { type: Boolean, default: true },\n  pressScale: { type: Number, default: 1.06 },\n});\n\nconst root = ref(null);\nlet dragging = false;\nlet startX = 0;\nlet startY = 0;\nlet lastX = 0;\nlet lastY = 0;\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nfunction down(event) {\n  if (reduce() || !root.value || event.button !== 0) return;\n  dragging = true;\n  startX = event.clientX;\n  startY = event.clientY;\n  lastX = 0;\n  lastY = 0;\n  root.value.setPointerCapture?.(event.pointerId);\n  root.value.style.cursor = \"grabbing\";\n  animate(\n    root.value,\n    { scale: props.pressScale },\n    { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n  );\n}\n\nfunction move(event) {\n  if (!dragging || !root.value) return;\n  lastX = (event.clientX - startX) * props.elastic;\n  lastY = (event.clientY - startY) * props.elastic;\n  root.value.style.transform = `translate3d(${lastX}px, ${lastY}px, 0) scale(${props.pressScale})`;\n}\n\nfunction up() {\n  if (!dragging || !root.value) return;\n  dragging = false;\n  root.value.style.cursor = \"grab\";\n  if (!props.snapBack) return;\n  animate(\n    root.value,\n    { x: [lastX, 0], y: [lastY, 0], scale: 1 },\n    { type: \"spring\", stiffness: props.stiffness, damping: props.damping },\n  ).finished.then(() => {\n    if (root.value) root.value.style.transform = \"none\";\n  });\n}\n\nonBeforeUnmount(() => {\n  dragging = false;\n});\n</script>\n\n<template>\n  <div\n    ref=\"root\"\n    data-slot=\"spring\"\n    class=\"cursor-grab touch-none select-none active:cursor-grabbing\"\n    @pointerdown=\"down\"\n    @pointermove=\"move\"\n    @pointerup=\"up\"\n    @pointercancel=\"up\"\n  >\n    <slot />\n  </div>\n</template>\n"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-chart-bar-solid",
+  "type": "registry:ui",
+  "title": "Chart Bar · Solid",
+  "description": "Three columns that grow from the baseline one after another. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/chart-bar.json"
+  ],
+  "meta": {
+    "style": "solid",
+    "category": "Charts",
+    "roles": [
+      "primary",
+      "accent",
+      "accent",
+      "primary"
+    ],
+    "closed": [
+      false,
+      true,
+      true,
+      true
+    ],
+    "palette": {
+      "primary": "oklch(0.6 0.16 290)",
+      "primaryDark": "oklch(0.78 0.13 290)",
+      "accent": "oklch(0.7 0.15 310)",
+      "accentDark": "oklch(0.82 0.12 310)"
+    },
+    "emoji": {
+      "primary": "oklch(0.6 0.2 300)",
+      "secondary": "oklch(0.46 0.18 300)",
+      "accent": "oklch(0.68 0.2 27)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-chart-bar-solid.tsx",
+      "target": "components/prequelui/icons/prequel-chart-bar-solid.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelChartBarIcon, type IconProps } from \"./prequel-chart-bar\";\n\nexport function PrequelChartBarSolidIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelChartBarIcon size={size} variant=\"solid\" {...props} />;\n}\n"
+    }
+  ]
+}

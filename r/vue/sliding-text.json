@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sliding-text",
+  "type": "registry:ui",
+  "title": "Sliding Text",
+  "description": "Text slides out of its box while a copy slides in.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/SlidingText.vue",
+      "target": "components/prequelui/SlidingText.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { onBeforeUnmount, onMounted, ref } from \"vue\";\nimport { animate } from \"motion\";\n\nconst HOST = 'a, button, [role=\"button\"], [role=\"link\"]';\n\nconst props = defineProps({\n  text: { type: String, required: true },\n  direction: { type: String, default: \"down\" },\n  trigger: { type: String, default: \"hover\" },\n});\n\nconst root = ref(null);\nconst track = ref(null);\nlet host = null;\nlet offset = 0;\nlet controls;\n\nconst sign = () => (props.direction === \"down\" ? 1 : -1);\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nfunction slideTo(next) {\n  if (!track.value) return;\n  const lap = sign() * next;\n  const transform =\n    lap === 0 ? \"translateY(0%)\" : `translateY(calc(${lap * 100}% + ${lap} * 0.6em))`;\n  controls?.stop?.();\n  controls = animate(\n    track.value,\n    { transform },\n    reduce() ? { duration: 0 } : { duration: 0.25, ease: [0.4, 0, 0.2, 1] },\n  );\n}\n\nfunction enter(event) {\n  if (props.trigger !== \"hover\" || event.pointerType === \"touch\") return;\n  slideTo(true);\n}\n\nfunction leave(event) {\n  if (props.trigger !== \"hover\" || event.pointerType === \"touch\") return;\n  slideTo(false);\n}\n\nfunction click() {\n  if (props.trigger !== \"click\") return;\n  offset += 1;\n  slideTo(offset % 2 === 1);\n}\n\nonMounted(() => {\n  const parent = root.value?.parentElement;\n  host = parent?.closest(HOST) ?? root.value;\n  if (!host) return;\n  host.addEventListener(\"pointerenter\", enter);\n  host.addEventListener(\"pointerleave\", leave);\n  host.addEventListener(\"click\", click);\n});\n\nonBeforeUnmount(() => {\n  controls?.stop?.();\n  if (!host) return;\n  host.removeEventListener(\"pointerenter\", enter);\n  host.removeEventListener(\"pointerleave\", leave);\n  host.removeEventListener(\"click\", click);\n});\n</script>\n\n<template>\n  <span\n    ref=\"root\"\n    data-slot=\"sliding-text\"\n    :data-direction=\"direction\"\n    :data-trigger=\"trigger\"\n    class=\"relative inline-block overflow-clip\"\n    style=\"padding-block: 0.25em; margin-block: -0.25em\"\n  >\n    <span\n      ref=\"track\"\n      data-slot=\"sliding-text-track\"\n      class=\"relative inline-block\"\n      style=\"transform: translateY(0%)\"\n    >\n      {{ text }}\n      <span\n        data-slot=\"sliding-text-copy\"\n        aria-hidden=\"true\"\n        class=\"absolute left-0 w-full\"\n        :style=\"{ top: `calc(${-sign() * 100}% - ${sign()} * 0.6em)` }\"\n      >{{ text }}</span>\n    </span>\n  </span>\n</template>\n"
+    }
+  ]
+}

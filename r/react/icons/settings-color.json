@@ -1,0 +1,52 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-settings-color",
+  "type": "registry:ui",
+  "title": "Settings · Color",
+  "description": "A gear whose teeth spin around a still centre. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/settings.json"
+  ],
+  "meta": {
+    "style": "color",
+    "category": "Tools",
+    "roles": [
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      true,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.56 0.1 225)",
+      "primaryDark": "oklch(0.78 0.08 225)",
+      "accent": "oklch(0.66 0.13 200)",
+      "accentDark": "oklch(0.8 0.1 200)"
+    },
+    "emoji": {
+      "primary": "oklch(0.74 0.13 232)",
+      "secondary": "oklch(0.58 0.13 232)",
+      "accent": "oklch(0.6 0.2 300)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-settings-color.tsx",
+      "target": "components/prequelui/icons/prequel-settings-color.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelSettingsIcon, type IconProps } from \"./prequel-settings\";\n\nexport function PrequelSettingsColorIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelSettingsIcon size={size} variant=\"color\" {...props} />;\n}\n"
+    }
+  ]
+}

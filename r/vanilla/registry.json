@@ -1,0 +1,1476 @@
+{
+  "items": [
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Collapsible panels that unfold with height, opacity and a quiet blur.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/accordion.js",
+          "target": "components/prequelui/accordion.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert Dialog",
+      "description": "A modal confirmation that interrupts the flow and waits for an answer.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/alert-dialog.js",
+          "target": "components/prequelui/alert-dialog.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "title": "Carousel",
+      "description": "A draggable slider with neighbour slides, dots and a sliding counter.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/carousel.js",
+          "target": "components/prequelui/carousel.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "A checkbox with a swelling fill and a check that draws itself.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/checkbox.js",
+          "target": "components/prequelui/checkbox.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "code-block",
+      "type": "registry:ui",
+      "title": "Code Block",
+      "description": "A code surface that types itself in, copies cleanly and follows the caret.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/code-block.js",
+          "target": "components/prequelui/code-block.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "description": "A single panel that opens from a separate trigger and closes its parent gap.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/collapsible.js",
+          "target": "components/prequelui/collapsible.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "An input paired with a filtered list, gliding highlight and cascading rows.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/combobox.js",
+          "target": "components/prequelui/combobox.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "title": "Context Menu",
+      "description": "A menu anchored to the pointer with cascading items and menu handoff.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/context-menu.js",
+          "target": "components/prequelui/context-menu.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "A modal that tips into view from its edge while the page blurs behind it.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/dialog.js",
+          "target": "components/prequelui/dialog.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "title": "Drawer",
+      "description": "A panel that snaps in from an edge and leaves faster than it arrived.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/drawer.js",
+          "target": "components/prequelui/drawer.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "A compact action menu whose items arrive in a 30 ms cascade.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/dropdown-menu.js",
+          "target": "components/prequelui/dropdown-menu.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "title": "Hover Card",
+      "description": "A preview card that opens from its trigger after a deliberate hover.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/hover-card.js",
+          "target": "components/prequelui/hover-card.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:ui",
+      "title": "Input OTP",
+      "description": "One-time-code inputs with popping characters and a pasted cascade.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/input-otp.js",
+          "target": "components/prequelui/input-otp.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:ui",
+      "title": "Menubar",
+      "description": "A persistent application menubar whose menus hand off without closing.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/menubar.js",
+          "target": "components/prequelui/menubar.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "title": "Navigation Menu",
+      "description": "A shared navigation viewport that resizes between triggers.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/navigation-menu.js",
+          "target": "components/prequelui/navigation-menu.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Page links with an active outline that glides between positions.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/pagination.js",
+          "target": "components/prequelui/pagination.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "An anchored surface that grows from 80% with a spring.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/popover.js",
+          "target": "components/prequelui/popover.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "preview-link-card",
+      "type": "registry:ui",
+      "title": "Preview Link Card",
+      "description": "A link that reveals a live preview of its destination on hover.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/preview-link-card.js",
+          "target": "components/prequelui/preview-link-card.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "A progress bar whose width settles on a soft spring without overshoot.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/progress.js",
+          "target": "components/prequelui/progress.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "questionnaire",
+      "type": "registry:ui",
+      "title": "Questionnaire",
+      "description": "A multi-step questionnaire that recomposes its height between questions.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/questionnaire.js",
+          "target": "components/prequelui/questionnaire.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "Single-choice options with a dot that grows into place.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/radio-group.js",
+          "target": "components/prequelui/radio-group.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "A select menu with a gliding highlight and cascading options.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/select.js",
+          "target": "components/prequelui/select.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "A side sheet built on the dialog, sliding in with a blurred veil.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/sheet.js",
+          "target": "components/prequelui/sheet.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "title": "Sidebar",
+      "description": "A composable sidebar with a shared highlight and a single collapse curve.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/sidebar.js",
+          "target": "components/prequelui/sidebar.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "A range slider whose thumb stretches in the direction of travel.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/slider.js",
+          "target": "components/prequelui/slider.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "A switch whose thumb stretches 3/16 and lands softly.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/switch.js",
+          "target": "components/prequelui/switch.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Tabs with a solid indicator and panels that blur out then in.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/tabs.js",
+          "target": "components/prequelui/tabs.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "Stacked notifications that land from their edge and leave sooner.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/toast.js",
+          "target": "components/prequelui/toast.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "Toggle",
+      "description": "A two-state button with a short press and a quiet colour change.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/toggle.js",
+          "target": "components/prequelui/toggle.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "title": "Toggle Group",
+      "description": "A group of toggles with one shared background gliding between them.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/toggle-group.js",
+          "target": "components/prequelui/toggle-group.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "A tooltip that blooms from 70% and warms up its next appearance.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/tooltip.js",
+          "target": "components/prequelui/tooltip.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "A button that presses down and never fidgets on hover.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/button.js",
+          "target": "components/prequelui/button.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "copy-button",
+      "type": "registry:ui",
+      "title": "Copy Button",
+      "description": "Copies text and swaps its icon in a quick blur crossfade.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/copy-button.js",
+          "target": "components/prequelui/copy-button.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "flip-button",
+      "type": "registry:ui",
+      "title": "Flip Button",
+      "description": "A button that turns over on hover to reveal its back face.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/flip-button.js",
+          "target": "components/prequelui/flip-button.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "github-stars-button",
+      "type": "registry:ui",
+      "title": "GitHub Stars Button",
+      "description": "A compact star button with a counting number and fill.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/github-stars-button.js",
+          "target": "components/prequelui/github-stars-button.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "icon-button",
+      "type": "registry:ui",
+      "title": "Icon Button",
+      "description": "An icon button that releases a small burst of particles.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/icon-button.js",
+          "target": "components/prequelui/icon-button.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "liquid-button",
+      "type": "registry:ui",
+      "title": "Liquid Button",
+      "description": "A button that fills with liquid from the bottom on hover.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/liquid-button.js",
+          "target": "components/prequelui/liquid-button.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "ripple-button",
+      "type": "registry:ui",
+      "title": "Ripple Button",
+      "description": "A button that emits a ripple from the exact point clicked.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/ripple-button.js",
+          "target": "components/prequelui/ripple-button.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "shimmer-button",
+      "type": "registry:ui",
+      "title": "Shimmer Button",
+      "description": "One short pass of light crosses the button on hover, never an endless loop.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/shimmer-button.js",
+          "target": "components/prequelui/shimmer-button.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "theme-toggler-button",
+      "type": "registry:ui",
+      "title": "Theme Toggler Button",
+      "description": "A theme button whose icon spins, shrinks and blurs away.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/theme-toggler-button.js",
+          "target": "components/prequelui/theme-toggler-button.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "gradient-text",
+      "type": "registry:ui",
+      "title": "Gradient Text",
+      "description": "Text filled with a gradient that sweeps slowly across it.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/gradient-text.js",
+          "target": "components/prequelui/gradient-text.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "highlight-text",
+      "type": "registry:ui",
+      "title": "Highlight Text",
+      "description": "A marker highlight that draws in behind the words.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/highlight-text.js",
+          "target": "components/prequelui/highlight-text.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "shimmering-text",
+      "type": "registry:ui",
+      "title": "Shimmering Text",
+      "description": "A letter-by-letter wave of light crosses the text.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/shimmering-text.js",
+          "target": "components/prequelui/shimmering-text.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "splitting-text",
+      "type": "registry:ui",
+      "title": "Splitting Text",
+      "description": "Text arrives piece by piece with a staggered blur.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/splitting-text.js",
+          "target": "components/prequelui/splitting-text.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "typing-text",
+      "type": "registry:ui",
+      "title": "Typing Text",
+      "description": "Text typed character by character with a blinking caret.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/typing-text.js",
+          "target": "components/prequelui/typing-text.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "motion-grid",
+      "type": "registry:ui",
+      "title": "Motion Grid",
+      "description": "A dot grid that plays frame-by-frame motion as a loader or state.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/motion-grid.js",
+          "target": "components/prequelui/motion-grid.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "page-transition",
+      "type": "registry:ui",
+      "title": "Page Transition",
+      "description": "Page changes revealed with the View Transitions API.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/page-transition.js",
+          "target": "components/prequelui/page-transition.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spring",
+      "type": "registry:ui",
+      "title": "Spring",
+      "description": "A draggable element tied to its home by a visible spring.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/spring.js",
+          "target": "components/prequelui/spring.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "github-stars",
+      "type": "registry:ui",
+      "title": "GitHub Stars",
+      "description": "A repository star count that ticks up and bursts into particles.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/github-stars.js",
+          "target": "components/prequelui/github-stars.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "cursor",
+      "type": "registry:ui",
+      "title": "Cursor",
+      "description": "A custom cursor and a trailing label with two different springs.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/cursor.js",
+          "target": "components/prequelui/cursor.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sliding-text",
+      "type": "registry:ui",
+      "title": "Sliding Text",
+      "description": "Text slides out of its box while a copy slides in.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/sliding-text.js",
+          "target": "components/prequelui/sliding-text.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar-group",
+      "type": "registry:ui",
+      "title": "Avatar Group",
+      "description": "Overlapping avatars with one shared tooltip that hands off between faces.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/avatar-group.js",
+          "target": "components/prequelui/avatar-group.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "file-drop",
+      "type": "registry:ui",
+      "title": "File Drop",
+      "description": "A drop zone that breathes on drag, fills a spring bar and draws its own check.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/file-drop.js",
+          "target": "components/prequelui/file-drop.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "stepper",
+      "type": "registry:ui",
+      "title": "Stepper",
+      "description": "Connectors draw, the current badge grows and panels slide in the direction of travel.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/stepper.js",
+          "target": "components/prequelui/stepper.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "bottom-navigation",
+      "type": "registry:ui",
+      "title": "Bottom Navigation",
+      "description": "A bottom bar with a gliding highlight that recedes on scroll.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/bottom-navigation.js",
+          "target": "components/prequelui/bottom-navigation.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pinned-list",
+      "type": "registry:ui",
+      "title": "Pinned List",
+      "description": "Items that move between pinned and unpinned groups as the same node.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/pinned-list.js",
+          "target": "components/prequelui/pinned-list.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-progress",
+      "type": "registry:ui",
+      "title": "Scroll Progress",
+      "description": "A scroll-linked progress bar driven without overshoot.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/scroll-progress.js",
+          "target": "components/prequelui/scroll-progress.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "morphing-text",
+      "type": "registry:ui",
+      "title": "Morphing Text",
+      "description": "Letters glide to their new positions when the string changes.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/morphing-text.js",
+          "target": "components/prequelui/morphing-text.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "rolling-text",
+      "type": "registry:ui",
+      "title": "Rolling Text",
+      "description": "Letters roll over themselves like a split-flap board.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/rolling-text.js",
+          "target": "components/prequelui/rolling-text.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "rotating-text",
+      "type": "registry:ui",
+      "title": "Rotating Text",
+      "description": "Words leave upward while the next one rises into place.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/rotating-text.js",
+          "target": "components/prequelui/rotating-text.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "swapping-text",
+      "type": "registry:ui",
+      "title": "Swapping Text",
+      "description": "Only the letters that changed glide to their new spots.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/swapping-text.js",
+          "target": "components/prequelui/swapping-text.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "counting-number",
+      "type": "registry:ui",
+      "title": "Counting Number",
+      "description": "A number that counts to its target on a heavily damped spring.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/counting-number.js",
+          "target": "components/prequelui/counting-number.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "kpi-counter",
+      "type": "registry:ui",
+      "title": "KPI Counter",
+      "description": "A metric card whose number counts, delta lands and sparkline draws itself.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/kpi-counter.js",
+          "target": "components/prequelui/kpi-counter.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radial-progress",
+      "type": "registry:ui",
+      "title": "Radial Progress",
+      "description": "An arc and a number on one damped spring, with ticks waking in order.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/radial-progress.js",
+          "target": "components/prequelui/radial-progress.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scrolling-number",
+      "type": "registry:ui",
+      "title": "Scrolling Number",
+      "description": "A mechanical number band that scrolls and stops under a highlight.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/scrolling-number.js",
+          "target": "components/prequelui/scrolling-number.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sliding-number",
+      "type": "registry:ui",
+      "title": "Sliding Number",
+      "description": "An odometer where every digit rolls independently.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/sliding-number.js",
+          "target": "components/prequelui/sliding-number.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "auto-height",
+      "type": "registry:ui",
+      "title": "Auto Height",
+      "description": "A container whose height glides to fit whatever is inside.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/auto-height.js",
+          "target": "components/prequelui/auto-height.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "blur",
+      "type": "registry:ui",
+      "title": "Blur",
+      "description": "An entrance that resolves from blur to sharp.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/blur.js",
+          "target": "components/prequelui/blur.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "click",
+      "type": "registry:ui",
+      "title": "Click",
+      "description": "A ring, ripple, crosshair or burst played at the click point.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/click.js",
+          "target": "components/prequelui/click.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "effect",
+      "type": "registry:ui",
+      "title": "Effect",
+      "description": "Fade, blur, slide and zoom composed into one entrance.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/effect.js",
+          "target": "components/prequelui/effect.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "fade",
+      "type": "registry:ui",
+      "title": "Fade",
+      "description": "A simple opacity entrance tied to view or scroll.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/fade.js",
+          "target": "components/prequelui/fade.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "highlight",
+      "type": "registry:ui",
+      "title": "Highlight",
+      "description": "A shared background that slides to the active item.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/highlight.js",
+          "target": "components/prequelui/highlight.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "image-zoom",
+      "type": "registry:ui",
+      "title": "Image Zoom",
+      "description": "An image that zooms toward the pointer on hover.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/image-zoom.js",
+          "target": "components/prequelui/image-zoom.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "magnetic",
+      "type": "registry:ui",
+      "title": "Magnetic",
+      "description": "An element pulled toward the pointer inside a radius.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/magnetic.js",
+          "target": "components/prequelui/magnetic.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "marquee",
+      "type": "registry:ui",
+      "title": "Marquee",
+      "description": "A seamless row that drifts at a fixed speed and pauses under the pointer.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/marquee.js",
+          "target": "components/prequelui/marquee.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "particles",
+      "type": "registry:ui",
+      "title": "Particles",
+      "description": "A burst of particles around a trigger, for likes and stars.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/particles.js",
+          "target": "components/prequelui/particles.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-fade",
+      "type": "registry:ui",
+      "title": "Scroll Fade",
+      "description": "Container edges that fade only where there is more content.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/scroll-fade.js",
+          "target": "components/prequelui/scroll-fade.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "shine",
+      "type": "registry:ui",
+      "title": "Shine",
+      "description": "A highlight that sweeps across a surface on hover or click.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/shine.js",
+          "target": "components/prequelui/shine.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slide",
+      "type": "registry:ui",
+      "title": "Slide",
+      "description": "An entrance that arrives from one side.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/slide.js",
+          "target": "components/prequelui/slide.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spotlight-card",
+      "type": "registry:ui",
+      "title": "Spotlight Card",
+      "description": "A soft light that follows the pointer across a card on a lagging spring.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/spotlight-card.js",
+          "target": "components/prequelui/spotlight-card.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "theme-toggler",
+      "type": "registry:ui",
+      "title": "Theme Toggler",
+      "description": "A theme switch revealed by a 700 ms clip-path wipe.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/theme-toggler.js",
+          "target": "components/prequelui/theme-toggler.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tilt",
+      "type": "registry:ui",
+      "title": "Tilt",
+      "description": "A card that tilts in 3D toward the pointer and returns flat.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/tilt.js",
+          "target": "components/prequelui/tilt.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "zoom",
+      "type": "registry:ui",
+      "title": "Zoom",
+      "description": "An entrance that scales from half size with a spring.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/zoom.js",
+          "target": "components/prequelui/zoom.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "bubble",
+      "type": "registry:ui",
+      "title": "Bubble",
+      "description": "Slow gradient blobs that float and turn behind the content.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/bubble.js",
+          "target": "components/prequelui/bubble.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "fireworks",
+      "type": "registry:ui",
+      "title": "Fireworks",
+      "description": "Autonomous firework bursts with configurable timing.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/fireworks.js",
+          "target": "components/prequelui/fireworks.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "glyph",
+      "type": "registry:ui",
+      "title": "Glyph",
+      "description": "A field of characters woken by a trail of light and rings.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/glyph.js",
+          "target": "components/prequelui/glyph.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "gradient",
+      "type": "registry:ui",
+      "title": "Gradient",
+      "description": "A quiet animated gradient that gives the page depth.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/gradient.js",
+          "target": "components/prequelui/gradient.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "gravity-stars",
+      "type": "registry:ui",
+      "title": "Gravity Stars",
+      "description": "Stars pulled and pushed by an interactive gravity well.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/gravity-stars.js",
+          "target": "components/prequelui/gravity-stars.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hexagon",
+      "type": "registry:ui",
+      "title": "Hexagon",
+      "description": "A hexagonal grid that lights each cell under the pointer.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/hexagon.js",
+          "target": "components/prequelui/hexagon.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hole",
+      "type": "registry:ui",
+      "title": "Hole",
+      "description": "A tunnel of rings with particles rising toward the camera.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/hole.js",
+          "target": "components/prequelui/hole.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "stars",
+      "type": "registry:ui",
+      "title": "Stars",
+      "description": "Three parallax star layers drifting at different speeds.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/stars.js",
+          "target": "components/prequelui/stars.js",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "topography",
+      "type": "registry:ui",
+      "title": "Topography",
+      "description": "Living contour lines with a hill under the pointer.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/topography.js",
+          "target": "components/prequelui/topography.js",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}

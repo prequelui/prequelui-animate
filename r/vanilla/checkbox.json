@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox",
+  "type": "registry:ui",
+  "title": "Checkbox",
+  "description": "A checkbox with a swelling fill and a check that draws itself.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/checkbox.js",
+      "target": "components/prequelui/checkbox.js",
+      "type": "registry:ui",
+      "content": "let uid = 0;\n\nexport function createCheckbox(root, options = {}) {\n  const { defaultChecked = false, label = \"Accept terms\" } = options;\n  const id = `checkbox-${++uid}`;\n  let value = defaultChecked;\n  root.innerHTML = `\n    <label class=\"flex items-center gap-2.5 text-[13px]\">\n      <button type=\"button\" role=\"checkbox\" aria-checked=\"${value}\" id=\"${id}\"\n        class=\"relative flex size-4 items-center justify-center rounded-[4px] border outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring ${value ? \"border-foreground\" : \"border-input\"}\">\n        <span aria-hidden=\"true\" class=\"absolute inset-0 rounded-[3px] bg-foreground transition-transform duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:transition-none\"\n          style=\"transform:scale(${value ? 1 : 0.5});opacity:${value ? 1 : 0}\"></span>\n        <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"\n          stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"relative size-3 text-background\">\n          <path d=\"m5 12 4 4L19 6\"\n            style=\"stroke-dasharray:20;stroke-dashoffset:${value ? 0 : 20};transition:stroke-dashoffset .25s cubic-bezier(0.23,1,0.32,1)\"></path>\n        </svg>\n      </button>\n      <span>${label}</span>\n    </label>`;\n\n  const button = root.querySelector(\"button\");\n  const fill = root.querySelector(\"span[aria-hidden]\");\n  const path = root.querySelector(\"path\");\n\n  function render() {\n    button.setAttribute(\"aria-checked\", String(value));\n    button.classList.toggle(\"border-foreground\", value);\n    button.classList.toggle(\"border-input\", !value);\n    fill.style.transform = `scale(${value ? 1 : 0.5})`;\n    fill.style.opacity = value ? \"1\" : \"0\";\n    path.style.strokeDashoffset = value ? \"0\" : \"20\";\n  }\n\n  button.addEventListener(\"click\", () => {\n    value = !value;\n    render();\n    options.onCheckedChange?.(value);\n  });\n\n  return { get checked() { return value; }, destroy() { root.innerHTML = \"\"; } };\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch",
+  "type": "registry:ui",
+  "title": "Switch",
+  "description": "A switch whose thumb stretches 3/16 and lands softly.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/Switch.vue",
+      "target": "components/prequelui/Switch.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { computed, ref } from \"vue\";\n\nconst props = defineProps({\n  modelValue: { type: Boolean, default: undefined },\n  defaultChecked: { type: Boolean, default: false },\n  label: { type: String, default: \"Enable notifications\" },\n  disabled: { type: Boolean, default: false },\n});\nconst emit = defineEmits([\"update:modelValue\"]);\n\nconst internal = ref(props.defaultChecked);\nconst value = computed(() => (props.modelValue === undefined ? internal.value : props.modelValue));\nconst pressed = ref(false);\n\nfunction toggle() {\n  if (props.disabled) return;\n  const next = !value.value;\n  if (props.modelValue === undefined) internal.value = next;\n  emit(\"update:modelValue\", next);\n}\n</script>\n\n<template>\n  <label class=\"flex items-center gap-3 text-[13px]\">\n    <button\n      type=\"button\"\n      role=\"switch\"\n      :aria-checked=\"value\"\n      :aria-label=\"label\"\n      :disabled=\"disabled\"\n      class=\"relative flex h-6 w-11 shrink-0 items-center rounded-full p-0.5 outline-none transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50\"\n      :class=\"value ? 'bg-primary' : 'bg-input'\"\n      @click=\"toggle\"\n      @pointerdown=\"pressed = true\"\n      @pointerup=\"pressed = false\"\n      @pointerleave=\"pressed = false\"\n    >\n      <span\n        aria-hidden=\"true\"\n        class=\"block h-5 rounded-full bg-background shadow-sm transition-[transform,width] duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] motion-reduce:transition-none\"\n        :style=\"{ transform: `translateX(${value ? 20 : 0}px)`, width: pressed ? '24px' : '20px' }\"\n      />\n    </button>\n    <span v-if=\"label\">{{ label }}</span>\n  </label>\n</template>\n"
+    }
+  ]
+}

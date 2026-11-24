@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "magnetic",
+  "type": "registry:ui",
+  "title": "Magnetic",
+  "description": "An element pulled toward the pointer inside a radius.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/Magnetic.vue",
+      "target": "components/prequelui/Magnetic.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { computed, onBeforeUnmount, onMounted, ref, watch } from \"vue\";\nimport { animate } from \"motion\";\n\nconst props = defineProps({\n  strength: { type: Number, default: 0.5 },\n  range: { type: Number, default: 120 },\n  springOptions: { type: Object, default: undefined },\n  onlyOnHover: { type: Boolean, default: false },\n  disableOnTouch: { type: Boolean, default: true },\n  as: { type: [String, Object], default: \"div\" },\n});\n\nconst root = ref(null);\nconst canHover = ref(false);\nconst reduced = ref(false);\nconst hovering = ref(false);\nlet control;\n\nconst enabled = computed(\n  () => !reduced.value && (canHover.value || !props.disableOnTouch),\n);\n\nconst spring = computed(\n  () =>\n    props.springOptions ?? {\n      type: \"spring\",\n      stiffness: 100,\n      damping: 10,\n      mass: 0.5,\n    },\n);\n\nfunction reset() {\n  if (!root.value) return;\n  control?.stop?.();\n  control = animate(root.value, { x: 0, y: 0 }, spring.value);\n}\n\nfunction compute(event) {\n  if (!root.value) return;\n  const rect = root.value.getBoundingClientRect();\n  const centerX = rect.left + rect.width / 2;\n  const centerY = rect.top + rect.height / 2;\n  const dx = event.clientX - centerX;\n  const dy = event.clientY - centerY;\n  const distance = Math.hypot(dx, dy);\n\n  if (distance <= props.range) {\n    const factor = (1 - distance / props.range) * props.strength;\n    control?.stop?.();\n    control = animate(\n      root.value,\n      { x: dx * factor, y: dy * factor },\n      spring.value,\n    );\n  } else {\n    reset();\n  }\n}\n\nfunction onWindowMove(event) {\n  if (!enabled.value || props.onlyOnHover) return;\n  compute(event);\n}\n\nfunction onPointerEnter() {\n  hovering.value = true;\n}\n\nfunction onPointerMove(event) {\n  if (enabled.value && props.onlyOnHover && hovering.value) compute(event);\n}\n\nfunction onPointerLeave() {\n  hovering.value = false;\n  reset();\n}\n\nwatch(enabled, (value) => {\n  if (!value) reset();\n});\n\nonMounted(() => {\n  canHover.value =\n    window.matchMedia(\"(hover: hover) and (pointer: fine)\").matches;\n  reduced.value = window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n  if (!props.onlyOnHover) {\n    window.addEventListener(\"mousemove\", onWindowMove, { passive: true });\n  }\n});\n\nonBeforeUnmount(() => {\n  window.removeEventListener(\"mousemove\", onWindowMove);\n  control?.stop?.();\n});\n</script>\n\n<template>\n  <component\n    :is=\"as\"\n    ref=\"root\"\n    data-slot=\"magnetic\"\n    class=\"inline-block\"\n    @pointerenter=\"onPointerEnter\"\n    @pointermove=\"onPointerMove\"\n    @pointerleave=\"onPointerLeave\"\n  >\n    <slot />\n  </component>\n</template>\n"
+    }
+  ]
+}

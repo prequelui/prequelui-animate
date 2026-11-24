@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle",
+  "type": "registry:ui",
+  "title": "Toggle",
+  "description": "A two-state button with a short press and a quiet colour change.",
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/toggle.tsx",
+      "target": "components/prequelui/toggle.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { motion, useReducedMotion } from \"motion/react\";\nimport { cn } from \"@/lib/utils\";\n\nexport type ToggleProps = {\n  pressed?: boolean;\n  defaultPressed?: boolean;\n  onPressedChange?: (pressed: boolean) => void;\n  children?: React.ReactNode;\n  className?: string;\n};\n\nconst press = { type: \"spring\", stiffness: 550, damping: 30 } as const;\n\nexport function Toggle({\n  pressed,\n  defaultPressed = false,\n  onPressedChange,\n  children = \"Live preview\",\n  className,\n}: ToggleProps) {\n  const [internal, setInternal] = React.useState(defaultPressed);\n  const value = pressed ?? internal;\n  const reduce = useReducedMotion();\n\n  const toggle = () => {\n    const next = !value;\n    if (pressed === undefined) setInternal(next);\n    onPressedChange?.(next);\n  };\n\n  return (\n    <motion.button\n      type=\"button\"\n      aria-pressed={value}\n      onClick={toggle}\n      whileTap={reduce ? undefined : { scale: 0.97 }}\n      transition={press}\n      className={cn(\n        \"relative inline-flex h-9 items-center gap-2 rounded-lg border px-3 text-[13px] font-medium transition-colors duration-200\",\n        value\n          ? \"bg-primary text-primary-foreground\"\n          : \"bg-background text-muted-foreground hover:bg-accent\",\n        className,\n      )}\n    >\n      <span\n        aria-hidden=\"true\"\n        className={cn(\n          \"block size-2 rounded-full transition-colors duration-200\",\n          value ? \"bg-[#7ee2a8]\" : \"bg-muted-foreground/50\",\n        )}\n      />\n      {children}\n    </motion.button>\n  );\n}\n"
+    }
+  ]
+}

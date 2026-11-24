@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "marquee",
+  "type": "registry:ui",
+  "title": "Marquee",
+  "description": "A seamless row that drifts at a fixed speed and pauses under the pointer.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/marquee.js",
+      "target": "components/prequelui/marquee.js",
+      "type": "registry:ui",
+      "content": "const reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nexport function createMarquee(root, options = {}) {\n  const {\n    content = \"\",\n    speed = 42,\n    reverse = false,\n    pauseOnHover = true,\n    fade = true,\n    gap = 32,\n    repeat = 2,\n    itemClassName = \"\",\n    className = \"\",\n  } = options;\n  const copies = Math.max(2, Math.round(repeat));\n  let position = 0;\n  let span = 0;\n  let paused = false;\n  let ready = false;\n  let raf = 0;\n  let last = 0;\n  let observer;\n  let mutation;\n\n  const mask = fade\n    ? \"mask-image:linear-gradient(to right, transparent, black 10%, black 90%, transparent);-webkit-mask-image:linear-gradient(to right, transparent, black 10%, black 90%, transparent);\"\n    : \"\";\n\n  const copy = (index) => `<div data-copy class=\"flex shrink-0 items-center ${itemClassName}\" style=\"gap:${gap}px\"${index > 0 ? ' aria-hidden=\"true\"' : \"\"}>${content}</div>`;\n  root.innerHTML = `\n    <div data-slot=\"marquee\" class=\"relative overflow-hidden ${className}\" style=\"${mask}\">\n      <div data-track class=\"flex w-max items-center will-change-transform\" style=\"gap:${gap}px\">\n        ${Array.from({ length: copies }, (_, index) => copy(index)).join(\"\")}\n      </div>\n    </div>`;\n  const host = root.querySelector(\"[data-slot]\");\n  const track = root.querySelector(\"[data-track]\");\n  const first = root.querySelector(\"[data-copy]\");\n  const extras = Array.from(root.querySelectorAll(\"[data-copy]\")).slice(1);\n\n  function apply() {\n    track.style.transform = `translate3d(${position}px, 0, 0)`;\n  }\n\n  function measure() {\n    for (const node of extras) node.innerHTML = first.innerHTML;\n    span = first.scrollWidth + gap;\n    if (reverse) position = -span;\n    ready = span > 0;\n    apply();\n  }\n\n  function tick(now) {\n    if (!last) last = now;\n    const delta = Math.min(now - last, 64);\n    last = now;\n    if (!reduce() && !paused && ready && speed > 0) {\n      const direction = reverse ? 1 : -1;\n      let next = position + (direction * speed * delta) / 1000;\n      if (span > 0) {\n        if (!reverse && next <= -span) next += span;\n        if (reverse && next >= 0) next -= span;\n        position = next;\n        apply();\n      }\n    }\n    raf = requestAnimationFrame(tick);\n  }\n\n  function enter() {\n    if (pauseOnHover) paused = true;\n  }\n  function leave() {\n    if (pauseOnHover) paused = false;\n  }\n\n  host.addEventListener(\"pointerenter\", enter);\n  host.addEventListener(\"pointerleave\", leave);\n\n  measure();\n  observer = new ResizeObserver(measure);\n  observer.observe(first);\n  mutation = new MutationObserver(measure);\n  mutation.observe(first, { childList: true, subtree: true, characterData: true });\n  raf = requestAnimationFrame(tick);\n\n  return {\n    element: host,\n    destroy() {\n      cancelAnimationFrame(raf);\n      observer?.disconnect();\n      mutation?.disconnect();\n      host.removeEventListener(\"pointerenter\", enter);\n      host.removeEventListener(\"pointerleave\", leave);\n      root.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

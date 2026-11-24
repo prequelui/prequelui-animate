@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "liquid-button",
+  "type": "registry:ui",
+  "title": "Liquid Button",
+  "description": "A button that fills with liquid from the bottom on hover.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/liquid-button.js",
+      "target": "components/prequelui/liquid-button.js",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\n\nexport function createLiquidButton(root, options = {}) {\n  const {\n    label = \"Liquid\",\n    delay = \"0.3s\",\n    fillHeight = \"3px\",\n    hoverScale = 1,\n    tapScale = 0.97,\n    className = \"\",\n  } = options;\n  const seconds = Number.parseFloat(delay) || 0.3;\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n  let hovered = false;\n\n  root.innerHTML = `\n    <button type=\"button\" data-slot=\"liquid-button\"\n      class=\"group relative inline-flex h-10 items-center justify-center overflow-hidden rounded-lg border border-primary/20 bg-background px-4 text-[13px] font-medium text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring/50 ${className}\">\n      <span data-fill aria-hidden=\"true\"\n        class=\"pointer-events-none absolute inset-x-0 bottom-0 origin-bottom bg-primary\"\n        style=\"height:${fillHeight};opacity:0.55\"></span>\n      <span data-label class=\"relative z-10 text-foreground transition-colors\"\n        style=\"transition-duration:${seconds}s\">${label}</span>\n    </button>`;\n  const button = root.querySelector(\"button\");\n  const fill = root.querySelector(\"[data-fill]\");\n  const labelEl = root.querySelector(\"[data-label]\");\n\n  function paint(next) {\n    hovered = next;\n    const active = next && !reduce();\n    fill.style.height = next ? \"100%\" : fillHeight;\n    labelEl.classList.toggle(\"text-primary-foreground\", active);\n    labelEl.classList.toggle(\"text-foreground\", !active);\n    animate(\n      fill,\n      { scaleY: active ? 1 : 0.06, opacity: active ? 1 : 0.55 },\n      reduce() ? { duration: 0 } : { duration: seconds, ease: [0.25, 0.1, 0.35, 1] },\n    );\n  }\n\n  function press() {\n    if (reduce()) return;\n    animate(\n      button,\n      { scale: tapScale },\n      { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n    );\n  }\n\n  function release() {\n    if (reduce()) return;\n    animate(\n      button,\n      { scale: hovered && hoverScale !== 1 ? hoverScale : 1 },\n      { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n    );\n  }\n\n  button.addEventListener(\"pointerenter\", () => {\n    paint(true);\n    if (reduce() || hoverScale === 1) return;\n    animate(\n      button,\n      { scale: hoverScale },\n      { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n    );\n  });\n  button.addEventListener(\"pointerleave\", () => {\n    paint(false);\n    release();\n  });\n  button.addEventListener(\"focus\", () => paint(true));\n  button.addEventListener(\"blur\", () => paint(false));\n  button.addEventListener(\"pointerdown\", press);\n  button.addEventListener(\"pointerup\", release);\n\n  return {\n    element: button,\n    destroy() {\n      root.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

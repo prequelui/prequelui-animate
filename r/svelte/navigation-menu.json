@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "navigation-menu",
+  "type": "registry:component",
+  "title": "Navigation Menu",
+  "description": "A shared navigation viewport that resizes between triggers.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/NavigationMenu.svelte",
+      "target": "~/src/lib/components/prequelui/NavigationMenu.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { ChevronDown } from \"lucide-svelte\";\n\n  let {\n    items = [\n      { label: \"Components\", content: \"Every primitive, with the same motion contract.\" },\n      { label: \"Templates\", content: \"Full pages built on the same tokens.\" },\n      { label: \"Docs\", content: \"Installation, accessibility and API references.\" },\n    ],\n  } = $props();\n\n  let open = $state(null);\n  let root = $state(null);\n  let timer;\n\n  function scheduleClose() {\n    clearTimeout(timer);\n    timer = setTimeout(() => (open = null), 180);\n  }\n  function cancelClose() {\n    clearTimeout(timer);\n  }\n  function onPointer(event) {\n    if (open !== null && root && !root.contains(event.target)) open = null;\n  }\n  function onKey(event) {\n    if (event.key === \"Escape\") open = null;\n  }\n</script>\n\n<svelte:window onpointerdown={onPointer} onkeydown={onKey} />\n\n<div bind:this={root} class=\"relative w-full max-w-sm\" onpointerleave={scheduleClose} onpointerenter={cancelClose}>\n  <div role=\"menubar\" class=\"flex items-center gap-1 rounded-lg border p-1\">\n    {#each items as item, index (item.label)}\n      <button\n        type=\"button\"\n        aria-expanded={open === index}\n        class=\"flex h-7 items-center gap-1 rounded-md px-2.5 text-[13px] font-medium transition-colors\"\n        class:bg-accent={open === index}\n        class:text-foreground={open === index}\n        class:text-muted-foreground={open !== index}\n        onclick={() => (open = open === index ? null : index)}\n        onpointerenter={() => (open = index)}\n      >\n        {item.label}\n        <ChevronDown\n          class={`size-3 transition-transform ${open === index ? \"rotate-180\" : \"\"}`}\n        />\n      </button>\n    {/each}\n  </div>\n  {#if open !== null}\n    <div class=\"nav-panel absolute left-0 top-full z-40 mt-1.5 w-full overflow-hidden rounded-xl border bg-background p-4 shadow-xl\">\n      <div class=\"nav-content text-[13px] leading-6 text-muted-foreground\" data-index={open}>\n        {items[open]?.content}\n      </div>\n    </div>\n  {/if}\n</div>\n\n<style>\n  .nav-panel { animation: nav-in 240ms cubic-bezier(0.215, 0.61, 0.355, 1) both; }\n  .nav-content { animation: nav-content 200ms cubic-bezier(0.215, 0.61, 0.355, 1) both; }\n  @keyframes nav-in { from { opacity: 0; transform: translateY(-4px); filter: blur(2px); } }\n  @keyframes nav-content { from { opacity: 0; transform: translateX(6px); } }\n  @media (prefers-reduced-motion: reduce) { .nav-panel, .nav-content { animation: none; } }\n</style>\n"
+    }
+  ]
+}

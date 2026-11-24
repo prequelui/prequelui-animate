@@ -1,0 +1,56 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-coins-emoji",
+  "type": "registry:ui",
+  "title": "Coins · Emoji",
+  "description": "Two coins that knock together with a light metallic ring. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/coins.json"
+  ],
+  "meta": {
+    "style": "emoji",
+    "category": "Finance",
+    "roles": [
+      "primary",
+      "accent",
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      true,
+      true,
+      false,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.58 0.14 168)",
+      "primaryDark": "oklch(0.77 0.11 168)",
+      "accent": "oklch(0.72 0.15 85)",
+      "accentDark": "oklch(0.84 0.12 85)"
+    },
+    "emoji": {
+      "primary": "oklch(0.78 0.14 165)",
+      "secondary": "oklch(0.62 0.13 165)",
+      "accent": "oklch(0.82 0.16 85)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-coins-emoji.tsx",
+      "target": "components/prequelui/icons/prequel-coins-emoji.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelCoinsIcon, type IconProps } from \"./prequel-coins\";\n\nexport function PrequelCoinsEmojiIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelCoinsIcon size={size} variant=\"emoji\" {...props} />;\n}\n"
+    }
+  ]
+}

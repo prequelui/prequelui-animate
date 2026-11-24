@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "page-transition",
+  "type": "registry:ui",
+  "title": "Page Transition",
+  "description": "Page changes revealed with the View Transitions API.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/page-transition.tsx",
+      "target": "src/components/prequelui/page-transition.tsx",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\nimport { createEffect, on, onCleanup, onMount } from \"solid-js\";\nimport type { JSX } from \"solid-js\";\n\nexport type PageTransitionProps = {\n  pageKey: string | number;\n  duration?: number;\n  from?: \"top\" | \"bottom\" | \"left\" | \"right\";\n  fade?: boolean;\n  class?: string;\n  children?: JSX.Element;\n};\n\nexport function PageTransition(props: PageTransitionProps) {\n  let root: HTMLDivElement | undefined;\n  let controls: { stop?: () => void } | undefined;\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  const hiddenClip = () => {\n    switch (props.from) {\n      case \"bottom\":\n        return \"inset(100% 0 0 0)\";\n      case \"left\":\n        return \"inset(0 100% 0 0)\";\n      case \"right\":\n        return \"inset(0 0 0 100%)\";\n      default:\n        return \"inset(0 0 100% 0)\";\n    }\n  };\n\n  const play = () => {\n    if (!root) return;\n    controls?.stop?.();\n    if (reduce()) {\n      controls = animate(\n        root,\n        { opacity: [0, 1] },\n        { duration: 0.2, ease: [0.77, 0, 0.175, 1] },\n      );\n      return;\n    }\n    controls = animate(\n      root,\n      {\n        clipPath: [hiddenClip(), \"inset(0 0 0% 0)\"],\n        opacity: props.fade === false ? 1 : [0.6, 1],\n      },\n      { duration: props.duration ?? 0.55, ease: [0.77, 0, 0.175, 1] },\n    );\n  };\n\n  onMount(play);\n  createEffect(on(() => props.pageKey, play, { defer: true }));\n  onCleanup(() => controls?.stop?.());\n\n  return (\n    <div\n      ref={root}\n      data-slot=\"page-transition\"\n      class={`min-w-0 ${props.class ?? \"\"}`}\n    >\n      {props.children}\n    </div>\n  );\n}\n"
+    }
+  ]
+}

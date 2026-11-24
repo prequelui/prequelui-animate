@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-toggler-button",
+  "type": "registry:component",
+  "title": "Theme Toggler Button",
+  "description": "A theme button whose icon spins, shrinks and blurs away.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/ThemeTogglerButton.svelte",
+      "target": "~/src/lib/components/prequelui/ThemeTogglerButton.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { animate } from \"motion\";\n  import { Monitor, Moon, Sun } from \"lucide-svelte\";\n\n  let {\n    theme = \"light\",\n    resolvedTheme = \"light\",\n    modes = [\"light\", \"dark\", \"system\"],\n    onThemeChange = undefined,\n    hoverScale = 1,\n    tapScale = 0.97,\n    transition = undefined,\n    type = \"button\",\n    disabled = false,\n    onclick = undefined,\n    class: className = \"\",\n    children = undefined,\n    ...rest\n  } = $props();\n\n  const pressSpring = transition ?? {\n    type: \"spring\",\n    stiffness: 550,\n    damping: 30,\n    restSpeed: 10,\n  };\n\n  let button;\n  let hovered = false;\n\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  const next = $derived.by(() => {\n    let index = modes.indexOf(theme);\n    if (index === -1) index = modes.indexOf(resolvedTheme);\n    if (index === -1) return modes[0] ?? resolvedTheme;\n    return modes[(index + 1) % modes.length];\n  });\n\n  const iconClass = (name) =>\n    `absolute inset-0 size-4 transition-all duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:transition-none ${\n      theme === name\n        ? \"rotate-0 scale-100 opacity-100 blur-0\"\n        : \"-rotate-90 scale-50 opacity-0 blur-[2px]\"\n    }`;\n\n  function move(scale) {\n    if (!button || reduce()) return;\n    animate(button, { scale }, pressSpring);\n  }\n\n  function release() {\n    move(hovered && hoverScale !== 1 ? hoverScale : 1);\n  }\n</script>\n\n<button\n  bind:this={button}\n  {type}\n  {disabled}\n  data-slot=\"theme-toggler-button\"\n  data-theme={theme}\n  aria-label={`Switch to ${next} theme`}\n  class={`inline-flex h-10 items-center justify-center gap-2 rounded-lg border bg-background px-4 text-[13px] font-medium text-foreground transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 ${className}`}\n  onclick={(event) => {\n    onclick?.(event);\n    if (!event?.defaultPrevented) onThemeChange?.(next);\n  }}\n  onpointerdown={() => !disabled && move(tapScale)}\n  onpointerup={release}\n  onpointercancel={release}\n  onpointerenter={() => {\n    hovered = true;\n    if (hoverScale !== 1) move(hoverScale);\n  }}\n  onpointerleave={() => {\n    hovered = false;\n    move(1);\n  }}\n  {...rest}\n>\n  <span class=\"relative inline-flex size-4 items-center justify-center\">\n    <Sun aria-hidden=\"true\" class={iconClass(\"light\")} />\n    <Moon aria-hidden=\"true\" class={iconClass(\"dark\")} />\n    <Monitor aria-hidden=\"true\" class={iconClass(\"system\")} />\n  </span>\n  {#if children}{@render children()}{:else}{theme}{/if}\n</button>\n"
+    }
+  ]
+}

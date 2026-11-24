@@ -1,0 +1,31 @@
+export const FRAMEWORK_LABELS = {
+    "next-app": "Next.js (App Router)",
+    "next-pages": "Next.js (Pages Router)",
+    "vite-react": "Vite + React",
+    nuxt: "Nuxt",
+    "vite-vue": "Vite + Vue",
+    sveltekit: "SvelteKit",
+    "vite-svelte": "Vite + Svelte",
+    "solid-start": "SolidStart",
+    "vite-solid": "Vite + Solid",
+    astro: "Astro",
+    laravel: "Laravel + React",
+    html: "HTML / JavaScript",
+    unknown: "Unknown",
+};
+export const FRAMEWORK_RUNTIME = {
+    "next-app": "react",
+    "next-pages": "react",
+    "vite-react": "react",
+    nuxt: "vue",
+    "vite-vue": "vue",
+    sveltekit: "svelte",
+    "vite-svelte": "svelte",
+    "solid-start": "solid",
+    "vite-solid": "solid",
+    astro: "react",
+    laravel: "react",
+    html: "vanilla",
+    unknown: "vanilla",
+};
+export const PACKAGE_MANAGERS = ["npm", "pnpm", "yarn", "bun"];

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-heart-duotone",
+  "type": "registry:ui",
+  "title": "Heart · Duotone",
+  "description": "A heart that beats once and flashes its fill. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/heart.json"
+  ],
+  "meta": {
+    "style": "duotone",
+    "category": "People",
+    "roles": [
+      "primary"
+    ],
+    "closed": [
+      true
+    ],
+    "palette": {
+      "primary": "oklch(0.64 0.16 355)",
+      "primaryDark": "oklch(0.81 0.12 355)",
+      "accent": "oklch(0.72 0.14 20)",
+      "accentDark": "oklch(0.84 0.11 20)"
+    },
+    "emoji": {
+      "primary": "oklch(0.68 0.2 27)",
+      "secondary": "oklch(0.54 0.19 25)",
+      "accent": "oklch(0.62 0.22 350)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-heart-duotone.tsx",
+      "target": "components/prequelui/icons/prequel-heart-duotone.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelHeartIcon, type IconProps } from \"./prequel-heart\";\n\nexport function PrequelHeartDuotoneIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelHeartIcon size={size} variant=\"duotone\" {...props} />;\n}\n"
+    }
+  ]
+}

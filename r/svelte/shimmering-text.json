@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shimmering-text",
+  "type": "registry:component",
+  "title": "Shimmering Text",
+  "description": "A letter-by-letter wave of light crosses the text.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/ShimmeringText.svelte",
+      "target": "~/src/lib/components/prequelui/ShimmeringText.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount } from \"svelte\";\n  import { animate } from \"motion\";\n\n  let {\n    text = \"\",\n    duration = 1,\n    wave = false,\n    color = \"var(--muted-foreground)\",\n    shimmeringColor = \"var(--foreground)\",\n    class: className = \"\",\n    ...rest\n  } = $props();\n\n  let root;\n  let track;\n  const chars = Array.from(text ?? \"\");\n  const controls = [];\n  let observer;\n\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  function play() {\n    if (reduce() || !track) return;\n    const nodes = Array.from(track.children);\n    nodes.forEach((node, index) => {\n      controls.push(\n        animate(\n          node,\n          {\n            ...(wave ? { x: [0, 5, 0], y: [0, -5, 0], scale: [1, 1.1, 1], rotateY: [0, 15, 0] } : {}),\n            opacity: [1, 0.35, 1],\n          },\n          {\n            duration,\n            repeat: Infinity,\n            repeatDelay: chars.length * 0.05,\n            delay: (index * duration) / Math.max(1, chars.length),\n            ease: \"easeInOut\",\n          },\n        ),\n      );\n    });\n  }\n\n  onMount(() => {\n    observer = new IntersectionObserver((entries) => {\n      if (!entries.some((entry) => entry.isIntersecting)) return;\n      play();\n      observer?.disconnect();\n    });\n    if (root) observer.observe(root);\n    return () => {\n      observer?.disconnect();\n      controls.forEach((control) => control.stop?.());\n    };\n  });\n</script>\n\n<span\n  bind:this={root}\n  data-slot=\"shimmering-text\"\n  class={`relative inline-block ${className}`}\n  style={`--shimmer-color:${shimmeringColor};--shimmer-base:${color};color:${color};perspective:500px`}\n  {...rest}\n>\n  <span class=\"sr-only\">{text}</span>\n  <span bind:this={track} aria-hidden=\"true\" class=\"inline-block\" style=\"perspective:inherit\">\n    {#each chars as char, index (char + \"-\" + index)}\n      <span class=\"inline-block whitespace-pre\" style=\"transform-style:preserve-3d\">{char}</span>\n    {/each}\n  </span>\n</span>\n"
+    }
+  ]
+}

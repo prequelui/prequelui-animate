@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "magnetic",
+  "type": "registry:ui",
+  "title": "Magnetic",
+  "description": "An element pulled toward the pointer inside a radius.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/magnetic.js",
+      "target": "components/prequelui/magnetic.js",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\n\nconst defaultSpring = { type: \"spring\", stiffness: 100, damping: 10, mass: 0.5 };\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nexport function createMagnetic(root, options = {}) {\n  const {\n    content = \"\",\n    strength = 0.5,\n    range = 120,\n    springOptions,\n    onlyOnHover = false,\n    disableOnTouch = true,\n    className = \"\",\n  } = options;\n  let control;\n  let hovering = false;\n  const canHover = window.matchMedia(\"(hover: hover) and (pointer: fine)\").matches;\n  const motionQuery = window.matchMedia(\"(prefers-reduced-motion: reduce)\");\n  const enabled = () => !reduce() && (canHover || disableOnTouch === false);\n\n  root.innerHTML = `<div data-slot=\"magnetic\" class=\"inline-block ${className}\">${content}</div>`;\n  const host = root.querySelector(\"[data-slot]\");\n\n  function reset() {\n    control?.stop?.();\n    control = animate(host, { x: 0, y: 0 }, springOptions ?? defaultSpring);\n  }\n\n  function compute(event) {\n    const rect = host.getBoundingClientRect();\n    const centerX = rect.left + rect.width / 2;\n    const centerY = rect.top + rect.height / 2;\n    const dx = event.clientX - centerX;\n    const dy = event.clientY - centerY;\n    const distance = Math.hypot(dx, dy);\n    if (distance <= range) {\n      const factor = (1 - distance / range) * strength;\n      control?.stop?.();\n      control = animate(\n        host,\n        { x: dx * factor, y: dy * factor },\n        springOptions ?? defaultSpring,\n      );\n    } else {\n      reset();\n    }\n  }\n\n  function onWindowMove(event) {\n    if (!enabled() || onlyOnHover) return;\n    compute(event);\n  }\n\n  function onEnter() {\n    hovering = true;\n  }\n  function onMove(event) {\n    if (enabled() && onlyOnHover && hovering) compute(event);\n  }\n  function onLeave() {\n    hovering = false;\n    reset();\n  }\n\n  function onMotionPreference() {\n    if (reduce()) reset();\n  }\n\n  if (!onlyOnHover) window.addEventListener(\"mousemove\", onWindowMove, { passive: true });\n  host.addEventListener(\"pointerenter\", onEnter);\n  host.addEventListener(\"pointermove\", onMove);\n  host.addEventListener(\"pointerleave\", onLeave);\n  if (typeof motionQuery.addEventListener === \"function\") {\n    motionQuery.addEventListener(\"change\", onMotionPreference);\n  } else {\n    motionQuery.addListener?.(onMotionPreference);\n  }\n\n  return {\n    element: host,\n    destroy() {\n      window.removeEventListener(\"mousemove\", onWindowMove);\n      host.removeEventListener(\"pointerenter\", onEnter);\n      host.removeEventListener(\"pointermove\", onMove);\n      host.removeEventListener(\"pointerleave\", onLeave);\n      if (typeof motionQuery.removeEventListener === \"function\") {\n        motionQuery.removeEventListener(\"change\", onMotionPreference);\n      } else {\n        motionQuery.removeListener?.(onMotionPreference);\n      }\n      control?.stop?.();\n      root.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

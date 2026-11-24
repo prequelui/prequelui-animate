@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "github-stars",
+  "type": "registry:ui",
+  "title": "GitHub Stars",
+  "description": "A repository star count that ticks up and bursts into particles.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/github-stars.tsx",
+      "target": "src/components/prequelui/github-stars.tsx",
+      "type": "registry:ui",
+      "content": "import { Github, Star } from \"lucide-solid\";\nimport { createMemo, createSignal, onMount } from \"solid-js\";\nimport type { JSX } from \"solid-js\";\n\nexport type GitHubStarsProps = {\n  repo?: string;\n  href?: string;\n  count?: number | null;\n  defaultCount?: number | null;\n  label?: string;\n  showLabel?: boolean;\n  class?: string;\n};\n\nexport function GitHubStars(props: GitHubStarsProps) {\n  const [live, setLive] = createSignal<number | null>(props.defaultCount ?? null);\n  const value = createMemo(() =>\n    props.count !== undefined && props.count !== null ? props.count : live(),\n  );\n  const destination = createMemo(\n    () => props.href || (props.repo ? `https://github.com/${props.repo}` : undefined),\n  );\n  const display = createMemo(() => {\n    const current = value();\n    if (current === null || current === undefined) return \"Star\";\n    if (current < 1000) return String(current);\n    return new Intl.NumberFormat(\"en\", {\n      notation: \"compact\",\n      maximumFractionDigits: 1,\n    }).format(current);\n  });\n\n  onMount(() => {\n    if ((props.count !== undefined && props.count !== null) || !props.repo) return;\n    let active = true;\n    fetch(`https://api.github.com/repos/${props.repo}`, {\n      headers: { Accept: \"application/vnd.github+json\" },\n    })\n      .then((response) => (response.ok ? response.json() : null))\n      .then((data) => {\n        if (active && data && typeof data.stargazers_count === \"number\") {\n          setLive(data.stargazers_count);\n        }\n      })\n      .catch(() => {});\n    return () => {\n      active = false;\n    };\n  });\n\n  return (\n    <a\n      data-slot=\"github-stars\"\n      href={destination()}\n      target=\"_blank\"\n      rel=\"noreferrer noopener\"\n      aria-label={props.repo ? `${props.label ?? \"GitHub\"} stars on GitHub` : \"GitHub\"}\n      class={`group inline-flex h-8 items-center gap-1.5 rounded-full border bg-background px-2.5 text-[13px] text-muted-foreground outline-none transition-colors hover:bg-accent hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50 ${props.class ?? \"\"}`}\n    >\n      <Github class=\"size-4 shrink-0\" strokeWidth={1.8} aria-hidden=\"true\" />\n      {props.showLabel === false ? null : (\n        <span class=\"truncate\">{props.label ?? \"GitHub\"}</span>\n      )}\n      <span aria-hidden=\"true\" class=\"h-3.5 w-px shrink-0 bg-border\" />\n      <span\n        aria-hidden=\"true\"\n        class=\"inline-flex items-center transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-rotate-12 group-hover:scale-110 motion-reduce:transition-none\"\n      >\n        <Star class=\"size-3.5 shrink-0 transition-colors group-hover:fill-current\" />\n      </span>\n      <span class=\"tabular-nums\">{display()}</span>\n    </a>\n  );\n}\n"
+    }
+  ]
+}

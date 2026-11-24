@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion",
+  "type": "registry:component",
+  "title": "Accordion",
+  "description": "Collapsible panels that unfold with height, opacity and a quiet blur.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/Accordion.svelte",
+      "target": "~/src/lib/components/prequelui/Accordion.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { ChevronDown } from \"lucide-svelte\";\n  import { cubicBezier } from \"motion\";\n\n  let {\n    items = [],\n    type = \"single\",\n    defaultValue = undefined,\n    collapsible = true,\n  } = $props();\n\n  const initial =\n    defaultValue === undefined\n      ? []\n      : Array.isArray(defaultValue)\n        ? defaultValue\n        : [defaultValue];\n\n  let open = $state(initial);\n\n  function toggle(value) {\n    const isOpen = open.includes(value);\n    if (type === \"single\") {\n      open = isOpen ? (collapsible ? [] : open) : [value];\n    } else {\n      open = isOpen ? open.filter((entry) => entry !== value) : [...open, value];\n    }\n  }\n\n  function isOpen(value) {\n    return open.includes(value);\n  }\n\n  const ease = cubicBezier(0.215, 0.61, 0.355, 1);\n\n  function reveal(node) {\n    if (\n      typeof window !== \"undefined\" &&\n      window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches\n    ) {\n      return { duration: 0 };\n    }\n    const height = node.scrollHeight;\n    return {\n      duration: 350,\n      easing: ease,\n      css: (t) =>\n        `height:${t * height}px;opacity:${t};filter:blur(${2 * (1 - t)}px);overflow:hidden;`,\n    };\n  }\n</script>\n\n<div data-slot=\"accordion\" class=\"w-full\">\n  {#each items as item (item.value)}\n    <div\n      data-slot=\"accordion-item\"\n      data-state={isOpen(item.value) ? \"open\" : \"closed\"}\n      class=\"border-b last:border-b-0\"\n    >\n      <button\n        type=\"button\"\n        aria-expanded={isOpen(item.value)}\n        aria-controls={`accordion-${item.value}`}\n        class=\"flex w-full items-center justify-between gap-4 py-3.5 text-left text-[13.5px] font-medium outline-none transition-colors focus-visible:text-foreground\"\n        onclick={() => toggle(item.value)}\n      >\n        <span>{item.title}</span>\n        <ChevronDown\n          aria-hidden=\"true\"\n          class=\"size-4 text-muted-foreground transition-transform duration-[350ms]\"\n          style={`transition-timing-function:cubic-bezier(0.215,0.61,0.355,1);transform:rotate(${isOpen(item.value) ? 180 : 0}deg)`}\n        />\n      </button>\n      {#if isOpen(item.value)}\n        <div\n          id={`accordion-${item.value}`}\n          role=\"region\"\n          class=\"overflow-hidden\"\n          transition:reveal\n        >\n          <div class=\"pb-4 pr-6 text-[13px] leading-6 text-muted-foreground\">\n            {item.content}\n          </div>\n        </div>\n      {/if}\n    </div>\n  {/each}\n</div>\n"
+    }
+  ]
+}

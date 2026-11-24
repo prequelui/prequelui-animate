@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toast",
+  "type": "registry:ui",
+  "title": "Toast",
+  "description": "Stacked notifications that land from their edge and leave sooner.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/toast.tsx",
+      "target": "src/components/prequelui/toast.tsx",
+      "type": "registry:ui",
+      "content": "import { For, createSignal, onCleanup } from \"solid-js\";\nimport { Check, X } from \"lucide-solid\";\n\nexport type ToastProps = {\n  trigger?: string;\n  title?: string;\n  description?: string;\n  duration?: number;\n  class?: string;\n};\n\ntype ToastEntry = { id: number; title: string; description?: string };\n\nexport function Toast(props: ToastProps) {\n  const [toasts, setToasts] = createSignal<ToastEntry[]>([]);\n  const timers = new Map<number, number>();\n\n  const dismiss = (id: number) => {\n    const timer = timers.get(id);\n    if (timer) clearTimeout(timer);\n    timers.delete(id);\n    setToasts((current) => current.filter((toast) => toast.id !== id));\n  };\n  const add = () => {\n    const id = Date.now();\n    setToasts((current) =>\n      [...current, { id, title: props.title ?? \"Changes saved\", description: props.description }].slice(-4),\n    );\n    timers.set(id, window.setTimeout(() => dismiss(id), props.duration ?? 5000));\n  };\n\n  onCleanup(() => {\n    for (const timer of timers.values()) clearTimeout(timer);\n    timers.clear();\n  });\n\n  return (\n    <div class={`flex w-full max-w-[420px] flex-col items-center gap-4 ${props.class ?? \"\"}`}>\n      <button\n        type=\"button\"\n        onClick={add}\n        class=\"inline-flex h-9 items-center rounded-lg bg-foreground px-3.5 text-[13px] font-medium text-background\"\n      >\n        {props.trigger ?? \"Show toast\"}\n      </button>\n      <div class=\"relative h-[96px] w-full\">\n        <For each={toasts()}>\n          {(toast, index) => (\n            <div\n              class=\"toast absolute bottom-4 left-1/2 flex w-[280px] -translate-x-1/2 items-center gap-2 rounded-xl border bg-popover px-3 py-2.5 text-[13px] shadow-lg\"\n              style={{ \"animation-delay\": `${index() * 30}ms` }}\n            >\n              <span class=\"flex size-5 shrink-0 items-center justify-center rounded-full bg-[#1f9d63] text-white\">\n                <Check class=\"size-3\" />\n              </span>\n              <span class=\"min-w-0 flex-1\">\n                <span class=\"block truncate\">{toast.title}</span>\n                {toast.description && (\n                  <span class=\"mt-0.5 block truncate text-[12px] text-muted-foreground\">\n                    {toast.description}\n                  </span>\n                )}\n              </span>\n              <button\n                type=\"button\"\n                aria-label=\"Dismiss\"\n                onClick={() => dismiss(toast.id)}\n                class=\"shrink-0 text-muted-foreground hover:text-foreground\"\n              >\n                <X class=\"size-3.5\" />\n              </button>\n            </div>\n          )}\n        </For>\n      </div>\n      <style>{`\n        .toast { animation: toast-in 320ms cubic-bezier(0.34,1.36,0.64,1) both; }\n        @keyframes toast-in { from { opacity: 0; transform: translate(-50%, 24px) scale(0.96); filter: blur(4px); } }\n        @media (prefers-reduced-motion: reduce) { .toast { animation: toast-fade 200ms linear both; } @keyframes toast-fade { from { opacity: 0; } } }\n      `}</style>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

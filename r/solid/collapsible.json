@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "collapsible",
+  "type": "registry:ui",
+  "title": "Collapsible",
+  "description": "A single panel that opens from a separate trigger and closes its parent gap.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/collapsible.tsx",
+      "target": "src/components/prequelui/collapsible.tsx",
+      "type": "registry:ui",
+      "content": "import { Show, createEffect, createSignal, on } from \"solid-js\";\nimport { animate } from \"motion\";\nimport { ChevronDown } from \"lucide-solid\";\n\nexport type CollapsibleProps = {\n  open?: boolean;\n  defaultOpen?: boolean;\n  onOpenChange?: (open: boolean) => void;\n  trigger?: string;\n  children?: unknown;\n  class?: string;\n};\n\nconst resize = { duration: 0.45, ease: [0.4, 0, 0.1, 1] } as const;\n\nexport function Collapsible(props: CollapsibleProps) {\n  const [internal, setInternal] = createSignal(props.defaultOpen ?? false);\n  const value = () => props.open ?? internal();\n  let panel: HTMLDivElement | undefined;\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  function toggle() {\n    const next = !value();\n    if (props.open === undefined) setInternal(next);\n    props.onOpenChange?.(next);\n  }\n\n  createEffect(\n    on(\n      value,\n      (open, previous) => {\n        if (!panel || previous === undefined) return;\n        if (reduce()) {\n          panel.style.height = open ? \"auto\" : \"0px\";\n          panel.style.opacity = open ? \"1\" : \"0\";\n          return;\n        }\n        if (open) {\n          panel.style.height = \"0px\";\n          panel.style.opacity = \"0\";\n          const height = panel.scrollHeight;\n          animate(panel, { height: [\"0px\", `${height}px`] }, resize).finished.then(() => {\n            if (panel) panel.style.height = \"auto\";\n          });\n          animate(panel, { opacity: [0, 1] }, { duration: 0.3, ease: [0.23, 1, 0.32, 1] });\n        } else {\n          const height = panel.scrollHeight;\n          animate(panel, { height: [`${height}px`, \"0px\"], opacity: [1, 0] }, { duration: 0.3, ease: [0, 0, 0.58, 1] });\n        }\n      },\n      { defer: true },\n    ),\n  );\n\n  return (\n    <div data-slot=\"collapsible\" class={`w-full ${props.class ?? \"\"}`}>\n      <button\n        type=\"button\"\n        aria-expanded={value()}\n        aria-controls=\"collapsible-panel\"\n        onClick={toggle}\n        class=\"flex w-full items-center justify-between gap-4 py-3 text-left text-[13.5px] font-medium outline-none\"\n      >\n        <span>{props.trigger ?? \"Show details\"}</span>\n        <ChevronDown\n          aria-hidden=\"true\"\n          class=\"size-4 text-muted-foreground transition-transform duration-[450ms]\"\n          style={{\n            \"transition-timing-function\": \"cubic-bezier(0.4,0,0.1,1)\",\n            transform: `rotate(${value() ? 180 : 0}deg)`,\n          }}\n        />\n      </button>\n      <Show when={value()}>\n        <div\n          ref={panel}\n          id=\"collapsible-panel\"\n          role=\"region\"\n          class=\"overflow-hidden\"\n          style={{\n            height: value() ? \"auto\" : \"0px\",\n            opacity: value() ? 1 : 0,\n          }}\n        >\n          <div class=\"pb-3 text-[13px] leading-6 text-muted-foreground\">\n            {props.children as never}\n          </div>\n        </div>\n      </Show>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

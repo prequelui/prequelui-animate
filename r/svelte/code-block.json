@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block",
+  "type": "registry:component",
+  "title": "Code Block",
+  "description": "A code surface that types itself in, copies cleanly and follows the caret.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/CodeBlock.svelte",
+      "target": "~/src/lib/components/prequelui/CodeBlock.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { Check, Copy } from \"lucide-svelte\";\n\n  let { code, filename = \"example.ts\", typing = true } = $props();\n\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  let length = $state(typing && !reduce() ? 0 : code.length);\n  let copied = $state(false);\n  let typingTimer;\n  let copyTimer;\n\n  function start() {\n    clearInterval(typingTimer);\n    if (!typing || reduce()) {\n      length = code.length;\n      return;\n    }\n    length = 0;\n    typingTimer = setInterval(() => {\n      if (length >= code.length) {\n        clearInterval(typingTimer);\n        return;\n      }\n      length += 1;\n    }, 14);\n  }\n\n  $effect(() => {\n    code;\n    start();\n    return () => {\n      clearInterval(typingTimer);\n      clearTimeout(copyTimer);\n    };\n  });\n\n  async function copy() {\n    try {\n      await navigator.clipboard.writeText(code);\n    } catch {\n      const area = document.createElement(\"textarea\");\n      area.value = code;\n      document.body.appendChild(area);\n      area.select();\n      document.execCommand(\"copy\");\n      area.remove();\n    }\n    copied = true;\n    clearTimeout(copyTimer);\n    copyTimer = setTimeout(() => (copied = false), 2000);\n  }\n</script>\n\n<div class=\"overflow-hidden rounded-xl border bg-code\">\n  <div class=\"flex items-center justify-between border-b px-4 py-2\">\n    <span class=\"font-mono text-[13px] text-muted-foreground\">{filename}</span>\n    <button type=\"button\" aria-label={copied ? \"Copied\" : \"Copy code\"} class=\"relative flex size-7 items-center justify-center rounded-md text-muted-foreground hover:bg-accent hover:text-foreground\" onclick={copy}>\n      <span class=\"copy-icon\" class:swapped={copied}>\n        {#if copied}<Check class=\"size-3.5\" />{:else}<Copy class=\"size-3.5\" />{/if}\n      </span>\n    </button>\n  </div>\n  <pre class=\"overflow-auto p-4 font-mono text-[13px] leading-6\"><code>{code.slice(0, length)}{length < code.length ? \"▍\" : \"\"}</code></pre>\n</div>\n\n<style>\n  .copy-icon { display: flex; transition: transform 150ms cubic-bezier(0.23, 1, 0.32, 1), opacity 150ms; }\n  .copy-icon.swapped { animation: copy-swap 150ms cubic-bezier(0.23, 1, 0.32, 1); }\n  @keyframes copy-swap { from { transform: scale(0.5); filter: blur(2px); opacity: 0; } }\n</style>\n"
+    }
+  ]
+}

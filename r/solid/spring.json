@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spring",
+  "type": "registry:ui",
+  "title": "Spring",
+  "description": "A draggable element tied to its home by a visible spring.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/spring.tsx",
+      "target": "src/components/prequelui/spring.tsx",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\nimport type { JSX } from \"solid-js\";\n\nexport type SpringProps = {\n  stiffness?: number;\n  damping?: number;\n  elastic?: number;\n  snapBack?: boolean;\n  pressScale?: number;\n  class?: string;\n  children?: JSX.Element;\n};\n\nexport function Spring(props: SpringProps) {\n  let root: HTMLDivElement | undefined;\n  let dragging = false;\n  let startX = 0;\n  let startY = 0;\n  let lastX = 0;\n  let lastY = 0;\n  const pressScale = () => props.pressScale ?? 1.06;\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  const down = (event: PointerEvent) => {\n    if (reduce() || !root || event.button !== 0) return;\n    dragging = true;\n    startX = event.clientX;\n    startY = event.clientY;\n    lastX = 0;\n    lastY = 0;\n    root.setPointerCapture?.(event.pointerId);\n    root.style.cursor = \"grabbing\";\n    animate(\n      root,\n      { scale: pressScale() },\n      { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n    );\n  };\n\n  const move = (event: PointerEvent) => {\n    if (!dragging || !root) return;\n    lastX = (event.clientX - startX) * (props.elastic ?? 0.7);\n    lastY = (event.clientY - startY) * (props.elastic ?? 0.7);\n    root.style.transform = `translate3d(${lastX}px, ${lastY}px, 0) scale(${pressScale()})`;\n  };\n\n  const up = () => {\n    if (!dragging || !root) return;\n    dragging = false;\n    root.style.cursor = \"grab\";\n    if (props.snapBack === false) return;\n    animate(\n      root,\n      { x: [lastX, 0], y: [lastY, 0], scale: 1 },\n      {\n        type: \"spring\",\n        stiffness: props.stiffness ?? 200,\n        damping: props.damping ?? 16,\n      },\n    ).finished.then(() => {\n      if (root) root.style.transform = \"none\";\n    });\n  };\n\n  return (\n    <div\n      ref={root}\n      data-slot=\"spring\"\n      class={`cursor-grab touch-none select-none active:cursor-grabbing ${props.class ?? \"\"}`}\n      onPointerDown={down}\n      onPointerMove={move}\n      onPointerUp={up}\n      onPointerCancel={up}\n    >\n      {props.children}\n    </div>\n  );\n}\n"
+    }
+  ]
+}

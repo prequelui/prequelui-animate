@@ -1,0 +1,1568 @@
+{
+  "items": [
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Collapsible panels that unfold with height, opacity and a quiet blur.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Accordion.vue",
+          "target": "components/prequelui/Accordion.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert Dialog",
+      "description": "A modal confirmation that interrupts the flow and waits for an answer.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/AlertDialog.vue",
+          "target": "components/prequelui/AlertDialog.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "title": "Carousel",
+      "description": "A draggable slider with neighbour slides, dots and a sliding counter.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Carousel.vue",
+          "target": "components/prequelui/Carousel.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "A checkbox with a swelling fill and a check that draws itself.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Checkbox.vue",
+          "target": "components/prequelui/Checkbox.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "code-block",
+      "type": "registry:ui",
+      "title": "Code Block",
+      "description": "A code surface that types itself in, copies cleanly and follows the caret.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/CodeBlock.vue",
+          "target": "components/prequelui/CodeBlock.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "description": "A single panel that opens from a separate trigger and closes its parent gap.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Collapsible.vue",
+          "target": "components/prequelui/Collapsible.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "An input paired with a filtered list, gliding highlight and cascading rows.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Combobox.vue",
+          "target": "components/prequelui/Combobox.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "title": "Context Menu",
+      "description": "A menu anchored to the pointer with cascading items and menu handoff.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/ContextMenu.vue",
+          "target": "components/prequelui/ContextMenu.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "A modal that tips into view from its edge while the page blurs behind it.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Dialog.vue",
+          "target": "components/prequelui/Dialog.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "title": "Drawer",
+      "description": "A panel that snaps in from an edge and leaves faster than it arrived.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Drawer.vue",
+          "target": "components/prequelui/Drawer.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "A compact action menu whose items arrive in a 30 ms cascade.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/DropdownMenu.vue",
+          "target": "components/prequelui/DropdownMenu.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "title": "Hover Card",
+      "description": "A preview card that opens from its trigger after a deliberate hover.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/HoverCard.vue",
+          "target": "components/prequelui/HoverCard.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:ui",
+      "title": "Input OTP",
+      "description": "One-time-code inputs with popping characters and a pasted cascade.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/InputOTP.vue",
+          "target": "components/prequelui/InputOTP.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:ui",
+      "title": "Menubar",
+      "description": "A persistent application menubar whose menus hand off without closing.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Menubar.vue",
+          "target": "components/prequelui/Menubar.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "title": "Navigation Menu",
+      "description": "A shared navigation viewport that resizes between triggers.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/NavigationMenu.vue",
+          "target": "components/prequelui/NavigationMenu.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Page links with an active outline that glides between positions.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Pagination.vue",
+          "target": "components/prequelui/Pagination.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "An anchored surface that grows from 80% with a spring.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Popover.vue",
+          "target": "components/prequelui/Popover.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "preview-link-card",
+      "type": "registry:ui",
+      "title": "Preview Link Card",
+      "description": "A link that reveals a live preview of its destination on hover.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/PreviewLinkCard.vue",
+          "target": "components/prequelui/PreviewLinkCard.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "A progress bar whose width settles on a soft spring without overshoot.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Progress.vue",
+          "target": "components/prequelui/Progress.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "questionnaire",
+      "type": "registry:ui",
+      "title": "Questionnaire",
+      "description": "A multi-step questionnaire that recomposes its height between questions.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Questionnaire.vue",
+          "target": "components/prequelui/Questionnaire.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "Single-choice options with a dot that grows into place.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/RadioGroup.vue",
+          "target": "components/prequelui/RadioGroup.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "A select menu with a gliding highlight and cascading options.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Select.vue",
+          "target": "components/prequelui/Select.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "A side sheet built on the dialog, sliding in with a blurred veil.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Sheet.vue",
+          "target": "components/prequelui/Sheet.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "title": "Sidebar",
+      "description": "A composable sidebar with a shared highlight and a single collapse curve.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Sidebar.vue",
+          "target": "components/prequelui/Sidebar.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "A range slider whose thumb stretches in the direction of travel.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Slider.vue",
+          "target": "components/prequelui/Slider.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "A switch whose thumb stretches 3/16 and lands softly.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Switch.vue",
+          "target": "components/prequelui/Switch.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Tabs with a solid indicator and panels that blur out then in.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Tabs.vue",
+          "target": "components/prequelui/Tabs.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "Stacked notifications that land from their edge and leave sooner.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Toast.vue",
+          "target": "components/prequelui/Toast.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "Toggle",
+      "description": "A two-state button with a short press and a quiet colour change.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Toggle.vue",
+          "target": "components/prequelui/Toggle.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "title": "Toggle Group",
+      "description": "A group of toggles with one shared background gliding between them.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/ToggleGroup.vue",
+          "target": "components/prequelui/ToggleGroup.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "A tooltip that blooms from 70% and warms up its next appearance.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Tooltip.vue",
+          "target": "components/prequelui/Tooltip.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "A button that presses down and never fidgets on hover.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Button.vue",
+          "target": "components/prequelui/Button.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "copy-button",
+      "type": "registry:ui",
+      "title": "Copy Button",
+      "description": "Copies text and swaps its icon in a quick blur crossfade.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/CopyButton.vue",
+          "target": "components/prequelui/CopyButton.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "flip-button",
+      "type": "registry:ui",
+      "title": "Flip Button",
+      "description": "A button that turns over on hover to reveal its back face.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/FlipButton.vue",
+          "target": "components/prequelui/FlipButton.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "github-stars-button",
+      "type": "registry:ui",
+      "title": "GitHub Stars Button",
+      "description": "A compact star button with a counting number and fill.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/GitHubStarsButton.vue",
+          "target": "components/prequelui/GitHubStarsButton.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "icon-button",
+      "type": "registry:ui",
+      "title": "Icon Button",
+      "description": "An icon button that releases a small burst of particles.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/IconButton.vue",
+          "target": "components/prequelui/IconButton.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "liquid-button",
+      "type": "registry:ui",
+      "title": "Liquid Button",
+      "description": "A button that fills with liquid from the bottom on hover.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/LiquidButton.vue",
+          "target": "components/prequelui/LiquidButton.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "ripple-button",
+      "type": "registry:ui",
+      "title": "Ripple Button",
+      "description": "A button that emits a ripple from the exact point clicked.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/RippleButton.vue",
+          "target": "components/prequelui/RippleButton.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "shimmer-button",
+      "type": "registry:ui",
+      "title": "Shimmer Button",
+      "description": "One short pass of light crosses the button on hover, never an endless loop.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/ShimmerButton.vue",
+          "target": "components/prequelui/ShimmerButton.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "theme-toggler-button",
+      "type": "registry:ui",
+      "title": "Theme Toggler Button",
+      "description": "A theme button whose icon spins, shrinks and blurs away.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/ThemeTogglerButton.vue",
+          "target": "components/prequelui/ThemeTogglerButton.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "gradient-text",
+      "type": "registry:ui",
+      "title": "Gradient Text",
+      "description": "Text filled with a gradient that sweeps slowly across it.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/GradientText.vue",
+          "target": "components/prequelui/GradientText.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "highlight-text",
+      "type": "registry:ui",
+      "title": "Highlight Text",
+      "description": "A marker highlight that draws in behind the words.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/HighlightText.vue",
+          "target": "components/prequelui/HighlightText.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "shimmering-text",
+      "type": "registry:ui",
+      "title": "Shimmering Text",
+      "description": "A letter-by-letter wave of light crosses the text.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/ShimmeringText.vue",
+          "target": "components/prequelui/ShimmeringText.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "splitting-text",
+      "type": "registry:ui",
+      "title": "Splitting Text",
+      "description": "Text arrives piece by piece with a staggered blur.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/SplittingText.vue",
+          "target": "components/prequelui/SplittingText.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "typing-text",
+      "type": "registry:ui",
+      "title": "Typing Text",
+      "description": "Text typed character by character with a blinking caret.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/TypingText.vue",
+          "target": "components/prequelui/TypingText.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "motion-grid",
+      "type": "registry:ui",
+      "title": "Motion Grid",
+      "description": "A dot grid that plays frame-by-frame motion as a loader or state.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/MotionGrid.vue",
+          "target": "components/prequelui/MotionGrid.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "page-transition",
+      "type": "registry:ui",
+      "title": "Page Transition",
+      "description": "Page changes revealed with the View Transitions API.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/PageTransition.vue",
+          "target": "components/prequelui/PageTransition.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spring",
+      "type": "registry:ui",
+      "title": "Spring",
+      "description": "A draggable element tied to its home by a visible spring.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Spring.vue",
+          "target": "components/prequelui/Spring.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "github-stars",
+      "type": "registry:ui",
+      "title": "GitHub Stars",
+      "description": "A repository star count that ticks up and bursts into particles.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/GitHubStars.vue",
+          "target": "components/prequelui/GitHubStars.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "cursor",
+      "type": "registry:ui",
+      "title": "Cursor",
+      "description": "A custom cursor and a trailing label with two different springs.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Cursor.vue",
+          "target": "components/prequelui/Cursor.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sliding-text",
+      "type": "registry:ui",
+      "title": "Sliding Text",
+      "description": "Text slides out of its box while a copy slides in.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/SlidingText.vue",
+          "target": "components/prequelui/SlidingText.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar-group",
+      "type": "registry:ui",
+      "title": "Avatar Group",
+      "description": "Overlapping avatars with one shared tooltip that hands off between faces.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/AvatarGroup.vue",
+          "target": "components/prequelui/AvatarGroup.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "file-drop",
+      "type": "registry:ui",
+      "title": "File Drop",
+      "description": "A drop zone that breathes on drag, fills a spring bar and draws its own check.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/FileDrop.vue",
+          "target": "components/prequelui/FileDrop.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "stepper",
+      "type": "registry:ui",
+      "title": "Stepper",
+      "description": "Connectors draw, the current badge grows and panels slide in the direction of travel.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Stepper.vue",
+          "target": "components/prequelui/Stepper.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "bottom-navigation",
+      "type": "registry:ui",
+      "title": "Bottom Navigation",
+      "description": "A bottom bar with a gliding highlight that recedes on scroll.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/BottomNavigation.vue",
+          "target": "components/prequelui/BottomNavigation.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pinned-list",
+      "type": "registry:ui",
+      "title": "Pinned List",
+      "description": "Items that move between pinned and unpinned groups as the same node.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/PinnedList.vue",
+          "target": "components/prequelui/PinnedList.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-progress",
+      "type": "registry:ui",
+      "title": "Scroll Progress",
+      "description": "A scroll-linked progress bar driven without overshoot.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/ScrollProgress.vue",
+          "target": "components/prequelui/ScrollProgress.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "counting-number",
+      "type": "registry:ui",
+      "title": "Counting Number",
+      "description": "A number that counts to its target on a heavily damped spring.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/CountingNumber.vue",
+          "target": "components/prequelui/CountingNumber.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "kpi-counter",
+      "type": "registry:ui",
+      "title": "KPI Counter",
+      "description": "A metric card whose number counts, delta lands and sparkline draws itself.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/KPICounter.vue",
+          "target": "components/prequelui/KPICounter.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radial-progress",
+      "type": "registry:ui",
+      "title": "Radial Progress",
+      "description": "An arc and a number on one damped spring, with ticks waking in order.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/RadialProgress.vue",
+          "target": "components/prequelui/RadialProgress.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scrolling-number",
+      "type": "registry:ui",
+      "title": "Scrolling Number",
+      "description": "A mechanical number band that scrolls and stops under a highlight.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/ScrollingNumber.vue",
+          "target": "components/prequelui/ScrollingNumber.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sliding-number",
+      "type": "registry:ui",
+      "title": "Sliding Number",
+      "description": "An odometer where every digit rolls independently.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/SlidingNumber.vue",
+          "target": "components/prequelui/SlidingNumber.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "morphing-text",
+      "type": "registry:ui",
+      "title": "Morphing Text",
+      "description": "Letters glide to their new positions when the string changes.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/MorphingText.vue",
+          "target": "components/prequelui/MorphingText.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "rolling-text",
+      "type": "registry:ui",
+      "title": "Rolling Text",
+      "description": "Letters roll over themselves like a split-flap board.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/RollingText.vue",
+          "target": "components/prequelui/RollingText.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "rotating-text",
+      "type": "registry:ui",
+      "title": "Rotating Text",
+      "description": "Words leave upward while the next one rises into place.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/RotatingText.vue",
+          "target": "components/prequelui/RotatingText.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "swapping-text",
+      "type": "registry:ui",
+      "title": "Swapping Text",
+      "description": "Only the letters that changed glide to their new spots.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/SwappingText.vue",
+          "target": "components/prequelui/SwappingText.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "auto-height",
+      "type": "registry:ui",
+      "title": "Auto Height",
+      "description": "A container whose height glides to fit whatever is inside.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/AutoHeight.vue",
+          "target": "components/prequelui/AutoHeight.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "blur",
+      "type": "registry:ui",
+      "title": "Blur",
+      "description": "An entrance that resolves from blur to sharp.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Blur.vue",
+          "target": "components/prequelui/Blur.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "click",
+      "type": "registry:ui",
+      "title": "Click",
+      "description": "A ring, ripple, crosshair or burst played at the click point.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Click.vue",
+          "target": "components/prequelui/Click.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "effect",
+      "type": "registry:ui",
+      "title": "Effect",
+      "description": "Fade, blur, slide and zoom composed into one entrance.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Effect.vue",
+          "target": "components/prequelui/Effect.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "fade",
+      "type": "registry:ui",
+      "title": "Fade",
+      "description": "A simple opacity entrance tied to view or scroll.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Fade.vue",
+          "target": "components/prequelui/Fade.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "highlight",
+      "type": "registry:ui",
+      "title": "Highlight",
+      "description": "A shared background that slides to the active item.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Highlight.vue",
+          "target": "components/prequelui/Highlight.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "image-zoom",
+      "type": "registry:ui",
+      "title": "Image Zoom",
+      "description": "An image that zooms toward the pointer on hover.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/ImageZoom.vue",
+          "target": "components/prequelui/ImageZoom.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "magnetic",
+      "type": "registry:ui",
+      "title": "Magnetic",
+      "description": "An element pulled toward the pointer inside a radius.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Magnetic.vue",
+          "target": "components/prequelui/Magnetic.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "marquee",
+      "type": "registry:ui",
+      "title": "Marquee",
+      "description": "A seamless row that drifts at a fixed speed and pauses under the pointer.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Marquee.vue",
+          "target": "components/prequelui/Marquee.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "particles",
+      "type": "registry:ui",
+      "title": "Particles",
+      "description": "A burst of particles around a trigger, for likes and stars.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Particles.vue",
+          "target": "components/prequelui/Particles.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-fade",
+      "type": "registry:ui",
+      "title": "Scroll Fade",
+      "description": "Container edges that fade only where there is more content.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/ScrollFade.vue",
+          "target": "components/prequelui/ScrollFade.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "shine",
+      "type": "registry:ui",
+      "title": "Shine",
+      "description": "A highlight that sweeps across a surface on hover or click.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Shine.vue",
+          "target": "components/prequelui/Shine.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slide",
+      "type": "registry:ui",
+      "title": "Slide",
+      "description": "An entrance that arrives from one side.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Slide.vue",
+          "target": "components/prequelui/Slide.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spotlight-card",
+      "type": "registry:ui",
+      "title": "Spotlight Card",
+      "description": "A soft light that follows the pointer across a card on a lagging spring.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/SpotlightCard.vue",
+          "target": "components/prequelui/SpotlightCard.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "theme-toggler",
+      "type": "registry:ui",
+      "title": "Theme Toggler",
+      "description": "A theme switch revealed by a 700 ms clip-path wipe.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/ThemeToggler.vue",
+          "target": "components/prequelui/ThemeToggler.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tilt",
+      "type": "registry:ui",
+      "title": "Tilt",
+      "description": "A card that tilts in 3D toward the pointer and returns flat.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Tilt.vue",
+          "target": "components/prequelui/Tilt.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "zoom",
+      "type": "registry:ui",
+      "title": "Zoom",
+      "description": "An entrance that scales from half size with a spring.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Zoom.vue",
+          "target": "components/prequelui/Zoom.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "bubble",
+      "type": "registry:ui",
+      "title": "Bubble",
+      "description": "Slow gradient blobs that float and turn behind the content.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Bubble.vue",
+          "target": "components/prequelui/Bubble.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "fireworks",
+      "type": "registry:ui",
+      "title": "Fireworks",
+      "description": "Autonomous firework bursts with configurable timing.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Fireworks.vue",
+          "target": "components/prequelui/Fireworks.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "glyph",
+      "type": "registry:ui",
+      "title": "Glyph",
+      "description": "A field of characters woken by a trail of light and rings.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Glyph.vue",
+          "target": "components/prequelui/Glyph.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "gradient",
+      "type": "registry:ui",
+      "title": "Gradient",
+      "description": "A quiet animated gradient that gives the page depth.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Gradient.vue",
+          "target": "components/prequelui/Gradient.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "gravity-stars",
+      "type": "registry:ui",
+      "title": "Gravity Stars",
+      "description": "Stars pulled and pushed by an interactive gravity well.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/GravityStars.vue",
+          "target": "components/prequelui/GravityStars.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hexagon",
+      "type": "registry:ui",
+      "title": "Hexagon",
+      "description": "A hexagonal grid that lights each cell under the pointer.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Hexagon.vue",
+          "target": "components/prequelui/Hexagon.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hole",
+      "type": "registry:ui",
+      "title": "Hole",
+      "description": "A tunnel of rings with particles rising toward the camera.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Hole.vue",
+          "target": "components/prequelui/Hole.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "stars",
+      "type": "registry:ui",
+      "title": "Stars",
+      "description": "Three parallax star layers drifting at different speeds.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Stars.vue",
+          "target": "components/prequelui/Stars.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "topography",
+      "type": "registry:ui",
+      "title": "Topography",
+      "description": "Living contour lines with a hill under the pointer.",
+      "dependencies": [
+        "motion",
+        "@lucide/vue"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/Topography.vue",
+          "target": "components/prequelui/Topography.vue",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}

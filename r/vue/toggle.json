@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle",
+  "type": "registry:ui",
+  "title": "Toggle",
+  "description": "A two-state button with a short press and a quiet colour change.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/Toggle.vue",
+      "target": "components/prequelui/Toggle.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { computed, ref } from \"vue\";\n\nconst props = defineProps({\n  modelValue: { type: Boolean, default: undefined },\n  defaultPressed: { type: Boolean, default: false },\n});\nconst emit = defineEmits([\"update:modelValue\"]);\n\nconst internal = ref(props.defaultPressed);\nconst value = computed(() => (props.modelValue === undefined ? internal.value : props.modelValue));\n\nfunction toggle() {\n  const next = !value.value;\n  if (props.modelValue === undefined) internal.value = next;\n  emit(\"update:modelValue\", next);\n}\n</script>\n\n<template>\n  <button\n    type=\"button\"\n    :aria-pressed=\"value\"\n    class=\"relative inline-flex h-9 items-center gap-2 rounded-lg border px-3 text-[13px] font-medium transition-[background-color,color,transform] duration-200 active:scale-[0.97]\"\n    :class=\"value ? 'bg-primary text-primary-foreground' : 'bg-background text-muted-foreground hover:bg-accent'\"\n    @click=\"toggle\"\n  >\n    <span\n      aria-hidden=\"true\"\n      class=\"block size-2 rounded-full transition-colors duration-200\"\n      :class=\"value ? 'bg-[#7ee2a8]' : 'bg-muted-foreground/50'\"\n    />\n    <slot>Live preview</slot>\n  </button>\n</template>\n"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-progress",
+  "type": "registry:ui",
+  "title": "Scroll Progress",
+  "description": "A scroll-linked progress bar driven without overshoot.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/scroll-progress.tsx",
+      "target": "src/components/prequelui/scroll-progress.tsx",
+      "type": "registry:ui",
+      "content": "import { onCleanup, onMount } from \"solid-js\";\nimport { animate } from \"motion\";\n\nexport type ScrollProgressProps = {\n  target?: HTMLElement | (() => HTMLElement | null) | null;\n  barClass?: string;\n  class?: string;\n};\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nconst clamp = (value: number) => Math.min(1, Math.max(0, value));\n\nexport function ScrollProgress(props: ScrollProgressProps) {\n  let bar: HTMLDivElement | undefined;\n  let controls: ReturnType<typeof animate> | undefined;\n  let scroller: EventTarget | undefined;\n  let resizeHandler: (() => void) | undefined;\n\n  const resolveTarget = (): HTMLElement | null => {\n    const node = props.target;\n    if (!node) return null;\n    return typeof node === \"function\" ? node() : node;\n  };\n\n  const read = () => {\n    if (!bar || typeof window === \"undefined\") return;\n    const element = resolveTarget();\n    let value = 0;\n\n    if (element && typeof element.scrollHeight === \"number\") {\n      const max = element.scrollHeight - element.clientHeight;\n      value = max > 0 ? clamp(element.scrollTop / max) : 0;\n    } else {\n      const max = document.documentElement.scrollHeight - window.innerHeight;\n      value = max > 0 ? clamp(window.scrollY / max) : 0;\n    }\n\n    controls?.stop?.();\n    if (reduce()) {\n      bar.style.transform = `scaleX(${value})`;\n      return;\n    }\n    controls = animate(\n      bar,\n      { scaleX: value },\n      { type: \"spring\", stiffness: 250, damping: 40, bounce: 0 },\n    );\n  };\n\n  onMount(() => {\n    scroller = resolveTarget() ?? window;\n    read();\n    scroller.addEventListener(\"scroll\", read, { passive: true });\n    resizeHandler = () => read();\n    window.addEventListener(\"resize\", resizeHandler);\n  });\n\n  onCleanup(() => {\n    if (typeof window === \"undefined\") return;\n    controls?.stop?.();\n    scroller?.removeEventListener(\"scroll\", read);\n    if (resizeHandler) window.removeEventListener(\"resize\", resizeHandler);\n  });\n\n  return (\n    <div\n      role=\"progressbar\"\n      aria-label=\"Scroll progress\"\n      data-slot=\"scroll-progress\"\n      class={`h-1 w-full overflow-hidden bg-accent ${props.class ?? \"\"}`}\n    >\n      <div\n        ref={(node: HTMLDivElement) => (bar = node)}\n        class={`h-full origin-left bg-foreground ${props.barClass ?? \"\"}`}\n        style={{ transform: \"scaleX(0)\" }}\n      />\n    </div>\n  );\n}\n"
+    }
+  ]
+}

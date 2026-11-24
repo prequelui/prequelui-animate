@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "liquid-button",
+  "type": "registry:component",
+  "title": "Liquid Button",
+  "description": "A button that fills with liquid from the bottom on hover.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/LiquidButton.svelte",
+      "target": "~/src/lib/components/prequelui/LiquidButton.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { animate } from \"motion\";\n\n  let {\n    delay = \"0.3s\",\n    fillHeight = \"3px\",\n    hoverScale = 1,\n    tapScale = 0.97,\n    transition = undefined,\n    type = \"button\",\n    disabled = false,\n    class: className = \"\",\n    children = undefined,\n    ...rest\n  } = $props();\n\n  const pressSpring = transition ?? {\n    type: \"spring\",\n    stiffness: 550,\n    damping: 30,\n    restSpeed: 10,\n  };\n\n  let button;\n  let fill;\n  let hovered = $state(false);\n  let pointerHovered = false;\n  const seconds = Number.parseFloat(delay) || 0.3;\n\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  function paint(next) {\n    hovered = next;\n    if (!fill) return;\n    const active = next && !reduce();\n    if (reduce()) {\n      fill.style.transform = `scaleY(${active ? 1 : 0.06})`;\n      fill.style.opacity = active ? \"1\" : \"0.55\";\n      return;\n    }\n    animate(\n      fill,\n      { scaleY: active ? 1 : 0.06, opacity: active ? 1 : 0.55 },\n      { duration: seconds, ease: [0.25, 0.1, 0.35, 1] },\n    );\n  }\n\n  function press() {\n    if (!button || reduce()) return;\n    animate(button, { scale: tapScale }, pressSpring);\n  }\n\n  function release() {\n    if (!button || reduce()) return;\n    animate(\n      button,\n      { scale: pointerHovered && hoverScale !== 1 ? hoverScale : 1 },\n      pressSpring,\n    );\n  }\n\n  function enter() {\n    pointerHovered = true;\n    paint(true);\n    release();\n  }\n\n  function leave() {\n    pointerHovered = false;\n    paint(false);\n    release();\n  }\n</script>\n\n<button\n  bind:this={button}\n  {type}\n  {disabled}\n  data-slot=\"liquid-button\"\n  class={`group relative inline-flex h-10 items-center justify-center overflow-hidden rounded-lg border border-primary/20 bg-background px-4 text-[13px] font-medium text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 ${className}`}\n  onpointerenter={enter}\n  onpointerleave={leave}\n  onpointercancel={release}\n  onfocus={() => paint(true)}\n  onblur={() => paint(false)}\n  onpointerdown={() => !disabled && press()}\n  onpointerup={release}\n  {...rest}\n>\n  <span\n    bind:this={fill}\n    aria-hidden=\"true\"\n    class=\"pointer-events-none absolute inset-x-0 bottom-0 origin-bottom bg-primary\"\n    style={`height:${hovered ? \"100%\" : fillHeight};opacity:0.55;transform:scaleY(0.06)`}\n  ></span>\n  <span\n    class=\"relative z-10 transition-colors {hovered && !reduce()\n      ? 'text-primary-foreground'\n      : 'text-foreground'}\"\n    style={`transition-duration:${seconds}s`}\n  >\n    {#if children}{@render children()}{/if}\n  </span>\n</button>\n"
+    }
+  ]
+}

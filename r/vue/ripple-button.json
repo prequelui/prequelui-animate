@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ripple-button",
+  "type": "registry:ui",
+  "title": "Ripple Button",
+  "description": "A button that emits a ripple from the exact point clicked.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/RippleButton.vue",
+      "target": "components/prequelui/RippleButton.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { nextTick, onBeforeUnmount, ref } from \"vue\";\nimport { animate } from \"motion\";\n\nconst props = defineProps({\n  hoverScale: { type: Number, default: 1 },\n  tapScale: { type: Number, default: 0.97 },\n  type: { type: String, default: \"button\" },\n});\n\nconst button = ref(null);\nconst rippleWrap = ref(null);\nconst ripples = ref([]);\nconst timers = new Set();\nlet nextId = 0;\nlet hovered = false;\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nonBeforeUnmount(() => {\n  timers.forEach((timer) => clearTimeout(timer));\n  timers.clear();\n});\n\nasync function click(event) {\n  if (!button.value) return;\n  const rect = button.value.getBoundingClientRect();\n  const id = nextId++;\n  ripples.value.push({\n    id,\n    x: event.clientX - rect.left,\n    y: event.clientY - rect.top,\n  });\n  await nextTick();\n  if (!reduce()) {\n    const node = rippleWrap.value?.querySelector(`[data-ripple=\"${id}\"]`);\n    if (node) {\n      animate(\n        node,\n        { scale: [0, 10], opacity: [0.5, 0] },\n        { duration: 0.6, ease: \"easeOut\" },\n      );\n    }\n  }\n  const timer = setTimeout(() => {\n    ripples.value = ripples.value.filter((item) => item.id !== id);\n    timers.delete(timer);\n  }, 650);\n  timers.add(timer);\n}\n\nfunction press() {\n  if (!button.value || reduce()) return;\n  animate(\n    button.value,\n    { scale: props.tapScale },\n    { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n  );\n}\n\nfunction release() {\n  if (!button.value || reduce()) return;\n  animate(\n    button.value,\n    { scale: hovered && props.hoverScale !== 1 ? props.hoverScale : 1 },\n    { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n  );\n}\n\nfunction enter() {\n  hovered = true;\n  if (props.hoverScale !== 1) release();\n}\n\nfunction leave() {\n  hovered = false;\n  release();\n}\n</script>\n\n<template>\n  <button\n    ref=\"button\"\n    :type=\"type\"\n    data-slot=\"ripple-button\"\n    class=\"relative inline-flex h-10 items-center justify-center overflow-hidden rounded-lg bg-primary px-4 text-[13px] font-medium text-primary-foreground\"\n    @click=\"click\"\n    @pointerdown=\"press\"\n    @pointerup=\"release\"\n    @pointerenter=\"enter\"\n    @pointerleave=\"leave\"\n  >\n    <slot />\n    <span ref=\"rippleWrap\" aria-hidden=\"true\" class=\"pointer-events-none absolute inset-0\">\n      <span\n        v-for=\"ripple in ripples\"\n        :key=\"ripple.id\"\n        :data-ripple=\"ripple.id\"\n        class=\"absolute size-5 rounded-full bg-current opacity-50\"\n        :style=\"{ left: `${ripple.x - 10}px`, top: `${ripple.y - 10}px` }\"\n      />\n    </span>\n  </button>\n</template>\n"
+    }
+  ]
+}

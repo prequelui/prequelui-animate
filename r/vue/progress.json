@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress",
+  "type": "registry:ui",
+  "title": "Progress",
+  "description": "A progress bar whose width settles on a soft spring without overshoot.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/Progress.vue",
+      "target": "components/prequelui/Progress.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { computed } from \"vue\";\n\nconst props = defineProps({\n  value: { type: Number, default: 0 },\n  max: { type: Number, default: 100 },\n  label: { type: String, default: \"Uploading assets\" },\n  showValue: { type: Boolean, default: true },\n});\n\nconst safeMax = computed(() => (props.max > 0 ? props.max : 100));\nconst clamped = computed(() => Math.min(safeMax.value, Math.max(0, props.value)));\nconst percent = computed(() => (clamped.value / safeMax.value) * 100);\nconst shown = computed(() => Math.round(clamped.value));\n</script>\n\n<template>\n  <div class=\"w-full max-w-[380px]\">\n    <div class=\"mb-2 flex items-center justify-between text-[13px] text-muted-foreground\">\n      <span>{{ label }}</span>\n      <span v-if=\"showValue\" class=\"tabular-nums\">{{ shown }}%</span>\n    </div>\n    <div\n      role=\"progressbar\"\n      :aria-valuemin=\"0\"\n      :aria-valuemax=\"safeMax\"\n      :aria-valuenow=\"clamped\"\n      class=\"h-2 w-full overflow-hidden rounded-full bg-accent\"\n    >\n      <div\n        class=\"h-full rounded-full bg-foreground transition-[width] duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:transition-none\"\n        :style=\"{ width: `${percent}%` }\"\n      />\n    </div>\n  </div>\n</template>\n"
+    }
+  ]
+}

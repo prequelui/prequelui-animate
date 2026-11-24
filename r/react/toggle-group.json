@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-group",
+  "type": "registry:ui",
+  "title": "Toggle Group",
+  "description": "A group of toggles with one shared background gliding between them.",
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/toggle-group.tsx",
+      "target": "components/prequelui/toggle-group.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { motion, useReducedMotion } from \"motion/react\";\nimport { cn } from \"@/lib/utils\";\n\nexport type ToggleGroupItem = {\n  value: string;\n  label: string;\n};\n\nexport type ToggleGroupProps = {\n  items?: Array<ToggleGroupItem | string>;\n  type?: \"single\" | \"multiple\";\n  value?: string | string[];\n  defaultValue?: string | string[];\n  onValueChange?: (value: string | string[]) => void;\n  className?: string;\n};\n\nconst FALLBACK = [\"day\", \"week\", \"month\"];\nconst selection = { type: \"spring\", stiffness: 300, damping: 30 } as const;\nconst press = { type: \"spring\", stiffness: 550, damping: 30 } as const;\n\nfunction normalize(items: Array<ToggleGroupItem | string>): ToggleGroupItem[] {\n  return items.map((item) =>\n    typeof item === \"string\" ? { value: item, label: item } : item,\n  );\n}\n\nfunction asArray(value: string | string[] | undefined) {\n  if (value === undefined) return [];\n  return Array.isArray(value) ? value : [value];\n}\n\nexport function ToggleGroup({\n  items = FALLBACK,\n  type = \"single\",\n  value,\n  defaultValue,\n  onValueChange,\n  className,\n}: ToggleGroupProps) {\n  const options = normalize(items);\n  const [internal, setInternal] = React.useState(() =>\n    asArray(defaultValue ?? options[0]?.value),\n  );\n  const selected = asArray(value ?? internal);\n  const reduce = useReducedMotion();\n  const baseId = React.useId();\n\n  const toggle = (next: string) => {\n    let result: string[];\n    if (type === \"single\") {\n      result = selected.includes(next) ? [] : [next];\n    } else {\n      result = selected.includes(next)\n        ? selected.filter((entry) => entry !== next)\n        : [...selected, next];\n    }\n    if (value === undefined) setInternal(result);\n    onValueChange?.(type === \"single\" ? (result[0] ?? \"\") : result);\n  };\n\n  return (\n    <div role=\"group\" className={cn(\"flex items-center rounded-lg bg-accent p-1\", className)}>\n      {options.map((item) => {\n        const active = selected.includes(item.value);\n        return (\n          <motion.button\n            key={item.value}\n            type=\"button\"\n            aria-pressed={active}\n            onClick={() => toggle(item.value)}\n            whileTap={reduce ? undefined : { scale: 0.97 }}\n            transition={press}\n            className={cn(\n              \"relative rounded-md px-3 py-1.5 text-[13px] capitalize transition-colors\",\n              active ? \"text-foreground\" : \"text-muted-foreground hover:text-foreground\",\n            )}\n          >\n            {active && (\n              <motion.span\n                layoutId={`${baseId}-${type === \"single\" ? \"group\" : item.value}`}\n                aria-hidden=\"true\"\n                className=\"absolute inset-0 rounded-md bg-background shadow-sm\"\n                transition={reduce ? { duration: 0 } : selection}\n              />\n            )}\n            <span className=\"relative\">{item.label}</span>\n          </motion.button>\n        );\n      })}\n    </div>\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-trending-down-solid",
+  "type": "registry:ui",
+  "title": "Trending Down · Solid",
+  "description": "A falling line that redraws while its arrowhead sinks. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/trending-down.json"
+  ],
+  "meta": {
+    "style": "solid",
+    "category": "Charts",
+    "roles": [
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      false,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.6 0.16 290)",
+      "primaryDark": "oklch(0.78 0.13 290)",
+      "accent": "oklch(0.7 0.15 310)",
+      "accentDark": "oklch(0.82 0.12 310)"
+    },
+    "emoji": {
+      "primary": "oklch(0.6 0.2 300)",
+      "secondary": "oklch(0.46 0.18 300)",
+      "accent": "oklch(0.68 0.2 27)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-trending-down-solid.tsx",
+      "target": "components/prequelui/icons/prequel-trending-down-solid.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelTrendingDownIcon, type IconProps } from \"./prequel-trending-down\";\n\nexport function PrequelTrendingDownSolidIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelTrendingDownIcon size={size} variant=\"solid\" {...props} />;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-otp",
+  "type": "registry:ui",
+  "title": "Input OTP",
+  "description": "One-time-code inputs with popping characters and a pasted cascade.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/input-otp.js",
+      "target": "components/prequelui/input-otp.js",
+      "type": "registry:ui",
+      "content": "let uid = 0;\nlet styled = false;\n\nfunction ensureStyles() {\n  if (styled) return;\n  styled = true;\n  const style = document.createElement(\"style\");\n  style.textContent = `\n    .otp-input.filled { animation: otp-pop 240ms cubic-bezier(0.23,1,0.32,1) both; }\n    @keyframes otp-pop { from { transform: scale(0.9); opacity: 0.4; } }\n    @media (prefers-reduced-motion: reduce) { .otp-input.filled { animation: none; } }`;\n  document.head.appendChild(style);\n}\n\nexport function createInputOTP(root, options = {}) {\n  ensureStyles();\n  const { length = 6, defaultValue = \"\", onChange = undefined, onComplete = undefined } = options;\n  const id = `otp-${++uid}`;\n  const values = Array.from({ length }, (_, index) => defaultValue[index] ?? \"\");\n\n  root.innerHTML = `\n    <div class=\"flex items-center gap-2\" role=\"group\" aria-label=\"One-time code\" data-otp=\"${id}\">\n      ${values\n        .map(\n          (value, index) => `<input value=\"${value}\" inputmode=\"numeric\" autocomplete=\"one-time-code\"\n            maxlength=\"1\" aria-label=\"Digit ${index + 1}\"\n            class=\"otp-input size-10 rounded-lg border bg-background text-center font-mono text-[15px] outline-none focus-visible:ring-2 focus-visible:ring-ring ${value ? \"filled\" : \"\"}\"\n            style=\"animation-delay:${index * 30}ms\" data-index=\"${index}\" />`,\n        )\n        .join(\"\")}\n    </div>`;\n  const inputs = [...root.querySelectorAll(\"input\")];\n\n  function commit() {\n    const joined = values.join(\"\");\n    onChange?.(joined);\n    if (joined.length === length) onComplete?.(joined);\n  }\n\n  function render() {\n    inputs.forEach((input, index) => {\n      input.value = values[index];\n      input.classList.toggle(\"filled\", !!values[index]);\n    });\n  }\n\n  function write(index, text) {\n    const chars = text.replace(/\\D/g, \"\").slice(0, length - index).split(\"\");\n    if (!chars.length) return;\n    chars.forEach((char, offset) => {\n      values[index + offset] = char;\n    });\n    commit();\n    render();\n    inputs[Math.min(length - 1, index + chars.length)]?.focus();\n  }\n\n  inputs.forEach((input, index) => {\n    input.addEventListener(\"input\", () => {\n      const digits = input.value.replace(/\\D/g, \"\");\n      if (!digits) {\n        values[index] = \"\";\n        commit();\n        render();\n        return;\n      }\n      write(index, digits);\n    });\n    input.addEventListener(\"keydown\", (event) => {\n      if (event.key !== \"Backspace\") return;\n      event.preventDefault();\n      if (values[index]) {\n        values[index] = \"\";\n      } else if (index > 0) {\n        values[index - 1] = \"\";\n        inputs[index - 1].focus();\n      }\n      commit();\n      render();\n    });\n    input.addEventListener(\"paste\", (event) => {\n      event.preventDefault();\n      write(index, event.clipboardData?.getData(\"text\") ?? \"\");\n    });\n  });\n\n  return {\n    get value() { return values.join(\"\"); },\n    destroy() { root.innerHTML = \"\"; },\n  };\n}\n"
+    }
+  ]
+}

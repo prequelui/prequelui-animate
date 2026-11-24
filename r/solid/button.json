@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button",
+  "type": "registry:ui",
+  "title": "Button",
+  "description": "A button that presses down and never fidgets on hover.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/button.tsx",
+      "target": "src/components/prequelui/button.tsx",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\nimport type { JSX } from \"solid-js\";\n\nexport type ButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> & {\n  hoverScale?: number;\n  tapScale?: number;\n};\n\nexport function Button(props: ButtonProps) {\n  let node: HTMLButtonElement | undefined;\n  let hovered = false;\n\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  const move = (scale: number) => {\n    if (!node || reduce()) return;\n    animate(\n      node,\n      { scale },\n      { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n    );\n  };\n\n  return (\n    <button\n      {...props}\n      ref={node}\n      data-slot=\"button\"\n      type={props.type ?? \"button\"}\n      class={`inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-primary px-4 text-[13px] font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 ${props.class ?? \"\"}`}\n      onPointerDown={() => !props.disabled && move(props.tapScale ?? 0.97)}\n      onPointerUp={() => move(hovered && (props.hoverScale ?? 1) !== 1 ? props.hoverScale! : 1)}\n      onPointerEnter={() => {\n        hovered = true;\n        if ((props.hoverScale ?? 1) !== 1) move(props.hoverScale!);\n      }}\n      onPointerLeave={() => {\n        hovered = false;\n        move(1);\n      }}\n    >\n      {props.children}\n    </button>\n  );\n}\n"
+    }
+  ]
+}

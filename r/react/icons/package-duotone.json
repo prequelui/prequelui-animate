@@ -1,0 +1,56 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-package-duotone",
+  "type": "registry:ui",
+  "title": "Package · Duotone",
+  "description": "A parcel whose seams draw in and whose lid lifts away. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/package.json"
+  ],
+  "meta": {
+    "style": "duotone",
+    "category": "Commerce",
+    "roles": [
+      "primary",
+      "primary",
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      true,
+      false,
+      false,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.62 0.14 160)",
+      "primaryDark": "oklch(0.8 0.11 160)",
+      "accent": "oklch(0.7 0.16 130)",
+      "accentDark": "oklch(0.82 0.13 130)"
+    },
+    "emoji": {
+      "primary": "oklch(0.82 0.18 130)",
+      "secondary": "oklch(0.66 0.16 130)",
+      "accent": "oklch(0.72 0.19 48)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-package-duotone.tsx",
+      "target": "components/prequelui/icons/prequel-package-duotone.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelPackageIcon, type IconProps } from \"./prequel-package\";\n\nexport function PrequelPackageDuotoneIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelPackageIcon size={size} variant=\"duotone\" {...props} />;\n}\n"
+    }
+  ]
+}

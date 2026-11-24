@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "icon-button",
+  "type": "registry:ui",
+  "title": "Icon Button",
+  "description": "An icon button that releases a small burst of particles.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/IconButton.vue",
+      "target": "components/prequelui/IconButton.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { nextTick, ref } from \"vue\";\nimport { animate } from \"motion\";\n\nconst props = defineProps({\n  size: { type: Number, default: 4 },\n  count: { type: Number, default: 8 },\n  distance: { type: Number, default: 24 },\n  type: { type: String, default: \"button\" },\n});\n\nconst button = ref(null);\nconst particles = ref(null);\nconst bursts = ref(0);\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nasync function burst() {\n  if (reduce()) return;\n  bursts.value += 1;\n  await nextTick();\n  const nodes = particles.value?.children ?? [];\n  Array.from(nodes).forEach((node, index) => {\n    const angle = (index / nodes.length) * Math.PI * 2;\n    animate(\n      node,\n      {\n        opacity: [1, 0],\n        x: Math.cos(angle) * props.distance,\n        y: Math.sin(angle) * props.distance,\n        scale: 0.2,\n      },\n      { duration: 0.55, ease: [0.23, 1, 0.32, 1] },\n    );\n  });\n}\n\nfunction press() {\n  if (!button.value || reduce()) return;\n  animate(\n    button.value,\n    { scale: 0.97 },\n    { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n  );\n}\n\nfunction release() {\n  if (!button.value || reduce()) return;\n  animate(\n    button.value,\n    { scale: 1 },\n    { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n  );\n}\n</script>\n\n<template>\n  <button\n    ref=\"button\"\n    :type=\"type\"\n    data-slot=\"icon-button\"\n    class=\"relative inline-flex size-10 items-center justify-center rounded-lg border bg-background p-0 text-foreground transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50\"\n    @pointerdown=\"press\"\n    @pointerup=\"release\"\n    @pointerleave=\"release\"\n    @click=\"burst\"\n  >\n    <slot />\n    <span\n      ref=\"particles\"\n      data-slot=\"icon-button-particles\"\n      aria-hidden=\"true\"\n      class=\"pointer-events-none absolute inset-0\"\n    >\n      <span\n        v-for=\"index in count\"\n        :key=\"`${bursts}-${index}`\"\n        class=\"absolute left-1/2 top-1/2 rounded-full bg-current opacity-0\"\n        :style=\"{ width: `${size}px`, height: `${size}px` }\"\n      />\n    </span>\n  </button>\n</template>\n"
+    }
+  ]
+}

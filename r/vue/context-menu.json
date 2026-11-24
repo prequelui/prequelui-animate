@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "context-menu",
+  "type": "registry:ui",
+  "title": "Context Menu",
+  "description": "A menu anchored to the pointer with cascading items and menu handoff.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/ContextMenu.vue",
+      "target": "components/prequelui/ContextMenu.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { onBeforeUnmount, onMounted, ref } from \"vue\";\n\ndefineProps({\n  items: { type: Array, default: () => [] },\n  children: { type: String, default: \"Right click here\" },\n});\n\nconst position = ref(null);\n\nfunction open(event) {\n  event.preventDefault();\n  position.value = { x: event.clientX, y: event.clientY };\n}\nfunction close() {\n  position.value = null;\n}\nfunction onKey(event) {\n  if (event.key === \"Escape\") close();\n}\nonMounted(() => {\n  document.addEventListener(\"pointerdown\", close);\n  document.addEventListener(\"keydown\", onKey);\n});\nonBeforeUnmount(() => {\n  document.removeEventListener(\"pointerdown\", close);\n  document.removeEventListener(\"keydown\", onKey);\n});\nfunction select(item) {\n  item.onSelect?.();\n  close();\n}\n</script>\n\n<template>\n  <div class=\"flex h-24 w-64 items-center justify-center rounded-xl border border-dashed text-[13px] text-muted-foreground\" @contextmenu=\"open\">\n    <slot>Right click here</slot>\n  </div>\n  <Teleport to=\"body\">\n    <Transition name=\"ctx\">\n      <div v-if=\"position\" role=\"menu\" class=\"ctx-panel fixed z-50 min-w-[190px] origin-top-left rounded-xl border bg-background p-1 shadow-xl\" :style=\"{ left: `${position.x}px`, top: `${position.y}px` }\" @pointerdown.stop>\n        <template v-for=\"(item, index) in items\" :key=\"item.label ?? index\">\n          <div v-if=\"item.separator\" role=\"separator\" class=\"my-1 h-px bg-border\" />\n          <button v-else type=\"button\" role=\"menuitem\" class=\"ctx-row flex w-full items-center justify-between gap-6 rounded-md px-2 py-1.5 text-left text-[13px] hover:bg-accent\" :style=\"{ animationDelay: `${index * 30}ms` }\" @click=\"select(item)\">\n            <span>{{ item.label }}</span>\n            <span v-if=\"item.shortcut\" class=\"font-mono text-[13px] text-muted-foreground\">{{ item.shortcut }}</span>\n          </button>\n        </template>\n      </div>\n    </Transition>\n  </Teleport>\n</template>\n\n<style>\n.ctx-enter-active { animation: ctx-in 220ms cubic-bezier(0.215, 0.61, 0.355, 1) both; }\n.ctx-leave-active { animation: ctx-out 150ms cubic-bezier(0, 0, 0.58, 1) both; }\n.ctx-enter-active .ctx-row { animation: ctx-row 200ms cubic-bezier(0.215, 0.61, 0.355, 1) both; }\n@keyframes ctx-in { from { opacity: 0; transform: scale(0.96); } }\n@keyframes ctx-out { to { opacity: 0; } }\n@keyframes ctx-row { from { opacity: 0; transform: translateY(-4px); filter: blur(2px); } }\n@media (prefers-reduced-motion: reduce) {\n  .ctx-enter-active, .ctx-leave-active, .ctx-enter-active .ctx-row { animation: none; }\n}\n</style>\n"
+    }
+  ]
+}

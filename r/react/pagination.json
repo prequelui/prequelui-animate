@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pagination",
+  "type": "registry:ui",
+  "title": "Pagination",
+  "description": "Page links with an active outline that glides between positions.",
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/pagination.tsx",
+      "target": "components/prequelui/pagination.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { motion, useReducedMotion } from \"motion/react\";\nimport { ChevronLeft, ChevronRight } from \"lucide-react\";\nimport { cn } from \"@/lib/utils\";\n\nexport type PaginationProps = {\n  pages?: number;\n  defaultPage?: number;\n  page?: number;\n  onPageChange?: (page: number) => void;\n  className?: string;\n};\n\nconst glide = { type: \"spring\", stiffness: 500, damping: 40 } as const;\n\nexport function Pagination({\n  pages = 5,\n  defaultPage = 1,\n  page,\n  onPageChange,\n  className,\n}: PaginationProps) {\n  const [internal, setInternal] = React.useState(defaultPage);\n  const value = page ?? internal;\n  const reduce = useReducedMotion();\n  const layout = React.useId();\n\n  const go = (next: number) => {\n    const clamped = Math.min(pages, Math.max(1, next));\n    if (page === undefined) setInternal(clamped);\n    onPageChange?.(clamped);\n  };\n\n  return (\n    <nav aria-label=\"Pagination\" className={cn(\"flex items-center gap-1\", className)}>\n      <button\n        type=\"button\"\n        aria-label=\"Previous page\"\n        disabled={value === 1}\n        onClick={() => go(value - 1)}\n        className=\"flex size-8 items-center justify-center rounded-md text-muted-foreground hover:bg-accent disabled:opacity-40\"\n      >\n        <ChevronLeft className=\"size-4\" />\n      </button>\n      {Array.from({ length: pages }, (_, index) => index + 1).map((item) => (\n        <button\n          key={item}\n          type=\"button\"\n          aria-current={item === value ? \"page\" : undefined}\n          onClick={() => go(item)}\n          className=\"relative flex size-8 items-center justify-center rounded-md text-[13px] font-medium\"\n        >\n          {item === value && (\n            <motion.span\n              layoutId={`pagination-active-${layout}`}\n              className=\"absolute inset-0 rounded-md border bg-background shadow-sm\"\n              transition={reduce ? { duration: 0 } : glide}\n            />\n          )}\n          <span className={cn(\"relative\", item === value ? \"text-foreground\" : \"text-muted-foreground\")}>\n            {item}\n          </span>\n        </button>\n      ))}\n      <button\n        type=\"button\"\n        aria-label=\"Next page\"\n        disabled={value === pages}\n        onClick={() => go(value + 1)}\n        className=\"flex size-8 items-center justify-center rounded-md text-muted-foreground hover:bg-accent disabled:opacity-40\"\n      >\n        <ChevronRight className=\"size-4\" />\n      </button>\n    </nav>\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "fade",
+  "type": "registry:ui",
+  "title": "Fade",
+  "description": "A simple opacity entrance tied to view or scroll.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/Fade.vue",
+      "target": "components/prequelui/Fade.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { computed, onBeforeUnmount, onMounted, ref } from \"vue\";\nimport { animate } from \"motion\";\n\nconst props = defineProps({\n  delay: { type: Number, default: 0 },\n  initialOpacity: { type: Number, default: 0 },\n  opacity: { type: Number, default: 1 },\n  inView: { type: Boolean, default: false },\n  inViewOnce: { type: Boolean, default: true },\n  inViewMargin: { type: String, default: \"0px\" },\n  transition: { type: Object, default: undefined },\n  as: { type: [String, Object], default: \"div\" },\n});\n\nconst root = ref(null);\nconst initial = computed(() => props.initialOpacity);\nlet observer;\nlet controls;\n\nfunction options() {\n  const base = props.transition ?? {\n    type: \"spring\",\n    stiffness: 200,\n    damping: 20,\n  };\n  return {\n    ...base,\n    delay: (base.delay ?? 0) + props.delay / 1000,\n  };\n}\n\nfunction play() {\n  if (!root.value) return;\n  controls?.stop?.();\n  controls = animate(\n    root.value,\n    { opacity: [props.initialOpacity, props.opacity] },\n    options(),\n  );\n}\n\nfunction reset() {\n  if (!root.value) return;\n  controls?.stop?.();\n  controls = animate(root.value, { opacity: props.initialOpacity }, { duration: 0 });\n}\n\nonMounted(() => {\n  if (!props.inView) {\n    play();\n    return;\n  }\n\n  observer = new IntersectionObserver(\n    (entries) => {\n      const visible = entries.some((entry) => entry.isIntersecting);\n      if (visible) {\n        play();\n        if (props.inViewOnce) observer?.disconnect();\n      } else if (!props.inViewOnce) {\n        reset();\n      }\n    },\n    { threshold: 0.35, rootMargin: props.inViewMargin },\n  );\n  if (root.value) observer.observe(root.value);\n});\n\nonBeforeUnmount(() => {\n  observer?.disconnect();\n  controls?.stop?.();\n});\n</script>\n\n<template>\n  <component\n    :is=\"as\"\n    ref=\"root\"\n    data-slot=\"fade\"\n    :style=\"{ opacity: initial }\"\n  >\n    <slot />\n  </component>\n</template>\n"
+    }
+  ]
+}

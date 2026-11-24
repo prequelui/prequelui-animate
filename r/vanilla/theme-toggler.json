@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-toggler",
+  "type": "registry:ui",
+  "title": "Theme Toggler",
+  "description": "A theme switch revealed by a 700 ms clip-path wipe.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/theme-toggler.js",
+      "target": "components/prequelui/theme-toggler.js",
+      "type": "registry:ui",
+      "content": "const WIPE_DURATION = 700;\nconst WIPE_EASING = \"ease-in-out\";\nconst WIPE_TYPE = \"prequel-theme-wipe\";\n\nconst WIPE_STYLE =\n  \"::view-transition-old(root), ::view-transition-new(root){animation:none;mix-blend-mode:normal;}\" +\n  `:root:active-view-transition-type(${WIPE_TYPE}) body, :root:active-view-transition-type(${WIPE_TYPE}) body *{view-transition-name:none !important;}`;\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nconst systemResolved = () =>\n  window.matchMedia(\"(prefers-color-scheme: dark)\").matches ? \"dark\" : \"light\";\n\nfunction clipKeyframes(direction) {\n  switch (direction) {\n    case \"rtl\":\n      return [\"inset(0 0 0 100%)\", \"inset(0 0 0 0)\"];\n    case \"ttb\":\n      return [\"inset(0 0 100% 0)\", \"inset(0 0 0 0)\"];\n    case \"btt\":\n      return [\"inset(100% 0 0 0)\", \"inset(0 0 0 0)\"];\n    case \"ltr\":\n    default:\n      return [\"inset(0 100% 0 0)\", \"inset(0 0 0 0)\"];\n  }\n}\n\nexport function createThemeToggler(root, options = {}) {\n  const {\n    theme = \"light\",\n    resolvedTheme = \"light\",\n    setTheme,\n    direction = \"ltr\",\n    onImmediateChange,\n    tempo = 1,\n    content = \"\",\n  } = options;\n  const rate = Math.max(0.4, tempo);\n  let current = { effective: theme, resolved: resolvedTheme };\n\n  root.innerHTML = `\n    <span data-slot=\"theme-toggler\" style=\"display:contents\">${content}</span>\n    <style>${WIPE_STYLE}</style>`;\n  const host = root.querySelector(\"[data-slot]\");\n\n  function applyTheme(next) {\n    setTheme?.(next);\n  }\n\n  function startWipe(update) {\n    if (typeof document === \"undefined\") return null;\n    const start = document.startViewTransition;\n    if (!start) return null;\n    try {\n      return start.call(document, { update, types: [WIPE_TYPE] });\n    } catch {\n      return start.call(document, update);\n    }\n  }\n\n  function toggleTheme(next) {\n    const resolved = next === \"system\" ? systemResolved() : next;\n    current = { effective: next, resolved };\n    onImmediateChange?.(next);\n\n    if (next === \"system\" && resolved === resolvedTheme) {\n      applyTheme(next);\n      return;\n    }\n\n    if (reduce()) {\n      applyTheme(next);\n      return;\n    }\n\n    const transition = startWipe(() => {\n      document.documentElement.classList.toggle(\"dark\", resolved === \"dark\");\n    });\n\n    if (!transition) {\n      applyTheme(next);\n      return;\n    }\n\n    const [fromClip, toClip] = clipKeyframes(direction);\n    transition.ready.then(() => {\n      document.documentElement\n        .animate(\n          { clipPath: [fromClip, toClip] },\n          {\n            duration: WIPE_DURATION * rate,\n            easing: WIPE_EASING,\n            pseudoElement: \"::view-transition-new(root)\",\n          },\n        )\n        .finished.finally(() => applyTheme(next));\n    });\n  }\n\n  return {\n    element: host,\n    toggleTheme,\n    get state() {\n      return { ...current };\n    },\n    destroy() {\n      root.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

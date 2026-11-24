@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "blur",
+  "type": "registry:ui",
+  "title": "Blur",
+  "description": "An entrance that resolves from blur to sharp.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/blur.js",
+      "target": "components/prequelui/blur.js",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\n\nconst entranceSpring = { type: \"spring\", stiffness: 200, damping: 20 };\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nexport function createBlur(root, options = {}) {\n  const {\n    content = \"\",\n    delay = 0,\n    initialBlur = 10,\n    blur = 0,\n    inView = false,\n    inViewOnce = true,\n    inViewMargin = \"0px\",\n    transition,\n    className = \"\",\n  } = options;\n  const start = () => (reduce() ? 0 : initialBlur);\n  let observer;\n  let control;\n\n  root.innerHTML = `<div data-slot=\"blur\" class=\"${className}\"\n    style=\"filter:blur(${start()}px)\">${content}</div>`;\n  const host = root.querySelector(\"[data-slot]\");\n\n  function timing() {\n    const base = transition ?? entranceSpring;\n    return {\n      ...base,\n      delay: Number(base.delay ?? 0) + delay / 1000,\n    };\n  }\n\n  function play() {\n    control?.stop?.();\n    control = animate(\n      host,\n      { filter: [`blur(${start()}px)`, `blur(${blur}px)`] },\n      timing(),\n    );\n  }\n\n  function reset() {\n    control?.stop?.();\n    host.style.filter = `blur(${start()}px)`;\n  }\n\n  if (!inView) {\n    play();\n  } else {\n    observer = new IntersectionObserver(\n      (entries) => {\n        const visible = entries.some((entry) => entry.isIntersecting);\n        if (visible) {\n          play();\n          if (inViewOnce) observer?.disconnect();\n        } else if (!inViewOnce) {\n          reset();\n        }\n      },\n      { threshold: 0.35, rootMargin: inViewMargin },\n    );\n    observer.observe(host);\n  }\n\n  return {\n    element: host,\n    play,\n    destroy() {\n      observer?.disconnect();\n      control?.stop?.();\n      root.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

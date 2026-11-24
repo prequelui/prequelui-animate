@@ -1,0 +1,56 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-podcast-emoji",
+  "type": "registry:ui",
+  "title": "Podcast · Emoji",
+  "description": "A microphone tower whose broadcast rings widen and fade. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/podcast.json"
+  ],
+  "meta": {
+    "style": "emoji",
+    "category": "Media",
+    "roles": [
+      "primary",
+      "accent",
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      true,
+      true,
+      false,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.62 0.18 330)",
+      "primaryDark": "oklch(0.79 0.14 330)",
+      "accent": "oklch(0.72 0.16 355)",
+      "accentDark": "oklch(0.84 0.13 355)"
+    },
+    "emoji": {
+      "primary": "oklch(0.62 0.22 350)",
+      "secondary": "oklch(0.48 0.2 350)",
+      "accent": "oklch(0.6 0.2 300)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-podcast-emoji.tsx",
+      "target": "components/prequelui/icons/prequel-podcast-emoji.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelPodcastIcon, type IconProps } from \"./prequel-podcast\";\n\nexport function PrequelPodcastEmojiIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelPodcastIcon size={size} variant=\"emoji\" {...props} />;\n}\n"
+    }
+  ]
+}

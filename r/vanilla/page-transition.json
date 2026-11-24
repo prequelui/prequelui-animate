@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "page-transition",
+  "type": "registry:ui",
+  "title": "Page Transition",
+  "description": "Page changes revealed with the View Transitions API.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/page-transition.js",
+      "target": "components/prequelui/page-transition.js",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\n\nexport function createPageTransition(root, options = {}) {\n  const {\n    content = \"\",\n    duration = 0.55,\n    from = \"top\",\n    fade = true,\n    className = \"\",\n  } = options;\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n  let controls;\n  let key = 0;\n\n  root.innerHTML = `<div data-slot=\"page-transition\" class=\"min-w-0 ${className}\">${content}</div>`;\n  const host = root.querySelector(\"[data-slot]\");\n\n  function hiddenClip() {\n    if (from === \"bottom\") return \"inset(100% 0 0 0)\";\n    if (from === \"left\") return \"inset(0 100% 0 0)\";\n    if (from === \"right\") return \"inset(0 0 0 100%)\";\n    return \"inset(0 0 100% 0)\";\n  }\n\n  function play() {\n    controls?.stop?.();\n    if (reduce()) {\n      controls = animate(\n        host,\n        { opacity: [0, 1] },\n        { duration: 0.2, ease: [0.77, 0, 0.175, 1] },\n      );\n      return;\n    }\n    controls = animate(\n      host,\n      {\n        clipPath: [hiddenClip(), \"inset(0 0 0% 0)\"],\n        opacity: fade ? [0.6, 1] : 1,\n      },\n      { duration, ease: [0.77, 0, 0.175, 1] },\n    );\n  }\n\n  play();\n\n  return {\n    element: host,\n    play,\n    setPage(next = ++key) {\n      key = next;\n      play();\n    },\n    destroy() {\n      controls?.stop?.();\n      root.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

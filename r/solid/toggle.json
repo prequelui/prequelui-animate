@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle",
+  "type": "registry:ui",
+  "title": "Toggle",
+  "description": "A two-state button with a short press and a quiet colour change.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/toggle.tsx",
+      "target": "src/components/prequelui/toggle.tsx",
+      "type": "registry:ui",
+      "content": "import { createSignal } from \"solid-js\";\n\nexport type ToggleProps = {\n  pressed?: boolean;\n  defaultPressed?: boolean;\n  onPressedChange?: (pressed: boolean) => void;\n  children?: unknown;\n  class?: string;\n};\n\nexport function Toggle(props: ToggleProps) {\n  const [internal, setInternal] = createSignal(props.defaultPressed ?? false);\n  const value = () => props.pressed ?? internal();\n\n  const toggle = () => {\n    const next = !value();\n    if (props.pressed === undefined) setInternal(next);\n    props.onPressedChange?.(next);\n  };\n\n  return (\n    <button\n      type=\"button\"\n      aria-pressed={value()}\n      onClick={toggle}\n      class={`relative inline-flex h-9 items-center gap-2 rounded-lg border px-3 text-[13px] font-medium transition-[background-color,color,transform] duration-200 active:scale-[0.97] ${\n        value()\n          ? \"bg-primary text-primary-foreground\"\n          : \"bg-background text-muted-foreground hover:bg-accent\"\n      } ${props.class ?? \"\"}`}\n    >\n      <span\n        aria-hidden=\"true\"\n        class={`block size-2 rounded-full transition-colors duration-200 ${\n          value() ? \"bg-[#7ee2a8]\" : \"bg-muted-foreground/50\"\n        }`}\n      />\n      {(props.children as never) ?? \"Live preview\"}\n    </button>\n  );\n}\n"
+    }
+  ]
+}

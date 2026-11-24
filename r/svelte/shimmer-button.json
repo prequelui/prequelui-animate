@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shimmer-button",
+  "type": "registry:component",
+  "title": "Shimmer Button",
+  "description": "One short pass of light crosses the button on hover, never an endless loop.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/ShimmerButton.svelte",
+      "target": "~/src/lib/components/prequelui/ShimmerButton.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onDestroy, tick } from \"svelte\";\n  import { animate } from \"motion\";\n\n  let {\n    shimmerColor = \"color-mix(in oklab, var(--primary-foreground) 55%, transparent)\",\n    shimmerDuration = 900,\n    shimmerDelay = 60,\n    shimmer = true,\n    tapScale = 0.97,\n    transition = undefined,\n    type = \"button\",\n    disabled = false,\n    class: className = \"\",\n    onclick = undefined,\n    onpointerenter = undefined,\n    children = undefined,\n    ...rest\n  } = $props();\n\n  const pressSpring = transition ?? {\n    type: \"spring\",\n    stiffness: 550,\n    damping: 30,\n    restSpeed: 10,\n  };\n\n  let button;\n  let beam;\n  let run = $state(0);\n  let timer;\n  let controls;\n\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  async function play(delay = shimmerDelay) {\n    if (!shimmer || reduce()) return;\n    clearTimeout(timer);\n    timer = setTimeout(async () => {\n      run += 1;\n      await tick();\n      if (!beam) return;\n      controls = animate(\n        beam,\n        { x: [\"-180%\", \"260%\"], skewX: -14, opacity: [0, 1, 1, 0] },\n        {\n          duration: shimmerDuration / 1000,\n          ease: [0.33, 0, 0.2, 1],\n          times: [0, 0.16, 0.72, 1],\n        },\n      );\n    }, delay);\n  }\n\n  function press() {\n    if (!button || reduce()) return;\n    animate(button, { scale: tapScale }, pressSpring);\n  }\n\n  function release() {\n    if (!button || reduce()) return;\n    animate(button, { scale: 1 }, pressSpring);\n  }\n\n  onDestroy(() => {\n    clearTimeout(timer);\n    controls?.stop?.();\n  });\n</script>\n\n<button\n  bind:this={button}\n  {type}\n  {disabled}\n  data-slot=\"shimmer-button\"\n  class={`relative inline-flex h-10 items-center justify-center overflow-hidden rounded-lg bg-primary px-4 text-[13px] font-medium text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 ${className}`}\n  onpointerenter={(event) => {\n    onpointerenter?.(event);\n    if (event.pointerType !== \"touch\") play();\n  }}\n  onclick={(event) => {\n    onclick?.(event);\n    play(0);\n  }}\n  onpointerdown={() => !disabled && press()}\n  onpointerup={release}\n  onpointercancel={release}\n  onpointerleave={release}\n  {...rest}\n>\n  {#if run > 0}\n    <span\n      bind:this={beam}\n      aria-hidden=\"true\"\n      data-slot=\"shimmer-button-beam\"\n      class=\"pointer-events-none absolute inset-y-0 left-0 z-0 w-[52%] opacity-0\"\n      style={`background:linear-gradient(105deg, transparent 0%, ${shimmerColor} 50%, transparent 100%)`}\n    ></span>\n  {/if}\n  <span class=\"relative z-10 inline-flex items-center gap-2\">\n    {#if children}{@render children()}{/if}\n  </span>\n</button>\n"
+    }
+  ]
+}

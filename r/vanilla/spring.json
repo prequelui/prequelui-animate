@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spring",
+  "type": "registry:ui",
+  "title": "Spring",
+  "description": "A draggable element tied to its home by a visible spring.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/spring.js",
+      "target": "components/prequelui/spring.js",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\n\nexport function createSpring(root, options = {}) {\n  const {\n    content = \"drag\",\n    stiffness = 200,\n    damping = 16,\n    elastic = 0.7,\n    snapBack = true,\n    pressScale = 1.06,\n    className = \"\",\n  } = options;\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n  let dragging = false;\n  let startX = 0;\n  let startY = 0;\n  let lastX = 0;\n  let lastY = 0;\n\n  root.innerHTML = `<div data-slot=\"spring\"\n    class=\"cursor-grab touch-none select-none active:cursor-grabbing ${className}\">${content}</div>`;\n  const node = root.querySelector(\"[data-slot]\");\n\n  function down(event) {\n    if (reduce() || event.button !== 0) return;\n    dragging = true;\n    startX = event.clientX;\n    startY = event.clientY;\n    lastX = 0;\n    lastY = 0;\n    node.setPointerCapture?.(event.pointerId);\n    node.style.cursor = \"grabbing\";\n    animate(\n      node,\n      { scale: pressScale },\n      { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n    );\n  }\n\n  function move(event) {\n    if (!dragging) return;\n    lastX = (event.clientX - startX) * elastic;\n    lastY = (event.clientY - startY) * elastic;\n    node.style.transform = `translate3d(${lastX}px, ${lastY}px, 0) scale(${pressScale})`;\n  }\n\n  function up() {\n    if (!dragging) return;\n    dragging = false;\n    node.style.cursor = \"grab\";\n    if (!snapBack) return;\n    animate(\n      node,\n      { x: [lastX, 0], y: [lastY, 0], scale: 1 },\n      { type: \"spring\", stiffness, damping },\n    ).finished.then(() => {\n      node.style.transform = \"none\";\n    });\n  }\n\n  node.addEventListener(\"pointerdown\", down);\n  node.addEventListener(\"pointermove\", move);\n  node.addEventListener(\"pointerup\", up);\n  node.addEventListener(\"pointercancel\", up);\n\n  return {\n    element: node,\n    destroy() {\n      node.removeEventListener(\"pointerdown\", down);\n      node.removeEventListener(\"pointermove\", move);\n      node.removeEventListener(\"pointerup\", up);\n      node.removeEventListener(\"pointercancel\", up);\n      root.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

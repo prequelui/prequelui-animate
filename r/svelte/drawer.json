@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "drawer",
+  "type": "registry:component",
+  "title": "Drawer",
+  "description": "A panel that snaps in from an edge and leaves faster than it arrived.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/Drawer.svelte",
+      "target": "~/src/lib/components/prequelui/Drawer.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { X } from \"lucide-svelte\";\n  import { cubicBezier } from \"motion\";\n\n  let {\n    open = undefined,\n    defaultOpen = false,\n    onOpenChange = undefined,\n    trigger = \"Open drawer\",\n    title = \"Notifications\",\n    description = \"Updates from the projects you follow.\",\n    children = undefined,\n  } = $props();\n\n  let internal = $state(defaultOpen);\n  const value = $derived(open === undefined ? internal : open);\n\n  function setOpen(next) {\n    if (open === undefined) internal = next;\n    onOpenChange?.(next);\n  }\n  function onKey(event) {\n    if (event.key === \"Escape\" && value) setOpen(false);\n  }\n\n  const drawerEase = cubicBezier(0.34, 1.2, 0.64, 1);\n  function veil() {\n    return { duration: 400, easing: cubicBezier(0.215, 0.61, 0.355, 1), css: (t) => `opacity:${t}` };\n  }\n  function panel() {\n    return { duration: 400, easing: drawerEase, css: (t) => `transform:translateX(${(1 - t) * 100}%);` };\n  }\n</script>\n\n<svelte:window onkeydown={onKey} />\n\n<button type=\"button\" class=\"inline-flex h-8 items-center rounded-md border px-3 text-[13px] font-medium\" onclick={() => setOpen(true)}>\n  {trigger}\n</button>\n\n{#if value}\n  <div class=\"fixed inset-0 z-50\">\n    <button type=\"button\" aria-label=\"Close drawer\" class=\"absolute inset-0 bg-background/60 backdrop-blur-sm\" transition:veil onclick={() => setOpen(false)}></button>\n    <div role=\"dialog\" aria-modal=\"true\" class=\"absolute right-0 top-0 flex h-full w-[85%] max-w-sm flex-col border-l bg-background p-5 shadow-2xl\" transition:panel>\n      <button type=\"button\" aria-label=\"Close\" class=\"absolute right-3 top-3 rounded-md p-1 text-muted-foreground hover:bg-accent\" onclick={() => setOpen(false)}>\n        <X class=\"size-4\" />\n      </button>\n      <p class=\"text-[15px] font-medium\">{title}</p>\n      <p class=\"mt-1.5 text-[13px] leading-6 text-muted-foreground\">{description}</p>\n      {#if children}{@render children()}{/if}\n    </div>\n  </div>\n{/if}\n"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-first-aid-duotone",
+  "type": "registry:ui",
+  "title": "First Aid · Duotone",
+  "description": "A medical kit whose cross is drawn and then lights up. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/first-aid.json"
+  ],
+  "meta": {
+    "style": "duotone",
+    "category": "Health",
+    "roles": [
+      "primary",
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      true,
+      false,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.6 0.18 15)",
+      "primaryDark": "oklch(0.78 0.13 15)",
+      "accent": "oklch(0.68 0.13 190)",
+      "accentDark": "oklch(0.81 0.1 190)"
+    },
+    "emoji": {
+      "primary": "oklch(0.68 0.2 27)",
+      "secondary": "oklch(0.54 0.19 25)",
+      "accent": "oklch(0.78 0.14 165)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-first-aid-duotone.tsx",
+      "target": "components/prequelui/icons/prequel-first-aid-duotone.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelFirstAidIcon, type IconProps } from \"./prequel-first-aid\";\n\nexport function PrequelFirstAidDuotoneIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelFirstAidIcon size={size} variant=\"duotone\" {...props} />;\n}\n"
+    }
+  ]
+}

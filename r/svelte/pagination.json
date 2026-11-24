@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pagination",
+  "type": "registry:component",
+  "title": "Pagination",
+  "description": "Page links with an active outline that glides between positions.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/Pagination.svelte",
+      "target": "~/src/lib/components/prequelui/Pagination.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount } from \"svelte\";\n  import { ChevronLeft, ChevronRight } from \"lucide-svelte\";\n  import { animate } from \"motion\";\n\n  let { pages = 5, defaultPage = 1, page = undefined, onPageChange = undefined } = $props();\n\n  let internal = $state(defaultPage);\n  const current = $derived(page ?? internal);\n  let buttons = {};\n  let indicator;\n\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  function place(animated) {\n    const target = buttons[current];\n    if (!target || !indicator) return;\n    const x = target.offsetLeft;\n    const width = target.offsetWidth;\n    if (!animated || reduce()) {\n      indicator.style.transform = `translateX(${x}px)`;\n      indicator.style.width = `${width}px`;\n      return;\n    }\n    animate(indicator, { x, width }, { type: \"spring\", stiffness: 500, damping: 40 });\n  }\n\n  let ready = false;\n\n  function go(next) {\n    const value = Math.min(pages, Math.max(1, next));\n    if (page === undefined) internal = value;\n    onPageChange?.(value);\n  }\n\n  onMount(() =>\n    requestAnimationFrame(() => {\n      ready = true;\n      place(false);\n    }),\n  );\n\n  $effect(() => {\n    current;\n    if (ready) requestAnimationFrame(() => place(true));\n  });\n</script>\n\n<nav aria-label=\"Pagination\" class=\"relative flex items-center gap-1\">\n  <button type=\"button\" aria-label=\"Previous page\" disabled={current === 1} class=\"flex size-8 items-center justify-center rounded-md text-muted-foreground hover:bg-accent disabled:opacity-40\" onclick={() => go(current - 1)}>\n    <ChevronLeft class=\"size-4\" />\n  </button>\n  <span bind:this={indicator} class=\"absolute inset-y-0 left-0 rounded-md border bg-background shadow-sm\" aria-hidden=\"true\"></span>\n  {#each Array.from({ length: pages }, (_, index) => index + 1) as item (item)}\n    <button\n      bind:this={buttons[item]}\n      type=\"button\"\n      aria-current={item === current ? \"page\" : undefined}\n      class=\"relative flex size-8 items-center justify-center rounded-md text-[13px] font-medium\"\n      class:text-foreground={item === current}\n      class:text-muted-foreground={item !== current}\n      onclick={() => go(item)}\n    >\n      {item}\n    </button>\n  {/each}\n  <button type=\"button\" aria-label=\"Next page\" disabled={current === pages} class=\"flex size-8 items-center justify-center rounded-md text-muted-foreground hover:bg-accent disabled:opacity-40\" onclick={() => go(current + 1)}>\n    <ChevronRight class=\"size-4\" />\n  </button>\n</nav>\n"
+    }
+  ]
+}

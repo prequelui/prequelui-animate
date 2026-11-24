@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pagination",
+  "type": "registry:ui",
+  "title": "Pagination",
+  "description": "Page links with an active outline that glides between positions.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/Pagination.vue",
+      "target": "components/prequelui/Pagination.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { nextTick, onMounted, ref, watch } from \"vue\";\nimport { animate } from \"motion\";\nimport { ChevronLeft, ChevronRight } from \"@lucide/vue\";\n\nconst props = defineProps({\n  pages: { type: Number, default: 5 },\n  defaultPage: { type: Number, default: 1 },\n  modelValue: { type: Number, default: undefined },\n});\nconst emit = defineEmits([\"update:modelValue\"]);\n\nconst current = ref(props.modelValue ?? props.defaultPage);\nconst buttons = ref({});\nconst indicator = ref(null);\n\nwatch(\n  () => props.modelValue,\n  (value) => {\n    if (value !== undefined) current.value = value;\n  },\n);\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nfunction place(animated) {\n  const target = buttons.value[current.value];\n  if (!target || !indicator.value) return;\n  const x = target.offsetLeft;\n  const width = target.offsetWidth;\n  if (!animated || reduce()) {\n    indicator.value.style.transform = `translateX(${x}px)`;\n    indicator.value.style.width = `${width}px`;\n    return;\n  }\n  animate(indicator.value, { x, width }, { type: \"spring\", stiffness: 500, damping: 40 });\n}\n\nfunction go(next) {\n  const value = Math.min(props.pages, Math.max(1, next));\n  if (props.modelValue === undefined) current.value = value;\n  emit(\"update:modelValue\", value);\n  nextTick(() => place(true));\n}\n\nonMounted(() => nextTick(() => place(false)));\n</script>\n\n<template>\n  <nav aria-label=\"Pagination\" class=\"relative flex items-center gap-1\">\n    <button type=\"button\" aria-label=\"Previous page\" :disabled=\"current === 1\"\n      class=\"flex size-8 items-center justify-center rounded-md text-muted-foreground hover:bg-accent disabled:opacity-40\"\n      @click=\"go(current - 1)\">\n      <ChevronLeft class=\"size-4\" />\n    </button>\n    <span ref=\"indicator\" class=\"absolute inset-y-0 left-0 rounded-md border bg-background shadow-sm\" aria-hidden=\"true\" />\n    <button\n      v-for=\"item in pages\"\n      :key=\"item\"\n      :ref=\"(node) => (buttons[item] = node)\"\n      type=\"button\"\n      :aria-current=\"item === current ? 'page' : undefined\"\n      class=\"relative flex size-8 items-center justify-center rounded-md text-[13px] font-medium\"\n      :class=\"item === current ? 'text-foreground' : 'text-muted-foreground'\"\n      @click=\"go(item)\"\n    >\n      {{ item }}\n    </button>\n    <button type=\"button\" aria-label=\"Next page\" :disabled=\"current === pages\"\n      class=\"flex size-8 items-center justify-center rounded-md text-muted-foreground hover:bg-accent disabled:opacity-40\"\n      @click=\"go(current + 1)\">\n      <ChevronRight class=\"size-4\" />\n    </button>\n  </nav>\n</template>\n"
+    }
+  ]
+}

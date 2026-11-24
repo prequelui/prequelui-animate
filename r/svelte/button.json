@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button",
+  "type": "registry:component",
+  "title": "Button",
+  "description": "A button that presses down and never fidgets on hover.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/Button.svelte",
+      "target": "~/src/lib/components/prequelui/Button.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { animate } from \"motion\";\n\n  let {\n    hoverScale = 1,\n    tapScale = 0.97,\n    transition = undefined,\n    type = \"button\",\n    disabled = false,\n    class: className = \"\",\n    children = undefined,\n    ...rest\n  } = $props();\n\n  const pressSpring = transition ?? {\n    type: \"spring\",\n    stiffness: 550,\n    damping: 30,\n    restSpeed: 10,\n  };\n\n  let node;\n  let hovered = false;\n\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  function move(scale) {\n    if (!node || reduce()) return;\n    animate(node, { scale }, pressSpring);\n  }\n\n  function release() {\n    move(hovered && hoverScale !== 1 ? hoverScale : 1);\n  }\n</script>\n\n<button\n  bind:this={node}\n  data-slot=\"button\"\n  {type}\n  {disabled}\n  class={`inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-primary px-4 text-[13px] font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 ${className}`}\n  onpointerdown={() => !disabled && move(tapScale)}\n  onpointerup={release}\n  onpointercancel={release}\n  onpointerenter={() => {\n    hovered = true;\n    if (hoverScale !== 1) move(hoverScale);\n  }}\n  onpointerleave={() => {\n    hovered = false;\n    move(1);\n  }}\n  {...rest}\n>\n  {#if children}{@render children()}{/if}\n</button>\n"
+    }
+  ]
+}

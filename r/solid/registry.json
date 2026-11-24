@@ -1,0 +1,1568 @@
+{
+  "items": [
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Collapsible panels that unfold with height, opacity and a quiet blur.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/accordion.tsx",
+          "target": "src/components/prequelui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert Dialog",
+      "description": "A modal confirmation that interrupts the flow and waits for an answer.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/alert-dialog.tsx",
+          "target": "src/components/prequelui/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "title": "Carousel",
+      "description": "A draggable slider with neighbour slides, dots and a sliding counter.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/carousel.tsx",
+          "target": "src/components/prequelui/carousel.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "A checkbox with a swelling fill and a check that draws itself.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/checkbox.tsx",
+          "target": "src/components/prequelui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "code-block",
+      "type": "registry:ui",
+      "title": "Code Block",
+      "description": "A code surface that types itself in, copies cleanly and follows the caret.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/code-block.tsx",
+          "target": "src/components/prequelui/code-block.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "description": "A single panel that opens from a separate trigger and closes its parent gap.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/collapsible.tsx",
+          "target": "src/components/prequelui/collapsible.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "An input paired with a filtered list, gliding highlight and cascading rows.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/combobox.tsx",
+          "target": "src/components/prequelui/combobox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "title": "Context Menu",
+      "description": "A menu anchored to the pointer with cascading items and menu handoff.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/context-menu.tsx",
+          "target": "src/components/prequelui/context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "A modal that tips into view from its edge while the page blurs behind it.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/dialog.tsx",
+          "target": "src/components/prequelui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "title": "Drawer",
+      "description": "A panel that snaps in from an edge and leaves faster than it arrived.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/drawer.tsx",
+          "target": "src/components/prequelui/drawer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "A compact action menu whose items arrive in a 30 ms cascade.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/dropdown-menu.tsx",
+          "target": "src/components/prequelui/dropdown-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "title": "Hover Card",
+      "description": "A preview card that opens from its trigger after a deliberate hover.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/hover-card.tsx",
+          "target": "src/components/prequelui/hover-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:ui",
+      "title": "Input OTP",
+      "description": "One-time-code inputs with popping characters and a pasted cascade.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/input-otp.tsx",
+          "target": "src/components/prequelui/input-otp.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:ui",
+      "title": "Menubar",
+      "description": "A persistent application menubar whose menus hand off without closing.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/menubar.tsx",
+          "target": "src/components/prequelui/menubar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "title": "Navigation Menu",
+      "description": "A shared navigation viewport that resizes between triggers.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/navigation-menu.tsx",
+          "target": "src/components/prequelui/navigation-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Page links with an active outline that glides between positions.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/pagination.tsx",
+          "target": "src/components/prequelui/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "An anchored surface that grows from 80% with a spring.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/popover.tsx",
+          "target": "src/components/prequelui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "preview-link-card",
+      "type": "registry:ui",
+      "title": "Preview Link Card",
+      "description": "A link that reveals a live preview of its destination on hover.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/preview-link-card.tsx",
+          "target": "src/components/prequelui/preview-link-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "A progress bar whose width settles on a soft spring without overshoot.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/progress.tsx",
+          "target": "src/components/prequelui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "questionnaire",
+      "type": "registry:ui",
+      "title": "Questionnaire",
+      "description": "A multi-step questionnaire that recomposes its height between questions.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/questionnaire.tsx",
+          "target": "src/components/prequelui/questionnaire.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "Single-choice options with a dot that grows into place.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/radio-group.tsx",
+          "target": "src/components/prequelui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "A select menu with a gliding highlight and cascading options.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/select.tsx",
+          "target": "src/components/prequelui/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "A side sheet built on the dialog, sliding in with a blurred veil.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/sheet.tsx",
+          "target": "src/components/prequelui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "title": "Sidebar",
+      "description": "A composable sidebar with a shared highlight and a single collapse curve.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/sidebar.tsx",
+          "target": "src/components/prequelui/sidebar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "A range slider whose thumb stretches in the direction of travel.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/slider.tsx",
+          "target": "src/components/prequelui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "A switch whose thumb stretches 3/16 and lands softly.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/switch.tsx",
+          "target": "src/components/prequelui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Tabs with a solid indicator and panels that blur out then in.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/tabs.tsx",
+          "target": "src/components/prequelui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "Stacked notifications that land from their edge and leave sooner.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/toast.tsx",
+          "target": "src/components/prequelui/toast.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "Toggle",
+      "description": "A two-state button with a short press and a quiet colour change.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/toggle.tsx",
+          "target": "src/components/prequelui/toggle.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "title": "Toggle Group",
+      "description": "A group of toggles with one shared background gliding between them.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/toggle-group.tsx",
+          "target": "src/components/prequelui/toggle-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "A tooltip that blooms from 70% and warms up its next appearance.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/tooltip.tsx",
+          "target": "src/components/prequelui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "A button that presses down and never fidgets on hover.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/button.tsx",
+          "target": "src/components/prequelui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "copy-button",
+      "type": "registry:ui",
+      "title": "Copy Button",
+      "description": "Copies text and swaps its icon in a quick blur crossfade.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/copy-button.tsx",
+          "target": "src/components/prequelui/copy-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "flip-button",
+      "type": "registry:ui",
+      "title": "Flip Button",
+      "description": "A button that turns over on hover to reveal its back face.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/flip-button.tsx",
+          "target": "src/components/prequelui/flip-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "github-stars-button",
+      "type": "registry:ui",
+      "title": "GitHub Stars Button",
+      "description": "A compact star button with a counting number and fill.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/github-stars-button.tsx",
+          "target": "src/components/prequelui/github-stars-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "icon-button",
+      "type": "registry:ui",
+      "title": "Icon Button",
+      "description": "An icon button that releases a small burst of particles.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/icon-button.tsx",
+          "target": "src/components/prequelui/icon-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "liquid-button",
+      "type": "registry:ui",
+      "title": "Liquid Button",
+      "description": "A button that fills with liquid from the bottom on hover.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/liquid-button.tsx",
+          "target": "src/components/prequelui/liquid-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "ripple-button",
+      "type": "registry:ui",
+      "title": "Ripple Button",
+      "description": "A button that emits a ripple from the exact point clicked.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/ripple-button.tsx",
+          "target": "src/components/prequelui/ripple-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "shimmer-button",
+      "type": "registry:ui",
+      "title": "Shimmer Button",
+      "description": "One short pass of light crosses the button on hover, never an endless loop.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/shimmer-button.tsx",
+          "target": "src/components/prequelui/shimmer-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "theme-toggler-button",
+      "type": "registry:ui",
+      "title": "Theme Toggler Button",
+      "description": "A theme button whose icon spins, shrinks and blurs away.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/theme-toggler-button.tsx",
+          "target": "src/components/prequelui/theme-toggler-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "gradient-text",
+      "type": "registry:ui",
+      "title": "Gradient Text",
+      "description": "Text filled with a gradient that sweeps slowly across it.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/gradient-text.tsx",
+          "target": "src/components/prequelui/gradient-text.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "highlight-text",
+      "type": "registry:ui",
+      "title": "Highlight Text",
+      "description": "A marker highlight that draws in behind the words.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/highlight-text.tsx",
+          "target": "src/components/prequelui/highlight-text.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "shimmering-text",
+      "type": "registry:ui",
+      "title": "Shimmering Text",
+      "description": "A letter-by-letter wave of light crosses the text.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/shimmering-text.tsx",
+          "target": "src/components/prequelui/shimmering-text.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "splitting-text",
+      "type": "registry:ui",
+      "title": "Splitting Text",
+      "description": "Text arrives piece by piece with a staggered blur.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/splitting-text.tsx",
+          "target": "src/components/prequelui/splitting-text.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "typing-text",
+      "type": "registry:ui",
+      "title": "Typing Text",
+      "description": "Text typed character by character with a blinking caret.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/typing-text.tsx",
+          "target": "src/components/prequelui/typing-text.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "motion-grid",
+      "type": "registry:ui",
+      "title": "Motion Grid",
+      "description": "A dot grid that plays frame-by-frame motion as a loader or state.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/motion-grid.tsx",
+          "target": "src/components/prequelui/motion-grid.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "page-transition",
+      "type": "registry:ui",
+      "title": "Page Transition",
+      "description": "Page changes revealed with the View Transitions API.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/page-transition.tsx",
+          "target": "src/components/prequelui/page-transition.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spring",
+      "type": "registry:ui",
+      "title": "Spring",
+      "description": "A draggable element tied to its home by a visible spring.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/spring.tsx",
+          "target": "src/components/prequelui/spring.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "github-stars",
+      "type": "registry:ui",
+      "title": "GitHub Stars",
+      "description": "A repository star count that ticks up and bursts into particles.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/github-stars.tsx",
+          "target": "src/components/prequelui/github-stars.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "cursor",
+      "type": "registry:ui",
+      "title": "Cursor",
+      "description": "A custom cursor and a trailing label with two different springs.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/cursor.tsx",
+          "target": "src/components/prequelui/cursor.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sliding-text",
+      "type": "registry:ui",
+      "title": "Sliding Text",
+      "description": "Text slides out of its box while a copy slides in.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/sliding-text.tsx",
+          "target": "src/components/prequelui/sliding-text.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar-group",
+      "type": "registry:ui",
+      "title": "Avatar Group",
+      "description": "Overlapping avatars with one shared tooltip that hands off between faces.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/avatar-group.tsx",
+          "target": "src/components/prequelui/avatar-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "file-drop",
+      "type": "registry:ui",
+      "title": "File Drop",
+      "description": "A drop zone that breathes on drag, fills a spring bar and draws its own check.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/file-drop.tsx",
+          "target": "src/components/prequelui/file-drop.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "stepper",
+      "type": "registry:ui",
+      "title": "Stepper",
+      "description": "Connectors draw, the current badge grows and panels slide in the direction of travel.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/stepper.tsx",
+          "target": "src/components/prequelui/stepper.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "bottom-navigation",
+      "type": "registry:ui",
+      "title": "Bottom Navigation",
+      "description": "A bottom bar with a gliding highlight that recedes on scroll.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/bottom-navigation.tsx",
+          "target": "src/components/prequelui/bottom-navigation.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pinned-list",
+      "type": "registry:ui",
+      "title": "Pinned List",
+      "description": "Items that move between pinned and unpinned groups as the same node.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/pinned-list.tsx",
+          "target": "src/components/prequelui/pinned-list.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-progress",
+      "type": "registry:ui",
+      "title": "Scroll Progress",
+      "description": "A scroll-linked progress bar driven without overshoot.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/scroll-progress.tsx",
+          "target": "src/components/prequelui/scroll-progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "counting-number",
+      "type": "registry:ui",
+      "title": "Counting Number",
+      "description": "A number that counts to its target on a heavily damped spring.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/counting-number.tsx",
+          "target": "src/components/prequelui/counting-number.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "kpi-counter",
+      "type": "registry:ui",
+      "title": "KPI Counter",
+      "description": "A metric card whose number counts, delta lands and sparkline draws itself.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/kpi-counter.tsx",
+          "target": "src/components/prequelui/kpi-counter.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radial-progress",
+      "type": "registry:ui",
+      "title": "Radial Progress",
+      "description": "An arc and a number on one damped spring, with ticks waking in order.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/radial-progress.tsx",
+          "target": "src/components/prequelui/radial-progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scrolling-number",
+      "type": "registry:ui",
+      "title": "Scrolling Number",
+      "description": "A mechanical number band that scrolls and stops under a highlight.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/scrolling-number.tsx",
+          "target": "src/components/prequelui/scrolling-number.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sliding-number",
+      "type": "registry:ui",
+      "title": "Sliding Number",
+      "description": "An odometer where every digit rolls independently.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/sliding-number.tsx",
+          "target": "src/components/prequelui/sliding-number.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "morphing-text",
+      "type": "registry:ui",
+      "title": "Morphing Text",
+      "description": "Letters glide to their new positions when the string changes.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/morphing-text.tsx",
+          "target": "src/components/prequelui/morphing-text.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "rolling-text",
+      "type": "registry:ui",
+      "title": "Rolling Text",
+      "description": "Letters roll over themselves like a split-flap board.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/rolling-text.tsx",
+          "target": "src/components/prequelui/rolling-text.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "rotating-text",
+      "type": "registry:ui",
+      "title": "Rotating Text",
+      "description": "Words leave upward while the next one rises into place.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/rotating-text.tsx",
+          "target": "src/components/prequelui/rotating-text.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "swapping-text",
+      "type": "registry:ui",
+      "title": "Swapping Text",
+      "description": "Only the letters that changed glide to their new spots.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/swapping-text.tsx",
+          "target": "src/components/prequelui/swapping-text.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "auto-height",
+      "type": "registry:ui",
+      "title": "Auto Height",
+      "description": "A container whose height glides to fit whatever is inside.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/auto-height.tsx",
+          "target": "src/components/prequelui/auto-height.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "blur",
+      "type": "registry:ui",
+      "title": "Blur",
+      "description": "An entrance that resolves from blur to sharp.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/blur.tsx",
+          "target": "src/components/prequelui/blur.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "click",
+      "type": "registry:ui",
+      "title": "Click",
+      "description": "A ring, ripple, crosshair or burst played at the click point.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/click.tsx",
+          "target": "src/components/prequelui/click.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "effect",
+      "type": "registry:ui",
+      "title": "Effect",
+      "description": "Fade, blur, slide and zoom composed into one entrance.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/effect.tsx",
+          "target": "src/components/prequelui/effect.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "fade",
+      "type": "registry:ui",
+      "title": "Fade",
+      "description": "A simple opacity entrance tied to view or scroll.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/fade.tsx",
+          "target": "src/components/prequelui/fade.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "highlight",
+      "type": "registry:ui",
+      "title": "Highlight",
+      "description": "A shared background that slides to the active item.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/highlight.tsx",
+          "target": "src/components/prequelui/highlight.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "image-zoom",
+      "type": "registry:ui",
+      "title": "Image Zoom",
+      "description": "An image that zooms toward the pointer on hover.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/image-zoom.tsx",
+          "target": "src/components/prequelui/image-zoom.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "magnetic",
+      "type": "registry:ui",
+      "title": "Magnetic",
+      "description": "An element pulled toward the pointer inside a radius.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/magnetic.tsx",
+          "target": "src/components/prequelui/magnetic.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "marquee",
+      "type": "registry:ui",
+      "title": "Marquee",
+      "description": "A seamless row that drifts at a fixed speed and pauses under the pointer.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/marquee.tsx",
+          "target": "src/components/prequelui/marquee.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "particles",
+      "type": "registry:ui",
+      "title": "Particles",
+      "description": "A burst of particles around a trigger, for likes and stars.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/particles.tsx",
+          "target": "src/components/prequelui/particles.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-fade",
+      "type": "registry:ui",
+      "title": "Scroll Fade",
+      "description": "Container edges that fade only where there is more content.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/scroll-fade.tsx",
+          "target": "src/components/prequelui/scroll-fade.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "shine",
+      "type": "registry:ui",
+      "title": "Shine",
+      "description": "A highlight that sweeps across a surface on hover or click.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/shine.tsx",
+          "target": "src/components/prequelui/shine.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slide",
+      "type": "registry:ui",
+      "title": "Slide",
+      "description": "An entrance that arrives from one side.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/slide.tsx",
+          "target": "src/components/prequelui/slide.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spotlight-card",
+      "type": "registry:ui",
+      "title": "Spotlight Card",
+      "description": "A soft light that follows the pointer across a card on a lagging spring.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/spotlight-card.tsx",
+          "target": "src/components/prequelui/spotlight-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "theme-toggler",
+      "type": "registry:ui",
+      "title": "Theme Toggler",
+      "description": "A theme switch revealed by a 700 ms clip-path wipe.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/theme-toggler.tsx",
+          "target": "src/components/prequelui/theme-toggler.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tilt",
+      "type": "registry:ui",
+      "title": "Tilt",
+      "description": "A card that tilts in 3D toward the pointer and returns flat.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/tilt.tsx",
+          "target": "src/components/prequelui/tilt.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "zoom",
+      "type": "registry:ui",
+      "title": "Zoom",
+      "description": "An entrance that scales from half size with a spring.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/zoom.tsx",
+          "target": "src/components/prequelui/zoom.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "bubble",
+      "type": "registry:ui",
+      "title": "Bubble",
+      "description": "Slow gradient blobs that float and turn behind the content.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/bubble.tsx",
+          "target": "src/components/prequelui/bubble.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "fireworks",
+      "type": "registry:ui",
+      "title": "Fireworks",
+      "description": "Autonomous firework bursts with configurable timing.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/fireworks.tsx",
+          "target": "src/components/prequelui/fireworks.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "glyph",
+      "type": "registry:ui",
+      "title": "Glyph",
+      "description": "A field of characters woken by a trail of light and rings.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/glyph.tsx",
+          "target": "src/components/prequelui/glyph.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "gradient",
+      "type": "registry:ui",
+      "title": "Gradient",
+      "description": "A quiet animated gradient that gives the page depth.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/gradient.tsx",
+          "target": "src/components/prequelui/gradient.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "gravity-stars",
+      "type": "registry:ui",
+      "title": "Gravity Stars",
+      "description": "Stars pulled and pushed by an interactive gravity well.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/gravity-stars.tsx",
+          "target": "src/components/prequelui/gravity-stars.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hexagon",
+      "type": "registry:ui",
+      "title": "Hexagon",
+      "description": "A hexagonal grid that lights each cell under the pointer.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/hexagon.tsx",
+          "target": "src/components/prequelui/hexagon.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hole",
+      "type": "registry:ui",
+      "title": "Hole",
+      "description": "A tunnel of rings with particles rising toward the camera.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/hole.tsx",
+          "target": "src/components/prequelui/hole.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "stars",
+      "type": "registry:ui",
+      "title": "Stars",
+      "description": "Three parallax star layers drifting at different speeds.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/stars.tsx",
+          "target": "src/components/prequelui/stars.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "topography",
+      "type": "registry:ui",
+      "title": "Topography",
+      "description": "Living contour lines with a hill under the pointer.",
+      "dependencies": [
+        "motion",
+        "lucide-solid"
+      ],
+      "files": [
+        {
+          "path": "src/components/prequelui/topography.tsx",
+          "target": "src/components/prequelui/topography.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}

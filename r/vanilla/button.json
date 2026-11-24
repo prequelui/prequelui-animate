@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button",
+  "type": "registry:ui",
+  "title": "Button",
+  "description": "A button that presses down and never fidgets on hover.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/button.js",
+      "target": "components/prequelui/button.js",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\n\nconst BASE =\n  \"inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-primary px-4 text-[13px] font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50\";\n\nexport function createButton(root, options = {}) {\n  const {\n    label = \"Button\",\n    className = \"\",\n    hoverScale = 1,\n    tapScale = 0.97,\n    type = \"button\",\n    disabled = false,\n  } = options;\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n  let hovered = false;\n\n  root.innerHTML = `<button type=\"${type}\" data-slot=\"button\" ${disabled ? \"disabled\" : \"\"} class=\"${BASE} ${className}\">${label}</button>`;\n  const button = root.querySelector(\"button\");\n\n  function move(scale) {\n    if (!button || reduce()) return;\n    animate(\n      button,\n      { scale },\n      { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n    );\n  }\n\n  button.addEventListener(\"pointerdown\", () => !disabled && move(tapScale));\n  button.addEventListener(\"pointerup\", () =>\n    move(hovered && hoverScale !== 1 ? hoverScale : 1),\n  );\n  button.addEventListener(\"pointerenter\", () => {\n    hovered = true;\n    if (hoverScale !== 1) move(hoverScale);\n  });\n  button.addEventListener(\"pointerleave\", () => {\n    hovered = false;\n    move(1);\n  });\n\n  return {\n    element: button,\n    destroy() {\n      root.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

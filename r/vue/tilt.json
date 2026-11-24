@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tilt",
+  "type": "registry:ui",
+  "title": "Tilt",
+  "description": "A card that tilts in 3D toward the pointer and returns flat.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/Tilt.vue",
+      "target": "components/prequelui/Tilt.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { computed, onBeforeUnmount, onMounted, ref } from \"vue\";\nimport { animate } from \"motion\";\n\nconst props = defineProps({\n  maxTilt: { type: Number, default: 10 },\n  perspective: { type: Number, default: 800 },\n  transition: { type: Object, default: undefined },\n  as: { type: [String, Object], default: \"div\" },\n});\n\nconst root = ref(null);\nlet control;\n\nconst spring = computed(\n  () =>\n    props.transition ?? {\n      type: \"spring\",\n      stiffness: 300,\n      damping: 25,\n      mass: 0.5,\n    },\n);\n\nfunction reduce() {\n  return (\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches\n  );\n}\n\nfunction move(event) {\n  if (reduce() || !root.value) return;\n  const rect = event.currentTarget.getBoundingClientRect();\n  const px = rect.width ? (event.clientX - rect.left) / rect.width : 0.5;\n  const py = rect.height ? (event.clientY - rect.top) / rect.height : 0.5;\n  const rotateY = (px * 2 - 1) * props.maxTilt;\n  const rotateX = -(py * 2 - 1) * props.maxTilt;\n  control = animate(\n    root.value,\n    {\n      rotateX,\n      rotateY,\n      transformPerspective: props.perspective,\n    },\n    spring.value,\n  );\n}\n\nfunction leave() {\n  if (!root.value) return;\n  control = animate(\n    root.value,\n    {\n      rotateX: 0,\n      rotateY: 0,\n      transformPerspective: props.perspective,\n    },\n    spring.value,\n  );\n}\n\nonMounted(() => {\n  if (!root.value) return;\n  control = animate(\n    root.value,\n    { rotateX: 0, rotateY: 0, transformPerspective: props.perspective },\n    { duration: 0 },\n  );\n});\n\nonBeforeUnmount(() => {\n  control?.stop?.();\n});\n</script>\n\n<template>\n  <component\n    :is=\"as\"\n    ref=\"root\"\n    data-slot=\"tilt\"\n    class=\"will-change-transform\"\n    :style=\"{ transformStyle: 'preserve-3d' }\"\n    @pointermove=\"move\"\n    @pointerleave=\"leave\"\n  >\n    <slot />\n  </component>\n</template>\n"
+    }
+  ]
+}

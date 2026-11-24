@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "auto-height",
+  "type": "registry:ui",
+  "title": "Auto Height",
+  "description": "A container whose height glides to fit whatever is inside.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/auto-height.js",
+      "target": "components/prequelui/auto-height.js",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\n\nconst heightSpring = {\n  type: \"spring\",\n  stiffness: 300,\n  damping: 30,\n  bounce: 0,\n  restDelta: 0.01,\n};\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nexport function createAutoHeight(root, options = {}) {\n  const {\n    content = \"\",\n    includeParentBox = true,\n    includeSelfBox = false,\n    extra = {},\n    transition,\n    wrapperClassName = \"\",\n    className = \"\",\n  } = options;\n  let observer;\n  let frame = 0;\n  let control;\n\n  root.innerHTML = `\n    <div data-slot=\"auto-height\" class=\"${className}\" style=\"overflow:hidden\">\n      <div data-content class=\"w-full ${wrapperClassName}\">${content}</div>\n    </div>`;\n  const host = root.querySelector(\"[data-slot]\");\n  const inner = root.querySelector(\"[data-content]\");\n\n  function measure() {\n    const base = inner.getBoundingClientRect().height;\n    let supplement = 0;\n    if (includeParentBox && inner.parentElement) {\n      const box = inner.parentElement.getBoundingClientRect();\n      const childrenHeight = Array.from(inner.parentElement.children).reduce(\n        (total, child) => total + child.getBoundingClientRect().height,\n        0,\n      );\n      supplement = Math.max(0, box.height - childrenHeight);\n    }\n    if (includeSelfBox) {\n      const style = getComputedStyle(inner);\n      supplement +=\n        (parseFloat(style.paddingTop) || 0) +\n        (parseFloat(style.paddingBottom) || 0) +\n        (parseFloat(style.borderTopWidth) || 0) +\n        (parseFloat(style.borderBottomWidth) || 0);\n    }\n    const dpr = window.devicePixelRatio || 1;\n    return Math.ceil((base + supplement) * dpr) / dpr;\n  }\n\n  function refresh(instant = false) {\n    const next = measure();\n    control?.stop?.();\n    control = animate(\n      host,\n      { height: `${next}px`, ...extra },\n      instant || reduce() ? { duration: 0 } : transition ?? heightSpring,\n    );\n  }\n\n  refresh(true);\n  observer = new ResizeObserver(() => {\n    cancelAnimationFrame(frame);\n    frame = requestAnimationFrame(() => refresh(false));\n  });\n  observer.observe(inner);\n  if (includeParentBox && inner.parentElement) observer.observe(inner.parentElement);\n\n  return {\n    element: host,\n    refresh,\n    destroy() {\n      cancelAnimationFrame(frame);\n      observer?.disconnect();\n      control?.stop?.();\n      root.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

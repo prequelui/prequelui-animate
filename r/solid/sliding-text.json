@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sliding-text",
+  "type": "registry:ui",
+  "title": "Sliding Text",
+  "description": "Text slides out of its box while a copy slides in.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/sliding-text.tsx",
+      "target": "src/components/prequelui/sliding-text.tsx",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\n\nexport type SlidingTextProps = {\n  text: string;\n  direction?: \"up\" | \"down\";\n  trigger?: \"hover\" | \"click\";\n  class?: string;\n};\n\nexport function SlidingText(props: SlidingTextProps) {\n  let track: HTMLSpanElement | undefined;\n  let offset = 0;\n  let controls: { stop?: () => void } | undefined;\n  const sign = () => (props.direction === \"down\" ? 1 : -1);\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  const slideTo = (next: boolean) => {\n    if (!track) return;\n    const lap = sign() * (next ? 1 : 0);\n    const transform =\n      lap === 0 ? \"translateY(0%)\" : `translateY(calc(${lap * 100}% + ${lap} * 0.6em))`;\n    controls?.stop?.();\n    controls = animate(\n      track,\n      { transform },\n      reduce() ? { duration: 0 } : { duration: 0.25, ease: [0.4, 0, 0.2, 1] },\n    );\n  };\n\n  return (\n    <span\n      data-slot=\"sliding-text\"\n      data-direction={props.direction ?? \"down\"}\n      data-trigger={props.trigger ?? \"hover\"}\n      class={`relative inline-block overflow-clip ${props.class ?? \"\"}`}\n      style={{ \"padding-block\": \"0.25em\", \"margin-block\": \"-0.25em\" }}\n      onPointerEnter={(event) => {\n        if (props.trigger !== \"click\" && event.pointerType !== \"touch\") slideTo(true);\n      }}\n      onPointerLeave={(event) => {\n        if (props.trigger !== \"click\" && event.pointerType !== \"touch\") slideTo(false);\n      }}\n      onClick={() => {\n        if (props.trigger !== \"click\") return;\n        offset += 1;\n        slideTo(offset % 2 === 1);\n      }}\n    >\n      <span\n        ref={track}\n        data-slot=\"sliding-text-track\"\n        class=\"relative inline-block\"\n        style={{ transform: \"translateY(0%)\" }}\n      >\n        {props.text}\n        <span\n          data-slot=\"sliding-text-copy\"\n          aria-hidden=\"true\"\n          class=\"absolute left-0 w-full\"\n          style={{ top: `calc(${-sign() * 100}% - ${sign()} * 0.6em)` }}\n        >\n          {props.text}\n        </span>\n      </span>\n    </span>\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-hospital-duotone",
+  "type": "registry:ui",
+  "title": "Hospital · Duotone",
+  "description": "A hospital block whose cross and doorway settle into place. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/hospital.json"
+  ],
+  "meta": {
+    "style": "duotone",
+    "category": "Health",
+    "roles": [
+      "primary",
+      "primary",
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.6 0.18 15)",
+      "primaryDark": "oklch(0.78 0.13 15)",
+      "accent": "oklch(0.68 0.13 190)",
+      "accentDark": "oklch(0.81 0.1 190)"
+    },
+    "emoji": {
+      "primary": "oklch(0.68 0.2 27)",
+      "secondary": "oklch(0.54 0.19 25)",
+      "accent": "oklch(0.78 0.14 165)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-hospital-duotone.tsx",
+      "target": "components/prequelui/icons/prequel-hospital-duotone.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelHospitalIcon, type IconProps } from \"./prequel-hospital\";\n\nexport function PrequelHospitalDuotoneIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelHospitalIcon size={size} variant=\"duotone\" {...props} />;\n}\n"
+    }
+  ]
+}

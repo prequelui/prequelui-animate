@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "collapsible",
+  "type": "registry:ui",
+  "title": "Collapsible",
+  "description": "A single panel that opens from a separate trigger and closes its parent gap.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/Collapsible.vue",
+      "target": "components/prequelui/Collapsible.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { computed, ref, watch } from \"vue\";\nimport { animate } from \"motion\";\nimport { ChevronDown } from \"@lucide/vue\";\n\nconst props = defineProps({\n  modelValue: { type: Boolean, default: undefined },\n  defaultOpen: { type: Boolean, default: false },\n  trigger: { type: String, default: \"Show details\" },\n});\nconst emit = defineEmits([\"update:modelValue\"]);\n\nconst internal = ref(props.defaultOpen);\nwatch(\n  () => props.modelValue,\n  (value) => {\n    if (value !== undefined) internal.value = value;\n  },\n);\nconst value = computed(() => (props.modelValue === undefined ? internal.value : props.modelValue));\n\nfunction toggle() {\n  const next = !value.value;\n  if (props.modelValue === undefined) internal.value = next;\n  emit(\"update:modelValue\", next);\n}\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nfunction enter(el, done) {\n  if (reduce()) {\n    animate(el, { opacity: [0, 1] }, { duration: 0.2 }).finished.then(done);\n    return;\n  }\n  el.style.overflow = \"hidden\";\n  el.style.height = \"0px\";\n  el.style.opacity = \"0\";\n  const height = el.scrollHeight;\n  Promise.all([\n    animate(el, { height: [\"0px\", `${height}px`] }, { duration: 0.45, ease: [0.4, 0, 0.1, 1] }).finished,\n    animate(el, { opacity: [0, 1] }, { duration: 0.3, ease: [0.23, 1, 0.32, 1] }).finished,\n  ]).then(() => {\n    el.style.height = \"auto\";\n    done();\n  });\n}\n\nfunction leave(el, done) {\n  if (reduce()) {\n    animate(el, { opacity: [1, 0] }, { duration: 0.2 }).finished.then(done);\n    return;\n  }\n  el.style.overflow = \"hidden\";\n  el.style.height = `${el.scrollHeight}px`;\n  animate(el, { height: [`${el.scrollHeight}px`, \"0px\"], opacity: [1, 0] }, { duration: 0.3, ease: [0, 0, 0.58, 1] }).finished.then(done);\n}\n</script>\n\n<template>\n  <div data-slot=\"collapsible\" class=\"w-full\">\n    <button\n      type=\"button\"\n      :aria-expanded=\"value\"\n      aria-controls=\"collapsible-panel\"\n      class=\"flex w-full items-center justify-between gap-4 py-3 text-left text-[13.5px] font-medium outline-none\"\n      @click=\"toggle\"\n    >\n      <span>{{ trigger }}</span>\n      <ChevronDown\n        aria-hidden=\"true\"\n        class=\"size-4 text-muted-foreground transition-transform duration-[450ms] ease-[cubic-bezier(0.4,0,0.1,1)]\"\n        :style=\"{ transform: value ? 'rotate(180deg)' : 'rotate(0deg)' }\"\n      />\n    </button>\n    <Transition :css=\"false\" @enter=\"enter\" @leave=\"leave\">\n      <div v-if=\"value\" id=\"collapsible-panel\" role=\"region\" class=\"overflow-hidden\">\n        <div class=\"pb-3 text-[13px] leading-6 text-muted-foreground\">\n          <slot />\n        </div>\n      </div>\n    </Transition>\n  </div>\n</template>\n"
+    }
+  ]
+}

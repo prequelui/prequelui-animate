@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hover-card",
+  "type": "registry:ui",
+  "title": "Hover Card",
+  "description": "A preview card that opens from its trigger after a deliberate hover.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/hover-card.js",
+      "target": "components/prequelui/hover-card.js",
+      "type": "registry:ui",
+      "content": "let uid = 0;\nlet styled = false;\n\nfunction ensureStyles() {\n  if (styled) return;\n  styled = true;\n  const style = document.createElement(\"style\");\n  style.textContent = `\n    .card { animation: card-pop 320ms cubic-bezier(0.23,1,0.32,1) both; }\n    @keyframes card-pop { from { opacity: 0; transform: translateY(4px) scale(0.95); filter: blur(2px); } }\n    @media (prefers-reduced-motion: reduce) {\n      .card { animation: card-fade 200ms linear both; }\n      @keyframes card-fade { from { opacity: 0; } }\n    }`;\n  document.head.appendChild(style);\n}\n\nexport function createHoverCard(root, options = {}) {\n  ensureStyles();\n  const {\n    trigger = \"@prequelui\",\n    title = \"PrequelUI Animate\",\n    description = \"Animated primitives for interfaces that already have a design system.\",\n    content = \"\",\n  } = options;\n  const id = `hover-${++uid}`;\n  let open = false;\n  let enterTimer;\n  let leaveTimer;\n\n  root.innerHTML = `\n    <span class=\"relative inline-block\" data-hover=\"${id}\">\n      <button type=\"button\" class=\"text-[13px] font-medium underline decoration-border underline-offset-4\">${trigger}</button>\n    </span>`;\n  const host = root.querySelector(`[data-hover=\"${id}\"]`);\n\n  function render() {\n    host.querySelector(\".card\")?.remove();\n    if (!open) return;\n    const card = document.createElement(\"div\");\n    card.className = \"card absolute left-0 top-full z-40 mt-2 w-64 rounded-xl border bg-background p-4 shadow-xl\";\n    card.innerHTML = `<p class=\"text-[13px] font-medium\">${title}</p>\n      <p class=\"mt-1 text-[13px] leading-6 text-muted-foreground\">${description}</p>${content}`;\n    host.appendChild(card);\n  }\n\n  function show() {\n    clearTimeout(leaveTimer);\n    enterTimer = setTimeout(() => {\n      open = true;\n      render();\n    }, 200);\n  }\n  function hide() {\n    clearTimeout(enterTimer);\n    leaveTimer = setTimeout(() => {\n      open = false;\n      render();\n    }, 150);\n  }\n\n  host.addEventListener(\"pointerenter\", show);\n  host.addEventListener(\"pointerleave\", hide);\n  host.addEventListener(\"focusin\", show);\n  host.addEventListener(\"focusout\", hide);\n\n  return {\n    get open() { return open; },\n    destroy() {\n      clearTimeout(enterTimer);\n      clearTimeout(leaveTimer);\n      root.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

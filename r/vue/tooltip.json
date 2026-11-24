@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip",
+  "type": "registry:ui",
+  "title": "Tooltip",
+  "description": "A tooltip that blooms from 70% and warms up its next appearance.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/Tooltip.vue",
+      "target": "components/prequelui/Tooltip.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { onBeforeUnmount, ref } from \"vue\";\n\nconst props = defineProps({\n  trigger: { type: String, default: \"Hover me\" },\n  content: { type: String, default: \"Saved just now\" },\n  side: { type: String, default: \"top\" },\n  delay: { type: Number, default: 180 },\n  closeDelay: { type: Number, default: 80 },\n});\n\nlet uid = 0;\nconst store = (globalThis.__prequelTip = globalThis.__prequelTip ?? { open: new Set(), cooledAt: 0 });\nconst openTips = store.open;\nconst id = Symbol(`tooltip-${++uid}`);\nconst open = ref(false);\nconst instant = ref(false);\nlet openTimer;\nlet closeTimer;\n\nconst sides = {\n  top: \"bottom-full left-1/2 -translate-x-1/2 mb-2\",\n  bottom: \"top-full left-1/2 -translate-x-1/2 mt-2\",\n  left: \"right-full top-1/2 -translate-y-1/2 mr-2\",\n  right: \"left-full top-1/2 -translate-y-1/2 ml-2\",\n};\n\nfunction show() {\n  clearTimeout(closeTimer);\n  clearTimeout(openTimer);\n  const warm = openTips.size > 0 || Date.now() - store.cooledAt < 300;\n  instant.value = warm;\n  openTimer = setTimeout(\n    () => {\n      openTips.add(id);\n      open.value = true;\n    },\n    warm ? 0 : props.delay,\n  );\n}\nfunction hide() {\n  clearTimeout(openTimer);\n  clearTimeout(closeTimer);\n  closeTimer = setTimeout(() => {\n    openTips.delete(id);\n    if (openTips.size === 0) store.cooledAt = Date.now();\n    open.value = false;\n    instant.value = false;\n  }, props.closeDelay);\n}\nonBeforeUnmount(() => {\n  clearTimeout(openTimer);\n  clearTimeout(closeTimer);\n  openTips.delete(id);\n});\n</script>\n\n<template>\n  <span class=\"relative inline-flex\" @pointerenter=\"show\" @pointerleave=\"hide\" @focusin=\"show\" @focusout=\"hide\">\n    <button type=\"button\" class=\"inline-flex h-8 items-center rounded-md border px-3 text-[13px] font-medium\">\n      {{ trigger }}\n    </button>\n    <Transition name=\"tip\">\n      <span\n        v-if=\"open\"\n        role=\"tooltip\"\n        class=\"pointer-events-none absolute z-50 whitespace-nowrap rounded-md bg-primary px-2 py-1 text-[13px] font-medium text-primary-foreground shadow-md\"\n        :class=\"sides[side]\"\n      >\n        {{ content }}\n      </span>\n    </Transition>\n  </span>\n</template>\n\n<style>\n.tip-enter-active { animation: tip-in 320ms cubic-bezier(0.23, 1, 0.32, 1) both; }\n.tip-leave-active { animation: tip-out 130ms cubic-bezier(0, 0, 0.58, 1) both; }\n@keyframes tip-in { from { opacity: 0; transform: scale(0.7); filter: blur(6px); } }\n@keyframes tip-out { to { opacity: 0; transform: scale(0.9); filter: blur(4px); } }\n@media (prefers-reduced-motion: reduce) {\n  .tip-enter-active, .tip-leave-active { animation: tip-fade 200ms linear both; }\n  @keyframes tip-fade { from { opacity: 0; } to { opacity: 1; } }\n}\n</style>\n"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme-toggler-button",
+  "type": "registry:ui",
+  "title": "Theme Toggler Button",
+  "description": "A theme button whose icon spins, shrinks and blurs away.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/ThemeTogglerButton.vue",
+      "target": "components/prequelui/ThemeTogglerButton.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { computed, ref } from \"vue\";\nimport { animate } from \"motion\";\nimport { Monitor, Moon, Sun } from \"@lucide/vue\";\n\nconst props = defineProps({\n  theme: { type: String, default: \"light\" },\n  resolvedTheme: { type: String, default: \"light\" },\n  modes: {\n    type: Array,\n    default: () => [\"light\", \"dark\", \"system\"],\n  },\n});\nconst emit = defineEmits([\"update:theme\", \"click\"]);\n\nconst button = ref(null);\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nfunction press() {\n  if (!button.value || reduce()) return;\n  animate(\n    button.value,\n    { scale: 0.97 },\n    { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n  );\n}\n\nfunction release() {\n  if (!button.value || reduce()) return;\n  animate(\n    button.value,\n    { scale: 1 },\n    { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n  );\n}\n\nconst next = computed(() => {\n  let index = props.modes.indexOf(props.theme);\n  if (index === -1) index = props.modes.indexOf(props.resolvedTheme);\n  if (index === -1) return props.modes[0] ?? props.resolvedTheme;\n  return props.modes[(index + 1) % props.modes.length];\n});\n\nconst iconClass = (name) => [\n  \"absolute inset-0 size-4 transition-all duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:transition-none\",\n  props.theme === name\n    ? \"rotate-0 scale-100 opacity-100 blur-0\"\n    : \"-rotate-90 scale-50 opacity-0 blur-[2px]\",\n];\n\nfunction click(event) {\n  emit(\"click\", event);\n  if (event.defaultPrevented) return;\n  emit(\"update:theme\", next.value);\n}\n</script>\n\n<template>\n  <button\n    ref=\"button\"\n    type=\"button\"\n    data-slot=\"theme-toggler-button\"\n    :data-theme=\"theme\"\n    :aria-label=\"`Switch to ${next} theme`\"\n    class=\"inline-flex h-10 items-center justify-center gap-2 rounded-lg border bg-background px-4 text-[13px] font-medium text-foreground transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50\"\n    @click=\"click\"\n    @pointerdown=\"press\"\n    @pointerup=\"release\"\n    @pointerleave=\"release\"\n  >\n    <span class=\"relative inline-flex size-4 items-center justify-center\">\n      <Sun aria-hidden=\"true\" :class=\"iconClass('light')\" />\n      <Moon aria-hidden=\"true\" :class=\"iconClass('dark')\" />\n      <Monitor aria-hidden=\"true\" :class=\"iconClass('system')\" />\n    </span>\n    <slot>{{ theme }}</slot>\n  </button>\n</template>\n"
+    }
+  ]
+}

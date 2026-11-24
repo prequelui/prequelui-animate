@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tilt",
+  "type": "registry:component",
+  "title": "Tilt",
+  "description": "A card that tilts in 3D toward the pointer and returns flat.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/Tilt.svelte",
+      "target": "~/src/lib/components/prequelui/Tilt.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount } from \"svelte\";\n  import { animate } from \"motion\";\n\n  let {\n    maxTilt = 10,\n    perspective = 800,\n    transition = undefined,\n    as = \"div\",\n    class: className = \"\",\n    ...rest\n  } = $props();\n\n  let root;\n  let control;\n\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  const spring = $derived(\n    transition ?? {\n      type: \"spring\",\n      stiffness: 300,\n      damping: 25,\n      mass: 0.5,\n    },\n  );\n\n  function move(event) {\n    if (reduce() || !root) return;\n    const rect = event.currentTarget.getBoundingClientRect();\n    const px = rect.width ? (event.clientX - rect.left) / rect.width : 0.5;\n    const py = rect.height ? (event.clientY - rect.top) / rect.height : 0.5;\n    const rotateY = (px * 2 - 1) * maxTilt;\n    const rotateX = -(py * 2 - 1) * maxTilt;\n    control?.stop?.();\n    control = animate(\n      root,\n      { rotateX, rotateY, transformPerspective: perspective },\n      spring,\n    );\n  }\n\n  function leave() {\n    if (!root) return;\n    if (reduce()) {\n      control?.stop?.();\n      control = animate(\n        root,\n        { rotateX: 0, rotateY: 0, transformPerspective: perspective },\n        { duration: 0 },\n      );\n      return;\n    }\n    control?.stop?.();\n    control = animate(\n      root,\n      { rotateX: 0, rotateY: 0, transformPerspective: perspective },\n      spring,\n    );\n  }\n\n  onMount(() => {\n    if (!root) return;\n    control = animate(\n      root,\n      { rotateX: 0, rotateY: 0, transformPerspective: perspective },\n      { duration: 0 },\n    );\n    return () => control?.stop?.();\n  });\n</script>\n\n<svelte:element\n  this={as}\n  bind:this={root}\n  data-slot=\"tilt\"\n  class={`will-change-transform ${className}`}\n  style=\"transform-style:preserve-3d\"\n  onpointermove={move}\n  onpointerleave={leave}\n  {...rest}\n>\n  <slot />\n</svelte:element>\n"
+    }
+  ]
+}

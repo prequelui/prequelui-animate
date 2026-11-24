@@ -1,0 +1,52 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-clock-solid",
+  "type": "registry:ui",
+  "title": "Clock · Solid",
+  "description": "A clock face whose hands sweep forward on every play. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/clock.json"
+  ],
+  "meta": {
+    "style": "solid",
+    "category": "Time",
+    "roles": [
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      true,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.68 0.14 75)",
+      "primaryDark": "oklch(0.82 0.11 75)",
+      "accent": "oklch(0.62 0.16 40)",
+      "accentDark": "oklch(0.76 0.13 40)"
+    },
+    "emoji": {
+      "primary": "oklch(0.82 0.16 85)",
+      "secondary": "oklch(0.66 0.15 80)",
+      "accent": "oklch(0.72 0.19 48)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-clock-solid.tsx",
+      "target": "components/prequelui/icons/prequel-clock-solid.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelClockIcon, type IconProps } from \"./prequel-clock\";\n\nexport function PrequelClockSolidIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelClockIcon size={size} variant=\"solid\" {...props} />;\n}\n"
+    }
+  ]
+}

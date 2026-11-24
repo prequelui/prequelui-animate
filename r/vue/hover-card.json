@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hover-card",
+  "type": "registry:ui",
+  "title": "Hover Card",
+  "description": "A preview card that opens from its trigger after a deliberate hover.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/HoverCard.vue",
+      "target": "components/prequelui/HoverCard.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { onBeforeUnmount, ref } from \"vue\";\n\ndefineProps({\n  trigger: { type: String, default: \"@prequelui\" },\n  title: { type: String, default: \"PrequelUI Animate\" },\n  description: { type: String, default: \"Animated primitives for interfaces that already have a design system.\" },\n});\n\nconst open = ref(false);\nlet enterTimer;\nlet leaveTimer;\n\nfunction show() {\n  clearTimeout(leaveTimer);\n  enterTimer = setTimeout(() => (open.value = true), 200);\n}\nfunction hide() {\n  clearTimeout(enterTimer);\n  leaveTimer = setTimeout(() => (open.value = false), 150);\n}\nonBeforeUnmount(() => {\n  clearTimeout(enterTimer);\n  clearTimeout(leaveTimer);\n});\n</script>\n\n<template>\n  <span class=\"relative inline-block\" @pointerenter=\"show\" @pointerleave=\"hide\" @focusin=\"show\" @focusout=\"hide\">\n    <button type=\"button\" class=\"text-[13px] font-medium underline decoration-border underline-offset-4\">\n      {{ trigger }}\n    </button>\n    <Transition name=\"card\">\n      <div v-if=\"open\" class=\"absolute left-0 top-full z-40 mt-2 w-64 rounded-xl border bg-background p-4 shadow-xl\">\n        <p class=\"text-[13px] font-medium\">{{ title }}</p>\n        <p class=\"mt-1 text-[13px] leading-6 text-muted-foreground\">{{ description }}</p>\n        <slot />\n      </div>\n    </Transition>\n  </span>\n</template>\n\n<style>\n.card-enter-active { animation: card-pop 320ms linear both; }\n.card-leave-active { animation: card-out 150ms cubic-bezier(0, 0, 0.58, 1) both; }\n@keyframes card-pop { from { opacity: 0; transform: translateY(4px) scale(0.95); filter: blur(2px); } }\n@keyframes card-out { to { opacity: 0; transform: translateY(2px) scale(0.97); filter: blur(1px); } }\n@media (prefers-reduced-motion: reduce) {\n  .card-enter-active, .card-leave-active { animation-duration: 200ms; }\n  .card-enter-active { animation: card-fade 200ms linear both; }\n  .card-leave-active { animation: card-fade 200ms linear reverse both; }\n  @keyframes card-fade { from { opacity: 0; } }\n}\n</style>\n"
+    }
+  ]
+}

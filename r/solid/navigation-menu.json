@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "navigation-menu",
+  "type": "registry:ui",
+  "title": "Navigation Menu",
+  "description": "A shared navigation viewport that resizes between triggers.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/navigation-menu.tsx",
+      "target": "src/components/prequelui/navigation-menu.tsx",
+      "type": "registry:ui",
+      "content": "import { For, Show, createSignal, onCleanup, onMount } from \"solid-js\";\nimport { ChevronDown } from \"lucide-solid\";\n\nexport type NavigationItem = { label: string; content: unknown };\nexport type NavigationMenuProps = { items?: NavigationItem[] };\n\nconst FALLBACK: NavigationItem[] = [\n  { label: \"Components\", content: \"Every primitive, with the same motion contract.\" },\n  { label: \"Templates\", content: \"Full pages built on the same tokens.\" },\n  { label: \"Docs\", content: \"Installation, accessibility and API references.\" },\n];\n\nexport function NavigationMenu(props: NavigationMenuProps) {\n  const items = props.items ?? FALLBACK;\n  const [open, setOpen] = createSignal<number | null>(null);\n  let root: HTMLDivElement | undefined;\n  let timer: number | undefined;\n\n  const onPointer = (event: PointerEvent) => {\n    if (open() !== null && root && !root.contains(event.target as Node)) setOpen(null);\n  };\n  const onKey = (event: KeyboardEvent) => {\n    if (event.key === \"Escape\") setOpen(null);\n  };\n  onMount(() => {\n    document.addEventListener(\"pointerdown\", onPointer);\n    document.addEventListener(\"keydown\", onKey);\n  });\n  onCleanup(() => {\n    if (typeof window === \"undefined\") return;\n    clearTimeout(timer);\n    document.removeEventListener(\"pointerdown\", onPointer);\n    document.removeEventListener(\"keydown\", onKey);\n  });\n\n  return (\n    <div\n      ref={root}\n      class=\"relative w-full max-w-sm\"\n      onPointerLeave={() => {\n        timer = window.setTimeout(() => setOpen(null), 180);\n      }}\n      onPointerEnter={() => clearTimeout(timer)}\n    >\n      <div role=\"menubar\" class=\"flex items-center gap-1 rounded-lg border p-1\">\n        <For each={items}>\n          {(item, index) => (\n            <button\n              type=\"button\"\n              aria-expanded={open() === index()}\n              onClick={() => setOpen(open() === index() ? null : index())}\n              onPointerEnter={() => setOpen(index())}\n              class={`flex h-7 items-center gap-1 rounded-md px-2.5 text-[13px] font-medium transition-colors ${\n                open() === index()\n                  ? \"bg-accent text-foreground\"\n                  : \"text-muted-foreground hover:text-foreground\"\n              }`}\n            >\n              {item.label}\n              <ChevronDown class={`size-3 transition-transform ${open() === index() ? \"rotate-180\" : \"\"}`} />\n            </button>\n          )}\n        </For>\n      </div>\n      <Show when={open() !== null} keyed>\n        <div class=\"nav-panel absolute left-0 top-full z-40 mt-1.5 w-full overflow-hidden rounded-xl border bg-background p-4 shadow-xl\">\n          <div class=\"nav-content text-[13px] leading-6 text-muted-foreground\">\n            {items[open()!]?.content as never}\n          </div>\n        </div>\n      </Show>\n      <style>{`\n        .nav-panel { animation: nav-in 240ms cubic-bezier(0.215,0.61,0.355,1) both; }\n        .nav-content { animation: nav-content 200ms cubic-bezier(0.215,0.61,0.355,1) both; }\n        @keyframes nav-in { from { opacity: 0; transform: translateY(-4px); filter: blur(2px); } }\n        @keyframes nav-content { from { opacity: 0; transform: translateX(6px); } }\n        @media (prefers-reduced-motion: reduce) { .nav-panel, .nav-content { animation: none; } }\n      `}</style>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

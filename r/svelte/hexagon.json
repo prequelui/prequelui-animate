@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hexagon",
+  "type": "registry:component",
+  "title": "Hexagon",
+  "description": "A hexagonal grid that lights each cell under the pointer.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/Hexagon.svelte",
+      "target": "~/src/lib/components/prequelui/Hexagon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount } from \"svelte\";\n\n  const HEX_CLIP = \"polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)\";\n\n  let {\n    hexagonSize = 46,\n    hexagonMargin = 3,\n    speed = 1,\n    class: className = \"\",\n    ...rest\n  } = $props();\n\n  let root;\n  let grid = $state({ rows: 0, columns: 0 });\n\n  const width = $derived(hexagonSize);\n  const height = $derived(hexagonSize * 1.1);\n  const rowSpacing = $derived(height * 0.75 + hexagonMargin);\n  const rows = $derived(Array.from({ length: grid.rows }, (_, index) => index));\n  const columns = $derived(\n    Array.from({ length: grid.columns }, (_, index) => index),\n  );\n  const rootStyle = $derived(\n    `--hex-leave:${1000 / Math.max(0.1, speed)}ms`,\n  );\n\n  function update() {\n    if (!root) return;\n    const rect = root.getBoundingClientRect();\n    const nextRows = Math.ceil(rect.height / rowSpacing) + 2;\n    const nextColumns = Math.ceil(rect.width / (width + hexagonMargin)) + 2;\n    if (grid.rows === nextRows && grid.columns === nextColumns) return;\n    grid = { rows: nextRows, columns: nextColumns };\n  }\n\n  $effect(() => {\n    width;\n    hexagonMargin;\n    rowSpacing;\n    update();\n  });\n\n  onMount(() => {\n    update();\n    const observer = new ResizeObserver(update);\n    if (root) observer.observe(root);\n    return () => observer.disconnect();\n  });\n</script>\n\n<div\n  bind:this={root}\n  data-slot=\"hexagon-background\"\n  class={`relative isolate size-full overflow-hidden bg-[#f4f2ee] dark:bg-[#0b0b0f] ${className}`}\n  style={rootStyle}\n  {...rest}\n>\n  <div\n    aria-hidden=\"true\"\n    class=\"absolute left-0 top-0 size-full overflow-hidden [text-rendering:optimizeSpeed]\"\n  >\n    {#each rows as row (row)}\n      <div\n        class=\"flex w-max\"\n        style={`margin-top:${row === 0 ? -height / 2 : rowSpacing - height}px;margin-left:${(row % 2 === 0 ? 0 : -width / 2) - width / 2}px`}\n      >\n        {#each columns as column (column)}\n          <div\n            class=\"relative shrink-0\"\n            style={`width:${width}px;height:${height}px;margin-left:${hexagonMargin}px`}\n          >\n            <div\n              class=\"absolute inset-0 bg-foreground/[0.10] transition-colors [transition-duration:var(--hex-leave)] hover:bg-foreground/[0.22] hover:[transition-duration:0ms] dark:bg-foreground/[0.14] dark:hover:bg-foreground/[0.30]\"\n              style={`clip-path:${HEX_CLIP}`}\n            ></div>\n            <div\n              class=\"absolute bg-[#f4f2ee] transition-colors [transition-duration:var(--hex-leave)] hover:bg-foreground/[0.06] hover:[transition-duration:0ms] dark:bg-[#0b0b0f] dark:hover:bg-foreground/[0.12]\"\n              style={`inset:${hexagonMargin}px;clip-path:${HEX_CLIP}`}\n            ></div>\n          </div>\n        {/each}\n      </div>\n    {/each}\n  </div>\n  <div\n    class=\"pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(244,242,238,0.55))] dark:bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(11,11,15,0.65))]\"\n  ></div>\n  <slot />\n</div>\n"
+    }
+  ]
+}

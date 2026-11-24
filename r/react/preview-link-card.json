@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "preview-link-card",
+  "type": "registry:ui",
+  "title": "Preview Link Card",
+  "description": "A link that reveals a live preview of its destination on hover.",
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/preview-link-card.tsx",
+      "target": "components/prequelui/preview-link-card.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { AnimatePresence, motion, useReducedMotion } from \"motion/react\";\nimport { ArrowUpRight } from \"lucide-react\";\n\nexport type PreviewLinkCardProps = {\n  href?: string;\n  trigger?: React.ReactNode;\n  title?: string;\n  description?: string;\n  image?: string;\n  delay?: number;\n  closeDelay?: number;\n};\n\nconst enter = { duration: 0.25, ease: [0.23, 1, 0.32, 1] } as const;\nconst leave = { duration: 0.15, ease: [0, 0, 0.58, 1] } as const;\n\nexport function PreviewLinkCard({\n  href = \"https://prequelui.dev\",\n  trigger = \"prequelui.dev\",\n  title = \"PrequelUI Animate\",\n  description = \"Motion for the primitives you already use.\",\n  image,\n  delay = 200,\n  closeDelay = 150,\n}: PreviewLinkCardProps) {\n  const [open, setOpen] = React.useState(false);\n  const reduce = useReducedMotion();\n  const enterTimer = React.useRef<number | undefined>(undefined);\n  const leaveTimer = React.useRef<number | undefined>(undefined);\n\n  const show = () => {\n    window.clearTimeout(leaveTimer.current);\n    enterTimer.current = window.setTimeout(() => setOpen(true), delay);\n  };\n  const hide = () => {\n    window.clearTimeout(enterTimer.current);\n    leaveTimer.current = window.setTimeout(() => setOpen(false), closeDelay);\n  };\n\n  React.useEffect(\n    () => () => {\n      window.clearTimeout(enterTimer.current);\n      window.clearTimeout(leaveTimer.current);\n    },\n    [],\n  );\n\n  return (\n    <span\n      className=\"relative inline-block\"\n      onPointerEnter={show}\n      onPointerLeave={hide}\n      onFocus={show}\n      onBlur={hide}\n    >\n      <a\n        href={href}\n        target=\"_blank\"\n        rel=\"noreferrer\"\n        onClick={(event) => event.preventDefault()}\n        className=\"inline-flex items-center gap-1 text-[13px] font-medium underline decoration-border underline-offset-4\"\n      >\n        {trigger}\n        <ArrowUpRight className=\"size-3.5\" />\n      </a>\n      <AnimatePresence>\n        {open && (\n          <motion.div\n            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 8, scale: 0.97, filter: \"blur(6px)\" }}\n            animate={reduce ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1, filter: \"blur(0px)\" }}\n            exit={\n              reduce\n                ? { opacity: 0 }\n                : { opacity: 0, y: 6, scale: 0.98, filter: \"blur(4px)\", transition: leave }\n            }\n            transition={reduce ? { duration: 0.2 } : enter}\n            className=\"absolute left-1/2 top-8 z-40 w-[260px] -translate-x-1/2 overflow-hidden rounded-xl border bg-popover shadow-xl\"\n          >\n            {image ? (\n              <img src={image} alt=\"\" className=\"h-[92px] w-full object-cover\" />\n            ) : (\n              <div className=\"h-[92px] bg-[radial-gradient(circle_at_30%_20%,#f6c7ae,transparent_60%),linear-gradient(135deg,#efe9df,#dbe7e2)] dark:bg-[radial-gradient(circle_at_30%_20%,#3a2b2b,transparent_60%),linear-gradient(135deg,#1a1a1a,#101816)]\" />\n            )}\n            <div className=\"p-3\">\n              <p className=\"text-[13px] font-medium\">{title}</p>\n              <p className=\"mt-1 text-[13px] leading-5 text-muted-foreground\">{description}</p>\n            </div>\n          </motion.div>\n        )}\n      </AnimatePresence>\n    </span>\n  );\n}\n"
+    }
+  ]
+}

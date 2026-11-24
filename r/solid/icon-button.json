@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "icon-button",
+  "type": "registry:ui",
+  "title": "Icon Button",
+  "description": "An icon button that releases a small burst of particles.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icon-button.tsx",
+      "target": "src/components/prequelui/icon-button.tsx",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\nimport { For, createSignal } from \"solid-js\";\nimport type { JSX } from \"solid-js\";\n\nexport type IconButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> & {\n  size?: number;\n  count?: number;\n  distance?: number;\n};\n\nexport function IconButton(props: IconButtonProps) {\n  let button: HTMLButtonElement | undefined;\n  let particles: HTMLSpanElement | undefined;\n  const [bursts, setBursts] = createSignal(0);\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  const burst = (event: MouseEvent) => {\n    if (typeof props.onClick === \"function\") props.onClick(event);\n    if (reduce()) return;\n    setBursts((current) => current + 1);\n    const nodes = particles ? Array.from(particles.children) : [];\n    nodes.forEach((node, index) => {\n      const angle = (index / nodes.length) * Math.PI * 2;\n      animate(\n        node,\n        {\n          opacity: [1, 0],\n          x: [0, Math.cos(angle) * (props.distance ?? 24)],\n          y: [0, Math.sin(angle) * (props.distance ?? 24)],\n          scale: [1, 0.2],\n        },\n        { duration: 0.55, ease: [0.23, 1, 0.32, 1] },\n      );\n    });\n  };\n\n  const press = () => {\n    if (!button || reduce()) return;\n    animate(\n      button,\n      { scale: 0.97 },\n      { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n    );\n  };\n\n  const release = () => {\n    if (!button || reduce()) return;\n    animate(\n      button,\n      { scale: 1 },\n      { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n    );\n  };\n\n  return (\n    <button\n      {...props}\n      ref={button}\n      type={props.type ?? \"button\"}\n      data-slot=\"icon-button\"\n      class={`relative inline-flex size-10 items-center justify-center rounded-lg border bg-background p-0 text-foreground transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 ${props.class ?? \"\"}`}\n      onPointerDown={press}\n      onPointerUp={release}\n      onPointerLeave={release}\n      onClick={burst}\n    >\n      {props.children}\n      <span\n        ref={particles}\n        data-slot=\"icon-button-particles\"\n        aria-hidden=\"true\"\n        class=\"pointer-events-none absolute inset-0\"\n      >\n        <For each={Array.from({ length: props.count ?? 8 })}>\n          {() => (\n            <span\n              class=\"absolute left-1/2 top-1/2 rounded-full bg-current opacity-0\"\n              style={{\n                width: `${props.size ?? 4}px`,\n                height: `${props.size ?? 4}px`,\n              }}\n            />\n          )}\n        </For>\n      </span>\n    </button>\n  );\n}\n"
+    }
+  ]
+}

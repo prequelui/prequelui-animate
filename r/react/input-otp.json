@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-otp",
+  "type": "registry:ui",
+  "title": "Input OTP",
+  "description": "One-time-code inputs with popping characters and a pasted cascade.",
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/input-otp.tsx",
+      "target": "components/prequelui/input-otp.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { motion, useReducedMotion } from \"motion/react\";\nimport { cn } from \"@/lib/utils\";\n\nexport type InputOTPProps = {\n  length?: number;\n  defaultValue?: string;\n  onChange?: (value: string) => void;\n  onComplete?: (value: string) => void;\n  className?: string;\n};\n\nconst pop = { type: \"spring\", stiffness: 500, damping: 24 } as const;\n\nexport function InputOTP({\n  length = 6,\n  defaultValue = \"\",\n  onChange,\n  onComplete,\n  className,\n}: InputOTPProps) {\n  const [values, setValues] = React.useState<string[]>(() =>\n    Array.from({ length }, (_, index) => defaultValue[index] ?? \"\"),\n  );\n  const refs = React.useRef<(HTMLInputElement | null)[]>([]);\n  const reduce = useReducedMotion();\n\n  const commit = (next: string[]) => {\n    setValues(next);\n    const value = next.join(\"\");\n    onChange?.(value);\n    if (value.length === length) onComplete?.(value);\n  };\n\n  const write = (index: number, text: string) => {\n    const chars = text.replace(/\\D/g, \"\").slice(0, length - index).split(\"\");\n    if (!chars.length) return;\n    const next = [...values];\n    chars.forEach((char, offset) => {\n      next[index + offset] = char;\n    });\n    commit(next);\n    const focus = Math.min(length - 1, index + chars.length);\n    refs.current[focus]?.focus();\n  };\n\n  return (\n    <div className={cn(\"flex items-center gap-2\", className)} role=\"group\" aria-label=\"One-time code\">\n      {values.map((value, index) => (\n        <motion.input\n          key={index}\n          ref={(node) => {\n            refs.current[index] = node;\n          }}\n          value={value}\n          inputMode=\"numeric\"\n          autoComplete=\"one-time-code\"\n          maxLength={1}\n          aria-label={`Digit ${index + 1}`}\n          initial={false}\n          animate={{ scale: reduce ? 1 : value ? 1 : 0.97 }}\n          transition={pop}\n          onChange={(event) => {\n            const digits = event.target.value.replace(/\\D/g, \"\");\n            if (!digits) {\n              const next = [...values];\n              next[index] = \"\";\n              commit(next);\n              return;\n            }\n            write(index, digits);\n            const input = event.target;\n            requestAnimationFrame(() => input.blur());\n          }}\n          onKeyDown={(event) => {\n            if (event.key === \"Backspace\") {\n              event.preventDefault();\n              const next = [...values];\n              if (next[index]) {\n                next[index] = \"\";\n                commit(next);\n              } else if (index > 0) {\n                next[index - 1] = \"\";\n                commit(next);\n                refs.current[index - 1]?.focus();\n              }\n            }\n          }}\n          onPaste={(event) => {\n            event.preventDefault();\n            write(index, event.clipboardData.getData(\"text\"));\n          }}\n          className=\"size-10 rounded-lg border bg-background text-center font-mono text-[15px] outline-none focus-visible:ring-2 focus-visible:ring-ring\"\n        />\n      ))}\n    </div>\n  );\n}\n"
+    }
+  ]
+}

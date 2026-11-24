@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shine",
+  "type": "registry:component",
+  "title": "Shine",
+  "description": "A highlight that sweeps across a surface on hover or click.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/Shine.svelte",
+      "target": "~/src/lib/components/prequelui/Shine.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount, tick } from \"svelte\";\n  import { animate } from \"motion\";\n\n  let {\n    color = \"currentColor\",\n    opacity = 0.3,\n    delay = 0,\n    duration = 1200,\n    loop = false,\n    loopDelay = 0,\n    deg = -15,\n    enable = true,\n    enableOnHover = false,\n    enableOnTap = false,\n    as = \"div\",\n    class: className = \"\",\n    ...rest\n  } = $props();\n\n  let overlay;\n  let run = $state(0);\n  let hovered = $state(false);\n  let reduced = $state(false);\n  let timer;\n  let control;\n\n  const active = $derived(enable && !reduced);\n  const alwaysOn = $derived(active && !enableOnHover && !enableOnTap);\n\n  function clearTimer() {\n    clearTimeout(timer);\n    timer = undefined;\n  }\n\n  function play() {\n    run += 1;\n  }\n\n  function scheduleNext() {\n    clearTimer();\n    const on = alwaysOn || (enableOnHover && hovered);\n    if (!loop || !on) return;\n    timer = setTimeout(play, loopDelay);\n  }\n\n  function enter() {\n    if (!active || !enableOnHover || alwaysOn) return;\n    hovered = true;\n    play();\n  }\n\n  function leave() {\n    if (!active || !enableOnHover || alwaysOn) return;\n    hovered = false;\n    clearTimer();\n  }\n\n  function down() {\n    if (!active || !enableOnTap || alwaysOn) return;\n    play();\n  }\n\n  $effect(() => {\n    const current = run;\n    alwaysOn;\n    if (!current) return;\n    tick().then(() => {\n      if (!overlay) return;\n      control?.stop?.();\n      control = animate(\n        overlay,\n        { x: [\"-100%\", \"100%\"], skewX: deg },\n        {\n          duration: duration / 1000,\n          ease: [0.4, 0, 0.2, 1],\n          delay: delay / 1000,\n        },\n      );\n      control.finished.then(scheduleNext, scheduleNext);\n    });\n  });\n\n  $effect(() => {\n    alwaysOn;\n    clearTimer();\n    run = alwaysOn ? 1 : 0;\n  });\n\n  onMount(() => {\n    reduced = window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n    run = alwaysOn ? 1 : 0;\n    return () => {\n      clearTimer();\n      control?.stop?.();\n    };\n  });\n</script>\n\n<svelte:element\n  this={as}\n  data-slot=\"shine\"\n  class={`relative overflow-hidden ${className}`}\n  onmouseenter={enter}\n  onmouseleave={leave}\n  onpointerdown={down}\n  {...rest}\n>\n  <slot />\n  {#if active && run > 0}\n    <span\n      bind:this={overlay}\n      aria-hidden=\"true\"\n      class=\"pointer-events-none absolute inset-0 z-10 block h-full w-full\"\n      style={`background:linear-gradient(to right, transparent, ${color}, transparent);opacity:${opacity}`}\n    ></span>\n  {/if}\n</svelte:element>\n"
+    }
+  ]
+}

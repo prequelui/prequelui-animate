@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "collapsible",
+  "type": "registry:component",
+  "title": "Collapsible",
+  "description": "A single panel that opens from a separate trigger and closes its parent gap.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/Collapsible.svelte",
+      "target": "~/src/lib/components/prequelui/Collapsible.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { ChevronDown } from \"lucide-svelte\";\n  import { cubicBezier } from \"motion\";\n\n  let {\n    open = undefined,\n    defaultOpen = false,\n    onOpenChange = undefined,\n    trigger = \"Show details\",\n    children = undefined,\n  } = $props();\n\n  let internal = $state(defaultOpen);\n  const value = $derived(open === undefined ? internal : open);\n\n  function toggle() {\n    const next = !value;\n    if (open === undefined) internal = next;\n    onOpenChange?.(next);\n  }\n\n  const ease = cubicBezier(0.4, 0, 0.1, 1);\n\n  function reveal(node) {\n    if (\n      typeof window !== \"undefined\" &&\n      window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches\n    ) {\n      return { duration: 200, easing: cubicBezier(0.23, 1, 0.32, 1), css: (t) => `opacity:${t}` };\n    }\n    const height = node.scrollHeight;\n    return {\n      duration: 450,\n      easing: ease,\n      css: (t) => `height:${t * height}px;opacity:${Math.min(1, t * 1.5)};overflow:hidden;`,\n    };\n  }\n</script>\n\n<div data-slot=\"collapsible\" class=\"w-full\">\n  <button\n    type=\"button\"\n    aria-expanded={value}\n    aria-controls=\"collapsible-panel\"\n    class=\"flex w-full items-center justify-between gap-4 py-3 text-left text-[13.5px] font-medium outline-none\"\n    onclick={toggle}\n  >\n    <span>{trigger}</span>\n    <ChevronDown\n      aria-hidden=\"true\"\n      class=\"size-4 text-muted-foreground transition-transform duration-[450ms] ease-[cubic-bezier(0.4,0,0.1,1)]\"\n      style={`transform:rotate(${value ? 180 : 0}deg)`}\n    />\n  </button>\n  {#if value}\n    <div id=\"collapsible-panel\" role=\"region\" class=\"overflow-hidden\" transition:reveal>\n      <div class=\"pb-3 text-[13px] leading-6 text-muted-foreground\">\n        {#if children}{@render children()}{/if}\n      </div>\n    </div>\n  {/if}\n</div>\n"
+    }
+  ]
+}

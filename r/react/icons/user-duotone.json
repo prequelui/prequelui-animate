@@ -1,0 +1,52 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-user-duotone",
+  "type": "registry:ui",
+  "title": "User · Duotone",
+  "description": "A profile silhouette that lifts gently on each trigger. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/user.json"
+  ],
+  "meta": {
+    "style": "duotone",
+    "category": "People",
+    "roles": [
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      true,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.64 0.16 355)",
+      "primaryDark": "oklch(0.81 0.12 355)",
+      "accent": "oklch(0.72 0.14 20)",
+      "accentDark": "oklch(0.84 0.11 20)"
+    },
+    "emoji": {
+      "primary": "oklch(0.68 0.2 27)",
+      "secondary": "oklch(0.54 0.19 25)",
+      "accent": "oklch(0.62 0.22 350)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-user-duotone.tsx",
+      "target": "components/prequelui/icons/prequel-user-duotone.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelUserIcon, type IconProps } from \"./prequel-user\";\n\nexport function PrequelUserDuotoneIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelUserIcon size={size} variant=\"duotone\" {...props} />;\n}\n"
+    }
+  ]
+}

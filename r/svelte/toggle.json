@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle",
+  "type": "registry:component",
+  "title": "Toggle",
+  "description": "A two-state button with a short press and a quiet colour change.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/Toggle.svelte",
+      "target": "~/src/lib/components/prequelui/Toggle.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  let {\n    pressed = undefined,\n    defaultPressed = false,\n    onPressedChange = undefined,\n    children = undefined,\n  } = $props();\n\n  let internal = $state(defaultPressed);\n  const value = $derived(pressed === undefined ? internal : pressed);\n\n  function toggle() {\n    const next = !value;\n    if (pressed === undefined) internal = next;\n    onPressedChange?.(next);\n  }\n</script>\n\n<button\n  type=\"button\"\n  aria-pressed={value}\n  class=\"relative inline-flex h-9 items-center gap-2 rounded-lg border px-3 text-[13px] font-medium transition-[background-color,color,transform] duration-200 hover:bg-accent active:scale-[0.97] {value\n    ? 'bg-primary text-primary-foreground'\n    : 'bg-background text-muted-foreground'}\"\n  onclick={toggle}\n>\n  <span\n    aria-hidden=\"true\"\n    class=\"block size-2 rounded-full transition-colors duration-200 {value ? 'bg-[#7ee2a8]' : 'bg-muted-foreground/50'}\"\n  ></span>\n  {#if children}{@render children()}{:else}Live preview{/if}\n</button>\n"
+    }
+  ]
+}

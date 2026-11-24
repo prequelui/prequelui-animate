@@ -1,0 +1,1568 @@
+{
+  "items": [
+    {
+      "name": "accordion",
+      "type": "registry:component",
+      "title": "Accordion",
+      "description": "Collapsible panels that unfold with height, opacity and a quiet blur.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Accordion.svelte",
+          "target": "~/src/lib/components/prequelui/Accordion.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:component",
+      "title": "Alert Dialog",
+      "description": "A modal confirmation that interrupts the flow and waits for an answer.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/AlertDialog.svelte",
+          "target": "~/src/lib/components/prequelui/AlertDialog.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:component",
+      "title": "Carousel",
+      "description": "A draggable slider with neighbour slides, dots and a sliding counter.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Carousel.svelte",
+          "target": "~/src/lib/components/prequelui/Carousel.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:component",
+      "title": "Checkbox",
+      "description": "A checkbox with a swelling fill and a check that draws itself.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Checkbox.svelte",
+          "target": "~/src/lib/components/prequelui/Checkbox.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "code-block",
+      "type": "registry:component",
+      "title": "Code Block",
+      "description": "A code surface that types itself in, copies cleanly and follows the caret.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/CodeBlock.svelte",
+          "target": "~/src/lib/components/prequelui/CodeBlock.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:component",
+      "title": "Collapsible",
+      "description": "A single panel that opens from a separate trigger and closes its parent gap.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Collapsible.svelte",
+          "target": "~/src/lib/components/prequelui/Collapsible.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:component",
+      "title": "Combobox",
+      "description": "An input paired with a filtered list, gliding highlight and cascading rows.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Combobox.svelte",
+          "target": "~/src/lib/components/prequelui/Combobox.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:component",
+      "title": "Context Menu",
+      "description": "A menu anchored to the pointer with cascading items and menu handoff.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/ContextMenu.svelte",
+          "target": "~/src/lib/components/prequelui/ContextMenu.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:component",
+      "title": "Dialog",
+      "description": "A modal that tips into view from its edge while the page blurs behind it.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Dialog.svelte",
+          "target": "~/src/lib/components/prequelui/Dialog.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:component",
+      "title": "Drawer",
+      "description": "A panel that snaps in from an edge and leaves faster than it arrived.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Drawer.svelte",
+          "target": "~/src/lib/components/prequelui/Drawer.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:component",
+      "title": "Dropdown Menu",
+      "description": "A compact action menu whose items arrive in a 30 ms cascade.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/DropdownMenu.svelte",
+          "target": "~/src/lib/components/prequelui/DropdownMenu.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:component",
+      "title": "Hover Card",
+      "description": "A preview card that opens from its trigger after a deliberate hover.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/HoverCard.svelte",
+          "target": "~/src/lib/components/prequelui/HoverCard.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:component",
+      "title": "Input OTP",
+      "description": "One-time-code inputs with popping characters and a pasted cascade.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/InputOTP.svelte",
+          "target": "~/src/lib/components/prequelui/InputOTP.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:component",
+      "title": "Menubar",
+      "description": "A persistent application menubar whose menus hand off without closing.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Menubar.svelte",
+          "target": "~/src/lib/components/prequelui/Menubar.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:component",
+      "title": "Navigation Menu",
+      "description": "A shared navigation viewport that resizes between triggers.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/NavigationMenu.svelte",
+          "target": "~/src/lib/components/prequelui/NavigationMenu.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:component",
+      "title": "Pagination",
+      "description": "Page links with an active outline that glides between positions.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Pagination.svelte",
+          "target": "~/src/lib/components/prequelui/Pagination.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:component",
+      "title": "Popover",
+      "description": "An anchored surface that grows from 80% with a spring.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Popover.svelte",
+          "target": "~/src/lib/components/prequelui/Popover.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "preview-link-card",
+      "type": "registry:component",
+      "title": "Preview Link Card",
+      "description": "A link that reveals a live preview of its destination on hover.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/PreviewLinkCard.svelte",
+          "target": "~/src/lib/components/prequelui/PreviewLinkCard.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:component",
+      "title": "Progress",
+      "description": "A progress bar whose width settles on a soft spring without overshoot.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Progress.svelte",
+          "target": "~/src/lib/components/prequelui/Progress.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "questionnaire",
+      "type": "registry:component",
+      "title": "Questionnaire",
+      "description": "A multi-step questionnaire that recomposes its height between questions.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Questionnaire.svelte",
+          "target": "~/src/lib/components/prequelui/Questionnaire.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:component",
+      "title": "Radio Group",
+      "description": "Single-choice options with a dot that grows into place.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/RadioGroup.svelte",
+          "target": "~/src/lib/components/prequelui/RadioGroup.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:component",
+      "title": "Select",
+      "description": "A select menu with a gliding highlight and cascading options.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Select.svelte",
+          "target": "~/src/lib/components/prequelui/Select.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:component",
+      "title": "Sheet",
+      "description": "A side sheet built on the dialog, sliding in with a blurred veil.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Sheet.svelte",
+          "target": "~/src/lib/components/prequelui/Sheet.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:component",
+      "title": "Sidebar",
+      "description": "A composable sidebar with a shared highlight and a single collapse curve.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Sidebar.svelte",
+          "target": "~/src/lib/components/prequelui/Sidebar.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:component",
+      "title": "Slider",
+      "description": "A range slider whose thumb stretches in the direction of travel.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Slider.svelte",
+          "target": "~/src/lib/components/prequelui/Slider.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:component",
+      "title": "Switch",
+      "description": "A switch whose thumb stretches 3/16 and lands softly.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Switch.svelte",
+          "target": "~/src/lib/components/prequelui/Switch.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:component",
+      "title": "Tabs",
+      "description": "Tabs with a solid indicator and panels that blur out then in.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Tabs.svelte",
+          "target": "~/src/lib/components/prequelui/Tabs.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:component",
+      "title": "Toast",
+      "description": "Stacked notifications that land from their edge and leave sooner.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Toast.svelte",
+          "target": "~/src/lib/components/prequelui/Toast.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:component",
+      "title": "Toggle",
+      "description": "A two-state button with a short press and a quiet colour change.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Toggle.svelte",
+          "target": "~/src/lib/components/prequelui/Toggle.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:component",
+      "title": "Toggle Group",
+      "description": "A group of toggles with one shared background gliding between them.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/ToggleGroup.svelte",
+          "target": "~/src/lib/components/prequelui/ToggleGroup.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:component",
+      "title": "Tooltip",
+      "description": "A tooltip that blooms from 70% and warms up its next appearance.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Tooltip.svelte",
+          "target": "~/src/lib/components/prequelui/Tooltip.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:component",
+      "title": "Button",
+      "description": "A button that presses down and never fidgets on hover.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Button.svelte",
+          "target": "~/src/lib/components/prequelui/Button.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "copy-button",
+      "type": "registry:component",
+      "title": "Copy Button",
+      "description": "Copies text and swaps its icon in a quick blur crossfade.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/CopyButton.svelte",
+          "target": "~/src/lib/components/prequelui/CopyButton.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "flip-button",
+      "type": "registry:component",
+      "title": "Flip Button",
+      "description": "A button that turns over on hover to reveal its back face.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/FlipButton.svelte",
+          "target": "~/src/lib/components/prequelui/FlipButton.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "github-stars-button",
+      "type": "registry:component",
+      "title": "GitHub Stars Button",
+      "description": "A compact star button with a counting number and fill.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/GitHubStarsButton.svelte",
+          "target": "~/src/lib/components/prequelui/GitHubStarsButton.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "icon-button",
+      "type": "registry:component",
+      "title": "Icon Button",
+      "description": "An icon button that releases a small burst of particles.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/IconButton.svelte",
+          "target": "~/src/lib/components/prequelui/IconButton.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "liquid-button",
+      "type": "registry:component",
+      "title": "Liquid Button",
+      "description": "A button that fills with liquid from the bottom on hover.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/LiquidButton.svelte",
+          "target": "~/src/lib/components/prequelui/LiquidButton.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "ripple-button",
+      "type": "registry:component",
+      "title": "Ripple Button",
+      "description": "A button that emits a ripple from the exact point clicked.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/RippleButton.svelte",
+          "target": "~/src/lib/components/prequelui/RippleButton.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "shimmer-button",
+      "type": "registry:component",
+      "title": "Shimmer Button",
+      "description": "One short pass of light crosses the button on hover, never an endless loop.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/ShimmerButton.svelte",
+          "target": "~/src/lib/components/prequelui/ShimmerButton.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "theme-toggler-button",
+      "type": "registry:component",
+      "title": "Theme Toggler Button",
+      "description": "A theme button whose icon spins, shrinks and blurs away.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/ThemeTogglerButton.svelte",
+          "target": "~/src/lib/components/prequelui/ThemeTogglerButton.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "gradient-text",
+      "type": "registry:component",
+      "title": "Gradient Text",
+      "description": "Text filled with a gradient that sweeps slowly across it.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/GradientText.svelte",
+          "target": "~/src/lib/components/prequelui/GradientText.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "highlight-text",
+      "type": "registry:component",
+      "title": "Highlight Text",
+      "description": "A marker highlight that draws in behind the words.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/HighlightText.svelte",
+          "target": "~/src/lib/components/prequelui/HighlightText.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "shimmering-text",
+      "type": "registry:component",
+      "title": "Shimmering Text",
+      "description": "A letter-by-letter wave of light crosses the text.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/ShimmeringText.svelte",
+          "target": "~/src/lib/components/prequelui/ShimmeringText.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "splitting-text",
+      "type": "registry:component",
+      "title": "Splitting Text",
+      "description": "Text arrives piece by piece with a staggered blur.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/SplittingText.svelte",
+          "target": "~/src/lib/components/prequelui/SplittingText.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "typing-text",
+      "type": "registry:component",
+      "title": "Typing Text",
+      "description": "Text typed character by character with a blinking caret.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/TypingText.svelte",
+          "target": "~/src/lib/components/prequelui/TypingText.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "motion-grid",
+      "type": "registry:component",
+      "title": "Motion Grid",
+      "description": "A dot grid that plays frame-by-frame motion as a loader or state.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/MotionGrid.svelte",
+          "target": "~/src/lib/components/prequelui/MotionGrid.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "page-transition",
+      "type": "registry:component",
+      "title": "Page Transition",
+      "description": "Page changes revealed with the View Transitions API.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/PageTransition.svelte",
+          "target": "~/src/lib/components/prequelui/PageTransition.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "spring",
+      "type": "registry:component",
+      "title": "Spring",
+      "description": "A draggable element tied to its home by a visible spring.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Spring.svelte",
+          "target": "~/src/lib/components/prequelui/Spring.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "github-stars",
+      "type": "registry:component",
+      "title": "GitHub Stars",
+      "description": "A repository star count that ticks up and bursts into particles.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/GitHubStars.svelte",
+          "target": "~/src/lib/components/prequelui/GitHubStars.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "cursor",
+      "type": "registry:component",
+      "title": "Cursor",
+      "description": "A custom cursor and a trailing label with two different springs.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Cursor.svelte",
+          "target": "~/src/lib/components/prequelui/Cursor.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "sliding-text",
+      "type": "registry:component",
+      "title": "Sliding Text",
+      "description": "Text slides out of its box while a copy slides in.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/SlidingText.svelte",
+          "target": "~/src/lib/components/prequelui/SlidingText.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "avatar-group",
+      "type": "registry:component",
+      "title": "Avatar Group",
+      "description": "Overlapping avatars with one shared tooltip that hands off between faces.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/AvatarGroup.svelte",
+          "target": "~/src/lib/components/prequelui/AvatarGroup.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "file-drop",
+      "type": "registry:component",
+      "title": "File Drop",
+      "description": "A drop zone that breathes on drag, fills a spring bar and draws its own check.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/FileDrop.svelte",
+          "target": "~/src/lib/components/prequelui/FileDrop.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "stepper",
+      "type": "registry:component",
+      "title": "Stepper",
+      "description": "Connectors draw, the current badge grows and panels slide in the direction of travel.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Stepper.svelte",
+          "target": "~/src/lib/components/prequelui/Stepper.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "bottom-navigation",
+      "type": "registry:component",
+      "title": "Bottom Navigation",
+      "description": "A bottom bar with a gliding highlight that recedes on scroll.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/BottomNavigation.svelte",
+          "target": "~/src/lib/components/prequelui/BottomNavigation.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "pinned-list",
+      "type": "registry:component",
+      "title": "Pinned List",
+      "description": "Items that move between pinned and unpinned groups as the same node.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/PinnedList.svelte",
+          "target": "~/src/lib/components/prequelui/PinnedList.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "scroll-progress",
+      "type": "registry:component",
+      "title": "Scroll Progress",
+      "description": "A scroll-linked progress bar driven without overshoot.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/ScrollProgress.svelte",
+          "target": "~/src/lib/components/prequelui/ScrollProgress.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "counting-number",
+      "type": "registry:component",
+      "title": "Counting Number",
+      "description": "A number that counts to its target on a heavily damped spring.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/CountingNumber.svelte",
+          "target": "~/src/lib/components/prequelui/CountingNumber.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "kpi-counter",
+      "type": "registry:component",
+      "title": "KPI Counter",
+      "description": "A metric card whose number counts, delta lands and sparkline draws itself.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/KPICounter.svelte",
+          "target": "~/src/lib/components/prequelui/KPICounter.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "radial-progress",
+      "type": "registry:component",
+      "title": "Radial Progress",
+      "description": "An arc and a number on one damped spring, with ticks waking in order.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/RadialProgress.svelte",
+          "target": "~/src/lib/components/prequelui/RadialProgress.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "scrolling-number",
+      "type": "registry:component",
+      "title": "Scrolling Number",
+      "description": "A mechanical number band that scrolls and stops under a highlight.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/ScrollingNumber.svelte",
+          "target": "~/src/lib/components/prequelui/ScrollingNumber.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "sliding-number",
+      "type": "registry:component",
+      "title": "Sliding Number",
+      "description": "An odometer where every digit rolls independently.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/SlidingNumber.svelte",
+          "target": "~/src/lib/components/prequelui/SlidingNumber.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "morphing-text",
+      "type": "registry:component",
+      "title": "Morphing Text",
+      "description": "Letters glide to their new positions when the string changes.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/MorphingText.svelte",
+          "target": "~/src/lib/components/prequelui/MorphingText.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "rolling-text",
+      "type": "registry:component",
+      "title": "Rolling Text",
+      "description": "Letters roll over themselves like a split-flap board.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/RollingText.svelte",
+          "target": "~/src/lib/components/prequelui/RollingText.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "rotating-text",
+      "type": "registry:component",
+      "title": "Rotating Text",
+      "description": "Words leave upward while the next one rises into place.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/RotatingText.svelte",
+          "target": "~/src/lib/components/prequelui/RotatingText.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "swapping-text",
+      "type": "registry:component",
+      "title": "Swapping Text",
+      "description": "Only the letters that changed glide to their new spots.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/SwappingText.svelte",
+          "target": "~/src/lib/components/prequelui/SwappingText.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "auto-height",
+      "type": "registry:component",
+      "title": "Auto Height",
+      "description": "A container whose height glides to fit whatever is inside.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/AutoHeight.svelte",
+          "target": "~/src/lib/components/prequelui/AutoHeight.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "blur",
+      "type": "registry:component",
+      "title": "Blur",
+      "description": "An entrance that resolves from blur to sharp.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Blur.svelte",
+          "target": "~/src/lib/components/prequelui/Blur.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "click",
+      "type": "registry:component",
+      "title": "Click",
+      "description": "A ring, ripple, crosshair or burst played at the click point.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Click.svelte",
+          "target": "~/src/lib/components/prequelui/Click.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "effect",
+      "type": "registry:component",
+      "title": "Effect",
+      "description": "Fade, blur, slide and zoom composed into one entrance.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Effect.svelte",
+          "target": "~/src/lib/components/prequelui/Effect.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "fade",
+      "type": "registry:component",
+      "title": "Fade",
+      "description": "A simple opacity entrance tied to view or scroll.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Fade.svelte",
+          "target": "~/src/lib/components/prequelui/Fade.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "highlight",
+      "type": "registry:component",
+      "title": "Highlight",
+      "description": "A shared background that slides to the active item.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Highlight.svelte",
+          "target": "~/src/lib/components/prequelui/Highlight.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "image-zoom",
+      "type": "registry:component",
+      "title": "Image Zoom",
+      "description": "An image that zooms toward the pointer on hover.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/ImageZoom.svelte",
+          "target": "~/src/lib/components/prequelui/ImageZoom.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "magnetic",
+      "type": "registry:component",
+      "title": "Magnetic",
+      "description": "An element pulled toward the pointer inside a radius.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Magnetic.svelte",
+          "target": "~/src/lib/components/prequelui/Magnetic.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "marquee",
+      "type": "registry:component",
+      "title": "Marquee",
+      "description": "A seamless row that drifts at a fixed speed and pauses under the pointer.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Marquee.svelte",
+          "target": "~/src/lib/components/prequelui/Marquee.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "particles",
+      "type": "registry:component",
+      "title": "Particles",
+      "description": "A burst of particles around a trigger, for likes and stars.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Particles.svelte",
+          "target": "~/src/lib/components/prequelui/Particles.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "scroll-fade",
+      "type": "registry:component",
+      "title": "Scroll Fade",
+      "description": "Container edges that fade only where there is more content.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/ScrollFade.svelte",
+          "target": "~/src/lib/components/prequelui/ScrollFade.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "shine",
+      "type": "registry:component",
+      "title": "Shine",
+      "description": "A highlight that sweeps across a surface on hover or click.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Shine.svelte",
+          "target": "~/src/lib/components/prequelui/Shine.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "slide",
+      "type": "registry:component",
+      "title": "Slide",
+      "description": "An entrance that arrives from one side.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Slide.svelte",
+          "target": "~/src/lib/components/prequelui/Slide.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "spotlight-card",
+      "type": "registry:component",
+      "title": "Spotlight Card",
+      "description": "A soft light that follows the pointer across a card on a lagging spring.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/SpotlightCard.svelte",
+          "target": "~/src/lib/components/prequelui/SpotlightCard.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "theme-toggler",
+      "type": "registry:component",
+      "title": "Theme Toggler",
+      "description": "A theme switch revealed by a 700 ms clip-path wipe.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/ThemeToggler.svelte",
+          "target": "~/src/lib/components/prequelui/ThemeToggler.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "tilt",
+      "type": "registry:component",
+      "title": "Tilt",
+      "description": "A card that tilts in 3D toward the pointer and returns flat.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Tilt.svelte",
+          "target": "~/src/lib/components/prequelui/Tilt.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "zoom",
+      "type": "registry:component",
+      "title": "Zoom",
+      "description": "An entrance that scales from half size with a spring.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Zoom.svelte",
+          "target": "~/src/lib/components/prequelui/Zoom.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "bubble",
+      "type": "registry:component",
+      "title": "Bubble",
+      "description": "Slow gradient blobs that float and turn behind the content.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Bubble.svelte",
+          "target": "~/src/lib/components/prequelui/Bubble.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "fireworks",
+      "type": "registry:component",
+      "title": "Fireworks",
+      "description": "Autonomous firework bursts with configurable timing.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Fireworks.svelte",
+          "target": "~/src/lib/components/prequelui/Fireworks.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "glyph",
+      "type": "registry:component",
+      "title": "Glyph",
+      "description": "A field of characters woken by a trail of light and rings.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Glyph.svelte",
+          "target": "~/src/lib/components/prequelui/Glyph.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "gradient",
+      "type": "registry:component",
+      "title": "Gradient",
+      "description": "A quiet animated gradient that gives the page depth.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Gradient.svelte",
+          "target": "~/src/lib/components/prequelui/Gradient.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "gravity-stars",
+      "type": "registry:component",
+      "title": "Gravity Stars",
+      "description": "Stars pulled and pushed by an interactive gravity well.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/GravityStars.svelte",
+          "target": "~/src/lib/components/prequelui/GravityStars.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "hexagon",
+      "type": "registry:component",
+      "title": "Hexagon",
+      "description": "A hexagonal grid that lights each cell under the pointer.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Hexagon.svelte",
+          "target": "~/src/lib/components/prequelui/Hexagon.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "hole",
+      "type": "registry:component",
+      "title": "Hole",
+      "description": "A tunnel of rings with particles rising toward the camera.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Hole.svelte",
+          "target": "~/src/lib/components/prequelui/Hole.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "stars",
+      "type": "registry:component",
+      "title": "Stars",
+      "description": "Three parallax star layers drifting at different speeds.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Stars.svelte",
+          "target": "~/src/lib/components/prequelui/Stars.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "topography",
+      "type": "registry:component",
+      "title": "Topography",
+      "description": "Living contour lines with a hill under the pointer.",
+      "dependencies": [
+        "motion",
+        "lucide-svelte"
+      ],
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/Topography.svelte",
+          "target": "~/src/lib/components/prequelui/Topography.svelte",
+          "type": "registry:file"
+        }
+      ]
+    }
+  ]
+}

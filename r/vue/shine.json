@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shine",
+  "type": "registry:ui",
+  "title": "Shine",
+  "description": "A highlight that sweeps across a surface on hover or click.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/Shine.vue",
+      "target": "components/prequelui/Shine.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from \"vue\";\nimport { animate } from \"motion\";\n\nconst props = defineProps({\n  color: { type: String, default: \"currentColor\" },\n  opacity: { type: Number, default: 0.3 },\n  delay: { type: Number, default: 0 },\n  duration: { type: Number, default: 1200 },\n  loop: { type: Boolean, default: false },\n  loopDelay: { type: Number, default: 0 },\n  deg: { type: Number, default: -15 },\n  enable: { type: Boolean, default: true },\n  enableOnHover: { type: Boolean, default: false },\n  enableOnTap: { type: Boolean, default: false },\n  as: { type: [String, Object], default: \"div\" },\n});\n\nconst root = ref(null);\nconst overlay = ref(null);\nconst run = ref(0);\nconst hovered = ref(false);\nconst reduced = ref(false);\nlet timer;\nlet control;\n\nconst active = computed(() => props.enable && !reduced.value);\nconst alwaysOn = computed(\n  () => active.value && !props.enableOnHover && !props.enableOnTap,\n);\n\nfunction clearTimer() {\n  clearTimeout(timer);\n  timer = undefined;\n}\n\nfunction play() {\n  run.value += 1;\n}\n\nfunction scheduleNext() {\n  clearTimer();\n  const on = alwaysOn.value || (props.enableOnHover && hovered.value);\n  if (!props.loop || !on) return;\n  timer = setTimeout(play, props.loopDelay);\n}\n\nfunction handleEnter() {\n  if (!active.value || !props.enableOnHover || alwaysOn.value) return;\n  hovered.value = true;\n  play();\n}\n\nfunction handleLeave() {\n  if (!active.value || !props.enableOnHover || alwaysOn.value) return;\n  hovered.value = false;\n  clearTimer();\n}\n\nfunction handleDown() {\n  if (!active.value || !props.enableOnTap || alwaysOn.value) return;\n  play();\n}\n\nwatch(\n  () => [alwaysOn.value, props.loop, props.loopDelay],\n  () => {\n    clearTimer();\n    run.value = alwaysOn.value ? 1 : 0;\n  },\n);\n\nwatch(run, async () => {\n  await nextTick();\n  if (!overlay.value) return;\n  control?.stop?.();\n  control = animate(\n    overlay.value,\n    { x: [\"-100%\", \"100%\"], skewX: props.deg },\n    {\n      duration: props.duration / 1000,\n      ease: [0.4, 0, 0.2, 1],\n      delay: props.delay / 1000,\n    },\n  );\n  control.finished.then(scheduleNext, scheduleNext);\n});\n\nonMounted(() => {\n  reduced.value = window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n  run.value = alwaysOn.value ? 1 : 0;\n});\n\nonBeforeUnmount(() => {\n  clearTimer();\n  control?.stop?.();\n});\n</script>\n\n<template>\n  <component\n    :is=\"as\"\n    ref=\"root\"\n    data-slot=\"shine\"\n    class=\"relative overflow-hidden\"\n    @mouseenter=\"handleEnter\"\n    @mouseleave=\"handleLeave\"\n    @pointerdown=\"handleDown\"\n  >\n    <slot />\n    <span\n      v-if=\"active && run > 0\"\n      :key=\"run\"\n      ref=\"overlay\"\n      aria-hidden=\"true\"\n      class=\"pointer-events-none absolute inset-0 z-10 block h-full w-full\"\n      :style=\"{\n        background: `linear-gradient(to right, transparent, ${color}, transparent)`,\n        opacity,\n      }\"\n    />\n  </component>\n</template>\n"
+    }
+  ]
+}

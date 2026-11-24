@@ -1,0 +1,52 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-bell-color",
+  "type": "registry:ui",
+  "title": "Bell · Color",
+  "description": "A bell that swings from its crown while the clapper lags. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/bell.json"
+  ],
+  "meta": {
+    "style": "color",
+    "category": "Notifications",
+    "roles": [
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      true,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.68 0.17 50)",
+      "primaryDark": "oklch(0.83 0.13 50)",
+      "accent": "oklch(0.62 0.18 25)",
+      "accentDark": "oklch(0.78 0.14 25)"
+    },
+    "emoji": {
+      "primary": "oklch(0.68 0.2 27)",
+      "secondary": "oklch(0.54 0.19 25)",
+      "accent": "oklch(0.82 0.16 85)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-bell-color.tsx",
+      "target": "components/prequelui/icons/prequel-bell-color.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelBellIcon, type IconProps } from \"./prequel-bell\";\n\nexport function PrequelBellColorIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelBellIcon size={size} variant=\"color\" {...props} />;\n}\n"
+    }
+  ]
+}

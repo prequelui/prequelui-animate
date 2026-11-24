@@ -1,0 +1,56 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-file-solid",
+  "type": "registry:ui",
+  "title": "File · Solid",
+  "description": "A document whose ruled lines pulse one after another. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/file.json"
+  ],
+  "meta": {
+    "style": "solid",
+    "category": "Files",
+    "roles": [
+      "primary",
+      "primary",
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      true,
+      false,
+      false,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.62 0.13 230)",
+      "primaryDark": "oklch(0.8 0.1 230)",
+      "accent": "oklch(0.7 0.14 205)",
+      "accentDark": "oklch(0.82 0.11 205)"
+    },
+    "emoji": {
+      "primary": "oklch(0.74 0.13 232)",
+      "secondary": "oklch(0.58 0.13 232)",
+      "accent": "oklch(0.78 0.14 165)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-file-solid.tsx",
+      "target": "components/prequelui/icons/prequel-file-solid.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelFileIcon, type IconProps } from \"./prequel-file\";\n\nexport function PrequelFileSolidIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelFileIcon size={size} variant=\"solid\" {...props} />;\n}\n"
+    }
+  ]
+}

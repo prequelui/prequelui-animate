@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "combobox",
+  "type": "registry:component",
+  "title": "Combobox",
+  "description": "An input paired with a filtered list, gliding highlight and cascading rows.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/Combobox.svelte",
+      "target": "~/src/lib/components/prequelui/Combobox.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { Check, ChevronDown } from \"lucide-svelte\";\n\n  let {\n    options = [\n      { value: \"base-ui\", label: \"Base UI\" },\n      { value: \"radix-ui\", label: \"Radix UI\" },\n      { value: \"react-aria\", label: \"React Aria\" },\n      { value: \"reka-ui\", label: \"Reka UI\" },\n    ],\n    placeholder = \"Pick a library\",\n    defaultValue = \"\",\n    onChange = undefined,\n  } = $props();\n\n  let query = $state(defaultValue);\n  let value = $state(defaultValue);\n  let open = $state(false);\n  let active = $state(0);\n  let root = $state(null);\n\n  const filtered = $derived(\n    options.filter((option) => option.label.toLowerCase().includes(query.toLowerCase())),\n  );\n\n  function choose(option) {\n    value = option.value;\n    query = option.label;\n    open = false;\n    onChange?.(option.value);\n  }\n  function onPointer(event) {\n    if (open && root && !root.contains(event.target)) open = false;\n  }\n  function onKey(event) {\n    if (event.key === \"Escape\") open = false;\n    else if (event.key === \"ArrowDown\") {\n      event.preventDefault();\n      open = true;\n      active = Math.min(filtered.length - 1, active + 1);\n    } else if (event.key === \"ArrowUp\") {\n      event.preventDefault();\n      active = Math.max(0, active - 1);\n    } else if (event.key === \"Enter\" && filtered[active]) {\n      choose(filtered[active]);\n    }\n  }\n</script>\n\n<svelte:window onpointerdown={onPointer} />\n\n<div bind:this={root} class=\"relative w-56 text-[13px]\">\n  <div class=\"flex h-9 items-center rounded-lg border bg-background px-2.5\">\n    <input\n      role=\"combobox\"\n      aria-expanded={open}\n      aria-controls=\"combobox-list\"\n      aria-autocomplete=\"list\"\n      bind:value={query}\n      {placeholder}\n      class=\"min-w-0 flex-1 bg-transparent outline-none placeholder:text-muted-foreground\"\n      oninput={() => {\n        open = true;\n        active = 0;\n      }}\n      onfocus={() => (open = true)}\n      onkeydown={onKey}\n    />\n    <ChevronDown class=\"size-4 shrink-0 text-muted-foreground\" />\n  </div>\n  {#if open}\n    <ul id=\"combobox-list\" role=\"listbox\" class=\"combo-panel absolute top-full z-40 mt-1.5 w-full rounded-xl border bg-background p-1 shadow-xl\">\n      {#if !filtered.length}\n        <li class=\"px-2 py-2 text-muted-foreground\">No result</li>\n      {/if}\n      {#each filtered as option, index (option.value)}\n        <li\n          role=\"option\"\n          aria-selected={option.value === value}\n          class=\"combo-row relative flex cursor-pointer items-center justify-between rounded-md px-2 py-1.5\"\n          style={`animation-delay:${index * 30}ms`}\n          onpointerenter={() => (active = index)}\n          onclick={() => choose(option)}\n        >\n          {option.label}\n          {#if option.value === value}<Check class=\"size-3.5\" />{/if}\n        </li>\n      {/each}\n    </ul>\n  {/if}\n</div>\n\n<style>\n  .combo-panel { animation: combo-in 220ms cubic-bezier(0.215, 0.61, 0.355, 1) both; }\n  .combo-row { animation: combo-row 200ms cubic-bezier(0.215, 0.61, 0.355, 1) both; }\n  @keyframes combo-in { from { opacity: 0; transform: translateY(-4px); } }\n  @keyframes combo-row { from { opacity: 0; transform: translateY(-4px); filter: blur(2px); } }\n  @media (prefers-reduced-motion: reduce) {\n    .combo-panel, .combo-row { animation: none; }\n  }\n</style>\n"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox",
+  "type": "registry:ui",
+  "title": "Checkbox",
+  "description": "A checkbox with a swelling fill and a check that draws itself.",
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/checkbox.tsx",
+      "target": "components/prequelui/checkbox.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { motion, useReducedMotion } from \"motion/react\";\nimport { cn } from \"@/lib/utils\";\n\nexport type CheckboxProps = {\n  checked?: boolean;\n  defaultChecked?: boolean;\n  onCheckedChange?: (checked: boolean) => void;\n  label?: React.ReactNode;\n  disabled?: boolean;\n  className?: string;\n};\n\nconst checkSpring = { type: \"spring\", stiffness: 500, damping: 24 } as const;\n\nexport function Checkbox({\n  checked,\n  defaultChecked = false,\n  onCheckedChange,\n  label = \"Accept terms\",\n  disabled = false,\n  className,\n}: CheckboxProps) {\n  const [internal, setInternal] = React.useState(defaultChecked);\n  const value = checked ?? internal;\n  const reduce = useReducedMotion();\n\n  const toggle = () => {\n    if (disabled) return;\n    const next = !value;\n    if (checked === undefined) setInternal(next);\n    onCheckedChange?.(next);\n  };\n\n  return (\n    <label className={cn(\"flex items-center gap-2.5 text-[13px]\", className)}>\n      <button\n        type=\"button\"\n        role=\"checkbox\"\n        aria-checked={value}\n        disabled={disabled}\n        onClick={toggle}\n        className={cn(\n          \"relative flex size-4 items-center justify-center rounded-[4px] border outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50\",\n          value ? \"border-foreground\" : \"border-input\",\n        )}\n      >\n        {value && (\n          <motion.span\n            aria-hidden=\"true\"\n            initial={reduce ? false : { scale: 0.5, opacity: 0 }}\n            animate={{ scale: 1, opacity: 1 }}\n            transition={checkSpring}\n            className=\"absolute inset-0 rounded-[3px] bg-foreground\"\n          />\n        )}\n        <svg\n          aria-hidden=\"true\"\n          viewBox=\"0 0 24 24\"\n          fill=\"none\"\n          stroke=\"currentColor\"\n          strokeWidth=\"3\"\n          strokeLinecap=\"round\"\n          strokeLinejoin=\"round\"\n          className=\"relative size-3 text-background\"\n        >\n          <motion.path\n            d=\"m5 12 4 4L19 6\"\n            initial={reduce ? false : { pathLength: 0 }}\n            animate={{ pathLength: value ? 1 : 0 }}\n            transition={\n              reduce\n                ? { duration: 0 }\n                : { duration: 0.25, ease: [0.23, 1, 0.32, 1] }\n            }\n          />\n        </svg>\n      </button>\n      <span>{label}</span>\n    </label>\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip",
+  "type": "registry:component",
+  "title": "Tooltip",
+  "description": "A tooltip that blooms from 70% and warms up its next appearance.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/Tooltip.svelte",
+      "target": "~/src/lib/components/prequelui/Tooltip.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  let {\n    trigger = \"Hover me\",\n    content = \"Saved just now\",\n    side = \"top\",\n    delay = 180,\n    closeDelay = 80,\n  } = $props();\n\n  const store = (globalThis.__prequelTip = globalThis.__prequelTip ?? { open: new Set(), cooledAt: 0 });\n  const id = Symbol(\"tooltip\");\n  let open = $state(false);\n  let instant = $state(false);\n  let openTimer;\n  let closeTimer;\n\n  const sides = {\n    top: \"bottom-full left-1/2 -translate-x-1/2 mb-2\",\n    bottom: \"top-full left-1/2 -translate-x-1/2 mt-2\",\n    left: \"right-full top-1/2 -translate-y-1/2 mr-2\",\n    right: \"left-full top-1/2 -translate-y-1/2 ml-2\",\n  };\n\n  function show() {\n    clearTimeout(closeTimer);\n    clearTimeout(openTimer);\n    const warm = store.open.size > 0 || Date.now() - store.cooledAt < 300;\n    instant = warm;\n    openTimer = setTimeout(\n      () => {\n        store.open.add(id);\n        open = true;\n      },\n      warm ? 0 : delay,\n    );\n  }\n  function hide() {\n    clearTimeout(openTimer);\n    clearTimeout(closeTimer);\n    closeTimer = setTimeout(() => {\n      store.open.delete(id);\n      if (store.open.size === 0) store.cooledAt = Date.now();\n      open = false;\n      instant = false;\n    }, closeDelay);\n  }\n</script>\n\n<span class=\"relative inline-flex\" onpointerenter={show} onpointerleave={hide} onfocusin={show} onfocusout={hide}>\n  <button type=\"button\" class=\"inline-flex h-8 items-center rounded-md border px-3 text-[13px] font-medium\">\n    {trigger}\n  </button>\n  {#if open}\n    <span\n      role=\"tooltip\"\n      class=\"tip pointer-events-none absolute z-50 whitespace-nowrap rounded-md bg-primary px-2 py-1 text-[13px] font-medium text-primary-foreground shadow-md {sides[side]}\"\n      class:instant\n    >\n      {content}\n    </span>\n  {/if}\n</span>\n\n<style>\n  .tip { animation: tip-in 320ms cubic-bezier(0.23, 1, 0.32, 1) both; }\n  .tip.instant { animation-duration: 1ms; }\n  @keyframes tip-in { from { opacity: 0; transform: scale(0.7); filter: blur(6px); } }\n  @media (prefers-reduced-motion: reduce) {\n    .tip { animation: tip-fade 200ms linear both; }\n    @keyframes tip-fade { from { opacity: 0; } }\n  }\n</style>\n"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "magnetic",
+  "type": "registry:component",
+  "title": "Magnetic",
+  "description": "An element pulled toward the pointer inside a radius.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/Magnetic.svelte",
+      "target": "~/src/lib/components/prequelui/Magnetic.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount } from \"svelte\";\n  import { animate } from \"motion\";\n\n  let {\n    strength = 0.5,\n    range = 120,\n    springOptions = undefined,\n    onlyOnHover = false,\n    disableOnTouch = true,\n    class: className = \"\",\n    ...rest\n  } = $props();\n\n  let root;\n  let canHover = $state(false);\n  let reduced = $state(false);\n  let hovering = $state(false);\n  let control;\n\n  const enabled = $derived(!reduced && (canHover || !disableOnTouch));\n\n  const spring = $derived(\n    springOptions ?? {\n      type: \"spring\",\n      stiffness: 100,\n      damping: 10,\n      mass: 0.5,\n    },\n  );\n\n  function reset() {\n    if (!root) return;\n    control?.stop?.();\n    control = animate(root, { x: 0, y: 0 }, spring);\n  }\n\n  function compute(event) {\n    if (!root) return;\n    const rect = root.getBoundingClientRect();\n    const centerX = rect.left + rect.width / 2;\n    const centerY = rect.top + rect.height / 2;\n    const dx = event.clientX - centerX;\n    const dy = event.clientY - centerY;\n    const distance = Math.hypot(dx, dy);\n\n    if (distance <= range) {\n      const factor = (1 - distance / range) * strength;\n      control?.stop?.();\n      control = animate(root, { x: dx * factor, y: dy * factor }, spring);\n    } else {\n      reset();\n    }\n  }\n\n  function onWindowMove(event) {\n    if (!enabled || onlyOnHover) return;\n    compute(event);\n  }\n\n  function enter() {\n    hovering = true;\n  }\n\n  function move(event) {\n    if (enabled && onlyOnHover && hovering) compute(event);\n  }\n\n  function leave() {\n    hovering = false;\n    reset();\n  }\n\n  $effect(() => {\n    if (!enabled) reset();\n  });\n\n  onMount(() => {\n    canHover = window.matchMedia(\"(hover: hover) and (pointer: fine)\").matches;\n    reduced = window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n    if (!onlyOnHover) {\n      window.addEventListener(\"mousemove\", onWindowMove, { passive: true });\n    }\n    return () => {\n      window.removeEventListener(\"mousemove\", onWindowMove);\n      control?.stop?.();\n    };\n  });\n</script>\n\n<div\n  bind:this={root}\n  data-slot=\"magnetic\"\n  class={`inline-block ${className}`}\n  onpointerenter={enter}\n  onpointermove={move}\n  onpointerleave={leave}\n  {...rest}\n>\n  <slot />\n</div>\n"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block",
+  "type": "registry:ui",
+  "title": "Code Block",
+  "description": "A code surface that types itself in, copies cleanly and follows the caret.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/code-block.tsx",
+      "target": "src/components/prequelui/code-block.tsx",
+      "type": "registry:ui",
+      "content": "import { Show, createEffect, createSignal, onCleanup } from \"solid-js\";\nimport { Check, Copy } from \"lucide-solid\";\n\nexport type CodeBlockProps = {\n  code: string;\n  filename?: string;\n  typing?: boolean;\n};\n\nexport function CodeBlock(props: CodeBlockProps) {\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n  const [length, setLength] = createSignal(\n    props.typing === false || reduce() ? props.code.length : 0,\n  );\n  const [copied, setCopied] = createSignal(false);\n  let typingTimer: number | undefined;\n  let copyTimer: number | undefined;\n\n  createEffect(() => {\n    const code = props.code;\n    clearInterval(typingTimer);\n    if (props.typing === false || reduce()) {\n      setLength(code.length);\n      return;\n    }\n    setLength(0);\n    typingTimer = window.setInterval(() => {\n      setLength((value) => {\n        if (value >= code.length) {\n          clearInterval(typingTimer);\n          return value;\n        }\n        return value + 1;\n      });\n    }, 14);\n  });\n\n  onCleanup(() => {\n    clearInterval(typingTimer);\n    clearTimeout(copyTimer);\n  });\n\n  async function copy() {\n    try {\n      await navigator.clipboard.writeText(props.code);\n    } catch {\n      const area = document.createElement(\"textarea\");\n      area.value = props.code;\n      document.body.appendChild(area);\n      area.select();\n      document.execCommand(\"copy\");\n      area.remove();\n    }\n    setCopied(true);\n    clearTimeout(copyTimer);\n    copyTimer = window.setTimeout(() => setCopied(false), 2000);\n  }\n\n  return (\n    <div class=\"overflow-hidden rounded-xl border bg-code\">\n      <div class=\"flex items-center justify-between border-b px-4 py-2\">\n        <span class=\"font-mono text-[13px] text-muted-foreground\">{props.filename ?? \"example.ts\"}</span>\n        <button type=\"button\" aria-label={copied() ? \"Copied\" : \"Copy code\"} onClick={copy} class=\"relative flex size-7 items-center justify-center rounded-md text-muted-foreground hover:bg-accent hover:text-foreground\">\n          <span class=\"copy-icon\">\n            <Show when={copied()} fallback={<Copy class=\"size-3.5\" />}>\n              <Check class=\"size-3.5\" />\n            </Show>\n          </span>\n        </button>\n      </div>\n      <pre class=\"overflow-auto p-4 font-mono text-[13px] leading-6\">\n        <code>\n          {props.code.slice(0, length())}\n          {length() < props.code.length ? \"▍\" : \"\"}\n        </code>\n      </pre>\n      <style>{`\n        .copy-icon { display: flex; animation: copy-swap 150ms cubic-bezier(0.23,1,0.32,1); }\n        @keyframes copy-swap { from { transform: scale(0.5); filter: blur(2px); opacity: 0; } }\n      `}</style>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

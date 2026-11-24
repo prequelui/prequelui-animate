@@ -1,0 +1,62 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-robot-duotone",
+  "type": "registry:ui",
+  "title": "Robot · Duotone",
+  "description": "A friendly robot whose antenna bobs and whose arms wave. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/robot.json"
+  ],
+  "meta": {
+    "style": "duotone",
+    "category": "AI",
+    "roles": [
+      "primary",
+      "primary",
+      "accent",
+      "primary",
+      "accent",
+      "accent",
+      "primary"
+    ],
+    "closed": [
+      true,
+      false,
+      true,
+      false,
+      true,
+      true,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.58 0.17 295)",
+      "primaryDark": "oklch(0.77 0.13 295)",
+      "accent": "oklch(0.7 0.14 195)",
+      "accentDark": "oklch(0.82 0.11 195)"
+    },
+    "emoji": {
+      "primary": "oklch(0.6 0.2 300)",
+      "secondary": "oklch(0.46 0.18 300)",
+      "accent": "oklch(0.74 0.13 232)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-robot-duotone.tsx",
+      "target": "components/prequelui/icons/prequel-robot-duotone.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelRobotIcon, type IconProps } from \"./prequel-robot\";\n\nexport function PrequelRobotDuotoneIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelRobotIcon size={size} variant=\"duotone\" {...props} />;\n}\n"
+    }
+  ]
+}

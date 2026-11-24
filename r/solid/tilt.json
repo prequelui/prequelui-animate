@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tilt",
+  "type": "registry:ui",
+  "title": "Tilt",
+  "description": "A card that tilts in 3D toward the pointer and returns flat.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/tilt.tsx",
+      "target": "src/components/prequelui/tilt.tsx",
+      "type": "registry:ui",
+      "content": "import { onCleanup, onMount } from \"solid-js\";\nimport type { JSX } from \"solid-js\";\nimport { animate } from \"motion\";\n\nexport type TiltSpring = {\n  type?: \"spring\" | \"tween\" | \"inertia\" | \"keyframes\";\n  stiffness?: number;\n  damping?: number;\n  mass?: number;\n  bounce?: number;\n  duration?: number;\n  ease?: string | number[];\n  restDelta?: number;\n  restSpeed?: number;\n  [key: string]: unknown;\n};\n\nexport type TiltProps = {\n  maxTilt?: number;\n  perspective?: number;\n  transition?: TiltSpring;\n  class?: string;\n  style?: JSX.CSSProperties;\n  onPointerMove?: (event: PointerEvent) => void;\n  onPointerLeave?: (event: PointerEvent) => void;\n  children?: JSX.Element;\n};\n\nconst defaultSpring = {\n  type: \"spring\" as const,\n  stiffness: 300,\n  damping: 25,\n  mass: 0.5,\n};\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nexport function Tilt(props: TiltProps) {\n  let root: HTMLDivElement | undefined;\n  let controls: ReturnType<typeof animate> | undefined;\n\n  const spring = () => props.transition ?? defaultSpring;\n\n  const move = (event: PointerEvent) => {\n    props.onPointerMove?.(event);\n    if (reduce() || !root) return;\n    const rect = root.getBoundingClientRect();\n    const px = rect.width ? (event.clientX - rect.left) / rect.width : 0.5;\n    const py = rect.height ? (event.clientY - rect.top) / rect.height : 0.5;\n    controls?.stop?.();\n    controls = animate(\n      root,\n      {\n        rotateX: -(py * 2 - 1) * (props.maxTilt ?? 10),\n        rotateY: (px * 2 - 1) * (props.maxTilt ?? 10),\n        transformPerspective: props.perspective ?? 800,\n      },\n      spring() as Parameters<typeof animate>[2],\n    );\n  };\n\n  const leave = (event: PointerEvent) => {\n    props.onPointerLeave?.(event);\n    if (!root) return;\n    controls?.stop?.();\n    controls = animate(\n      root,\n      {\n        rotateX: 0,\n        rotateY: 0,\n        transformPerspective: props.perspective ?? 800,\n      },\n      spring() as Parameters<typeof animate>[2],\n    );\n  };\n\n  onMount(() => {\n    if (!root) return;\n    controls = animate(\n      root,\n      {\n        rotateX: 0,\n        rotateY: 0,\n        transformPerspective: props.perspective ?? 800,\n      },\n      { duration: 0 },\n    );\n  });\n\n  onCleanup(() => controls?.stop?.());\n\n  return (\n    <div\n      ref={(node: HTMLDivElement) => (root = node)}\n      data-slot=\"tilt\"\n      class={`will-change-transform ${props.class ?? \"\"}`}\n      style={{ \"transform-style\": \"preserve-3d\", ...(props.style ?? {}) }}\n      onPointerMove={move}\n      onPointerLeave={leave}\n    >\n      {props.children}\n    </div>\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "collapsible",
+  "type": "registry:ui",
+  "title": "Collapsible",
+  "description": "A single panel that opens from a separate trigger and closes its parent gap.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/collapsible.js",
+      "target": "components/prequelui/collapsible.js",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\n\nlet uid = 0;\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nexport function createCollapsible(root, options = {}) {\n  const { defaultOpen = false, trigger = \"Show details\", content = \"\" } = options;\n  const id = `collapsible-${++uid}`;\n  let open = defaultOpen;\n  root.innerHTML = `\n    <div data-slot=\"collapsible\" class=\"w-full\">\n      <button type=\"button\" aria-expanded=\"${open}\" aria-controls=\"${id}\"\n        class=\"flex w-full items-center justify-between gap-4 py-3 text-left text-[13.5px] font-medium outline-none\">\n        <span>${trigger}</span>\n        <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"\n          stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"size-4 text-muted-foreground transition-transform duration-[450ms]\"\n          style=\"transition-timing-function:cubic-bezier(0.4,0,0.1,1);transform:rotate(${open ? 180 : 0}deg)\">\n          <path d=\"m6 9 6 6 6-6\"></path>\n        </svg>\n      </button>\n      <div id=\"${id}\" role=\"region\" class=\"overflow-hidden\"\n        style=\"height:${open ? \"auto\" : \"0px\"};opacity:${open ? 1 : 0}\">\n        <div class=\"pb-3 text-[13px] leading-6 text-muted-foreground\">${content}</div>\n      </div>\n    </div>`;\n\n  const button = root.querySelector(\"button\");\n  const panel = root.querySelector(\"[role=region]\");\n  const icon = root.querySelector(\"svg\");\n\n  function render() {\n    button.setAttribute(\"aria-expanded\", String(open));\n    icon.style.transform = `rotate(${open ? 180 : 0}deg)`;\n  }\n\n  button.addEventListener(\"click\", () => {\n    open = !open;\n    render();\n    if (reduce()) {\n      panel.style.height = open ? \"auto\" : \"0px\";\n      panel.style.opacity = open ? \"1\" : \"0\";\n      return;\n    }\n    if (open) {\n      panel.style.height = \"0px\";\n      panel.style.opacity = \"0\";\n      const height = panel.scrollHeight;\n      animate(panel, { height: [\"0px\", `${height}px`] }, { duration: 0.45, ease: [0.4, 0, 0.1, 1] }).finished.then(() => {\n        panel.style.height = \"auto\";\n      });\n      animate(panel, { opacity: [0, 1] }, { duration: 0.3, ease: [0.23, 1, 0.32, 1] });\n    } else {\n      const height = panel.scrollHeight;\n      animate(panel, { height: [`${height}px`, \"0px\"], opacity: [1, 0] }, { duration: 0.3, ease: [0, 0, 0.58, 1] });\n    }\n  });\n\n  return { get open() { return open; }, destroy() { root.innerHTML = \"\"; } };\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "flip-button",
+  "type": "registry:ui",
+  "title": "Flip Button",
+  "description": "A button that turns over on hover to reveal its back face.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/flip-button.js",
+      "target": "components/prequelui/flip-button.js",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\n\nexport function createFlipButton(root, options = {}) {\n  const {\n    from = \"top\",\n    front = \"Hover me\",\n    back = \"Hello\",\n    tapScale = 0.97,\n    className = \"\",\n  } = options;\n  const vertical = from === \"top\" || from === \"bottom\";\n  const axis = vertical ? \"rotateX\" : \"rotateY\";\n  const frontSide = from === \"top\" || from === \"left\";\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  root.innerHTML = `\n    <button type=\"button\" data-slot=\"flip-button\" data-from=\"${from}\"\n      class=\"inline-grid place-items-center rounded-lg text-[13px] font-medium outline-none focus-visible:ring-2 focus-visible:ring-ring/50 ${className}\"\n      style=\"perspective:1000px\">\n      <span data-slot=\"flip-button-front\"\n        class=\"inline-flex h-10 items-center justify-center rounded-lg bg-primary px-4 text-primary-foreground\"\n        style=\"grid-area:1 / 1\">${front}</span>\n      <span data-slot=\"flip-button-back\" aria-hidden=\"true\"\n        class=\"inline-flex h-10 items-center justify-center rounded-lg bg-secondary px-4 text-secondary-foreground\"\n        style=\"grid-area:1 / 1;opacity:0\">${back}</span>\n    </button>`;\n  const button = root.querySelector(\"button\");\n  const frontEl = root.querySelector('[data-slot=\"flip-button-front\"]');\n  const backEl = root.querySelector('[data-slot=\"flip-button-back\"]');\n\n  if (!reduce()) {\n    animate(\n      backEl,\n      {\n        [axis]: 90,\n        [vertical ? \"y\" : \"x\"]: frontSide ? \"-50%\" : \"50%\",\n        opacity: 0,\n      },\n      { duration: 0 },\n    );\n  }\n\n  function place(element, rotate, offset, opacity) {\n    if (!element) return;\n    animate(\n      element,\n      { [axis]: rotate, [vertical ? \"y\" : \"x\"]: offset, opacity },\n      reduce() ? { duration: 0 } : { type: \"spring\", stiffness: 280, damping: 20 },\n    );\n  }\n\n  function apply(next) {\n    const active = next && !reduce();\n    const outward = frontSide ? \"50%\" : \"-50%\";\n    place(frontEl, active ? 90 : 0, active ? outward : \"0%\", active ? 0 : 1);\n    place(\n      backEl,\n      active ? 0 : 90,\n      active ? \"0%\" : frontSide ? \"-50%\" : \"50%\",\n      active ? 1 : 0,\n    );\n  }\n\n  function press() {\n    if (reduce()) return;\n    animate(\n      button,\n      { scale: tapScale },\n      { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n    );\n  }\n\n  function release() {\n    if (reduce()) return;\n    animate(\n      button,\n      { scale: 1 },\n      { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n    );\n  }\n\n  button.addEventListener(\"pointerdown\", press);\n  button.addEventListener(\"pointerup\", release);\n  button.addEventListener(\"pointerenter\", () => apply(true));\n  button.addEventListener(\"pointerleave\", () => {\n    release();\n    apply(false);\n  });\n\n  return {\n    element: button,\n    destroy() {\n      root.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

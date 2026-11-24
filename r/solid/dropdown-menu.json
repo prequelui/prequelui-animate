@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dropdown-menu",
+  "type": "registry:ui",
+  "title": "Dropdown Menu",
+  "description": "A compact action menu whose items arrive in a 30 ms cascade.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/dropdown-menu.tsx",
+      "target": "src/components/prequelui/dropdown-menu.tsx",
+      "type": "registry:ui",
+      "content": "import { For, Show, createSignal, onCleanup, onMount } from \"solid-js\";\nimport { ChevronDown } from \"lucide-solid\";\n\nexport type DropdownItem = {\n  label: string;\n  shortcut?: string;\n  onSelect?: () => void;\n  separator?: boolean;\n};\n\nexport type DropdownMenuProps = {\n  trigger?: string;\n  items: DropdownItem[];\n  align?: \"start\" | \"end\";\n};\n\nexport function DropdownMenu(props: DropdownMenuProps) {\n  const [open, setOpen] = createSignal(false);\n  let root: HTMLDivElement | undefined;\n\n  const onPointer = (event: PointerEvent) => {\n    if (open() && root && !root.contains(event.target as Node)) setOpen(false);\n  };\n  const onKey = (event: KeyboardEvent) => {\n    if (event.key === \"Escape\") setOpen(false);\n  };\n  onMount(() => {\n    document.addEventListener(\"pointerdown\", onPointer);\n    document.addEventListener(\"keydown\", onKey);\n  });\n  onCleanup(() => {\n    if (typeof window === \"undefined\") return;\n    document.removeEventListener(\"pointerdown\", onPointer);\n    document.removeEventListener(\"keydown\", onKey);\n  });\n\n  return (\n    <div ref={root} class=\"relative inline-block\">\n      <button\n        type=\"button\"\n        aria-haspopup=\"menu\"\n        aria-expanded={open()}\n        onClick={() => setOpen((value) => !value)}\n        class=\"inline-flex h-8 items-center gap-1.5 rounded-md border px-3 text-[13px] font-medium\"\n      >\n        {props.trigger ?? \"Actions\"}\n        <ChevronDown class=\"size-3.5 text-muted-foreground\" />\n      </button>\n      <Show when={open()}>\n        <div\n          role=\"menu\"\n          class=\"menu-panel absolute top-full z-40 mt-1.5 min-w-[190px] rounded-xl border bg-background p-1 shadow-xl\"\n          classList={{ \"right-0\": props.align === \"end\", \"left-0\": props.align !== \"end\" }}\n        >\n          <For each={props.items}>\n            {(item, index) => (\n              <Show\n                when={!item.separator}\n                fallback={<div role=\"separator\" class=\"my-1 h-px bg-border\" />}\n              >\n                <button\n                  type=\"button\"\n                  role=\"menuitem\"\n                  class=\"menu-item flex w-full items-center justify-between gap-6 rounded-md px-2 py-1.5 text-left text-[13px] hover:bg-accent\"\n                  style={{ \"animation-delay\": `${index() * 30}ms` }}\n                  onClick={() => {\n                    item.onSelect?.();\n                    setOpen(false);\n                  }}\n                >\n                  <span>{item.label}</span>\n                  <Show when={item.shortcut}>\n                    <span class=\"font-mono text-[13px] text-muted-foreground\">{item.shortcut}</span>\n                  </Show>\n                </button>\n              </Show>\n            )}\n          </For>\n        </div>\n      </Show>\n      <style>{`\n        .menu-panel { animation: menu-in 220ms cubic-bezier(0.215,0.61,0.355,1) both; }\n        .menu-item { animation: menu-item-in 220ms cubic-bezier(0.215,0.61,0.355,1) both; }\n        @keyframes menu-in { from { opacity: 0; } }\n        @keyframes menu-item-in { from { opacity: 0; transform: translateY(-4px); filter: blur(2px); } }\n        @media (prefers-reduced-motion: reduce) { .menu-panel, .menu-item { animation: none; } }\n      `}</style>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

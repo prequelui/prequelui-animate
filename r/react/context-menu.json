@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "context-menu",
+  "type": "registry:ui",
+  "title": "Context Menu",
+  "description": "A menu anchored to the pointer with cascading items and menu handoff.",
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/context-menu.tsx",
+      "target": "components/prequelui/context-menu.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { AnimatePresence, motion, useReducedMotion } from \"motion/react\";\n\nexport type ContextMenuItem = {\n  label: string;\n  shortcut?: string;\n  onSelect?: () => void;\n  separator?: boolean;\n};\n\nexport type ContextMenuProps = {\n  items: ContextMenuItem[];\n  children?: React.ReactNode;\n};\n\nexport function ContextMenu({ items, children = \"Right click here\" }: ContextMenuProps) {\n  const [position, setPosition] = React.useState<{ x: number; y: number } | null>(null);\n  const reduce = useReducedMotion();\n\n  React.useEffect(() => {\n    if (!position) return;\n    const close = () => setPosition(null);\n    const onKey = (event: KeyboardEvent) => {\n      if (event.key === \"Escape\") close();\n    };\n    document.addEventListener(\"pointerdown\", close);\n    document.addEventListener(\"keydown\", onKey);\n    return () => {\n      document.removeEventListener(\"pointerdown\", close);\n      document.removeEventListener(\"keydown\", onKey);\n    };\n  }, [position]);\n\n  return (\n    <>\n      <div\n        onContextMenu={(event) => {\n          event.preventDefault();\n          setPosition({ x: event.clientX, y: event.clientY });\n        }}\n        className=\"flex h-24 w-64 items-center justify-center rounded-xl border border-dashed text-[13px] text-muted-foreground\"\n      >\n        {children}\n      </div>\n      <AnimatePresence>\n        {position && (\n          <motion.div\n            role=\"menu\"\n            initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.96 }}\n            animate={reduce ? { opacity: 1 } : { opacity: 1, scale: 1 }}\n            exit={{ opacity: 0, transition: { duration: 0.15, ease: [0, 0, 0.58, 1] } }}\n            transition={{ duration: 0.22, ease: [0.215, 0.61, 0.355, 1] }}\n            style={{ left: position.x, top: position.y }}\n            className=\"fixed z-50 min-w-[190px] origin-top-left rounded-xl border bg-background p-1 shadow-xl\"\n            onPointerDown={(event) => event.stopPropagation()}\n          >\n            {items.map((item, index) =>\n              item.separator ? (\n                <div key={`sep-${index}`} role=\"separator\" className=\"my-1 h-px bg-border\" />\n              ) : (\n                <motion.button\n                  key={item.label}\n                  type=\"button\"\n                  role=\"menuitem\"\n                  initial={reduce ? false : { opacity: 0, y: -4, filter: \"blur(2px)\" }}\n                  animate={{ opacity: 1, y: 0, filter: \"blur(0px)\" }}\n                  transition={{ duration: 0.2, ease: [0.215, 0.61, 0.355, 1], delay: index * 0.03 }}\n                  onClick={() => {\n                    item.onSelect?.();\n                    setPosition(null);\n                  }}\n                  className=\"flex w-full items-center justify-between gap-6 rounded-md px-2 py-1.5 text-left text-[13px] hover:bg-accent\"\n                >\n                  <span>{item.label}</span>\n                  {item.shortcut && <span className=\"font-mono text-[13px] text-muted-foreground\">{item.shortcut}</span>}\n                </motion.button>\n              ),\n            )}\n          </motion.div>\n        )}\n      </AnimatePresence>\n    </>\n  );\n}\n"
+    }
+  ]
+}

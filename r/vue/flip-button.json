@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "flip-button",
+  "type": "registry:ui",
+  "title": "Flip Button",
+  "description": "A button that turns over on hover to reveal its back face.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/FlipButton.vue",
+      "target": "components/prequelui/FlipButton.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { computed, ref } from \"vue\";\nimport { animate } from \"motion\";\n\nconst props = defineProps({\n  from: { type: String, default: \"top\" },\n  tapScale: { type: Number, default: 0.97 },\n});\n\nconst button = ref(null);\nconst front = ref(null);\nconst back = ref(null);\n\nconst vertical = computed(() => props.from === \"top\" || props.from === \"bottom\");\nconst axis = computed(() => (vertical.value ? \"rotateX\" : \"rotateY\"));\nconst frontSide = computed(() => props.from === \"top\" || props.from === \"left\");\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nfunction place(element, rotate, offset, opacity) {\n  if (!element) return;\n  const transform = { [axis.value]: rotate, [vertical.value ? \"y\" : \"x\"]: offset, opacity };\n  animate(\n    element,\n    transform,\n    reduce() ? { duration: 0 } : { type: \"spring\", stiffness: 280, damping: 20 },\n  );\n}\n\nfunction apply(next) {\n  const active = next && !reduce();\n  const outward = frontSide.value ? \"50%\" : \"-50%\";\n  place(front.value, active ? 90 : 0, active ? outward : \"0%\", active ? 0 : 1);\n  place(\n    back.value,\n    active ? 0 : 90,\n    active ? \"0%\" : frontSide.value ? \"-50%\" : \"50%\",\n    active ? 1 : 0,\n  );\n}\n\nfunction leave() {\n  release();\n  apply(false);\n}\n\nfunction press() {\n  if (!button.value || reduce()) return;\n  animate(\n    button.value,\n    { scale: props.tapScale },\n    { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n  );\n}\n\nfunction release() {\n  if (!button.value || reduce()) return;\n  animate(\n    button.value,\n    { scale: 1 },\n    { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n  );\n}\n</script>\n\n<template>\n  <button\n    ref=\"button\"\n    type=\"button\"\n    data-slot=\"flip-button\"\n    :data-from=\"from\"\n    class=\"inline-grid place-items-center rounded-lg text-[13px] font-medium outline-none focus-visible:ring-2 focus-visible:ring-ring/50\"\n    style=\"perspective: 1000px\"\n    @pointerdown=\"press\"\n    @pointerup=\"release\"\n    @pointerenter=\"apply(true)\"\n    @pointerleave=\"leave\"\n  >\n    <span\n      ref=\"front\"\n      data-slot=\"flip-button-front\"\n      class=\"inline-flex h-10 items-center justify-center rounded-lg bg-primary px-4 text-primary-foreground\"\n      style=\"grid-area: 1 / 1\"\n    >\n      <slot />\n    </span>\n    <span\n      ref=\"back\"\n      aria-hidden=\"true\"\n      data-slot=\"flip-button-back\"\n      class=\"inline-flex h-10 items-center justify-center rounded-lg bg-secondary px-4 text-secondary-foreground\"\n      style=\"grid-area: 1 / 1; opacity: 0\"\n    >\n      <slot name=\"back\" />\n    </span>\n  </button>\n</template>\n"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "highlight-text",
+  "type": "registry:ui",
+  "title": "Highlight Text",
+  "description": "A marker highlight that draws in behind the words.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/highlight-text.js",
+      "target": "components/prequelui/highlight-text.js",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\n\nconst DEFAULT_COLOR = \"color-mix(in oklab, #f5c542 38%, transparent)\";\nconst DEFAULT_TWEEN = { duration: 2, ease: [0.42, 0, 0.58, 1] };\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nexport function createHighlightText(root, options = {}) {\n  const {\n    text = \"Highlight\",\n    delay = 0,\n    color = DEFAULT_COLOR,\n    inView = false,\n    inViewOnce = true,\n    transition,\n    className = \"\",\n    style,\n  } = options;\n  const tween = transition ?? DEFAULT_TWEEN;\n  const final = {\n    ...tween,\n    delay: Number(tween.delay ?? 0) + delay / 1000,\n  };\n  const controls = [];\n  let played = false;\n  let observer;\n\n  const host = document.createElement(\"span\");\n  host.dataset.slot = \"highlight-text\";\n  host.className = `relative inline-block ${className}`.trim();\n  Object.assign(host.style, {\n    backgroundImage: `linear-gradient(${color}, ${color})`,\n    backgroundRepeat: \"no-repeat\",\n    backgroundPosition: \"left center\",\n    backgroundSize: \"0% 100%\",\n  });\n  if (style) Object.assign(host.style, style);\n  host.textContent = text;\n  root.innerHTML = \"\";\n  root.append(host);\n\n  function play() {\n    if (played) return;\n    played = true;\n    if (reduce()) {\n      host.style.backgroundSize = \"100% 100%\";\n      return;\n    }\n    controls.push(\n      animate(\n        host,\n        { backgroundSize: [\"0% 100%\", \"100% 100%\"] },\n        final,\n      ),\n    );\n  }\n\n  if (!inView) {\n    play();\n  } else {\n    observer = new IntersectionObserver(\n      (entries) => {\n        if (entries.some((entry) => entry.isIntersecting)) {\n          play();\n          if (inViewOnce) observer?.disconnect();\n        } else if (!inViewOnce) {\n          played = false;\n          for (const control of controls) control.stop?.();\n          controls.length = 0;\n          host.style.backgroundSize = \"0% 100%\";\n        }\n      },\n      { threshold: 0.35 },\n    );\n    observer.observe(host);\n  }\n\n  return {\n    element: host,\n    destroy() {\n      observer?.disconnect();\n      for (const control of controls) control.stop?.();\n      controls.length = 0;\n      root.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

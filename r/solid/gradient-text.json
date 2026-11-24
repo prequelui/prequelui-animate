@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gradient-text",
+  "type": "registry:ui",
+  "title": "Gradient Text",
+  "description": "Text filled with a gradient that sweeps slowly across it.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/gradient-text.tsx",
+      "target": "src/components/prequelui/gradient-text.tsx",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\nimport { Show, onCleanup, onMount } from \"solid-js\";\nimport type { JSX } from \"solid-js\";\n\nexport type GradientTextProps = {\n  text: string;\n  gradient?: string;\n  neon?: boolean;\n  class?: string;\n};\n\nexport function GradientText(props: GradientTextProps) {\n  let root: HTMLSpanElement | undefined;\n  let layer: HTMLSpanElement | undefined;\n  let glow: HTMLSpanElement | undefined;\n  const controls: Array<{ stop?: () => void }> = [];\n  let observer: IntersectionObserver | undefined;\n\n  const gradient = () =>\n    props.gradient ??\n    \"linear-gradient(90deg, #3b82f6 0%, #a855f7 20%, #ec4899 50%, #a855f7 80%, #3b82f6 100%)\";\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  const play = () => {\n    if (reduce()) return;\n    for (const node of [layer, glow]) {\n      if (!node) continue;\n      controls.push(\n        animate(\n          node,\n          { backgroundPosition: [\"0% 0%\", \"500% 100%\"] },\n          { duration: 50, repeat: Infinity, ease: \"linear\" },\n        ),\n      );\n    }\n  };\n\n  onMount(() => {\n    observer = new IntersectionObserver((entries) => {\n      if (entries.some((entry) => entry.isIntersecting)) {\n        play();\n        observer?.disconnect();\n      }\n    });\n    if (root) observer.observe(root);\n  });\n\n  onCleanup(() => {\n    observer?.disconnect();\n    controls.forEach((control) => control.stop?.());\n  });\n\n  return (\n    <span\n      ref={root}\n      data-slot=\"gradient-text\"\n      class={`relative inline-block ${props.class ?? \"\"}`}\n    >\n      <span\n        ref={layer}\n        class=\"inline-block bg-clip-text text-transparent\"\n        style={{ \"background-image\": gradient(), \"background-size\": \"700% 100%\" }}\n      >\n        {props.text}\n      </span>\n      <Show when={props.neon}>\n        <span\n          ref={glow}\n          aria-hidden=\"true\"\n          class=\"absolute inset-0 inline-block bg-clip-text text-transparent\"\n          style={{\n            \"background-image\": gradient(),\n            \"background-size\": \"700% 100%\",\n            \"mix-blend-mode\": \"plus-lighter\",\n            filter: \"blur(8px)\",\n          }}\n        >\n          {props.text}\n        </span>\n      </Show>\n    </span>\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shimmering-text",
+  "type": "registry:ui",
+  "title": "Shimmering Text",
+  "description": "A letter-by-letter wave of light crosses the text.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/ShimmeringText.vue",
+      "target": "components/prequelui/ShimmeringText.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { onBeforeUnmount, onMounted, ref } from \"vue\";\nimport { animate } from \"motion\";\n\nconst props = defineProps({\n  text: { type: String, required: true },\n  duration: { type: Number, default: 1 },\n  wave: { type: Boolean, default: false },\n  color: { type: String, default: \"var(--muted-foreground)\" },\n  shimmeringColor: { type: String, default: \"var(--foreground)\" },\n});\n\nconst root = ref(null);\nconst track = ref(null);\nconst controls = [];\nlet observer;\n\nconst chars = Array.from(props.text ?? \"\");\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nfunction play() {\n  if (reduce() || !track.value) return;\n  const nodes = Array.from(track.value.children);\n  nodes.forEach((node, index) => {\n    controls.push(\n      animate(\n        node,\n        {\n          ...(props.wave ? { x: [0, 5, 0], y: [0, -5, 0], scale: [1, 1.1, 1], rotateY: [0, 15, 0] } : {}),\n          opacity: [1, 0.35, 1],\n        },\n        {\n          duration: props.duration,\n          repeat: Infinity,\n          repeatDelay: chars.length * 0.05,\n          delay: (index * props.duration) / Math.max(1, chars.length),\n          ease: \"easeInOut\",\n        },\n      ),\n    );\n  });\n}\n\nonMounted(() => {\n  observer = new IntersectionObserver((entries) => {\n    if (!entries.some((entry) => entry.isIntersecting)) return;\n    play();\n    observer?.disconnect();\n  });\n  if (root.value) observer.observe(root.value);\n});\n\nonBeforeUnmount(() => {\n  observer?.disconnect();\n  controls.forEach((control) => control.stop?.());\n});\n</script>\n\n<template>\n  <span\n    ref=\"root\"\n    data-slot=\"shimmering-text\"\n    class=\"relative inline-block\"\n    :style=\"{\n      '--shimmer-color': shimmeringColor,\n      '--shimmer-base': color,\n      color,\n      perspective: '500px',\n    }\"\n  >\n    <span class=\"sr-only\">{{ text }}</span>\n    <span ref=\"track\" aria-hidden=\"true\" class=\"inline-block\" style=\"perspective: inherit\">\n      <span\n        v-for=\"(char, index) in chars\"\n        :key=\"`${char}-${index}`\"\n        class=\"inline-block whitespace-pre\"\n        style=\"transform-style: preserve-3d\"\n      >{{ char }}</span>\n    </span>\n  </span>\n</template>\n"
+    }
+  ]
+}

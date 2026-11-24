@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "auto-height",
+  "type": "registry:component",
+  "title": "Auto Height",
+  "description": "A container whose height glides to fit whatever is inside.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/AutoHeight.svelte",
+      "target": "~/src/lib/components/prequelui/AutoHeight.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount, tick } from \"svelte\";\n  import { animate } from \"motion\";\n\n  let {\n    includeParentBox = true,\n    includeSelfBox = false,\n    animate: extra = undefined,\n    transition = undefined,\n    wrapperClassName = \"\",\n    as = \"div\",\n    class: className = \"\",\n    ...rest\n  } = $props();\n\n  let root;\n  let content;\n  let controls;\n  let observer;\n  let frame;\n  let lastHeight = -1;\n\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  function spring() {\n    return (\n      transition ?? {\n        type: \"spring\",\n        stiffness: 300,\n        damping: 30,\n        bounce: 0,\n        restDelta: 0.01,\n      }\n    );\n  }\n\n  function measure() {\n    const el = content;\n    if (!el) return 0;\n\n    const base = el.getBoundingClientRect().height;\n    let offset = 0;\n\n    if (includeParentBox && el.parentElement) {\n      const box = el.parentElement.getBoundingClientRect();\n      const inner = Array.from(el.parentElement.children).reduce(\n        (total, child) => total + child.getBoundingClientRect().height,\n        0,\n      );\n      offset = Math.max(0, box.height - inner);\n    }\n\n    if (includeSelfBox) {\n      const style = getComputedStyle(el);\n      offset +=\n        (parseFloat(style.paddingTop) || 0) +\n        (parseFloat(style.paddingBottom) || 0) +\n        (parseFloat(style.borderTopWidth) || 0) +\n        (parseFloat(style.borderBottomWidth) || 0);\n    }\n\n    const dpr = typeof window === \"undefined\" ? 1 : window.devicePixelRatio || 1;\n    return Math.ceil((base + offset) * dpr) / dpr;\n  }\n\n  function commit(next, instant) {\n    if (!root) return;\n    lastHeight = next;\n    if (instant || reduce()) {\n      controls?.stop?.();\n      root.style.height = `${next}px`;\n      return;\n    }\n    controls?.stop?.();\n    controls = animate(\n      root,\n      { height: `${next}px`, ...(extra ?? {}) },\n      spring(),\n    );\n  }\n\n  async function refresh(instant = false) {\n    await tick();\n    const next = measure();\n    if (!next && !lastHeight) {\n      lastHeight = 0;\n      return;\n    }\n    commit(next, instant);\n  }\n\n  onMount(() => {\n    refresh(true);\n\n    observer = new ResizeObserver(() => {\n      cancelAnimationFrame(frame);\n      frame = requestAnimationFrame(() => refresh(false));\n    });\n\n    if (content) observer.observe(content);\n    if (includeParentBox && content?.parentElement) {\n      observer.observe(content.parentElement);\n    }\n\n    return () => {\n      cancelAnimationFrame(frame);\n      observer?.disconnect();\n      controls?.stop?.();\n    };\n  });\n</script>\n\n<svelte:element\n  this={as}\n  bind:this={root}\n  data-slot=\"auto-height\"\n  class={className}\n  style=\"overflow:hidden\"\n  {...rest}\n>\n  <div bind:this={content} class={`w-full ${wrapperClassName}`}>\n    <slot />\n  </div>\n</svelte:element>\n"
+    }
+  ]
+}

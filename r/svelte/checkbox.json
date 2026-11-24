@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox",
+  "type": "registry:component",
+  "title": "Checkbox",
+  "description": "A checkbox with a swelling fill and a check that draws itself.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/Checkbox.svelte",
+      "target": "~/src/lib/components/prequelui/Checkbox.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  let {\n    checked = undefined,\n    defaultChecked = false,\n    onCheckedChange = undefined,\n    label = \"Accept terms\",\n    disabled = false,\n  } = $props();\n\n  let internal = $state(defaultChecked);\n  const value = $derived(checked === undefined ? internal : checked);\n\n  function toggle() {\n    if (disabled) return;\n    const next = !value;\n    if (checked === undefined) internal = next;\n    onCheckedChange?.(next);\n  }\n</script>\n\n<label class=\"flex items-center gap-2.5 text-[13px]\">\n  <button\n    type=\"button\"\n    role=\"checkbox\"\n    aria-checked={value}\n    {disabled}\n    onclick={toggle}\n    class=\"relative flex size-4 items-center justify-center rounded-[4px] border outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50\"\n    class:border-foreground={value}\n    class:border-input={!value}\n  >\n    <span\n      aria-hidden=\"true\"\n      class=\"absolute inset-0 rounded-[3px] bg-foreground transition-transform duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:transition-none\"\n      style={`transform:scale(${value ? 1 : 0.5});opacity:${value ? 1 : 0}`}\n    />\n    <svg\n      aria-hidden=\"true\"\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      stroke-width=\"3\"\n      stroke-linecap=\"round\"\n      stroke-linejoin=\"round\"\n      class=\"relative size-3 text-background\"\n    >\n      <path\n        d=\"m5 12 4 4L19 6\"\n        style={`stroke-dasharray:20;stroke-dashoffset:${value ? 0 : 20};transition:stroke-dashoffset .25s cubic-bezier(0.23,1,0.32,1)`}\n      />\n    </svg>\n  </button>\n  <span>{label}</span>\n</label>\n"
+    }
+  ]
+}

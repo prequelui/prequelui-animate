@@ -1,0 +1,52 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-activity-emoji",
+  "type": "registry:ui",
+  "title": "Activity · Emoji",
+  "description": "A monitor frame with a pulse line that sweeps across it. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/activity.json"
+  ],
+  "meta": {
+    "style": "emoji",
+    "category": "Health",
+    "roles": [
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      true,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.6 0.18 15)",
+      "primaryDark": "oklch(0.78 0.13 15)",
+      "accent": "oklch(0.68 0.13 190)",
+      "accentDark": "oklch(0.81 0.1 190)"
+    },
+    "emoji": {
+      "primary": "oklch(0.68 0.2 27)",
+      "secondary": "oklch(0.54 0.19 25)",
+      "accent": "oklch(0.78 0.14 165)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-activity-emoji.tsx",
+      "target": "components/prequelui/icons/prequel-activity-emoji.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelActivityIcon, type IconProps } from \"./prequel-activity\";\n\nexport function PrequelActivityEmojiIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelActivityIcon size={size} variant=\"emoji\" {...props} />;\n}\n"
+    }
+  ]
+}

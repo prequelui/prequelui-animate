@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "github-stars",
+  "type": "registry:ui",
+  "title": "GitHub Stars",
+  "description": "A repository star count that ticks up and bursts into particles.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/GitHubStars.vue",
+      "target": "components/prequelui/GitHubStars.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { computed, onMounted, ref, watch } from \"vue\";\nimport { GitBranch, Star } from \"@lucide/vue\";\n\nconst props = defineProps({\n  repo: { type: String, default: \"\" },\n  href: { type: String, default: \"\" },\n  count: { type: Number, default: null },\n  defaultCount: { type: Number, default: null },\n  label: { type: String, default: \"GitHub\" },\n  showLabel: { type: Boolean, default: true },\n});\n\nconst live = ref(props.defaultCount);\nconst value = computed(() => (props.count !== null ? props.count : live.value));\nconst destination = computed(\n  () => props.href || (props.repo ? `https://github.com/${props.repo}` : undefined),\n);\nconst display = computed(() => {\n  if (value.value === null || value.value === undefined) return \"Star\";\n  if (value.value < 1000) return String(value.value);\n  return new Intl.NumberFormat(\"en\", {\n    notation: \"compact\",\n    maximumFractionDigits: 1,\n  }).format(value.value);\n});\n\nfunction load() {\n  if (props.count !== null || !props.repo) return;\n  let active = true;\n  fetch(`https://api.github.com/repos/${props.repo}`, {\n    headers: { Accept: \"application/vnd.github+json\" },\n  })\n    .then((response) => (response.ok ? response.json() : null))\n    .then((data) => {\n      if (active && data && typeof data.stargazers_count === \"number\") {\n        live.value = data.stargazers_count;\n      }\n    })\n    .catch(() => {});\n  return () => {\n    active = false;\n  };\n}\n\nonMounted(load);\nwatch(() => [props.count, props.repo], load);\n</script>\n\n<template>\n  <a\n    data-slot=\"github-stars\"\n    :href=\"destination\"\n    target=\"_blank\"\n    rel=\"noreferrer noopener\"\n    :aria-label=\"repo ? `${label} stars on GitHub` : 'GitHub'\"\n    class=\"group inline-flex h-8 items-center gap-1.5 rounded-full border bg-background px-2.5 text-[13px] text-muted-foreground outline-none transition-colors hover:bg-accent hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50\"\n  >\n    <GitBranch class=\"size-4 shrink-0\" :stroke-width=\"1.8\" aria-hidden=\"true\" />\n    <span v-if=\"showLabel\" class=\"truncate\">{{ label }}</span>\n    <span aria-hidden=\"true\" class=\"h-3.5 w-px shrink-0 bg-border\" />\n    <span\n      aria-hidden=\"true\"\n      class=\"inline-flex items-center transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-rotate-12 group-hover:scale-110 motion-reduce:transition-none\"\n    >\n      <Star class=\"size-3.5 shrink-0 transition-colors group-hover:fill-current\" />\n    </span>\n    <span class=\"tabular-nums\">{{ display }}</span>\n  </a>\n</template>\n"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shimmer-button",
+  "type": "registry:ui",
+  "title": "Shimmer Button",
+  "description": "One short pass of light crosses the button on hover, never an endless loop.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/shimmer-button.js",
+      "target": "components/prequelui/shimmer-button.js",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\n\nexport function createShimmerButton(root, options = {}) {\n  const {\n    label = \"Shimmer\",\n    shimmerColor = \"color-mix(in oklab, var(--primary-foreground) 55%, transparent)\",\n    shimmerDuration = 900,\n    shimmerDelay = 60,\n    shimmer = true,\n    tapScale = 0.97,\n    className = \"\",\n  } = options;\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n  let timer;\n\n  root.innerHTML = `\n    <button type=\"button\" data-slot=\"shimmer-button\"\n      class=\"relative inline-flex h-10 items-center justify-center overflow-hidden rounded-lg bg-primary px-4 text-[13px] font-medium text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 ${className}\">\n      <span data-beam aria-hidden=\"true\" data-slot=\"shimmer-button-beam\"\n        class=\"pointer-events-none absolute inset-y-0 left-0 z-0 w-[52%] opacity-0\"\n        style=\"background:linear-gradient(105deg, transparent 0%, ${shimmerColor} 50%, transparent 100%)\"></span>\n      <span class=\"relative z-10 inline-flex items-center gap-2\">${label}</span>\n    </button>`;\n  const button = root.querySelector(\"button\");\n  const beam = root.querySelector(\"[data-beam]\");\n\n  function play(delay = shimmerDelay) {\n    if (!shimmer || reduce()) return;\n    clearTimeout(timer);\n    timer = setTimeout(() => {\n      animate(\n        beam,\n        { x: [\"-180%\", \"260%\"], skewX: -14, opacity: [0, 1, 1, 0] },\n        {\n          duration: shimmerDuration / 1000,\n          ease: [0.33, 0, 0.2, 1],\n          times: [0, 0.16, 0.72, 1],\n        },\n      );\n    }, delay);\n  }\n\n  function press() {\n    if (reduce()) return;\n    animate(\n      button,\n      { scale: tapScale },\n      { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n    );\n  }\n\n  function release() {\n    if (reduce()) return;\n    animate(\n      button,\n      { scale: 1 },\n      { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n    );\n  }\n\n  button.addEventListener(\"pointerenter\", (event) => {\n    if (event.pointerType !== \"touch\") play();\n  });\n  button.addEventListener(\"click\", () => play(0));\n  button.addEventListener(\"pointerdown\", press);\n  button.addEventListener(\"pointerup\", release);\n  button.addEventListener(\"pointerleave\", release);\n\n  return {\n    element: button,\n    play,\n    destroy() {\n      clearTimeout(timer);\n      root.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "menubar",
+  "type": "registry:component",
+  "title": "Menubar",
+  "description": "A persistent application menubar whose menus hand off without closing.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/Menubar.svelte",
+      "target": "~/src/lib/components/prequelui/Menubar.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  let {\n    menus = [\n      { label: \"File\", items: [{ label: \"New file\", shortcut: \"⌘N\" }, { label: \"Open\", shortcut: \"⌘O\" }, { separator: true, label: \"sep\" }, { label: \"Save\", shortcut: \"⌘S\" }] },\n      { label: \"Edit\", items: [{ label: \"Undo\", shortcut: \"⌘Z\" }, { label: \"Redo\", shortcut: \"⇧⌘Z\" }] },\n      { label: \"View\", items: [{ label: \"Zoom in\" }, { label: \"Zoom out\" }] },\n    ],\n  } = $props();\n\n  let open = $state(null);\n  let root = $state(null);\n\n  function onPointer(event) {\n    if (open !== null && root && !root.contains(event.target)) open = null;\n  }\n  function onKey(event) {\n    if (event.key === \"Escape\") open = null;\n  }\n  function select(item) {\n    item.onSelect?.();\n    open = null;\n  }\n</script>\n\n<svelte:window onpointerdown={onPointer} onkeydown={onKey} />\n\n<div bind:this={root} role=\"menubar\" class=\"flex items-center gap-1 rounded-lg border p-1\">\n  {#each menus as menu, index (menu.label)}\n    <div class=\"relative\">\n      <button\n        type=\"button\"\n        role=\"menuitem\"\n        aria-haspopup=\"menu\"\n        aria-expanded={open === index}\n        class=\"h-7 rounded-md px-2.5 text-[13px] font-medium transition-colors\"\n        class:bg-accent={open === index}\n        class:text-foreground={open === index}\n        class:text-muted-foreground={open !== index}\n        onclick={() => (open = open === index ? null : index)}\n        onpointerenter={() => open !== null && (open = index)}\n      >\n        {menu.label}\n      </button>\n      {#if open === index}\n        <div role=\"menu\" class=\"mb-panel absolute left-0 top-full z-40 mt-1 min-w-[190px] rounded-xl border bg-background p-1 shadow-xl\">\n          {#each menu.items as item, itemIndex (item.label ?? itemIndex)}\n            {#if item.separator}\n              <div role=\"separator\" class=\"my-1 h-px bg-border\"></div>\n            {:else}\n              <button type=\"button\" role=\"menuitem\" class=\"mb-row flex w-full items-center justify-between gap-6 rounded-md px-2 py-1.5 text-left text-[13px] hover:bg-accent\" style={`animation-delay:${itemIndex * 30}ms`} onclick={() => select(item)}>\n                <span>{item.label}</span>\n                {#if item.shortcut}<span class=\"font-mono text-[13px] text-muted-foreground\">{item.shortcut}</span>{/if}\n              </button>\n            {/if}\n          {/each}\n        </div>\n      {/if}\n    </div>\n  {/each}\n</div>\n\n<style>\n  .mb-panel { animation: mb-in 220ms cubic-bezier(0.215, 0.61, 0.355, 1) both; }\n  .mb-row { animation: mb-row 200ms cubic-bezier(0.215, 0.61, 0.355, 1) both; }\n  @keyframes mb-in { from { opacity: 0; } }\n  @keyframes mb-row { from { opacity: 0; transform: translateY(-4px); filter: blur(2px); } }\n  @media (prefers-reduced-motion: reduce) { .mb-panel, .mb-row { animation: none; } }\n</style>\n"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "page-transition",
+  "type": "registry:ui",
+  "title": "Page Transition",
+  "description": "Page changes revealed with the View Transitions API.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/PageTransition.vue",
+      "target": "components/prequelui/PageTransition.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { nextTick, onMounted, ref, watch } from \"vue\";\nimport { animate } from \"motion\";\n\nconst props = defineProps({\n  pageKey: { type: [String, Number], required: true },\n  duration: { type: Number, default: 0.55 },\n  from: { type: String, default: \"top\" },\n  fade: { type: Boolean, default: true },\n});\n\nconst root = ref(null);\nlet controls;\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nfunction hiddenClip() {\n  if (props.from === \"bottom\") return \"inset(100% 0 0 0)\";\n  if (props.from === \"left\") return \"inset(0 100% 0 0)\";\n  if (props.from === \"right\") return \"inset(0 0 0 100%)\";\n  return \"inset(0 0 100% 0)\";\n}\n\nasync function play() {\n  await nextTick();\n  if (!root.value) return;\n  controls?.stop?.();\n  if (reduce()) {\n    animate(\n      root.value,\n      { opacity: [0, 1] },\n      { duration: 0.2, ease: [0.77, 0, 0.175, 1] },\n    );\n    return;\n  }\n  controls = animate(\n    root.value,\n    {\n      clipPath: [hiddenClip(), \"inset(0 0 0% 0)\"],\n      opacity: props.fade ? [0.6, 1] : 1,\n    },\n    { duration: props.duration, ease: [0.77, 0, 0.175, 1] },\n  );\n}\n\nonMounted(play);\nwatch(() => props.pageKey, play);\n</script>\n\n<template>\n  <div ref=\"root\" data-slot=\"page-transition\" class=\"min-w-0\">\n    <slot />\n  </div>\n</template>\n"
+    }
+  ]
+}

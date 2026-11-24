@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "splitting-text",
+  "type": "registry:component",
+  "title": "Splitting Text",
+  "description": "Text arrives piece by piece with a staggered blur.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/SplittingText.svelte",
+      "target": "~/src/lib/components/prequelui/SplittingText.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount } from \"svelte\";\n  import { animate } from \"motion\";\n\n  let {\n    text = \"\",\n    type = \"chars\",\n    delay = 0,\n    stagger = 0,\n    disableAnimation = false,\n    inView = false,\n    inViewOnce = true,\n    class: className = \"\",\n    ...rest\n  } = $props();\n\n  let root;\n  const controls = [];\n  let observer;\n  let played = false;\n\n  const lines = $derived(Array.isArray(text) ? text : []);\n  const words = $derived(Array.isArray(text) ? [] : (text.match(/\\S+/g) ?? []));\n  const chars = $derived(Array.isArray(text) ? [] : Array.from(text));\n  const label = $derived(Array.isArray(text) ? text.join(\" \") : text);\n  const gap = $derived(stagger || (type === \"words\" ? 0.2 : type === \"lines\" ? 0.3 : 0.05));\n\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  function play() {\n    if (played || !root) return;\n    played = true;\n    const still = disableAnimation || reduce();\n    const nodes = Array.from(root.querySelectorAll(\"[data-piece]\"));\n    nodes.forEach((node, index) => {\n      if (still) {\n        node.style.opacity = \"1\";\n        node.style.transform = \"none\";\n        return;\n      }\n      controls.push(\n        animate(\n          node,\n          { x: [150, 0], opacity: [0, 1] },\n          {\n            duration: 0.7,\n            ease: [0.23, 1, 0.32, 1],\n            delay: delay / 1000 + index * gap,\n          },\n        ),\n      );\n    });\n  }\n\n  onMount(() => {\n    if (!inView) {\n      play();\n      return;\n    }\n    observer = new IntersectionObserver((entries) => {\n      if (!entries.some((entry) => entry.isIntersecting)) return;\n      play();\n      if (inViewOnce) observer?.disconnect();\n    });\n    if (root) observer.observe(root);\n    return () => {\n      observer?.disconnect();\n      controls.forEach((control) => control.stop?.());\n    };\n  });\n</script>\n\n<span bind:this={root} data-slot=\"splitting-text\" class={`inline ${className}`} {...rest}>\n  <span aria-hidden=\"true\">\n    {#if lines.length}\n      {#each lines as line, index (index)}\n        <span data-piece class=\"inline-block will-change-transform\" style=\"opacity:0\">{line}</span>\n        {#if index < lines.length - 1}<br />{/if}\n      {/each}\n    {:else if type === \"words\"}\n      {#each words as word, index (index)}\n        <span data-piece class=\"inline-block will-change-transform\" style=\"opacity:0\">{word}</span>\n        {#if index < words.length - 1} {/if}\n      {/each}\n    {:else}\n      {#each chars as char, index (index)}\n        <span data-piece class=\"inline-block whitespace-pre will-change-transform\" style=\"opacity:0\">{char === \" \" ? \"\\u00A0\" : char}</span>\n      {/each}\n    {/if}\n  </span>\n  <span class=\"sr-only\">{label}</span>\n</span>\n"
+    }
+  ]
+}

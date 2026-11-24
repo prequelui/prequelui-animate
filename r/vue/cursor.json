@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cursor",
+  "type": "registry:ui",
+  "title": "Cursor",
+  "description": "A custom cursor and a trailing label with two different springs.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/Cursor.vue",
+      "target": "components/prequelui/Cursor.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { nextTick, onBeforeUnmount, ref } from \"vue\";\nimport { animate } from \"motion\";\n\nconst props = defineProps({\n  label: { type: String, default: \"\" },\n  dotSize: { type: Number, default: 12 },\n  labelGap: { type: Number, default: 14 },\n  hideNative: { type: Boolean, default: true },\n});\n\nconst root = ref(null);\nconst dot = ref(null);\nconst tip = ref(null);\nconst inside = ref(false);\nlet showControls = [];\nlet tipControls;\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nasync function show() {\n  inside.value = true;\n  await nextTick();\n  if (!dot.value) return;\n  const options = reduce()\n    ? { duration: 0 }\n    : { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 };\n  showControls = [\n    animate(dot.value, { scale: [0, 1], opacity: [0, 1] }, options),\n  ];\n  if (tip.value) {\n    showControls.push(\n      animate(\n        tip.value,\n        { scale: [0.8, 1], opacity: [0, 1] },\n        reduce()\n          ? { duration: 0 }\n          : { type: \"spring\", stiffness: 550, damping: 46.9, restSpeed: 10 },\n      ),\n    );\n  }\n}\n\nfunction hide() {\n  if (!dot.value) return;\n  const options = reduce()\n    ? { duration: 0 }\n    : { type: \"spring\", stiffness: 550, damping: 46.9, restSpeed: 10 };\n  const controls = [animate(dot.value, { scale: 0, opacity: 0 }, options)];\n  if (tip.value) {\n    controls.push(animate(tip.value, { scale: 0.8, opacity: 0 }, options));\n  }\n  Promise.all(controls.map((control) => control.finished)).then(() => {\n    inside.value = false;\n  });\n}\n\nfunction move(event) {\n  if (!root.value) return;\n  const rect = root.value.getBoundingClientRect();\n  const x = event.clientX - rect.left;\n  const y = event.clientY - rect.top;\n  if (dot.value) {\n    dot.value.style.transform = `translate3d(${x - props.dotSize / 2}px, ${y - props.dotSize / 2}px, 0)`;\n  }\n  if (tip.value) {\n    tipControls?.stop?.();\n    tipControls = animate(\n      tip.value,\n      { x: x + props.labelGap, y: y + props.labelGap - 8 },\n      reduce()\n        ? { duration: 0 }\n        : { type: \"spring\", stiffness: 500, damping: 50, bounce: 0 },\n    );\n  }\n}\n\nonBeforeUnmount(() => {\n  showControls.forEach((control) => control.stop?.());\n  tipControls?.stop?.();\n});\n</script>\n\n<template>\n  <div\n    ref=\"root\"\n    data-slot=\"cursor\"\n    :class=\"['relative', hideNative ? 'cursor-none' : '']\"\n    @pointermove=\"move\"\n    @pointerenter=\"show\"\n    @pointerleave=\"hide\"\n  >\n    <slot />\n    <template v-if=\"inside\">\n      <span\n        ref=\"dot\"\n        aria-hidden=\"true\"\n        data-slot=\"cursor-dot\"\n        class=\"pointer-events-none absolute left-0 top-0 z-50 rounded-full bg-foreground\"\n        :style=\"{ width: `${dotSize}px`, height: `${dotSize}px`, opacity: 0 }\"\n      />\n      <span\n        v-if=\"label\"\n        ref=\"tip\"\n        aria-hidden=\"true\"\n        data-slot=\"cursor-label\"\n        class=\"pointer-events-none absolute left-0 top-0 z-50 whitespace-nowrap rounded-full bg-foreground px-2 py-0.5 text-[13px] font-medium text-background\"\n        style=\"opacity: 0\"\n      >\n        {{ label }}\n      </span>\n    </template>\n  </div>\n</template>\n"
+    }
+  ]
+}

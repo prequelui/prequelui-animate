@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "marquee",
+  "type": "registry:ui",
+  "title": "Marquee",
+  "description": "A seamless row that drifts at a fixed speed and pauses under the pointer.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/Marquee.vue",
+      "target": "components/prequelui/Marquee.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from \"vue\";\n\nconst props = defineProps({\n  speed: { type: Number, default: 42 },\n  reverse: { type: Boolean, default: false },\n  pauseOnHover: { type: Boolean, default: true },\n  fade: { type: Boolean, default: true },\n  gap: { type: Number, default: 32 },\n  repeat: { type: Number, default: 2 },\n  itemClassName: { type: String, default: \"\" },\n});\n\nconst root = ref(null);\nconst track = ref(null);\nconst first = ref(null);\nconst paused = ref(false);\nconst ready = ref(false);\nconst span = ref(0);\nlet position = 0;\nlet raf = 0;\nlet last = 0;\nlet observer;\n\nconst copies = computed(() => Math.max(2, Math.round(props.repeat)));\n\nconst maskStyle = computed(() =>\n  props.fade\n    ? {\n        maskImage:\n          \"linear-gradient(to right, transparent, black 10%, black 90%, transparent)\",\n        WebkitMaskImage:\n          \"linear-gradient(to right, transparent, black 10%, black 90%, transparent)\",\n      }\n    : {},\n);\n\nfunction reduce() {\n  return (\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches\n  );\n}\n\nfunction apply() {\n  if (track.value) {\n    track.value.style.transform = `translate3d(${position}px, 0, 0)`;\n  }\n}\n\nfunction measure() {\n  const node = first.value;\n  if (!node) return;\n  const width = node.scrollWidth + props.gap;\n  span.value = width;\n  if (props.reverse) position = -width;\n  ready.value = width > 0;\n  apply();\n}\n\nfunction tick(now) {\n  if (!last) last = now;\n  const delta = Math.min(now - last, 64);\n  last = now;\n\n  if (!reduce() && !paused.value && ready.value && props.speed > 0) {\n    const direction = props.reverse ? 1 : -1;\n    let next = position + (direction * props.speed * delta) / 1000;\n    const width = span.value;\n    if (width > 0) {\n      if (!props.reverse && next <= -width) next += width;\n      if (props.reverse && next >= 0) next -= width;\n      position = next;\n      apply();\n    }\n  }\n\n  raf = requestAnimationFrame(tick);\n}\n\nfunction setFirst(node) {\n  first.value = node;\n}\n\nwatch(\n  () => [props.gap, props.reverse, props.repeat],\n  async () => {\n    await nextTick();\n    measure();\n  },\n);\n\nonMounted(() => {\n  measure();\n  if (first.value) {\n    observer = new ResizeObserver(measure);\n    observer.observe(first.value);\n  }\n  raf = requestAnimationFrame(tick);\n});\n\nonBeforeUnmount(() => {\n  cancelAnimationFrame(raf);\n  observer?.disconnect();\n});\n</script>\n\n<template>\n  <div\n    ref=\"root\"\n    data-slot=\"marquee\"\n    class=\"relative overflow-hidden\"\n    :style=\"maskStyle\"\n    @pointerenter=\"paused = pauseOnHover ? true : paused\"\n    @pointerleave=\"paused = pauseOnHover ? false : paused\"\n  >\n    <div\n      ref=\"track\"\n      class=\"flex w-max items-center will-change-transform\"\n      :style=\"{ gap: `${gap}px` }\"\n      :data-paused=\"paused ? 'true' : undefined\"\n    >\n      <div\n        v-for=\"copy in copies\"\n        :key=\"copy\"\n        :ref=\"copy === 1 ? setFirst : undefined\"\n        :aria-hidden=\"copy > 1 ? 'true' : undefined\"\n        :class=\"['flex shrink-0 items-center', itemClassName]\"\n        :style=\"{ gap: `${gap}px` }\"\n      >\n        <slot />\n      </div>\n    </div>\n  </div>\n</template>\n"
+    }
+  ]
+}

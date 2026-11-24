@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "drawer",
+  "type": "registry:ui",
+  "title": "Drawer",
+  "description": "A panel that snaps in from an edge and leaves faster than it arrived.",
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/drawer.tsx",
+      "target": "components/prequelui/drawer.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { AnimatePresence, motion, useReducedMotion } from \"motion/react\";\nimport { X } from \"lucide-react\";\nimport { cn } from \"@/lib/utils\";\n\nexport type DrawerProps = {\n  trigger?: React.ReactNode;\n  title?: string;\n  description?: string;\n  open?: boolean;\n  defaultOpen?: boolean;\n  onOpenChange?: (open: boolean) => void;\n  children?: React.ReactNode;\n  className?: string;\n};\n\nconst enter = { duration: 0.4, ease: [0.34, 1.2, 0.64, 1] } as const;\nconst leave = { duration: 0.16, ease: [0.4, 0, 1, 1] } as const;\n\nexport function Drawer({\n  trigger = \"Open drawer\",\n  title = \"Notifications\",\n  description = \"Updates from the projects you follow.\",\n  open,\n  defaultOpen = false,\n  onOpenChange,\n  children,\n  className,\n}: DrawerProps) {\n  const [internal, setInternal] = React.useState(defaultOpen);\n  const value = open ?? internal;\n  const reduce = useReducedMotion();\n\n  const setOpen = (next: boolean) => {\n    if (open === undefined) setInternal(next);\n    onOpenChange?.(next);\n  };\n\n  React.useEffect(() => {\n    if (!value) return;\n    const onKey = (event: KeyboardEvent) => {\n      if (event.key === \"Escape\") setOpen(false);\n    };\n    document.addEventListener(\"keydown\", onKey);\n    return () => document.removeEventListener(\"keydown\", onKey);\n  });\n\n  return (\n    <>\n      <button type=\"button\" onClick={() => setOpen(true)} className=\"inline-flex h-8 items-center rounded-md border px-3 text-[13px] font-medium\">\n        {trigger}\n      </button>\n      <AnimatePresence>\n        {value && (\n          <div className=\"fixed inset-0 z-50\">\n            <motion.button type=\"button\" aria-label=\"Close drawer\" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4, ease: [0.215, 0.61, 0.355, 1] }} onClick={() => setOpen(false)} className=\"absolute inset-0 bg-background/60 backdrop-blur-sm\" />\n            <motion.div\n              role=\"dialog\"\n              aria-modal=\"true\"\n              initial={reduce ? { opacity: 0 } : { x: \"100%\" }}\n              animate={reduce ? { opacity: 1 } : { x: 0 }}\n              exit={reduce ? { opacity: 0 } : { x: \"100%\", transition: leave }}\n              transition={reduce ? { duration: 0.2 } : enter}\n              className={cn(\"absolute right-0 top-0 flex h-full w-[85%] max-w-sm flex-col border-l bg-background p-5 shadow-2xl\", className)}\n            >\n              <button type=\"button\" aria-label=\"Close\" onClick={() => setOpen(false)} className=\"absolute right-3 top-3 rounded-md p-1 text-muted-foreground hover:bg-accent\">\n                <X className=\"size-4\" />\n              </button>\n              <p className=\"text-[15px] font-medium\">{title}</p>\n              <p className=\"mt-1.5 text-[13px] leading-6 text-muted-foreground\">{description}</p>\n              {children}\n            </motion.div>\n          </div>\n        )}\n      </AnimatePresence>\n    </>\n  );\n}\n"
+    }
+  ]
+}

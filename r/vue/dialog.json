@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dialog",
+  "type": "registry:ui",
+  "title": "Dialog",
+  "description": "A modal that tips into view from its edge while the page blurs behind it.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/Dialog.vue",
+      "target": "components/prequelui/Dialog.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { computed, onBeforeUnmount, onMounted, ref, watch } from \"vue\";\nimport { X } from \"@lucide/vue\";\n\nconst props = defineProps({\n  modelValue: { type: Boolean, default: undefined },\n  defaultOpen: { type: Boolean, default: false },\n  trigger: { type: String, default: \"Open dialog\" },\n  title: { type: String, default: \"Edit profile\" },\n  description: { type: String, default: \"Make changes to your profile here.\" },\n});\nconst emit = defineEmits([\"update:modelValue\"]);\n\nconst internal = ref(props.defaultOpen);\nwatch(\n  () => props.modelValue,\n  (value) => {\n    if (value !== undefined) internal.value = value;\n  },\n);\nconst value = computed(() => (props.modelValue === undefined ? internal.value : props.modelValue));\n\nfunction setOpen(next) {\n  if (props.modelValue === undefined) internal.value = next;\n  emit(\"update:modelValue\", next);\n}\n\nfunction onKey(event) {\n  if (event.key === \"Escape\" && value.value) setOpen(false);\n}\nonMounted(() => document.addEventListener(\"keydown\", onKey));\nonBeforeUnmount(() => document.removeEventListener(\"keydown\", onKey));\n</script>\n\n<template>\n  <button type=\"button\" class=\"inline-flex h-8 items-center rounded-md bg-foreground px-3 text-[13px] font-medium text-background\" @click=\"setOpen(true)\">\n    {{ trigger }}\n  </button>\n  <Teleport to=\"body\">\n    <Transition name=\"dialog\">\n      <div v-if=\"value\" class=\"fixed inset-0 z-50 flex items-center justify-center p-4\">\n        <button type=\"button\" aria-label=\"Close dialog\" class=\"dialog-veil absolute inset-0 bg-background/60 backdrop-blur-sm\" @click=\"setOpen(false)\" />\n        <div role=\"dialog\" aria-modal=\"true\" class=\"dialog-popup relative w-full max-w-sm rounded-xl border bg-background p-5 shadow-2xl\">\n          <button type=\"button\" aria-label=\"Close\" class=\"absolute right-3 top-3 rounded-md p-1 text-muted-foreground hover:bg-accent\" @click=\"setOpen(false)\">\n            <X class=\"size-4\" />\n          </button>\n          <h2 class=\"text-[15px] font-medium\">{{ title }}</h2>\n          <p class=\"mt-1.5 text-[13px] leading-6 text-muted-foreground\">{{ description }}</p>\n          <slot />\n          <div class=\"mt-5 flex justify-end gap-2\">\n            <button type=\"button\" class=\"h-8 rounded-md border px-3 text-[13px]\" @click=\"setOpen(false)\">Cancel</button>\n            <button type=\"button\" class=\"h-8 rounded-md bg-foreground px-3 text-[13px] font-medium text-background\" @click=\"setOpen(false)\">Save</button>\n          </div>\n        </div>\n      </div>\n    </Transition>\n  </Teleport>\n</template>\n\n<style>\n.dialog-veil,\n.dialog-popup {\n  animation: dialog-in 400ms cubic-bezier(0.215, 0.61, 0.355, 1) both;\n}\n.dialog-popup {\n  animation: dialog-pop 450ms linear both;\n}\n.dialog-leave-active .dialog-veil,\n.dialog-leave-active .dialog-popup {\n  animation: dialog-out 200ms cubic-bezier(0, 0, 0.58, 1) both;\n}\n@keyframes dialog-in {\n  from { opacity: 0; }\n}\n@keyframes dialog-pop {\n  from { opacity: 0; transform: translateY(8px) scale(0.96); filter: blur(4px); }\n}\n@keyframes dialog-out {\n  to { opacity: 0; }\n}\n@media (prefers-reduced-motion: reduce) {\n  .dialog-veil, .dialog-popup, .dialog-leave-active .dialog-veil, .dialog-leave-active .dialog-popup {\n    animation-duration: 200ms;\n  }\n  .dialog-popup { animation: dialog-in 200ms linear both; }\n}\n</style>\n"
+    }
+  ]
+}

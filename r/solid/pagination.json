@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pagination",
+  "type": "registry:ui",
+  "title": "Pagination",
+  "description": "Page links with an active outline that glides between positions.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/pagination.tsx",
+      "target": "src/components/prequelui/pagination.tsx",
+      "type": "registry:ui",
+      "content": "import { For, createEffect, createSignal, onMount } from \"solid-js\";\nimport { animate } from \"motion\";\nimport { ChevronLeft, ChevronRight } from \"lucide-solid\";\n\nexport type PaginationProps = {\n  pages?: number;\n  defaultPage?: number;\n  page?: number;\n  onPageChange?: (page: number) => void;\n};\n\nexport function Pagination(props: PaginationProps) {\n  const pages = props.pages ?? 5;\n  const [internal, setInternal] = createSignal(props.defaultPage ?? 1);\n  const current = () => props.page ?? internal();\n  const buttons: Record<number, HTMLButtonElement | undefined> = {};\n  let indicator: HTMLSpanElement | undefined;\n\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  function place(animated: boolean) {\n    const target = buttons[current()];\n    if (!target || !indicator) return;\n    const x = target.offsetLeft;\n    const width = target.offsetWidth;\n    if (!animated || reduce()) {\n      indicator.style.transform = `translateX(${x}px)`;\n      indicator.style.width = `${width}px`;\n      return;\n    }\n    animate(indicator, { x, width }, { type: \"spring\", stiffness: 500, damping: 40 });\n  }\n\n  let ready = false;\n\n  function go(next: number) {\n    const value = Math.min(pages, Math.max(1, next));\n    if (props.page === undefined) setInternal(value);\n    props.onPageChange?.(value);\n  }\n\n  onMount(() =>\n    requestAnimationFrame(() => {\n      ready = true;\n      place(false);\n    }),\n  );\n  createEffect(() => {\n    current();\n    if (ready) requestAnimationFrame(() => place(true));\n  });\n\n  return (\n    <nav aria-label=\"Pagination\" class=\"relative flex items-center gap-1\">\n      <button type=\"button\" aria-label=\"Previous page\" disabled={current() === 1} onClick={() => go(current() - 1)} class=\"flex size-8 items-center justify-center rounded-md text-muted-foreground hover:bg-accent disabled:opacity-40\">\n        <ChevronLeft class=\"size-4\" />\n      </button>\n      <span ref={indicator} class=\"absolute inset-y-0 left-0 rounded-md border bg-background shadow-sm\" aria-hidden=\"true\" />\n      <For each={Array.from({ length: pages }, (_, index) => index + 1)}>\n        {(item) => (\n          <button\n            ref={(node) => {\n              buttons[item] = node;\n            }}\n            type=\"button\"\n            aria-current={item === current() ? \"page\" : undefined}\n            onClick={() => go(item)}\n            class={`relative flex size-8 items-center justify-center rounded-md text-[13px] font-medium ${\n              item === current() ? \"text-foreground\" : \"text-muted-foreground\"\n            }`}\n          >\n            {item}\n          </button>\n        )}\n      </For>\n      <button type=\"button\" aria-label=\"Next page\" disabled={current() === pages} onClick={() => go(current() + 1)} class=\"flex size-8 items-center justify-center rounded-md text-muted-foreground hover:bg-accent disabled:opacity-40\">\n        <ChevronRight class=\"size-4\" />\n      </button>\n    </nav>\n  );\n}\n"
+    }
+  ]
+}

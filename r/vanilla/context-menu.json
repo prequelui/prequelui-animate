@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "context-menu",
+  "type": "registry:ui",
+  "title": "Context Menu",
+  "description": "A menu anchored to the pointer with cascading items and menu handoff.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/context-menu.js",
+      "target": "components/prequelui/context-menu.js",
+      "type": "registry:ui",
+      "content": "let uid = 0;\nlet styled = false;\n\nfunction ensureStyles() {\n  if (styled) return;\n  styled = true;\n  const style = document.createElement(\"style\");\n  style.textContent = `\n    .ctx-panel { animation: ctx-in 220ms cubic-bezier(0.215,0.61,0.355,1) both; }\n    .ctx-row { animation: ctx-row 200ms cubic-bezier(0.215,0.61,0.355,1) both; }\n    @keyframes ctx-in { from { opacity: 0; transform: scale(0.96); } }\n    @keyframes ctx-row { from { opacity: 0; transform: translateY(-4px); filter: blur(2px); } }\n    @media (prefers-reduced-motion: reduce) { .ctx-panel, .ctx-row { animation: none; } }`;\n  document.head.appendChild(style);\n}\n\nexport function createContextMenu(root, options = {}) {\n  ensureStyles();\n  const { items = [], children = \"Right click here\" } = options;\n  const id = `context-${++uid}`;\n  let panel = null;\n\n  root.innerHTML = `<div class=\"flex h-24 w-64 items-center justify-center rounded-xl border border-dashed text-[13px] text-muted-foreground\"\n    data-context=\"${id}\">${children}</div>`;\n  const zone = root.querySelector(`[data-context=\"${id}\"]`);\n\n  function close() {\n    panel?.remove();\n    panel = null;\n  }\n\n  zone.addEventListener(\"contextmenu\", (event) => {\n    event.preventDefault();\n    close();\n    panel = document.createElement(\"div\");\n    panel.setAttribute(\"role\", \"menu\");\n    panel.className = \"ctx-panel fixed z-50 min-w-[190px] origin-top-left rounded-xl border bg-background p-1 shadow-xl\";\n    panel.style.left = `${event.clientX}px`;\n    panel.style.top = `${event.clientY}px`;\n    panel.innerHTML = items\n      .map((item, index) =>\n        item.separator\n          ? `<div role=\"separator\" class=\"my-1 h-px bg-border\"></div>`\n          : `<button type=\"button\" role=\"menuitem\" data-index=\"${index}\"\n              class=\"ctx-row flex w-full items-center justify-between gap-6 rounded-md px-2 py-1.5 text-left text-[13px] hover:bg-accent\"\n              style=\"animation-delay:${index * 30}ms\">\n              <span>${item.label}</span>\n              ${item.shortcut ? `<span class=\"font-mono text-[13px] text-muted-foreground\">${item.shortcut}</span>` : \"\"}\n            </button>`,\n      )\n      .join(\"\");\n    panel.addEventListener(\"pointerdown\", (inner) => inner.stopPropagation());\n    panel.querySelectorAll(\"[data-index]\").forEach((node) => {\n      node.addEventListener(\"click\", () => {\n        items[Number(node.getAttribute(\"data-index\"))].onSelect?.();\n        close();\n      });\n    });\n    document.body.appendChild(panel);\n  });\n\n  const onKey = (event) => {\n    if (event.key === \"Escape\") close();\n  };\n  document.addEventListener(\"pointerdown\", close);\n  document.addEventListener(\"keydown\", onKey);\n\n  return {\n    close,\n    destroy() {\n      close();\n      document.removeEventListener(\"pointerdown\", close);\n      document.removeEventListener(\"keydown\", onKey);\n      root.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

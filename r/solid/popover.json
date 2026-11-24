@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "popover",
+  "type": "registry:ui",
+  "title": "Popover",
+  "description": "An anchored surface that grows from 80% with a spring.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/popover.tsx",
+      "target": "src/components/prequelui/popover.tsx",
+      "type": "registry:ui",
+      "content": "import { Show, createSignal, onCleanup, onMount } from \"solid-js\";\n\nexport type PopoverProps = {\n  trigger?: string;\n  title?: string;\n  description?: string;\n  side?: \"top\" | \"bottom\";\n  children?: unknown;\n};\n\nexport function Popover(props: PopoverProps) {\n  const [open, setOpen] = createSignal(false);\n  let root: HTMLDivElement | undefined;\n\n  const onPointer = (event: PointerEvent) => {\n    if (open() && root && !root.contains(event.target as Node)) setOpen(false);\n  };\n  const onKey = (event: KeyboardEvent) => {\n    if (event.key === \"Escape\") setOpen(false);\n  };\n  onMount(() => {\n    document.addEventListener(\"pointerdown\", onPointer);\n    document.addEventListener(\"keydown\", onKey);\n  });\n  onCleanup(() => {\n    if (typeof window === \"undefined\") return;\n    document.removeEventListener(\"pointerdown\", onPointer);\n    document.removeEventListener(\"keydown\", onKey);\n  });\n\n  return (\n    <div ref={root} class=\"relative inline-block\">\n      <button\n        type=\"button\"\n        aria-haspopup=\"dialog\"\n        aria-expanded={open()}\n        onClick={() => setOpen((value) => !value)}\n        class=\"inline-flex h-8 items-center rounded-md border px-3 text-[13px] font-medium\"\n      >\n        {props.trigger ?? \"Share project\"}\n      </button>\n      <Show when={open()}>\n        <div\n          role=\"dialog\"\n          class={`pop absolute left-0 z-40 w-64 rounded-xl border bg-popover p-3 text-popover-foreground shadow-xl ${\n            props.side === \"top\" ? \"bottom-full mb-2 origin-bottom\" : \"top-full mt-2 origin-top\"\n          }`}\n        >\n          <p class=\"text-[13px] font-medium\">{props.title ?? \"Anyone with the link\"}</p>\n          <p class=\"mt-1 text-[13px] leading-5 text-muted-foreground\">\n            {props.description ?? \"People with the link can view this project but cannot edit it.\"}\n          </p>\n          {props.children as never}\n        </div>\n      </Show>\n      <style>{`\n        .pop { animation: pop-in 320ms cubic-bezier(0.23,1,0.32,1) both; }\n        @keyframes pop-in { from { opacity: 0; transform: scale(0.8); } }\n        @media (prefers-reduced-motion: reduce) { .pop { animation: pop-fade 150ms linear both; } @keyframes pop-fade { from { opacity: 0; } } }\n      `}</style>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

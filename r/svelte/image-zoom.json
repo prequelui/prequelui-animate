@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-zoom",
+  "type": "registry:component",
+  "title": "Image Zoom",
+  "description": "An image that zooms toward the pointer on hover.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/ImageZoom.svelte",
+      "target": "~/src/lib/components/prequelui/ImageZoom.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount } from \"svelte\";\n  import { animate } from \"motion\";\n\n  let {\n    zoomScale = 3,\n    zoomOnClick = true,\n    zoomOnHover = true,\n    disabled = false,\n    width = \"100%\",\n    height = \"100%\",\n    transition = undefined,\n    class: className = \"\",\n    ...rest\n  } = $props();\n\n  let root;\n  let inner;\n  let zoomed = $state(false);\n  let origin = $state(\"50% 50%\");\n  let coarse = $state(false);\n  let control;\n\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  const options = $derived(\n    transition ?? {\n      type: \"spring\",\n      stiffness: 200,\n      damping: 28,\n    },\n  );\n\n  const cursor = $derived(\n    disabled ? \"default\" : zoomed ? \"zoom-out\" : \"zoom-in\",\n  );\n\n  function clamp(value, min, max) {\n    return Math.min(max, Math.max(min, value));\n  }\n\n  function originFrom(event) {\n    if (!root) return;\n    const rect = root.getBoundingClientRect();\n    let clientX = 0;\n    let clientY = 0;\n\n    if (\"touches\" in event && event.touches?.[0]) {\n      clientX = event.touches[0].clientX;\n      clientY = event.touches[0].clientY;\n    } else if (\"clientX\" in event) {\n      clientX = event.clientX;\n      clientY = event.clientY;\n    }\n\n    const x = clamp(clientX - rect.left, 0, rect.width);\n    const y = clamp(clientY - rect.top, 0, rect.height);\n    origin = `${rect.width ? (x / rect.width) * 100 : 50}% ${\n      rect.height ? (y / rect.height) * 100 : 50\n    }%`;\n  }\n\n  function scale() {\n    if (!inner) return;\n    control?.stop?.();\n    control = animate(\n      inner,\n      {\n        scale: disabled || reduce() ? 1 : zoomed ? zoomScale : 1,\n      },\n      options,\n    );\n  }\n\n  function enter(event) {\n    if (disabled || coarse || !zoomOnHover) return;\n    originFrom(event);\n    zoomed = true;\n  }\n\n  function leave() {\n    if (disabled || coarse || !zoomOnHover) return;\n    zoomed = false;\n  }\n\n  function move(event) {\n    if (disabled || coarse) return;\n    originFrom(event);\n  }\n\n  function click(event) {\n    if (disabled || !zoomOnClick) return;\n    originFrom(event);\n    zoomed = !zoomed;\n  }\n\n  function touchStart(event) {\n    if (disabled) return;\n    originFrom(event);\n    if (!zoomOnClick) zoomed = true;\n  }\n\n  function touchMove(event) {\n    if (disabled) return;\n    originFrom(event);\n  }\n\n  function touchEnd() {\n    if (disabled) return;\n    if (!zoomOnClick) zoomed = false;\n  }\n\n  $effect(() => {\n    zoomed;\n    scale();\n  });\n\n  onMount(() => {\n    coarse = window.matchMedia(\"(pointer: coarse)\").matches;\n    return () => control?.stop?.();\n  });\n</script>\n\n<div\n  bind:this={root}\n  role=\"img\"\n  data-slot=\"image-zoom\"\n  class={`relative overflow-hidden ${className}`}\n  style={`width:${typeof width === \"number\" ? `${width}px` : width};height:${typeof height === \"number\" ? `${height}px` : height};touch-action:manipulation;cursor:${cursor}`}\n  onmouseenter={enter}\n  onmouseleave={leave}\n  onmousemove={move}\n  onclick={click}\n  ontouchstart={touchStart}\n  ontouchmove={touchMove}\n  ontouchend={touchEnd}\n  {...rest}\n>\n  <div\n    bind:this={inner}\n    style={`width:100%;height:100%;display:flex;align-items:center;justify-content:center;transform-origin:${origin};will-change:transform`}\n  >\n    <slot />\n  </div>\n</div>\n"
+    }
+  ]
+}

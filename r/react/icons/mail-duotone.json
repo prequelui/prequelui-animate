@@ -1,0 +1,52 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-mail-duotone",
+  "type": "registry:ui",
+  "title": "Mail · Duotone",
+  "description": "An envelope whose flap lifts a touch when played. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/mail.json"
+  ],
+  "meta": {
+    "style": "duotone",
+    "category": "Notifications",
+    "roles": [
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      true,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.68 0.17 50)",
+      "primaryDark": "oklch(0.83 0.13 50)",
+      "accent": "oklch(0.62 0.18 25)",
+      "accentDark": "oklch(0.78 0.14 25)"
+    },
+    "emoji": {
+      "primary": "oklch(0.68 0.2 27)",
+      "secondary": "oklch(0.54 0.19 25)",
+      "accent": "oklch(0.82 0.16 85)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-mail-duotone.tsx",
+      "target": "components/prequelui/icons/prequel-mail-duotone.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelMailIcon, type IconProps } from \"./prequel-mail\";\n\nexport function PrequelMailDuotoneIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelMailIcon size={size} variant=\"duotone\" {...props} />;\n}\n"
+    }
+  ]
+}

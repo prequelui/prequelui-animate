@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shimmering-text",
+  "type": "registry:ui",
+  "title": "Shimmering Text",
+  "description": "A letter-by-letter wave of light crosses the text.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/shimmering-text.tsx",
+      "target": "src/components/prequelui/shimmering-text.tsx",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\nimport { For, onCleanup, onMount } from \"solid-js\";\n\nexport type ShimmeringTextProps = {\n  text: string;\n  duration?: number;\n  wave?: boolean;\n  color?: string;\n  shimmeringColor?: string;\n  class?: string;\n};\n\nexport function ShimmeringText(props: ShimmeringTextProps) {\n  let root: HTMLSpanElement | undefined;\n  let track: HTMLSpanElement | undefined;\n  const controls: Array<{ stop?: () => void }> = [];\n  let observer: IntersectionObserver | undefined;\n  const chars = () => Array.from(props.text ?? \"\");\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  const play = () => {\n    if (reduce() || !track) return;\n    const nodes = Array.from(track.children);\n    const duration = props.duration ?? 1;\n    nodes.forEach((node, index) => {\n      controls.push(\n        animate(\n          node,\n          {\n            ...(props.wave\n              ? { x: [0, 5, 0], y: [0, -5, 0], scale: [1, 1.1, 1], rotateY: [0, 15, 0] }\n              : {}),\n            opacity: [1, 0.35, 1],\n          },\n          {\n            duration,\n            repeat: Infinity,\n            repeatDelay: nodes.length * 0.05,\n            delay: (index * duration) / Math.max(1, nodes.length),\n            ease: \"easeInOut\",\n          },\n        ),\n      );\n    });\n  };\n\n  onMount(() => {\n    observer = new IntersectionObserver((entries) => {\n      if (!entries.some((entry) => entry.isIntersecting)) return;\n      play();\n      observer?.disconnect();\n    });\n    if (root) observer.observe(root);\n  });\n\n  onCleanup(() => {\n    observer?.disconnect();\n    controls.forEach((control) => control.stop?.());\n  });\n\n  return (\n    <span\n      ref={root}\n      data-slot=\"shimmering-text\"\n      class={`relative inline-block ${props.class ?? \"\"}`}\n      style={{\n        \"--shimmer-color\": props.shimmeringColor ?? \"var(--foreground)\",\n        \"--shimmer-base\": props.color ?? \"var(--muted-foreground)\",\n        color: props.color ?? \"var(--muted-foreground)\",\n        perspective: \"500px\",\n      }}\n    >\n      <span class=\"sr-only\">{props.text}</span>\n      <span ref={track} aria-hidden=\"true\" class=\"inline-block\" style={{ perspective: \"inherit\" }}>\n        <For each={chars()}>\n          {(char) => (\n            <span class=\"inline-block whitespace-pre\" style={{ \"transform-style\": \"preserve-3d\" }}>\n              {char}\n            </span>\n          )}\n        </For>\n      </span>\n    </span>\n  );\n}\n"
+    }
+  ]
+}

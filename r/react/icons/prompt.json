@@ -1,0 +1,55 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-prompt",
+  "type": "registry:ui",
+  "title": "Prompt",
+  "description": "A prompt box whose caret types and whose spark answers.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json"
+  ],
+  "meta": {
+    "style": "outline",
+    "category": "AI",
+    "roles": [
+      "primary",
+      "primary",
+      "primary",
+      "accent"
+    ],
+    "closed": [
+      true,
+      false,
+      false,
+      true
+    ],
+    "palette": {
+      "primary": "oklch(0.58 0.17 295)",
+      "primaryDark": "oklch(0.77 0.13 295)",
+      "accent": "oklch(0.7 0.14 195)",
+      "accentDark": "oklch(0.82 0.11 195)"
+    },
+    "emoji": {
+      "primary": "oklch(0.6 0.2 300)",
+      "secondary": "oklch(0.46 0.18 300)",
+      "accent": "oklch(0.74 0.13 232)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-prompt.tsx",
+      "target": "components/prequelui/icons/prequel-prompt.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { motion, type SVGMotionProps } from \"motion/react\";\nimport {\n  useAnimatedIconContext,\n  useIconVariants,\n  type IconAnimationSet,\n} from \"./core\";\nimport {\n  useIconPaint,\n  type IconPaletteBundle,\n  type IconVariant,\n} from \"./style\";\n\nexport type IconProps = Omit<SVGMotionProps<SVGSVGElement>, \"ref\"> & {\n  size?: number;\n  variant?: IconVariant;\n};\n\nconst palette: IconPaletteBundle = {\n  \"color\": {\n    \"primary\": \"oklch(0.58 0.17 295)\",\n    \"primaryDark\": \"oklch(0.77 0.13 295)\",\n    \"accent\": \"oklch(0.7 0.14 195)\",\n    \"accentDark\": \"oklch(0.82 0.11 195)\"\n  },\n  \"emoji\": {\n    \"primary\": \"oklch(0.6 0.2 300)\",\n    \"secondary\": \"oklch(0.46 0.18 300)\",\n    \"accent\": \"oklch(0.74 0.13 232)\"\n  }\n};\n\nexport const animations = {\n  \"hover\": {\n    \"group\": {\n      \"initial\": {\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"scale\": [\n          1,\n          1.06,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.45,\n          \"ease\": \"easeOut\"\n        }\n      }\n    },\n    \"p0\": {},\n    \"p1\": {\n      \"initial\": {\n        \"x\": 0\n      },\n      \"animate\": {\n        \"x\": [\n          0,\n          1.5,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 0.45,\n          \"ease\": \"easeOut\"\n        }\n      }\n    },\n    \"p2\": {},\n    \"p3\": {\n      \"initial\": {\n        \"opacity\": 1,\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"opacity\": [\n          1,\n          0.55,\n          1\n        ],\n        \"scale\": [\n          1,\n          1.06,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.55,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    }\n  },\n  \"tap\": {\n    \"group\": {\n      \"initial\": {\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"scale\": [\n          1,\n          0.9,\n          1.14,\n          0.98,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.55,\n          \"ease\": [\n            0.22,\n            1,\n            0.36,\n            1\n          ]\n        }\n      }\n    },\n    \"p0\": {},\n    \"p1\": {\n      \"initial\": {\n        \"x\": 0\n      },\n      \"animate\": {\n        \"x\": [\n          0,\n          3,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 0.55,\n          \"ease\": [\n            0.22,\n            1,\n            0.36,\n            1\n          ]\n        }\n      }\n    },\n    \"p2\": {},\n    \"p3\": {\n      \"initial\": {\n        \"opacity\": 1,\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"opacity\": [\n          1,\n          0.4,\n          1\n        ],\n        \"scale\": [\n          1,\n          1.14,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 0.55,\n          \"ease\": [\n            0.22,\n            1,\n            0.36,\n            1\n          ]\n        }\n      }\n    }\n  },\n  \"loop\": {\n    \"group\": {\n      \"initial\": {\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"scale\": [\n          1,\n          1.04,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 1.5,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    },\n    \"p0\": {},\n    \"p1\": {\n      \"initial\": {\n        \"x\": 0\n      },\n      \"animate\": {\n        \"x\": [\n          0,\n          1.5,\n          0\n        ],\n        \"transition\": {\n          \"duration\": 1.4,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    },\n    \"p2\": {},\n    \"p3\": {\n      \"initial\": {\n        \"opacity\": 1,\n        \"scale\": 1\n      },\n      \"animate\": {\n        \"opacity\": [\n          1,\n          0.55,\n          1\n        ],\n        \"scale\": [\n          1,\n          1.05,\n          1\n        ],\n        \"transition\": {\n          \"duration\": 1.5,\n          \"ease\": \"easeInOut\"\n        }\n      }\n    }\n  }\n} satisfies IconAnimationSet;\n\nexport function PrequelPromptIcon({ size = 28, variant: variantProp, ...props }: IconProps) {\n  const context = useAnimatedIconContext();\n  const variants = useIconVariants(animations);\n  const controls = context?.controls;\n  const {\n    variant,\n    weight,\n    part: paintPart,\n    halo: paintHalo,\n    flash: paintFlash,\n    sticker: paintSticker,\n    highlight: paintHighlight,\n  } = useIconPaint(palette, variantProp);\n\n  return (\n    <motion.svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      width={size}\n      height={size}\n      viewBox=\"0 0 24 24\"\n      fill=\"none\"\n      stroke=\"currentColor\"\n      strokeWidth={2}\n      strokeLinecap=\"round\"\n      strokeLinejoin=\"round\"\n      aria-hidden=\"true\"\n      data-icon-style={variant}\n      data-icon-weight={weight}\n      variants={variants.group}\n      initial=\"initial\"\n      animate={controls}\n      {...props}\n    >\n\n      {(variant === \"duotone\" || variant === \"emoji\") && (\n        <motion.path\n          key={`${variant}-halo1`}\n          className=\"pi-halo\"\n          data-paint=\"halo\"\n          d={\"M7 9l3 3-3 3\"}\n          style={paintHalo(\"primary\")}\n          variants={variants.p1}\n          initial=\"initial\"\n          animate={controls}\n        />\n      )}\n      {(variant === \"duotone\" || variant === \"emoji\") && (\n        <motion.path\n          key={`${variant}-halo2`}\n          className=\"pi-halo\"\n          data-paint=\"halo\"\n          d={\"M13 15h4\"}\n          style={paintHalo(\"primary\")}\n          variants={variants.p2}\n          initial=\"initial\"\n          animate={controls}\n        />\n      )}\n      <motion.rect\n        key={`${variant}-p0`}\n        className=\"pi-part\"\n        x={3}\n        y={4}\n        width={18}\n        height={16}\n        rx={3}\n        style={paintPart(\"primary\", true, false, false)}\n        variants={variants.p0}\n        initial=\"initial\"\n        animate={controls}\n      />\n      <motion.path\n        key={`${variant}-p1`}\n        className=\"pi-part\"\n        d={\"M7 9l3 3-3 3\"}\n        style={paintPart(\"primary\", false, false, true)}\n        variants={variants.p1}\n        initial=\"initial\"\n        animate={controls}\n      />\n      <motion.path\n        key={`${variant}-p2`}\n        className=\"pi-part\"\n        d={\"M13 15h4\"}\n        style={paintPart(\"primary\", false, false, true)}\n        variants={variants.p2}\n        initial=\"initial\"\n        animate={controls}\n      />\n      <motion.path\n        key={`${variant}-p3`}\n        className=\"pi-part\"\n        d={\"M18 6l.5 1.5L20 8l-1.5.5L18 10l-.5-1.5L16 8l1.5-.5L18 6Z\"}\n        style={paintPart(\"accent\", true, false, true)}\n        variants={variants.p3}\n        initial=\"initial\"\n        animate={controls}\n      />\n\n      {variant === \"emoji\" && (\n        <ellipse\n          className=\"pi-highlight\"\n          cx={8.4}\n          cy={8.48}\n          rx={2.4}\n          ry={1.25}\n          transform=\"rotate(-24 8.4 8.48)\"\n          style={paintHighlight()}\n        />\n      )}\n    </motion.svg>\n  );\n}\n"
+    }
+  ]
+}

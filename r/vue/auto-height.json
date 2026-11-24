@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "auto-height",
+  "type": "registry:ui",
+  "title": "Auto Height",
+  "description": "A container whose height glides to fit whatever is inside.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/AutoHeight.vue",
+      "target": "components/prequelui/AutoHeight.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { nextTick, onBeforeUnmount, onMounted, ref } from \"vue\";\nimport { animate } from \"motion\";\n\nconst props = defineProps({\n  includeParentBox: { type: Boolean, default: true },\n  includeSelfBox: { type: Boolean, default: false },\n  animate: { type: Object, default: undefined },\n  transition: { type: Object, default: undefined },\n  wrapperClassName: { type: String, default: \"\" },\n  as: { type: [String, Object], default: \"div\" },\n});\n\nconst root = ref(null);\nconst content = ref(null);\nconst height = ref(0);\nlet observer;\nlet frame;\nlet controls;\n\nconst spring = () =>\n  props.transition ?? {\n    type: \"spring\",\n    stiffness: 300,\n    damping: 30,\n    bounce: 0,\n    restDelta: 0.01,\n  };\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nfunction measure() {\n  const el = content.value;\n  if (!el) return 0;\n\n  const base = el.getBoundingClientRect().height;\n  let extra = 0;\n\n  if (props.includeParentBox && el.parentElement) {\n    const box = el.parentElement.getBoundingClientRect();\n    const inner = Array.from(el.parentElement.children).reduce(\n      (total, child) => total + child.getBoundingClientRect().height,\n      0,\n    );\n    extra = Math.max(0, box.height - inner);\n  }\n\n  if (props.includeSelfBox) {\n    const style = getComputedStyle(el);\n    extra +=\n      (parseFloat(style.paddingTop) || 0) +\n      (parseFloat(style.paddingBottom) || 0) +\n      (parseFloat(style.borderTopWidth) || 0) +\n      (parseFloat(style.borderBottomWidth) || 0);\n  }\n\n  const dpr = typeof window === \"undefined\" ? 1 : window.devicePixelRatio || 1;\n  return Math.ceil((base + extra) * dpr) / dpr;\n}\n\nfunction commit(next, instant) {\n  height.value = next;\n  if (!root.value) return;\n  controls?.stop?.();\n  controls = animate(\n    root.value,\n    { height: `${next}px`, ...(props.animate ?? {}) },\n    instant || reduce() ? { duration: 0 } : spring(),\n  );\n}\n\nasync function refresh(instant = false) {\n  await nextTick();\n  const next = measure();\n  if (!next && !height.value) {\n    height.value = next;\n    return;\n  }\n  commit(next, instant);\n}\n\nonMounted(() => {\n  refresh(true);\n\n  observer = new ResizeObserver(() => {\n    cancelAnimationFrame(frame);\n    frame = requestAnimationFrame(() => refresh(false));\n  });\n\n  if (content.value) observer.observe(content.value);\n  if (props.includeParentBox && content.value?.parentElement) {\n    observer.observe(content.value.parentElement);\n  }\n});\n\nonBeforeUnmount(() => {\n  cancelAnimationFrame(frame);\n  observer?.disconnect();\n  controls?.stop?.();\n});\n</script>\n\n<template>\n  <component\n    :is=\"as\"\n    ref=\"root\"\n    data-slot=\"auto-height\"\n    :style=\"{\n      overflow: 'hidden',\n      height: height ? `${height}px` : undefined,\n    }\"\n  >\n    <div ref=\"content\" :class=\"['w-full', wrapperClassName]\">\n      <slot />\n    </div>\n  </component>\n</template>\n"
+    }
+  ]
+}

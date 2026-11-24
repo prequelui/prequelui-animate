@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "motion-grid",
+  "type": "registry:ui",
+  "title": "Motion Grid",
+  "description": "A dot grid that plays frame-by-frame motion as a loader or state.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/motion-grid.tsx",
+      "target": "src/components/prequelui/motion-grid.tsx",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\nimport { For, onCleanup, onMount } from \"solid-js\";\n\nexport type MotionGridProps = {\n  count?: number;\n  columns?: number;\n  dotSize?: number;\n  gap?: number;\n  speed?: number;\n  stagger?: number;\n  pauseOnHover?: boolean;\n  class?: string;\n};\n\nexport function MotionGrid(props: MotionGridProps) {\n  let root: HTMLDivElement | undefined;\n  const controls: Array<{ stop?: () => void }> = [];\n  const columns = () => props.columns ?? 7;\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  const play = () => {\n    controls.length = 0;\n    if (!root || reduce()) return;\n    const nodes = Array.from(root.children) as HTMLElement[];\n    nodes.forEach((node, index) => {\n      const row = Math.floor(index / columns());\n      const column = index % columns();\n      controls.push(\n        animate(\n          node,\n          { scale: [0.65, 1, 0.65], opacity: [0.3, 1, 0.3] },\n          {\n            duration: props.speed ?? 1.4,\n            repeat: Infinity,\n            delay: (row + column) * (props.stagger ?? 0.07),\n            ease: \"easeInOut\",\n          },\n        ),\n      );\n    });\n  };\n\n  const pause = () => {\n    if (props.pauseOnHover === false || !root) return;\n    controls.forEach((control) => control.stop?.());\n    Array.from(root.children).forEach((node) => {\n      const element = node as HTMLElement;\n      element.style.opacity = \"0.35\";\n      element.style.transform = \"scale(1)\";\n    });\n  };\n\n  onMount(play);\n  onCleanup(() => controls.forEach((control) => control.stop?.()));\n\n  return (\n    <div\n      ref={root}\n      data-slot=\"motion-grid\"\n      aria-hidden=\"true\"\n      class={`grid w-fit ${props.class ?? \"\"}`}\n      style={{\n        \"grid-template-columns\": `repeat(${columns()}, minmax(0, 1fr))`,\n        gap: `${props.gap ?? 10}px`,\n      }}\n      onPointerEnter={pause}\n      onPointerLeave={play}\n    >\n      <For each={Array.from({ length: props.count ?? 35 })}>\n        {() => (\n          <span\n            class=\"rounded-full bg-foreground\"\n            style={{\n              width: `${props.dotSize ?? 8}px`,\n              height: `${props.dotSize ?? 8}px`,\n              opacity: 0.55,\n            }}\n          />\n        )}\n      </For>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

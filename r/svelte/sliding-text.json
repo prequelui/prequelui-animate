@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sliding-text",
+  "type": "registry:component",
+  "title": "Sliding Text",
+  "description": "Text slides out of its box while a copy slides in.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/SlidingText.svelte",
+      "target": "~/src/lib/components/prequelui/SlidingText.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { animate } from \"motion\";\n\n  let {\n    text = \"\",\n    direction = \"down\",\n    trigger = \"hover\",\n    class: className = \"\",\n    ...rest\n  } = $props();\n\n  let track;\n  let shown = false;\n  let offset = 0;\n  let controls;\n\n  const sign = () => (direction === \"down\" ? 1 : -1);\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  function slideTo(next) {\n    shown = next;\n    if (!track) return;\n    const lap = sign() * (next ? 1 : 0);\n    const transform =\n      lap === 0 ? \"translateY(0%)\" : `translateY(calc(${lap * 100}% + ${lap} * 0.6em))`;\n    controls?.stop?.();\n    controls = animate(\n      track,\n      { transform },\n      reduce() ? { duration: 0 } : { duration: 0.25, ease: [0.4, 0, 0.2, 1] },\n    );\n  }\n\n  function enter(event) {\n    if (trigger !== \"hover\" || event.pointerType === \"touch\") return;\n    slideTo(true);\n  }\n\n  function leave(event) {\n    if (trigger !== \"hover\" || event.pointerType === \"touch\") return;\n    slideTo(false);\n  }\n\n  function click() {\n    if (trigger !== \"click\") return;\n    offset += 1;\n    slideTo(offset % 2 === 1);\n  }\n</script>\n\n<span\n  data-slot=\"sliding-text\"\n  data-direction={direction}\n  data-trigger={trigger}\n  class={`relative inline-block overflow-clip ${className}`}\n  style=\"padding-block:0.25em;margin-block:-0.25em\"\n  onpointerenter={enter}\n  onpointerleave={leave}\n  onclick={click}\n  {...rest}\n>\n  <span\n    bind:this={track}\n    data-slot=\"sliding-text-track\"\n    class=\"relative inline-block\"\n    style=\"transform:translateY(0%)\"\n  >\n    {text}\n    <span\n      data-slot=\"sliding-text-copy\"\n      aria-hidden=\"true\"\n      class=\"absolute left-0 w-full\"\n      style={`top:calc(${-sign() * 100}% - ${sign()} * 0.6em)`}\n    >{text}</span>\n  </span>\n</span>\n"
+    }
+  ]
+}

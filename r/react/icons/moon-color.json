@@ -1,0 +1,52 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-moon-color",
+  "type": "registry:ui",
+  "title": "Moon · Color",
+  "description": "A crescent moon that floats beside a twinkling star. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/moon.json"
+  ],
+  "meta": {
+    "style": "color",
+    "category": "Weather",
+    "roles": [
+      "primary",
+      "accent"
+    ],
+    "closed": [
+      true,
+      true
+    ],
+    "palette": {
+      "primary": "oklch(0.62 0.14 235)",
+      "primaryDark": "oklch(0.79 0.11 235)",
+      "accent": "oklch(0.74 0.16 85)",
+      "accentDark": "oklch(0.85 0.13 85)"
+    },
+    "emoji": {
+      "primary": "oklch(0.74 0.13 232)",
+      "secondary": "oklch(0.58 0.13 232)",
+      "accent": "oklch(0.82 0.16 85)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-moon-color.tsx",
+      "target": "components/prequelui/icons/prequel-moon-color.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelMoonIcon, type IconProps } from \"./prequel-moon\";\n\nexport function PrequelMoonColorIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelMoonIcon size={size} variant=\"color\" {...props} />;\n}\n"
+    }
+  ]
+}

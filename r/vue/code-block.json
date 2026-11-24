@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block",
+  "type": "registry:ui",
+  "title": "Code Block",
+  "description": "A code surface that types itself in, copies cleanly and follows the caret.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/CodeBlock.vue",
+      "target": "components/prequelui/CodeBlock.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { computed, onBeforeUnmount, onMounted, ref, watch } from \"vue\";\nimport { Check, Copy } from \"@lucide/vue\";\n\nconst props = defineProps({\n  code: { type: String, required: true },\n  filename: { type: String, default: \"example.ts\" },\n  typing: { type: Boolean, default: true },\n});\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nconst length = ref(props.typing && !reduce() ? 0 : props.code.length);\nconst copied = ref(false);\nlet typingTimer;\nlet copyTimer;\n\nfunction start() {\n  clearInterval(typingTimer);\n  if (!props.typing || reduce()) {\n    length.value = props.code.length;\n    return;\n  }\n  length.value = 0;\n  typingTimer = setInterval(() => {\n    if (length.value >= props.code.length) {\n      clearInterval(typingTimer);\n      return;\n    }\n    length.value += 1;\n  }, 14);\n}\n\nwatch(() => props.code, start);\nonMounted(start);\nonBeforeUnmount(() => {\n  clearInterval(typingTimer);\n  clearTimeout(copyTimer);\n});\n\nconst shown = computed(() => props.code.slice(0, length.value));\n\nasync function copy() {\n  try {\n    await navigator.clipboard.writeText(props.code);\n  } catch {\n    const area = document.createElement(\"textarea\");\n    area.value = props.code;\n    document.body.appendChild(area);\n    area.select();\n    document.execCommand(\"copy\");\n    area.remove();\n  }\n  copied.value = true;\n  clearTimeout(copyTimer);\n  copyTimer = setTimeout(() => (copied.value = false), 2000);\n}\n</script>\n\n<template>\n  <div class=\"overflow-hidden rounded-xl border bg-code\">\n    <div class=\"flex items-center justify-between border-b px-4 py-2\">\n      <span class=\"font-mono text-[13px] text-muted-foreground\">{{ filename }}</span>\n      <button type=\"button\" :aria-label=\"copied ? 'Copied' : 'Copy code'\" class=\"relative flex size-7 items-center justify-center rounded-md text-muted-foreground hover:bg-accent hover:text-foreground\" @click=\"copy\">\n        <Transition name=\"copy\" mode=\"out-in\">\n          <Check v-if=\"copied\" class=\"size-3.5\" />\n          <Copy v-else class=\"size-3.5\" />\n        </Transition>\n      </button>\n    </div>\n    <pre class=\"overflow-auto p-4 font-mono text-[13px] leading-6\"><code>{{ shown }}<span v-if=\"length < code.length\" class=\"animate-pulse\">▍</span></code></pre>\n  </div>\n</template>\n\n<style>\n.copy-enter-active, .copy-leave-active { transition: opacity 150ms cubic-bezier(0.23, 1, 0.32, 1), transform 150ms cubic-bezier(0.23, 1, 0.32, 1), filter 150ms; }\n.copy-enter-from, .copy-leave-to { opacity: 0; transform: scale(0.5); filter: blur(2px); }\n</style>\n"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-bike-solid",
+  "type": "registry:ui",
+  "title": "Bike · Solid",
+  "description": "A bicycle that rolls as its pedals turn one full lap. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/bike.json"
+  ],
+  "meta": {
+    "style": "solid",
+    "category": "Travel",
+    "roles": [
+      "primary",
+      "accent",
+      "primary",
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      true,
+      true,
+      false,
+      false,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.6 0.13 222)",
+      "primaryDark": "oklch(0.78 0.1 222)",
+      "accent": "oklch(0.74 0.16 55)",
+      "accentDark": "oklch(0.85 0.12 55)"
+    },
+    "emoji": {
+      "primary": "oklch(0.74 0.13 232)",
+      "secondary": "oklch(0.58 0.13 232)",
+      "accent": "oklch(0.72 0.19 48)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-bike-solid.tsx",
+      "target": "components/prequelui/icons/prequel-bike-solid.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelBikeIcon, type IconProps } from \"./prequel-bike\";\n\nexport function PrequelBikeSolidIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelBikeIcon size={size} variant=\"solid\" {...props} />;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gradient-text",
+  "type": "registry:ui",
+  "title": "Gradient Text",
+  "description": "Text filled with a gradient that sweeps slowly across it.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/GradientText.vue",
+      "target": "components/prequelui/GradientText.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { onBeforeUnmount, onMounted, ref } from \"vue\";\nimport { animate } from \"motion\";\n\nconst props = defineProps({\n  text: { type: String, required: true },\n  gradient: {\n    type: String,\n    default:\n      \"linear-gradient(90deg, #3b82f6 0%, #a855f7 20%, #ec4899 50%, #a855f7 80%, #3b82f6 100%)\",\n  },\n  neon: { type: Boolean, default: false },\n});\n\nconst root = ref(null);\nconst layer = ref(null);\nconst glow = ref(null);\nconst controls = [];\nlet observer;\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nfunction play() {\n  if (reduce()) return;\n  for (const node of [layer.value, glow.value]) {\n    if (!node) continue;\n    controls.push(\n      animate(\n        node,\n        { backgroundPosition: [\"0% 0%\", \"500% 100%\"] },\n        { duration: 50, repeat: Infinity, ease: \"linear\" },\n      ),\n    );\n  }\n}\n\nonMounted(() => {\n  observer = new IntersectionObserver((entries) => {\n    if (entries.some((entry) => entry.isIntersecting)) {\n      play();\n      observer?.disconnect();\n    }\n  });\n  if (root.value) observer.observe(root.value);\n});\n\nonBeforeUnmount(() => {\n  observer?.disconnect();\n  controls.forEach((control) => control.stop?.());\n});\n</script>\n\n<template>\n  <span ref=\"root\" data-slot=\"gradient-text\" class=\"relative inline-block\">\n    <span\n      ref=\"layer\"\n      class=\"inline-block bg-clip-text text-transparent\"\n      :style=\"{ backgroundImage: gradient, backgroundSize: '700% 100%' }\"\n    >\n      {{ text }}\n    </span>\n    <span\n      v-if=\"neon\"\n      ref=\"glow\"\n      aria-hidden=\"true\"\n      class=\"absolute inset-0 inline-block bg-clip-text text-transparent\"\n      :style=\"{\n        backgroundImage: gradient,\n        backgroundSize: '700% 100%',\n        mixBlendMode: 'plus-lighter',\n        filter: 'blur(8px)',\n      }\"\n    >\n      {{ text }}\n    </span>\n  </span>\n</template>\n"
+    }
+  ]
+}

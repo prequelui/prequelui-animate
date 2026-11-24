@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "preview-link-card",
+  "type": "registry:ui",
+  "title": "Preview Link Card",
+  "description": "A link that reveals a live preview of its destination on hover.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/preview-link-card.js",
+      "target": "components/prequelui/preview-link-card.js",
+      "type": "registry:ui",
+      "content": "let uid = 0;\nlet styled = false;\n\nfunction ensureStyles() {\n  if (styled) return;\n  styled = true;\n  const style = document.createElement(\"style\");\n  style.textContent = `\n    .preview { animation: preview-in 250ms cubic-bezier(0.23,1,0.32,1) both; }\n    @keyframes preview-in { from { opacity: 0; transform: translate(-50%, 8px) scale(0.97); filter: blur(6px); } }\n    @media (prefers-reduced-motion: reduce) { .preview { animation: preview-fade 150ms linear both; } @keyframes preview-fade { from { opacity: 0; } } }`;\n  document.head.appendChild(style);\n}\n\nexport function createPreviewLinkCard(root, options = {}) {\n  ensureStyles();\n  const {\n    href = \"https://prequelui.dev\",\n    trigger = \"prequelui.dev\",\n    title = \"PrequelUI Animate\",\n    description = \"Motion for the primitives you already use.\",\n    image = \"\",\n    delay = 200,\n    closeDelay = 150,\n  } = options;\n  const id = `preview-${++uid}`;\n  let open = false;\n  let enterTimer;\n  let leaveTimer;\n\n  root.innerHTML = `\n    <span class=\"relative inline-block\" data-preview=\"${id}\">\n      <a href=\"${href}\" target=\"_blank\" rel=\"noreferrer\"\n        class=\"inline-flex items-center gap-1 text-[13px] font-medium underline decoration-border underline-offset-4\">\n        ${trigger}\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" class=\"size-3.5\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg>\n      </a>\n    </span>`;\n  const host = root.querySelector(`[data-preview=\"${id}\"]`);\n  host.querySelector(\"a\").addEventListener(\"click\", (event) => event.preventDefault());\n\n  function render() {\n    host.querySelector(\".preview\")?.remove();\n    if (!open) return;\n    const card = document.createElement(\"div\");\n    card.className = \"preview absolute left-1/2 top-8 z-40 w-[260px] -translate-x-1/2 overflow-hidden rounded-xl border bg-popover shadow-xl\";\n    card.innerHTML = `${\n      image\n        ? `<img src=\"${image}\" alt=\"\" class=\"h-[92px] w-full object-cover\" />`\n        : `<div class=\"h-[92px] bg-[radial-gradient(circle_at_30%_20%,#f6c7ae,transparent_60%),linear-gradient(135deg,#efe9df,#dbe7e2)] dark:bg-[radial-gradient(circle_at_30%_20%,#3a2b2b,transparent_60%),linear-gradient(135deg,#1a1a1a,#101816)]\"></div>`\n    }<div class=\"p-3\"><p class=\"text-[13px] font-medium\">${title}</p>\n      <p class=\"mt-1 text-[13px] leading-5 text-muted-foreground\">${description}</p></div>`;\n    host.appendChild(card);\n  }\n\n  function show() {\n    clearTimeout(leaveTimer);\n    enterTimer = setTimeout(() => {\n      open = true;\n      render();\n    }, delay);\n  }\n  function hide() {\n    clearTimeout(enterTimer);\n    leaveTimer = setTimeout(() => {\n      open = false;\n      render();\n    }, closeDelay);\n  }\n\n  host.addEventListener(\"pointerenter\", show);\n  host.addEventListener(\"pointerleave\", hide);\n  host.addEventListener(\"focusin\", show);\n  host.addEventListener(\"focusout\", hide);\n\n  return {\n    get open() { return open; },\n    destroy() {\n      clearTimeout(enterTimer);\n      clearTimeout(leaveTimer);\n      root.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "name": "@prequelui/mcp",
+  "version": "1.0.0",
+  "private": false,
+  "description": "Model Context Protocol server for the PrequelUI Animate registry.",
+  "license": "MIT",
+  "author": "Vidhal",
+  "homepage": "https://prequeluianimate.terravidhal.me/docs/mcp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prequelui/prequelui-animate",
+    "directory": "mcp"
+  },
+  "type": "module",
+  "bin": {
+    "prequelui-mcp": "./server.mjs"
+  },
+  "files": [
+    "server.mjs",
+    "lib",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "shadcn",
+    "react",
+    "vue",
+    "svelte",
+    "solid",
+    "motion",
+    "prequelui"
+  ],
+  "scripts": {
+    "start": "node server.mjs",
+    "lint:check": "node server.mjs --check",
+    "lint:test": "node --test tests/registry.test.mjs tests/tools.test.mjs",
+    "lint:e2e": "node --test tests/server.test.mjs",
+    "lint:testall": "node --test tests/registry.test.mjs tests/tools.test.mjs tests/server.test.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.26.0",
+    "zod": "^4.6.7"
+  }
+}

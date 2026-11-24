@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "marquee",
+  "type": "registry:component",
+  "title": "Marquee",
+  "description": "A seamless row that drifts at a fixed speed and pauses under the pointer.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/Marquee.svelte",
+      "target": "~/src/lib/components/prequelui/Marquee.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount, tick } from \"svelte\";\n\n  let {\n    speed = 42,\n    reverse = false,\n    pauseOnHover = true,\n    fade = true,\n    gap = 32,\n    repeat = 2,\n    itemClassName = \"\",\n    class: className = \"\",\n    ...rest\n  } = $props();\n\n  let root;\n  let track;\n  let paused = $state(false);\n  let ready = false;\n  let span = 0;\n  let position = 0;\n  let raf = 0;\n  let last = 0;\n  let observer;\n  let measured = false;\n\n  const copies = $derived(Math.max(2, Math.round(repeat)));\n\n  const mask = $derived(\n    fade\n      ? {\n          maskImage:\n            \"linear-gradient(to right, transparent, black 10%, black 90%, transparent)\",\n          WebkitMaskImage:\n            \"linear-gradient(to right, transparent, black 10%, black 90%, transparent)\",\n        }\n      : {},\n  );\n\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  function apply() {\n    if (track) track.style.transform = `translate3d(${position}px, 0, 0)`;\n  }\n\n  function measure() {\n    const first = track?.children?.[0];\n    if (!first) return;\n    const width = first.scrollWidth + gap;\n    span = width;\n    if (reverse) position = -width;\n    ready = width > 0;\n    apply();\n  }\n\n  function frame(now) {\n    if (!last) last = now;\n    const delta = Math.min(now - last, 64);\n    last = now;\n\n    if (!reduce() && !paused && ready && speed > 0) {\n      const direction = reverse ? 1 : -1;\n      let next = position + (direction * speed * delta) / 1000;\n      if (span > 0) {\n        if (!reverse && next <= -span) next += span;\n        if (reverse && next >= 0) next -= span;\n        position = next;\n        apply();\n      }\n    }\n\n    raf = requestAnimationFrame(frame);\n  }\n\n  $effect(() => {\n    gap;\n    reverse;\n    repeat;\n    if (!measured) return;\n    tick().then(measure);\n  });\n\n  onMount(() => {\n    measured = true;\n    measure();\n    if (track?.children?.[0]) {\n      observer = new ResizeObserver(measure);\n      observer.observe(track.children[0]);\n    }\n    raf = requestAnimationFrame(frame);\n    return () => {\n      cancelAnimationFrame(raf);\n      observer?.disconnect();\n    };\n  });\n</script>\n\n<div\n  bind:this={root}\n  data-slot=\"marquee\"\n  class={`relative overflow-hidden ${className}`}\n  style={mask}\n  onpointerenter={() => {\n    if (pauseOnHover) paused = true;\n  }}\n  onpointerleave={() => {\n    if (pauseOnHover) paused = false;\n  }}\n  {...rest}\n>\n  <div\n    bind:this={track}\n    class=\"flex w-max items-center will-change-transform\"\n    style={`gap:${gap}px`}\n    data-paused={paused ? \"true\" : undefined}\n  >\n    {#each Array.from({ length: copies }) as _, copy (copy)}\n      <div\n        aria-hidden={copy > 0 ? \"true\" : undefined}\n        class={`flex shrink-0 items-center ${itemClassName}`}\n        style={`gap:${gap}px`}\n      >\n        <slot />\n      </div>\n    {/each}\n  </div>\n</div>\n"
+    }
+  ]
+}

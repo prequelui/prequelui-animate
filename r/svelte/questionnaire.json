@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "questionnaire",
+  "type": "registry:component",
+  "title": "Questionnaire",
+  "description": "A multi-step questionnaire that recomposes its height between questions.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/Questionnaire.svelte",
+      "target": "~/src/lib/components/prequelui/Questionnaire.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { Check, ChevronRight } from \"lucide-svelte\";\n\n  let {\n    questions = [\n      { title: \"How often do you ship motion?\", options: [\"Every day\", \"Every release\", \"Rarely\"] },\n      { title: \"What slows you down the most?\", options: [\"Timing\", \"Accessibility\", \"Consistency\"] },\n    ],\n    onComplete = undefined,\n  } = $props();\n\n  let step = $state(0);\n  let answers = $state([]);\n  const done = $derived(step >= questions.length);\n\n  function choose(option) {\n    answers = [...answers, option];\n    step += 1;\n    if (answers.length >= questions.length) onComplete?.([...answers]);\n  }\n  function restart() {\n    answers = [];\n    step = 0;\n  }\n</script>\n\n<div class=\"w-[300px] rounded-xl border bg-background p-4\">\n  <div class=\"flex items-center gap-1.5\">\n    {#each questions as _, index}\n      <span\n        class=\"h-1.5 rounded-full transition-all duration-300\"\n        class:bg-foreground={index <= step}\n        class:bg-border={index > step}\n        style={`width:${index === Math.min(step, questions.length - 1) ? 20 : 6}px`}\n      ></span>\n    {/each}\n    <span class=\"ml-auto text-[13px] text-muted-foreground\">\n      {Math.min(step + 1, questions.length)} / {questions.length}\n    </span>\n  </div>\n  {#key step}\n    {#if done}\n      <div class=\"q-panel pt-4\">\n        <p class=\"flex items-center gap-2 text-[14px] font-medium\">\n          <Check class=\"size-4\" /> All set\n        </p>\n        <p class=\"mt-1 text-[13px] leading-5 text-muted-foreground\">\n          We picked {answers.length} motion tokens for you.\n        </p>\n        <button\n          type=\"button\"\n          class=\"mt-3 text-[13px] text-muted-foreground underline underline-offset-4 hover:text-foreground\"\n          onclick={restart}\n        >\n          Start again\n        </button>\n      </div>\n    {:else}\n      <div class=\"q-panel pt-4\">\n        <p class=\"text-[14px] font-medium\">{questions[step]?.title}</p>\n        <div class=\"mt-3 space-y-1.5\">\n          {#each questions[step]?.options ?? [] as option, index}\n            <button\n              type=\"button\"\n              class=\"q-option flex w-full items-center justify-between rounded-lg border px-2.5 py-2 text-left text-[13px] text-muted-foreground transition-colors hover:bg-accent hover:text-foreground active:scale-[0.985]\"\n              style={`animation-delay:${index * 30}ms`}\n              onclick={() => choose(option)}\n            >\n              {option}\n              <ChevronRight class=\"size-3.5\" />\n            </button>\n          {/each}\n        </div>\n      </div>\n    {/if}\n  {/key}\n</div>\n\n<style>\n  .q-panel { animation: q-in 300ms cubic-bezier(0.25, 0.1, 0.35, 1) both; }\n  .q-option { animation: q-option 220ms cubic-bezier(0.25, 0.1, 0.35, 1) both; }\n  @keyframes q-in { from { opacity: 0; transform: translateY(24px); filter: blur(5px); } }\n  @keyframes q-option { from { opacity: 0; transform: translateY(4px); } }\n  @media (prefers-reduced-motion: reduce) {\n    .q-panel, .q-option { animation: q-fade 150ms linear both; }\n    @keyframes q-fade { from { opacity: 0; } }\n  }\n</style>\n"
+    }
+  ]
+}

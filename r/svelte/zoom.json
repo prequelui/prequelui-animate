@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "zoom",
+  "type": "registry:component",
+  "title": "Zoom",
+  "description": "An entrance that scales from half size with a spring.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/Zoom.svelte",
+      "target": "~/src/lib/components/prequelui/Zoom.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount } from \"svelte\";\n  import { animate } from \"motion\";\n\n  let {\n    delay = 0,\n    initialScale = 0.5,\n    scale = 1,\n    inView = false,\n    inViewOnce = true,\n    inViewMargin = \"0px\",\n    transition = undefined,\n    class: className = \"\",\n    ...rest\n  } = $props();\n\n  let root;\n  let observer;\n  let controls;\n\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  function options() {\n    const base = transition ?? {\n      type: \"spring\",\n      stiffness: 200,\n      damping: 20,\n    };\n    return {\n      ...base,\n      delay: (base.delay ?? 0) + delay / 1000,\n    };\n  }\n\n  function play() {\n    if (!root) return;\n    controls?.stop?.();\n    if (reduce()) {\n      controls = animate(root, { opacity: [0, 1] }, options());\n      return;\n    }\n    controls = animate(root, { scale: [initialScale, scale] }, options());\n  }\n\n  function reset() {\n    if (!root) return;\n    controls?.stop?.();\n    if (reduce()) root.style.opacity = \"0\";\n    else root.style.transform = `scale(${initialScale})`;\n  }\n\n  onMount(() => {\n    if (!root) return;\n    if (!inView) {\n      play();\n      return;\n    }\n\n    observer = new IntersectionObserver(\n      (entries) => {\n        const visible = entries.some((entry) => entry.isIntersecting);\n        if (visible) {\n          play();\n          if (inViewOnce) observer?.disconnect();\n        } else if (!inViewOnce) {\n          reset();\n        }\n      },\n      { threshold: 0.35, rootMargin: inViewMargin },\n    );\n    observer.observe(root);\n    return () => observer?.disconnect();\n  });\n\n  $effect(() => () => controls?.stop?.());\n\n  const initial = $derived(reduce() ? \"opacity:0\" : `transform:scale(${initialScale})`);\n</script>\n\n<div\n  bind:this={root}\n  data-slot=\"zoom\"\n  class={className}\n  style={initial}\n  {...rest}\n>\n  <slot />\n</div>\n"
+    }
+  ]
+}

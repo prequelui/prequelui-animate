@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "copy-button",
+  "type": "registry:ui",
+  "title": "Copy Button",
+  "description": "Copies text and swaps its icon in a quick blur crossfade.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/CopyButton.vue",
+      "target": "components/prequelui/CopyButton.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { computed, onBeforeUnmount, ref } from \"vue\";\nimport { animate } from \"motion\";\nimport { Check, Copy } from \"@lucide/vue\";\n\nconst props = defineProps({\n  content: { type: String, required: true },\n  copied: { type: Boolean, default: null },\n  defaultCopied: { type: Boolean, default: false },\n  delay: { type: Number, default: 3000 },\n});\nconst emit = defineEmits([\"copied-change\", \"click\"]);\n\nconst button = ref(null);\nconst inner = ref(props.defaultCopied);\nconst isCopied = computed(() =>\n  props.copied == null ? inner.value : props.copied,\n);\nlet timer;\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nfunction press() {\n  if (!button.value || reduce()) return;\n  animate(\n    button.value,\n    { scale: 0.97 },\n    { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n  );\n}\n\nfunction release() {\n  if (!button.value || reduce()) return;\n  animate(\n    button.value,\n    { scale: 1 },\n    { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n  );\n}\n\nonBeforeUnmount(() => clearTimeout(timer));\n\nfunction setCopied(value) {\n  if (props.copied == null) inner.value = value;\n  emit(\"copied-change\", value, props.content);\n}\n\nfunction handleClick(event) {\n  emit(\"click\", event);\n  if (event.defaultPrevented || !props.content || isCopied.value) return;\n  const done = () => {\n    setCopied(true);\n    clearTimeout(timer);\n    timer = setTimeout(() => setCopied(false), props.delay);\n  };\n  if (navigator.clipboard) navigator.clipboard.writeText(props.content).then(done, done);\n  else done();\n}\n</script>\n\n<template>\n  <button\n    ref=\"button\"\n    type=\"button\"\n    data-slot=\"copy-button\"\n    :data-copied=\"isCopied ? '' : undefined\"\n    class=\"inline-flex h-10 items-center justify-center gap-2 rounded-lg border bg-background px-4 text-[13px] font-medium text-foreground transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50\"\n    @click=\"handleClick\"\n    @pointerdown=\"press\"\n    @pointerup=\"release\"\n    @pointerleave=\"release\"\n  >\n    <span data-slot=\"copy-button-icon\" class=\"relative inline-flex size-4 items-center justify-center\">\n      <Copy\n        aria-hidden=\"true\"\n        class=\"absolute inset-0 size-4 transition-all duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:transition-none\"\n        :class=\"isCopied ? 'scale-50 opacity-0 blur-[2px]' : 'scale-100 opacity-100 blur-0'\"\n      />\n      <Check\n        aria-hidden=\"true\"\n        class=\"absolute inset-0 size-4 transition-all duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:transition-none\"\n        :class=\"isCopied ? 'scale-100 opacity-100 blur-0' : 'scale-50 opacity-0 blur-[2px]'\"\n      />\n    </span>\n    <slot>{{ isCopied ? \"Copied\" : \"Copy\" }}</slot>\n  </button>\n</template>\n"
+    }
+  ]
+}

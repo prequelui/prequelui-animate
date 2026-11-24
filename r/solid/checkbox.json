@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox",
+  "type": "registry:ui",
+  "title": "Checkbox",
+  "description": "A checkbox with a swelling fill and a check that draws itself.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/checkbox.tsx",
+      "target": "src/components/prequelui/checkbox.tsx",
+      "type": "registry:ui",
+      "content": "import { createSignal } from \"solid-js\";\n\nexport type CheckboxProps = {\n  checked?: boolean;\n  defaultChecked?: boolean;\n  onCheckedChange?: (checked: boolean) => void;\n  label?: string;\n  disabled?: boolean;\n  class?: string;\n};\n\nexport function Checkbox(props: CheckboxProps) {\n  const [internal, setInternal] = createSignal(props.defaultChecked ?? false);\n  const value = () => props.checked ?? internal();\n\n  function toggle() {\n    if (props.disabled) return;\n    const next = !value();\n    if (props.checked === undefined) setInternal(next);\n    props.onCheckedChange?.(next);\n  }\n\n  return (\n    <label class={`flex items-center gap-2.5 text-[13px] ${props.class ?? \"\"}`}>\n      <button\n        type=\"button\"\n        role=\"checkbox\"\n        aria-checked={value()}\n        disabled={props.disabled}\n        onClick={toggle}\n        class={`relative flex size-4 items-center justify-center rounded-[4px] border outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50 ${\n          value() ? \"border-foreground\" : \"border-input\"\n        }`}\n      >\n        <span\n          aria-hidden=\"true\"\n          class=\"absolute inset-0 rounded-[3px] bg-foreground transition-transform duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:transition-none\"\n          style={{\n            transform: `scale(${value() ? 1 : 0.5})`,\n            opacity: value() ? 1 : 0,\n          }}\n        />\n        <svg\n          aria-hidden=\"true\"\n          viewBox=\"0 0 24 24\"\n          fill=\"none\"\n          stroke=\"currentColor\"\n          stroke-width=\"3\"\n          stroke-linecap=\"round\"\n          stroke-linejoin=\"round\"\n          class=\"relative size-3 text-background\"\n        >\n          <path\n            d=\"m5 12 4 4L19 6\"\n            style={{\n              \"stroke-dasharray\": 20,\n              \"stroke-dashoffset\": value() ? 0 : 20,\n              transition: \"stroke-dashoffset .25s cubic-bezier(0.23,1,0.32,1)\",\n            }}\n          />\n        </svg>\n      </button>\n      <span>{props.label ?? \"Accept terms\"}</span>\n    </label>\n  );\n}\n"
+    }
+  ]
+}

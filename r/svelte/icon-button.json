@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "icon-button",
+  "type": "registry:component",
+  "title": "Icon Button",
+  "description": "An icon button that releases a small burst of particles.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/IconButton.svelte",
+      "target": "~/src/lib/components/prequelui/IconButton.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { animate } from \"motion\";\n\n  let {\n    size = 4,\n    count = 8,\n    distance = 24,\n    hoverScale = 1,\n    tapScale = 0.97,\n    transition = undefined,\n    type = \"button\",\n    disabled = false,\n    class: className = \"\",\n    onclick = undefined,\n    children = undefined,\n    ...rest\n  } = $props();\n\n  const pressSpring = transition ?? {\n    type: \"spring\",\n    stiffness: 550,\n    damping: 30,\n    restSpeed: 10,\n  };\n\n  let button;\n  let particles;\n  let hovered = false;\n\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  function move(scale) {\n    if (!button || reduce()) return;\n    animate(button, { scale }, pressSpring);\n  }\n\n  function release() {\n    move(hovered && hoverScale !== 1 ? hoverScale : 1);\n  }\n\n  function burst(event) {\n    onclick?.(event);\n    if (reduce()) return;\n    const nodes = particles ? Array.from(particles.children) : [];\n    nodes.forEach((node, index) => {\n      const angle = (index / nodes.length) * Math.PI * 2;\n      animate(\n        node,\n        {\n          opacity: [1, 0],\n          x: [0, Math.cos(angle) * distance],\n          y: [0, Math.sin(angle) * distance],\n          scale: [1, 0.2],\n        },\n        { duration: 0.55, ease: [0.23, 1, 0.32, 1] },\n      );\n    });\n  }\n</script>\n\n<button\n  bind:this={button}\n  {type}\n  {disabled}\n  data-slot=\"icon-button\"\n  class={`relative inline-flex size-10 items-center justify-center rounded-lg border bg-background p-0 text-foreground transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 ${className}`}\n  onpointerdown={() => !disabled && move(tapScale)}\n  onpointerup={release}\n  onpointercancel={release}\n  onpointerenter={() => {\n    hovered = true;\n    if (hoverScale !== 1) move(hoverScale);\n  }}\n  onpointerleave={() => {\n    hovered = false;\n    move(1);\n  }}\n  onclick={burst}\n  {...rest}\n>\n  {#if children}{@render children()}{/if}\n  <span\n    bind:this={particles}\n    data-slot=\"icon-button-particles\"\n    aria-hidden=\"true\"\n    class=\"pointer-events-none absolute inset-0\"\n  >\n    {#each Array.from({ length: count }) as _, index}\n      <span\n        class=\"absolute left-1/2 top-1/2 rounded-full bg-current opacity-0\"\n        style={`width:${size}px;height:${size}px`}\n      ></span>\n    {/each}\n  </span>\n</button>\n"
+    }
+  ]
+}

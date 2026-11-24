@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "preview-link-card",
+  "type": "registry:ui",
+  "title": "Preview Link Card",
+  "description": "A link that reveals a live preview of its destination on hover.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/PreviewLinkCard.vue",
+      "target": "components/prequelui/PreviewLinkCard.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { onBeforeUnmount, ref } from \"vue\";\nimport { ArrowUpRight } from \"@lucide/vue\";\n\nconst props = defineProps({\n  href: { type: String, default: \"https://prequelui.dev\" },\n  trigger: { type: String, default: \"prequelui.dev\" },\n  title: { type: String, default: \"PrequelUI Animate\" },\n  description: { type: String, default: \"Motion for the primitives you already use.\" },\n  image: { type: String, default: \"\" },\n  delay: { type: Number, default: 200 },\n  closeDelay: { type: Number, default: 150 },\n});\nconst open = ref(false);\nlet enterTimer;\nlet leaveTimer;\n\nfunction show() {\n  clearTimeout(leaveTimer);\n  enterTimer = setTimeout(() => (open.value = true), props.delay ?? 200);\n}\nfunction hide() {\n  clearTimeout(enterTimer);\n  leaveTimer = setTimeout(() => (open.value = false), props.closeDelay ?? 150);\n}\nonBeforeUnmount(() => {\n  clearTimeout(enterTimer);\n  clearTimeout(leaveTimer);\n});\n</script>\n\n<template>\n  <span class=\"relative inline-block\" @pointerenter=\"show\" @pointerleave=\"hide\" @focusin=\"show\" @focusout=\"hide\">\n    <a\n      :href=\"href\"\n      target=\"_blank\"\n      rel=\"noreferrer\"\n      class=\"inline-flex items-center gap-1 text-[13px] font-medium underline decoration-border underline-offset-4\"\n      @click.prevent\n    >\n      {{ trigger }}\n      <ArrowUpRight class=\"size-3.5\" />\n    </a>\n    <Transition name=\"preview\">\n      <div class=\"absolute left-1/2 top-8 z-40 w-[260px] -translate-x-1/2 overflow-hidden rounded-xl border bg-popover shadow-xl\">\n        <img v-if=\"image\" :src=\"image\" alt=\"\" class=\"h-[92px] w-full object-cover\" />\n        <div v-else class=\"h-[92px] bg-[radial-gradient(circle_at_30%_20%,#f6c7ae,transparent_60%),linear-gradient(135deg,#efe9df,#dbe7e2)] dark:bg-[radial-gradient(circle_at_30%_20%,#3a2b2b,transparent_60%),linear-gradient(135deg,#1a1a1a,#101816)]\" />\n        <div class=\"p-3\">\n          <p class=\"text-[13px] font-medium\">{{ title }}</p>\n          <p class=\"mt-1 text-[13px] leading-5 text-muted-foreground\">{{ description }}</p>\n        </div>\n      </div>\n    </Transition>\n  </span>\n</template>\n\n<style>\n.preview-enter-active { animation: preview-in 250ms cubic-bezier(0.23, 1, 0.32, 1) both; }\n.preview-leave-active { animation: preview-out 150ms cubic-bezier(0, 0, 0.58, 1) both; }\n@keyframes preview-in { from { opacity: 0; transform: translate(-50%, 8px) scale(0.97); filter: blur(6px); } }\n@keyframes preview-out { to { opacity: 0; transform: translate(-50%, 6px) scale(0.98); filter: blur(4px); } }\n@media (prefers-reduced-motion: reduce) {\n  .preview-enter-active, .preview-leave-active { animation: preview-fade 150ms linear both; }\n  @keyframes preview-fade { from { opacity: 0; } to { opacity: 1; } }\n}\n</style>\n"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle",
+  "type": "registry:ui",
+  "title": "Toggle",
+  "description": "A two-state button with a short press and a quiet colour change.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/toggle.js",
+      "target": "components/prequelui/toggle.js",
+      "type": "registry:ui",
+      "content": "let uid = 0;\n\nexport function createToggle(root, options = {}) {\n  const { defaultPressed = false, label = \"Live preview\", onPressedChange = undefined } = options;\n  const id = `toggle-${++uid}`;\n  let pressed = defaultPressed;\n\n  root.innerHTML = `\n    <button type=\"button\" aria-pressed=\"${pressed}\"\n      class=\"relative inline-flex h-9 items-center gap-2 rounded-lg border px-3 text-[13px] font-medium transition-[background-color,color,transform] duration-200 active:scale-[0.97]\">\n      <span aria-hidden=\"true\" data-dot class=\"block size-2 rounded-full transition-colors duration-200\"></span>\n      <span>${label}</span>\n    </button>`;\n  const button = root.querySelector(\"button\");\n  const dot = root.querySelector(\"[data-dot]\");\n\n  function render() {\n    button.setAttribute(\"aria-pressed\", String(pressed));\n    button.classList.toggle(\"bg-primary\", pressed);\n    button.classList.toggle(\"text-primary-foreground\", pressed);\n    button.classList.toggle(\"bg-background\", !pressed);\n    button.classList.toggle(\"text-muted-foreground\", !pressed);\n    button.classList.toggle(\"hover:bg-accent\", !pressed);\n    dot.classList.toggle(\"bg-[#7ee2a8]\", pressed);\n    dot.classList.toggle(\"bg-muted-foreground/50\", !pressed);\n  }\n  render();\n\n  button.addEventListener(\"click\", () => {\n    pressed = !pressed;\n    onPressedChange?.(pressed);\n    render();\n  });\n\n  return {\n    get pressed() { return pressed; },\n    destroy() {\n      root.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

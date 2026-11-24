@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "popover",
+  "type": "registry:ui",
+  "title": "Popover",
+  "description": "An anchored surface that grows from 80% with a spring.",
+  "dependencies": [
+    "motion",
+    "@lucide/vue"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/Popover.vue",
+      "target": "components/prequelui/Popover.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { onBeforeUnmount, onMounted, ref } from \"vue\";\n\ndefineProps({\n  trigger: { type: String, default: \"Share project\" },\n  title: { type: String, default: \"Anyone with the link\" },\n  description: { type: String, default: \"People with the link can view this project but cannot edit it.\" },\n  side: { type: String, default: \"bottom\" },\n});\n\nconst open = ref(false);\nconst root = ref(null);\n\nfunction onPointer(event) {\n  if (open.value && root.value && !root.value.contains(event.target)) open.value = false;\n}\nfunction onKey(event) {\n  if (event.key === \"Escape\") open.value = false;\n}\nonMounted(() => {\n  document.addEventListener(\"pointerdown\", onPointer);\n  document.addEventListener(\"keydown\", onKey);\n});\nonBeforeUnmount(() => {\n  document.removeEventListener(\"pointerdown\", onPointer);\n  document.removeEventListener(\"keydown\", onKey);\n});\n</script>\n\n<template>\n  <div ref=\"root\" class=\"relative inline-block\">\n    <button\n      type=\"button\"\n      aria-haspopup=\"dialog\"\n      :aria-expanded=\"open\"\n      class=\"inline-flex h-8 items-center rounded-md border px-3 text-[13px] font-medium\"\n      @click=\"open = !open\"\n    >\n      {{ trigger }}\n    </button>\n    <Transition name=\"pop\">\n      <div\n        v-if=\"open\"\n        role=\"dialog\"\n        class=\"absolute left-0 z-40 w-64 rounded-xl border bg-popover p-3 text-popover-foreground shadow-xl\"\n        :class=\"side === 'top' ? 'bottom-full mb-2 origin-bottom' : 'top-full mt-2 origin-top'\"\n      >\n        <p class=\"text-[13px] font-medium\">{{ title }}</p>\n        <p class=\"mt-1 text-[13px] leading-5 text-muted-foreground\">{{ description }}</p>\n        <slot />\n      </div>\n    </Transition>\n  </div>\n</template>\n\n<style>\n.pop-enter-active { animation: pop-in 320ms cubic-bezier(0.23, 1, 0.32, 1) both; }\n.pop-leave-active { animation: pop-out 150ms cubic-bezier(0, 0, 0.58, 1) both; }\n@keyframes pop-in { from { opacity: 0; transform: scale(0.8); } }\n@keyframes pop-out { to { opacity: 0; transform: scale(0.9); } }\n@media (prefers-reduced-motion: reduce) {\n  .pop-enter-active, .pop-leave-active { animation: pop-fade 150ms linear both; }\n  @keyframes pop-fade { from { opacity: 0; } to { opacity: 1; } }\n}\n</style>\n"
+    }
+  ]
+}

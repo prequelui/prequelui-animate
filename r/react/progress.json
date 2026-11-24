@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress",
+  "type": "registry:ui",
+  "title": "Progress",
+  "description": "A progress bar whose width settles on a soft spring without overshoot.",
+  "dependencies": [
+    "motion",
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/progress.tsx",
+      "target": "components/prequelui/progress.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { animate, motion, useReducedMotion } from \"motion/react\";\nimport { cn } from \"@/lib/utils\";\n\nexport type ProgressProps = {\n  value?: number;\n  max?: number;\n  label?: string;\n  showValue?: boolean;\n  className?: string;\n};\n\nconst settle = {\n  type: \"spring\",\n  stiffness: 300,\n  damping: 35,\n  restDelta: 0.01,\n  restSpeed: 0.1,\n} as const;\n\nconst count = { type: \"spring\", stiffness: 90, damping: 50 } as const;\n\nexport function Progress({\n  value = 0,\n  max = 100,\n  label = \"Uploading assets\",\n  showValue = true,\n  className,\n}: ProgressProps) {\n  const reduce = useReducedMotion();\n  const safeMax = max > 0 ? max : 100;\n  const clamped = Math.min(safeMax, Math.max(0, value));\n  const percent = (clamped / safeMax) * 100;\n  const [shown, setShown] = React.useState(reduce ? clamped : 0);\n\n  React.useEffect(() => {\n    if (reduce) {\n      setShown(clamped);\n      return;\n    }\n    const controls = animate(shown, clamped, {\n      ...count,\n      onUpdate: (latest) => setShown(latest),\n    });\n    return () => controls.stop();\n  }, [clamped, reduce]);\n\n  return (\n    <div className={cn(\"w-full max-w-[380px]\", className)}>\n      <div className=\"mb-2 flex items-center justify-between text-[13px] text-muted-foreground\">\n        <span>{label}</span>\n        {showValue && <span className=\"tabular-nums\">{Math.round(shown)}%</span>}\n      </div>\n      <div\n        role=\"progressbar\"\n        aria-valuemin={0}\n        aria-valuemax={safeMax}\n        aria-valuenow={clamped}\n        className=\"h-2 w-full overflow-hidden rounded-full bg-accent\"\n      >\n        <motion.div\n          initial={false}\n          animate={{ width: `${percent}%` }}\n          transition={reduce ? { duration: 0 } : settle}\n          className=\"h-full rounded-full bg-foreground\"\n        />\n      </div>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

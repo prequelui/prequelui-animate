@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "zoom",
+  "type": "registry:ui",
+  "title": "Zoom",
+  "description": "An entrance that scales from half size with a spring.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/zoom.tsx",
+      "target": "src/components/prequelui/zoom.tsx",
+      "type": "registry:ui",
+      "content": "import { onCleanup, onMount } from \"solid-js\";\nimport type { JSX } from \"solid-js\";\nimport { animate } from \"motion\";\n\nexport type ZoomTransition = {\n  type?: \"spring\" | \"tween\" | \"inertia\" | \"keyframes\";\n  stiffness?: number;\n  damping?: number;\n  mass?: number;\n  bounce?: number;\n  duration?: number;\n  delay?: number;\n  ease?: string | number[];\n  restDelta?: number;\n  restSpeed?: number;\n  [key: string]: unknown;\n};\n\nexport type ZoomProps = {\n  delay?: number;\n  initialScale?: number;\n  scale?: number;\n  inView?: boolean;\n  inViewOnce?: boolean;\n  inViewMargin?: string;\n  transition?: ZoomTransition;\n  class?: string;\n  style?: JSX.CSSProperties;\n  children?: JSX.Element;\n};\n\nconst entranceSpring: ZoomTransition = {\n  type: \"spring\",\n  stiffness: 200,\n  damping: 20,\n};\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nexport function Zoom(props: ZoomProps) {\n  let root: HTMLDivElement | undefined;\n  let observer: IntersectionObserver | undefined;\n  let controls: ReturnType<typeof animate> | undefined;\n\n  const start = () => props.initialScale ?? 0.5;\n  const initial = () => (reduce() ? { opacity: 0 } : { transform: `scale(${start()})` });\n\n  const options = () => {\n    const base = props.transition ?? entranceSpring;\n    return {\n      ...base,\n      delay: Number(base.delay ?? 0) + (props.delay ?? 0) / 1000,\n    } as Parameters<typeof animate>[2];\n  };\n\n  const play = () => {\n    if (!root) return;\n    controls?.stop?.();\n    controls = animate(\n      root,\n      reduce()\n        ? { opacity: [0, 1] }\n        : { scale: [start(), props.scale ?? 1] },\n      options(),\n    );\n  };\n\n  const reset = () => {\n    if (!root) return;\n    controls?.stop?.();\n    controls = animate(\n      root,\n      reduce() ? { opacity: 0 } : { scale: start() },\n      { duration: 0 },\n    );\n  };\n\n  onMount(() => {\n    if (!root) return;\n    Object.assign(root.style, initial());\n    if (!props.inView) {\n      play();\n      return;\n    }\n    observer = new IntersectionObserver(\n      (entries) => {\n        const visible = entries.some((entry) => entry.isIntersecting);\n        if (visible) {\n          play();\n          if (props.inViewOnce !== false) observer?.disconnect();\n        } else if (props.inViewOnce === false) {\n          reset();\n        }\n      },\n      { threshold: 0.35, rootMargin: props.inViewMargin ?? \"0px\" },\n    );\n    observer.observe(root);\n  });\n\n  onCleanup(() => {\n    observer?.disconnect();\n    controls?.stop?.();\n  });\n\n  return (\n    <div\n      ref={(node: HTMLDivElement) => (root = node)}\n      data-slot=\"zoom\"\n      class={props.class}\n      style={{ ...initial(), ...(props.style ?? {}) }}\n    >\n      {props.children}\n    </div>\n  );\n}\n"
+    }
+  ]
+}

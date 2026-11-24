@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "context-menu",
+  "type": "registry:ui",
+  "title": "Context Menu",
+  "description": "A menu anchored to the pointer with cascading items and menu handoff.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/context-menu.tsx",
+      "target": "src/components/prequelui/context-menu.tsx",
+      "type": "registry:ui",
+      "content": "import { For, Show, createSignal, onCleanup, onMount } from \"solid-js\";\nimport { Portal } from \"solid-js/web\";\n\nexport type ContextMenuItem = {\n  label: string;\n  shortcut?: string;\n  onSelect?: () => void;\n  separator?: boolean;\n};\n\nexport type ContextMenuProps = {\n  items: ContextMenuItem[];\n  children?: unknown;\n};\n\nexport function ContextMenu(props: ContextMenuProps) {\n  const [position, setPosition] = createSignal<{ x: number; y: number } | null>(null);\n\n  const close = () => setPosition(null);\n  const onKey = (event: KeyboardEvent) => {\n    if (event.key === \"Escape\") close();\n  };\n  onMount(() => {\n    document.addEventListener(\"pointerdown\", close);\n    document.addEventListener(\"keydown\", onKey);\n  });\n  onCleanup(() => {\n    if (typeof window === \"undefined\") return;\n    document.removeEventListener(\"pointerdown\", close);\n    document.removeEventListener(\"keydown\", onKey);\n  });\n\n  return (\n    <>\n      <div\n        onContextMenu={(event) => {\n          event.preventDefault();\n          setPosition({ x: event.clientX, y: event.clientY });\n        }}\n        class=\"flex h-24 w-64 items-center justify-center rounded-xl border border-dashed text-[13px] text-muted-foreground\"\n      >\n        {(props.children as never) ?? \"Right click here\"}\n      </div>\n      <Show when={position()}>\n        <Portal>\n          <div\n            role=\"menu\"\n            class=\"ctx-panel fixed z-50 min-w-[190px] origin-top-left rounded-xl border bg-background p-1 shadow-xl\"\n            style={{ left: `${position()!.x}px`, top: `${position()!.y}px` }}\n            onPointerDown={(event) => event.stopPropagation()}\n          >\n            <For each={props.items}>\n              {(item, index) => (\n                <Show\n                  when={!item.separator}\n                  fallback={<div role=\"separator\" class=\"my-1 h-px bg-border\" />}\n                >\n                  <button\n                    type=\"button\"\n                    role=\"menuitem\"\n                    class=\"ctx-row flex w-full items-center justify-between gap-6 rounded-md px-2 py-1.5 text-left text-[13px] hover:bg-accent\"\n                    style={{ \"animation-delay\": `${index() * 30}ms` }}\n                    onClick={() => {\n                      item.onSelect?.();\n                      close();\n                    }}\n                  >\n                    <span>{item.label}</span>\n                    <Show when={item.shortcut}>\n                      <span class=\"font-mono text-[13px] text-muted-foreground\">{item.shortcut}</span>\n                    </Show>\n                  </button>\n                </Show>\n              )}\n            </For>\n          </div>\n        </Portal>\n      </Show>\n      <style>{`\n        .ctx-panel { animation: ctx-in 220ms cubic-bezier(0.215,0.61,0.355,1) both; }\n        .ctx-row { animation: ctx-row 200ms cubic-bezier(0.215,0.61,0.355,1) both; }\n        @keyframes ctx-in { from { opacity: 0; transform: scale(0.96); } }\n        @keyframes ctx-row { from { opacity: 0; transform: translateY(-4px); filter: blur(2px); } }\n        @media (prefers-reduced-motion: reduce) { .ctx-panel, .ctx-row { animation: none; } }\n      `}</style>\n    </>\n  );\n}\n"
+    }
+  ]
+}

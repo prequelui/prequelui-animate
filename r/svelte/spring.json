@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spring",
+  "type": "registry:component",
+  "title": "Spring",
+  "description": "A draggable element tied to its home by a visible spring.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/Spring.svelte",
+      "target": "~/src/lib/components/prequelui/Spring.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { animate } from \"motion\";\n\n  let {\n    stiffness = 200,\n    damping = 16,\n    elastic = 0.7,\n    snapBack = true,\n    pressScale = 1.06,\n    class: className = \"\",\n    ...rest\n  } = $props();\n\n  let root;\n  let dragging = false;\n  let startX = 0;\n  let startY = 0;\n  let lastX = 0;\n  let lastY = 0;\n\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  function down(event) {\n    if (reduce() || !root || event.button !== 0) return;\n    dragging = true;\n    startX = event.clientX;\n    startY = event.clientY;\n    lastX = 0;\n    lastY = 0;\n    root.setPointerCapture?.(event.pointerId);\n    root.style.cursor = \"grabbing\";\n    animate(\n      root,\n      { scale: pressScale },\n      { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n    );\n  }\n\n  function move(event) {\n    if (!dragging || !root) return;\n    lastX = (event.clientX - startX) * elastic;\n    lastY = (event.clientY - startY) * elastic;\n    root.style.transform = `translate3d(${lastX}px, ${lastY}px, 0) scale(${pressScale})`;\n  }\n\n  function up() {\n    if (!dragging || !root) return;\n    dragging = false;\n    root.style.cursor = \"grab\";\n    if (!snapBack) return;\n    animate(\n      root,\n      { x: [lastX, 0], y: [lastY, 0], scale: 1 },\n      { type: \"spring\", stiffness, damping },\n    ).finished.then(() => {\n      if (root) root.style.transform = \"none\";\n    });\n  }\n</script>\n\n<div\n  bind:this={root}\n  data-slot=\"spring\"\n  class={`cursor-grab touch-none select-none active:cursor-grabbing ${className}`}\n  onpointerdown={down}\n  onpointermove={move}\n  onpointerup={up}\n  onpointercancel={up}\n  {...rest}\n>\n  <slot />\n</div>\n"
+    }
+  ]
+}

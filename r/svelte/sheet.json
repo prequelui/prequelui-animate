@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sheet",
+  "type": "registry:component",
+  "title": "Sheet",
+  "description": "A side sheet built on the dialog, sliding in with a blurred veil.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/Sheet.svelte",
+      "target": "~/src/lib/components/prequelui/Sheet.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { X } from \"lucide-svelte\";\n\n  let {\n    trigger = \"Open sheet\",\n    title = \"Workspace\",\n    description = \"Choose where this project lives.\",\n    side = \"right\",\n    open = undefined,\n    defaultOpen = false,\n    onOpenChange = undefined,\n    children = undefined,\n  } = $props();\n\n  let internal = $state(defaultOpen);\n  const value = $derived(open === undefined ? internal : open);\n\n  function setOpen(next) {\n    if (open === undefined) internal = next;\n    onOpenChange?.(next);\n  }\n  function onKey(event) {\n    if (event.key === \"Escape\" && value) setOpen(false);\n  }\n</script>\n\n<svelte:window onkeydown={onKey} />\n\n<button\n  type=\"button\"\n  class=\"inline-flex h-8 items-center rounded-md border px-3 text-[13px] font-medium\"\n  onclick={() => setOpen(true)}\n>\n  {trigger}\n</button>\n\n{#if value}\n  <div class=\"fixed inset-0 z-50\">\n    <button\n      type=\"button\"\n      aria-label=\"Close sheet\"\n      class=\"sheet-veil absolute inset-0 bg-black/20 backdrop-blur-[3px]\"\n      onclick={() => setOpen(false)}\n    ></button>\n    <div\n      role=\"dialog\"\n      aria-modal=\"true\"\n      class=\"sheet-panel absolute top-0 flex h-full w-[85%] max-w-sm flex-col border bg-popover p-5 shadow-2xl\"\n      data-side={side}\n      class:right-0={side === \"right\"}\n      class:border-l={side === \"right\"}\n      class:left-0={side !== \"right\"}\n      class:border-r={side !== \"right\"}\n    >\n      <button\n        type=\"button\"\n        aria-label=\"Close\"\n        class=\"absolute right-3 top-3 rounded-md p-1 text-muted-foreground hover:bg-accent\"\n        onclick={() => setOpen(false)}\n      >\n        <X class=\"size-4\" />\n      </button>\n      <h2 class=\"pr-8 text-[15px] font-medium\">{title}</h2>\n      <p class=\"mt-1.5 text-[13px] leading-6 text-muted-foreground\">{description}</p>\n      {#if children}{@render children()}{/if}\n    </div>\n  </div>\n{/if}\n\n<style>\n  .sheet-veil { animation: veil-in 400ms cubic-bezier(0.215, 0.61, 0.355, 1) both; }\n  .sheet-panel { animation: sheet-in 400ms cubic-bezier(0.215, 0.61, 0.355, 1) both; }\n  .sheet-panel[data-side=\"right\"] { animation-name: sheet-in-right; }\n  .sheet-panel[data-side=\"left\"] { animation-name: sheet-in-left; }\n  @keyframes veil-in { from { opacity: 0; } }\n  @keyframes sheet-in-right { from { transform: translateX(100%); } }\n  @keyframes sheet-in-left { from { transform: translateX(-100%); } }\n  @media (prefers-reduced-motion: reduce) {\n    .sheet-veil, .sheet-panel { animation: sheet-fade 200ms linear both; }\n    @keyframes sheet-fade { from { opacity: 0; } }\n  }\n</style>\n"
+    }
+  ]
+}

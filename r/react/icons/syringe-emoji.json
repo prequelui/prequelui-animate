@@ -1,0 +1,58 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-syringe-emoji",
+  "type": "registry:ui",
+  "title": "Syringe · Emoji",
+  "description": "A syringe that charges, presses and draws back its plunger. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/syringe.json"
+  ],
+  "meta": {
+    "style": "emoji",
+    "category": "Health",
+    "roles": [
+      "primary",
+      "primary",
+      "primary",
+      "primary",
+      "primary"
+    ],
+    "closed": [
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.6 0.18 15)",
+      "primaryDark": "oklch(0.78 0.13 15)",
+      "accent": "oklch(0.68 0.13 190)",
+      "accentDark": "oklch(0.81 0.1 190)"
+    },
+    "emoji": {
+      "primary": "oklch(0.68 0.2 27)",
+      "secondary": "oklch(0.54 0.19 25)",
+      "accent": "oklch(0.78 0.14 165)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-syringe-emoji.tsx",
+      "target": "components/prequelui/icons/prequel-syringe-emoji.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelSyringeIcon, type IconProps } from \"./prequel-syringe\";\n\nexport function PrequelSyringeEmojiIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelSyringeIcon size={size} variant=\"emoji\" {...props} />;\n}\n"
+    }
+  ]
+}

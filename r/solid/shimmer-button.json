@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shimmer-button",
+  "type": "registry:ui",
+  "title": "Shimmer Button",
+  "description": "One short pass of light crosses the button on hover, never an endless loop.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/shimmer-button.tsx",
+      "target": "src/components/prequelui/shimmer-button.tsx",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\nimport { Show, createSignal, onCleanup } from \"solid-js\";\nimport type { JSX } from \"solid-js\";\n\nexport type ShimmerButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> & {\n  shimmerColor?: string;\n  shimmerDuration?: number;\n  shimmerDelay?: number;\n  shimmer?: boolean;\n  tapScale?: number;\n};\n\nexport function ShimmerButton(props: ShimmerButtonProps) {\n  let button: HTMLButtonElement | undefined;\n  let beam: HTMLSpanElement | undefined;\n  const [run, setRun] = createSignal(0);\n  let timer: ReturnType<typeof setTimeout> | undefined;\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  onCleanup(() => clearTimeout(timer));\n\n  const play = (delay = props.shimmerDelay ?? 60) => {\n    if (props.shimmer === false || reduce()) return;\n    clearTimeout(timer);\n    timer = setTimeout(() => {\n      setRun((current) => current + 1);\n      if (!beam) return;\n      animate(\n        beam,\n        { x: [\"-180%\", \"260%\"], skewX: -14, opacity: [0, 1, 1, 0] },\n        {\n          duration: (props.shimmerDuration ?? 900) / 1000,\n          ease: [0.33, 0, 0.2, 1],\n          times: [0, 0.16, 0.72, 1],\n        },\n      );\n    }, delay);\n  };\n\n  const press = () => {\n    if (!button || reduce()) return;\n    animate(\n      button,\n      { scale: props.tapScale ?? 0.97 },\n      { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n    );\n  };\n\n  const release = () => {\n    if (!button || reduce()) return;\n    animate(\n      button,\n      { scale: 1 },\n      { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n    );\n  };\n\n  return (\n    <button\n      {...props}\n      ref={button}\n      type={props.type ?? \"button\"}\n      data-slot=\"shimmer-button\"\n      class={`relative inline-flex h-10 items-center justify-center overflow-hidden rounded-lg bg-primary px-4 text-[13px] font-medium text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 ${props.class ?? \"\"}`}\n      onPointerEnter={(event) => {\n        if (typeof props.onPointerEnter === \"function\") props.onPointerEnter(event);\n        if (event.pointerType !== \"touch\") play();\n      }}\n      onClick={(event) => {\n        if (typeof props.onClick === \"function\") props.onClick(event);\n        play(0);\n      }}\n      onPointerDown={press}\n      onPointerUp={release}\n      onPointerLeave={release}\n    >\n      <Show when={run() > 0}>\n        <span\n          ref={beam}\n          aria-hidden=\"true\"\n          data-slot=\"shimmer-button-beam\"\n          class=\"pointer-events-none absolute inset-y-0 left-0 z-0 w-[52%] opacity-0\"\n          style={{\n            background: `linear-gradient(105deg, transparent 0%, ${props.shimmerColor ?? \"color-mix(in oklab, var(--primary-foreground) 55%, transparent)\"} 50%, transparent 100%)`,\n          }}\n        />\n      </Show>\n      <span class=\"relative z-10 inline-flex items-center gap-2\">{props.children}</span>\n    </button>\n  );\n}\n"
+    }
+  ]
+}

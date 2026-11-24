@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ripple-button",
+  "type": "registry:ui",
+  "title": "Ripple Button",
+  "description": "A button that emits a ripple from the exact point clicked.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/ripple-button.tsx",
+      "target": "src/components/prequelui/ripple-button.tsx",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\nimport { For, createSignal } from \"solid-js\";\nimport type { JSX } from \"solid-js\";\n\ntype Ripple = { id: number; x: number; y: number };\n\nexport type RippleButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> & {\n  hoverScale?: number;\n  tapScale?: number;\n};\n\nexport function RippleButton(props: RippleButtonProps) {\n  let button: HTMLButtonElement | undefined;\n  const [ripples, setRipples] = createSignal<Ripple[]>([]);\n  let nextId = 0;\n  let hovered = false;\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  const click = (event: MouseEvent) => {\n    if (typeof props.onClick === \"function\") props.onClick(event);\n    if (!button) return;\n    const rect = button.getBoundingClientRect();\n    const id = nextId++;\n    setRipples((current) => [\n      ...current,\n      { id, x: event.clientX - rect.left, y: event.clientY - rect.top },\n    ]);\n    setTimeout(() => {\n      setRipples((current) => current.filter((item) => item.id !== id));\n    }, 600);\n  };\n\n  const animateRipple = (node: HTMLSpanElement) => {\n    if (reduce()) return;\n    animate(\n      node,\n      { scale: [0, 10], opacity: [0.5, 0] },\n      { duration: 0.6, ease: \"easeOut\" },\n    );\n  };\n\n  const press = () => {\n    if (!button || reduce()) return;\n    animate(\n      button,\n      { scale: props.tapScale ?? 0.97 },\n      { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n    );\n  };\n\n  const release = () => {\n    if (!button || reduce()) return;\n    animate(\n      button,\n      { scale: hovered && (props.hoverScale ?? 1) !== 1 ? props.hoverScale! : 1 },\n      { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n    );\n  };\n\n  return (\n    <button\n      {...props}\n      ref={button}\n      type={props.type ?? \"button\"}\n      data-slot=\"ripple-button\"\n      class={`relative inline-flex h-10 items-center justify-center overflow-hidden rounded-lg bg-primary px-4 text-[13px] font-medium text-primary-foreground ${props.class ?? \"\"}`}\n      onClick={click}\n      onPointerDown={press}\n      onPointerUp={release}\n      onPointerEnter={() => {\n        hovered = true;\n        if ((props.hoverScale ?? 1) !== 1) release();\n      }}\n      onPointerLeave={() => {\n        hovered = false;\n        release();\n      }}\n    >\n      {props.children}\n      <span aria-hidden=\"true\" class=\"pointer-events-none absolute inset-0\">\n        <For each={ripples()}>\n          {(ripple) => (\n            <span\n              ref={animateRipple}\n              class=\"absolute size-5 rounded-full bg-current opacity-50\"\n              style={{ left: `${ripple.x - 10}px`, top: `${ripple.y - 10}px` }}\n            />\n          )}\n        </For>\n      </span>\n    </button>\n  );\n}\n"
+    }
+  ]
+}

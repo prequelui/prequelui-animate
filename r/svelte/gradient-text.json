@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "gradient-text",
+  "type": "registry:component",
+  "title": "Gradient Text",
+  "description": "Text filled with a gradient that sweeps slowly across it.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/GradientText.svelte",
+      "target": "~/src/lib/components/prequelui/GradientText.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount } from \"svelte\";\n  import { animate } from \"motion\";\n\n  let {\n    text = \"\",\n    gradient = \"linear-gradient(90deg, #3b82f6 0%, #a855f7 20%, #ec4899 50%, #a855f7 80%, #3b82f6 100%)\",\n    neon = false,\n    class: className = \"\",\n    ...rest\n  } = $props();\n\n  let root;\n  let layer;\n  let glow;\n  const controls = [];\n  let observer;\n\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  function play() {\n    if (reduce()) return;\n    for (const node of [layer, glow]) {\n      if (!node) continue;\n      controls.push(\n        animate(\n          node,\n          { backgroundPosition: [\"0% 0%\", \"500% 100%\"] },\n          { duration: 50, repeat: Infinity, ease: \"linear\" },\n        ),\n      );\n    }\n  }\n\n  onMount(() => {\n    observer = new IntersectionObserver((entries) => {\n      if (entries.some((entry) => entry.isIntersecting)) {\n        play();\n        observer?.disconnect();\n      }\n    });\n    if (root) observer.observe(root);\n    return () => {\n      observer?.disconnect();\n      controls.forEach((control) => control.stop?.());\n    };\n  });\n</script>\n\n<span bind:this={root} data-slot=\"gradient-text\" class={`relative inline-block ${className}`} {...rest}>\n  <span\n    bind:this={layer}\n    class=\"inline-block bg-clip-text text-transparent\"\n    style={`background-image:${gradient};background-size:700% 100%`}\n  >\n    {text}\n  </span>\n  {#if neon}\n    <span\n      bind:this={glow}\n      aria-hidden=\"true\"\n      class=\"absolute inset-0 inline-block bg-clip-text text-transparent\"\n      style={`background-image:${gradient};background-size:700% 100%;mix-blend-mode:plus-lighter;filter:blur(8px)`}\n    >\n      {text}\n    </span>\n  {/if}\n</span>\n"
+    }
+  ]
+}

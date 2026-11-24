@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "liquid-button",
+  "type": "registry:ui",
+  "title": "Liquid Button",
+  "description": "A button that fills with liquid from the bottom on hover.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/liquid-button.tsx",
+      "target": "src/components/prequelui/liquid-button.tsx",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\nimport { createSignal } from \"solid-js\";\nimport type { JSX } from \"solid-js\";\n\nexport type LiquidButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> & {\n  delay?: string;\n  fillHeight?: string;\n  hoverScale?: number;\n  tapScale?: number;\n};\n\nexport function LiquidButton(props: LiquidButtonProps) {\n  let button: HTMLButtonElement | undefined;\n  let fill: HTMLSpanElement | undefined;\n  const [hovered, setHovered] = createSignal(false);\n  const seconds = Number.parseFloat(props.delay ?? \"0.3s\") || 0.3;\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  const paint = (next: boolean) => {\n    setHovered(next);\n    if (!fill) return;\n    const active = next && !reduce();\n    animate(\n      fill,\n      { scaleY: active ? 1 : 0.06, opacity: active ? 1 : 0.55 },\n      reduce() ? { duration: 0 } : { duration: seconds, ease: [0.25, 0.1, 0.35, 1] },\n    );\n  };\n\n  const press = () => {\n    if (!button || reduce()) return;\n    animate(\n      button,\n      { scale: props.tapScale ?? 0.97 },\n      { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n    );\n  };\n\n  const release = () => {\n    if (!button || reduce()) return;\n    animate(\n      button,\n      { scale: hovered() && (props.hoverScale ?? 1) !== 1 ? props.hoverScale! : 1 },\n      { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n    );\n  };\n\n  return (\n    <button\n      {...props}\n      ref={button}\n      type=\"button\"\n      data-slot=\"liquid-button\"\n      class={`group relative inline-flex h-10 items-center justify-center overflow-hidden rounded-lg border border-primary/20 bg-background px-4 text-[13px] font-medium text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring/50 ${props.class ?? \"\"}`}\n      onPointerEnter={() => {\n        paint(true);\n        if (!button || reduce() || (props.hoverScale ?? 1) === 1) return;\n        animate(\n          button,\n          { scale: props.hoverScale! },\n          { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n        );\n      }}\n      onPointerLeave={() => {\n        paint(false);\n        release();\n      }}\n      onFocus={() => paint(true)}\n      onBlur={() => paint(false)}\n      onPointerDown={press}\n      onPointerUp={release}\n    >\n      <span\n        ref={fill}\n        aria-hidden=\"true\"\n        class=\"pointer-events-none absolute inset-x-0 bottom-0 origin-bottom bg-primary\"\n        style={{ height: hovered() ? \"100%\" : props.fillHeight ?? \"3px\", opacity: 0.55 }}\n      />\n      <span\n        class={`relative z-10 transition-colors ${hovered() && !reduce() ? \"text-primary-foreground\" : \"text-foreground\"}`}\n        style={{ \"transition-duration\": `${seconds}s` }}\n      >\n        {props.children}\n      </span>\n    </button>\n  );\n}\n"
+    }
+  ]
+}

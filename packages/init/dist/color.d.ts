@@ -1,0 +1,10 @@
+import type { PackageManager } from "./types.js";
+export declare function colorEnabled(stream: NodeJS.WriteStream): boolean;
+export declare function paint(text: string, code: string, enabled: boolean): string;
+export declare function bold(text: string, enabled: boolean): string;
+export declare function dim(text: string, enabled: boolean): string;
+export declare function green(text: string, enabled: boolean): string;
+export declare function red(text: string, enabled: boolean): string;
+export declare function yellow(text: string, enabled: boolean): string;
+export declare function formatCommand(args: string[], enabled: boolean): string;
+export declare function packageManagerColor(manager: PackageManager, enabled: boolean): string;

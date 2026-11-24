@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-otp",
+  "type": "registry:ui",
+  "title": "Input OTP",
+  "description": "One-time-code inputs with popping characters and a pasted cascade.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/input-otp.tsx",
+      "target": "src/components/prequelui/input-otp.tsx",
+      "type": "registry:ui",
+      "content": "import { For, createSignal } from \"solid-js\";\n\nexport type InputOTPProps = {\n  length?: number;\n  defaultValue?: string;\n  onChange?: (value: string) => void;\n  onComplete?: (value: string) => void;\n};\n\nexport function InputOTP(props: InputOTPProps) {\n  const length = props.length ?? 6;\n  const initial = props.defaultValue ?? \"\";\n  const [values, setValues] = createSignal(\n    Array.from({ length }, (_, index) => initial[index] ?? \"\"),\n  );\n  const inputs: (HTMLInputElement | undefined)[] = [];\n\n  function commit(next: string[]) {\n    setValues(next);\n    const joined = next.join(\"\");\n    props.onChange?.(joined);\n    if (joined.length === length) props.onComplete?.(joined);\n  }\n\n  function write(index: number, text: string) {\n    const chars = text.replace(/\\D/g, \"\").slice(0, length - index).split(\"\");\n    if (!chars.length) return;\n    const next = [...values()];\n    chars.forEach((char, offset) => {\n      next[index + offset] = char;\n    });\n    commit(next);\n    inputs[Math.min(length - 1, index + chars.length)]?.focus();\n  }\n\n  function backspace(index: number) {\n    const next = [...values()];\n    if (next[index]) {\n      next[index] = \"\";\n      commit(next);\n    } else if (index > 0) {\n      next[index - 1] = \"\";\n      commit(next);\n      inputs[index - 1]?.focus();\n    }\n  }\n\n  return (\n    <div class=\"flex items-center gap-2\" role=\"group\" aria-label=\"One-time code\">\n      <For each={values()}>\n        {(char, index) => (\n          <input\n            ref={(node) => {\n              inputs[index()] = node;\n            }}\n            value={char}\n            inputmode=\"numeric\"\n            autocomplete=\"one-time-code\"\n            maxlength={1}\n            aria-label={`Digit ${index() + 1}`}\n            class=\"otp-input size-10 rounded-lg border bg-background text-center font-mono text-[15px] outline-none focus-visible:ring-2 focus-visible:ring-ring\"\n            classList={{ filled: !!char }}\n            style={{ \"animation-delay\": `${index() * 30}ms` }}\n            onInput={(event) => {\n              const digits = event.currentTarget.value.replace(/\\D/g, \"\");\n              if (!digits) {\n                const next = [...values()];\n                next[index()] = \"\";\n                commit(next);\n                return;\n              }\n              write(index(), digits);\n              event.currentTarget.value = values()[index()] ?? \"\";\n            }}\n            onKeyDown={(event) => {\n              if (event.key === \"Backspace\") {\n                event.preventDefault();\n                backspace(index());\n              }\n            }}\n            onPaste={(event) => {\n              event.preventDefault();\n              write(index(), event.clipboardData?.getData(\"text\") ?? \"\");\n            }}\n          />\n        )}\n      </For>\n      <style>{`\n        .otp-input.filled { animation: otp-pop 240ms cubic-bezier(0.23,1,0.32,1) both; }\n        @keyframes otp-pop { from { transform: scale(0.9); opacity: 0.4; } }\n        @media (prefers-reduced-motion: reduce) { .otp-input.filled { animation: none; } }\n      `}</style>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

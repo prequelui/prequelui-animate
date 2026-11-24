@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress",
+  "type": "registry:ui",
+  "title": "Progress",
+  "description": "A progress bar whose width settles on a soft spring without overshoot.",
+  "dependencies": [
+    "motion",
+    "lucide-solid"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/progress.tsx",
+      "target": "src/components/prequelui/progress.tsx",
+      "type": "registry:ui",
+      "content": "export type ProgressProps = {\n  value?: number;\n  max?: number;\n  label?: string;\n  showValue?: boolean;\n  class?: string;\n};\n\nexport function Progress(props: ProgressProps) {\n  const safeMax = () => (props.max && props.max > 0 ? props.max : 100);\n  const clamped = () => Math.min(safeMax(), Math.max(0, props.value ?? 0));\n  const percent = () => (clamped() / safeMax()) * 100;\n\n  return (\n    <div class={`w-full max-w-[380px] ${props.class ?? \"\"}`}>\n      <div class=\"mb-2 flex items-center justify-between text-[13px] text-muted-foreground\">\n        <span>{props.label ?? \"Uploading assets\"}</span>\n        {props.showValue !== false && <span class=\"tabular-nums\">{Math.round(clamped())}%</span>}\n      </div>\n      <div\n        role=\"progressbar\"\n        aria-valuemin={0}\n        aria-valuemax={safeMax()}\n        aria-valuenow={clamped()}\n        class=\"h-2 w-full overflow-hidden rounded-full bg-accent\"\n      >\n        <div\n          class=\"h-full rounded-full bg-foreground transition-[width] duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:transition-none\"\n          style={{ width: `${percent()}%` }}\n        />\n      </div>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

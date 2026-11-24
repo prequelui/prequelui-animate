@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spotlight-card",
+  "type": "registry:component",
+  "title": "Spotlight Card",
+  "description": "A soft light that follows the pointer across a card on a lagging spring.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/SpotlightCard.svelte",
+      "target": "~/src/lib/components/prequelui/SpotlightCard.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount } from \"svelte\";\n  import { animate } from \"motion\";\n\n  let {\n    color = \"rgba(255,255,255,0.16)\",\n    size = 280,\n    intensity = 1,\n    alwaysOn = false,\n    class: className = \"\",\n    ...rest\n  } = $props();\n\n  let root;\n  let light;\n  let active = $state(alwaysOn);\n  let position = { x: 0, y: 0 };\n  let follow;\n  let fade;\n\n  const gradient = $derived(\n    `radial-gradient(${size}px circle at 50% 50%, ${color}, transparent 68%)`,\n  );\n\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  function applyPosition() {\n    if (!light) return;\n    light.style.background = `radial-gradient(${size}px circle at ${position.x}px ${position.y}px, ${color}, transparent 68%)`;\n  }\n\n  function moveTo(x, y) {\n    follow?.stop?.();\n    follow = animate(position, { x, y }, {\n      type: \"spring\",\n      stiffness: 260,\n      damping: 34,\n      mass: 0.5,\n      onUpdate: applyPosition,\n    });\n  }\n\n  function update(event) {\n    if (!root) return;\n    const rect = root.getBoundingClientRect();\n    moveTo(event.clientX - rect.left, event.clientY - rect.top);\n  }\n\n  function updateOpacity() {\n    if (!light) return;\n    fade?.stop?.();\n    fade = animate(\n      light,\n      {\n        opacity:\n          active && !reduce()\n            ? intensity\n            : alwaysOn\n              ? intensity\n              : 0,\n      },\n      { duration: 0.28, ease: [0.23, 1, 0.32, 1] },\n    );\n  }\n\n  function move(event) {\n    if (event.pointerType === \"touch\") return;\n    update(event);\n  }\n\n  function enter(event) {\n    if (reduce() || event.pointerType === \"touch\") return;\n    update(event);\n    active = true;\n  }\n\n  function leave() {\n    if (alwaysOn) return;\n    active = false;\n  }\n\n  let previousAlwaysOn = alwaysOn;\n\n  $effect(() => {\n    active;\n    updateOpacity();\n  });\n\n  $effect(() => {\n    const value = alwaysOn;\n    if (value === previousAlwaysOn) return;\n    previousAlwaysOn = value;\n    active = value;\n  });\n\n  onMount(() => {\n    if (alwaysOn && root) {\n      const rect = root.getBoundingClientRect();\n      position.x = rect.width / 2;\n      position.y = rect.height / 2;\n      applyPosition();\n    }\n    updateOpacity();\n    return () => {\n      follow?.stop?.();\n      fade?.stop?.();\n    };\n  });\n</script>\n\n<div\n  bind:this={root}\n  data-slot=\"spotlight-card\"\n  data-active={active ? \"true\" : \"false\"}\n  class={`relative isolate overflow-hidden rounded-xl border bg-card text-card-foreground ${className}`}\n  onpointermove={move}\n  onpointerenter={enter}\n  onpointerleave={leave}\n  {...rest}\n>\n  <span\n    bind:this={light}\n    aria-hidden=\"true\"\n    data-slot=\"spotlight-card-light\"\n    class=\"pointer-events-none absolute -inset-px z-0 rounded-[inherit]\"\n    style={`background:${gradient};opacity:0`}\n  ></span>\n  <span\n    aria-hidden=\"true\"\n    class=\"pointer-events-none absolute inset-0 z-0 rounded-[inherit] bg-[linear-gradient(180deg,rgba(255,255,255,0.04),transparent_38%)] dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.03),transparent_38%)]\"\n  ></span>\n  <div class=\"relative z-10\">\n    <slot />\n  </div>\n</div>\n"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tilt",
+  "type": "registry:ui",
+  "title": "Tilt",
+  "description": "A card that tilts in 3D toward the pointer and returns flat.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/tilt.js",
+      "target": "components/prequelui/tilt.js",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\n\nconst defaultSpring = { type: \"spring\", stiffness: 300, damping: 25, mass: 0.5 };\n\nconst reduce = () =>\n  typeof window !== \"undefined\" &&\n  window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\nexport function createTilt(root, options = {}) {\n  const {\n    content = \"\",\n    maxTilt = 10,\n    perspective = 800,\n    transition,\n    className = \"\",\n  } = options;\n  let control;\n  const motionQuery = window.matchMedia(\"(prefers-reduced-motion: reduce)\");\n\n  root.innerHTML = `<div data-slot=\"tilt\"\n    class=\"will-change-transform ${className}\" style=\"transform-style:preserve-3d\">${content}</div>`;\n  const host = root.querySelector(\"[data-slot]\");\n  const spring = transition ?? defaultSpring;\n\n  function move(event) {\n    if (reduce()) return;\n    const rect = host.getBoundingClientRect();\n    const px = rect.width ? (event.clientX - rect.left) / rect.width : 0.5;\n    const py = rect.height ? (event.clientY - rect.top) / rect.height : 0.5;\n    control?.stop?.();\n    control = animate(\n      host,\n      {\n        rotateX: -(py * 2 - 1) * maxTilt,\n        rotateY: (px * 2 - 1) * maxTilt,\n        transformPerspective: perspective,\n      },\n      spring,\n    );\n  }\n\n  function leave() {\n    control?.stop?.();\n    control = animate(\n      host,\n      { rotateX: 0, rotateY: 0, transformPerspective: perspective },\n      spring,\n    );\n  }\n\n  function onMotionPreference() {\n    if (!reduce()) return;\n    control?.stop?.();\n    control = animate(\n      host,\n      { rotateX: 0, rotateY: 0, transformPerspective: perspective },\n      { duration: 0 },\n    );\n  }\n\n  host.addEventListener(\"pointermove\", move);\n  host.addEventListener(\"pointerleave\", leave);\n  if (typeof motionQuery.addEventListener === \"function\") {\n    motionQuery.addEventListener(\"change\", onMotionPreference);\n  } else {\n    motionQuery.addListener?.(onMotionPreference);\n  }\n  control = animate(\n    host,\n    { rotateX: 0, rotateY: 0, transformPerspective: perspective },\n    { duration: 0 },\n  );\n\n  return {\n    element: host,\n    destroy() {\n      host.removeEventListener(\"pointermove\", move);\n      host.removeEventListener(\"pointerleave\", leave);\n      if (typeof motionQuery.removeEventListener === \"function\") {\n        motionQuery.removeEventListener(\"change\", onMotionPreference);\n      } else {\n        motionQuery.removeListener?.(onMotionPreference);\n      }\n      control?.stop?.();\n      root.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

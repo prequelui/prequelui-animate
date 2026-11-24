@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch",
+  "type": "registry:component",
+  "title": "Switch",
+  "description": "A switch whose thumb stretches 3/16 and lands softly.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/Switch.svelte",
+      "target": "~/src/lib/components/prequelui/Switch.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  let {\n    checked = undefined,\n    defaultChecked = false,\n    onCheckedChange = undefined,\n    label = \"Enable notifications\",\n    disabled = false,\n  } = $props();\n\n  let internal = $state(defaultChecked);\n  const value = $derived(checked === undefined ? internal : checked);\n  let pressed = $state(false);\n\n  function toggle() {\n    if (disabled) return;\n    const next = !value;\n    if (checked === undefined) internal = next;\n    onCheckedChange?.(next);\n  }\n</script>\n\n<label class=\"flex items-center gap-3 text-[13px]\">\n  <button\n    type=\"button\"\n    role=\"switch\"\n    aria-checked={value}\n    aria-label={label}\n    {disabled}\n    class=\"relative flex h-6 w-11 shrink-0 items-center rounded-full p-0.5 outline-none transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50\"\n    class:bg-primary={value}\n    class:bg-input={!value}\n    onclick={toggle}\n    onpointerdown={() => (pressed = true)}\n    onpointerup={() => (pressed = false)}\n    onpointerleave={() => (pressed = false)}\n  >\n    <span\n      aria-hidden=\"true\"\n      class=\"block h-5 rounded-full bg-background shadow-sm transition-[transform,width] duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] motion-reduce:transition-none\"\n      style={`transform:translateX(${value ? 20 : 0}px);width:${pressed ? 24 : 20}px`}\n    ></span>\n  </button>\n  {#if label}<span>{label}</span>{/if}\n</label>\n"
+    }
+  ]
+}

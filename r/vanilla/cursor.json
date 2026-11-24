@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cursor",
+  "type": "registry:ui",
+  "title": "Cursor",
+  "description": "A custom cursor and a trailing label with two different springs.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/cursor.js",
+      "target": "components/prequelui/cursor.js",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\n\nexport function createCursor(root, options = {}) {\n  const {\n    content = \"Move your pointer here\",\n    label = \"\",\n    dotSize = 12,\n    labelGap = 14,\n    hideNative = true,\n    className = \"\",\n  } = options;\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n  let inside = false;\n\n  root.innerHTML = `\n    <div data-slot=\"cursor\" class=\"relative ${hideNative ? \"cursor-none\" : \"\"} ${className}\">\n      ${content}\n      <span data-dot aria-hidden=\"true\" data-slot=\"cursor-dot\"\n        class=\"pointer-events-none absolute left-0 top-0 z-50 rounded-full bg-foreground\"\n        style=\"width:${dotSize}px;height:${dotSize}px;opacity:0\"></span>\n      ${\n        label\n          ? `<span data-tip aria-hidden=\"true\" data-slot=\"cursor-label\"\n        class=\"pointer-events-none absolute left-0 top-0 z-50 whitespace-nowrap rounded-full bg-foreground px-2 py-0.5 text-[13px] font-medium text-background\"\n        style=\"opacity:0\">${label}</span>`\n          : \"\"\n      }\n    </div>`;\n  const host = root.querySelector(\"[data-slot]\");\n  const dot = root.querySelector(\"[data-dot]\");\n  const tip = root.querySelector(\"[data-tip]\");\n\n  function show() {\n    inside = true;\n    const options = reduce()\n      ? { duration: 0 }\n      : { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 };\n    animate(dot, { scale: [0, 1], opacity: [0, 1] }, options);\n    if (tip) {\n      animate(\n        tip,\n        { scale: [0.8, 1], opacity: [0, 1] },\n        reduce()\n          ? { duration: 0 }\n          : { type: \"spring\", stiffness: 550, damping: 46.9, restSpeed: 10 },\n      );\n    }\n  }\n\n  function hide() {\n    inside = false;\n    const options = reduce()\n      ? { duration: 0 }\n      : { type: \"spring\", stiffness: 550, damping: 46.9, restSpeed: 10 };\n    animate(dot, { scale: 0, opacity: 0 }, options);\n    if (tip) animate(tip, { scale: 0.8, opacity: 0 }, options);\n  }\n\n  function move(event) {\n    const rect = host.getBoundingClientRect();\n    const x = event.clientX - rect.left;\n    const y = event.clientY - rect.top;\n    dot.style.transform = `translate3d(${x - dotSize / 2}px, ${y - dotSize / 2}px, 0)`;\n    if (tip) {\n      animate(\n        tip,\n        { x: x + labelGap, y: y + labelGap - 8 },\n        reduce()\n          ? { duration: 0 }\n          : { type: \"spring\", stiffness: 500, damping: 50, bounce: 0 },\n      );\n    }\n  }\n\n  host.addEventListener(\"pointermove\", move);\n  host.addEventListener(\"pointerenter\", show);\n  host.addEventListener(\"pointerleave\", hide);\n\n  return {\n    element: host,\n    get inside() { return inside; },\n    destroy() {\n      host.removeEventListener(\"pointermove\", move);\n      host.removeEventListener(\"pointerenter\", show);\n      host.removeEventListener(\"pointerleave\", hide);\n      root.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

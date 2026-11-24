@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ripple-button",
+  "type": "registry:ui",
+  "title": "Ripple Button",
+  "description": "A button that emits a ripple from the exact point clicked.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/ripple-button.js",
+      "target": "components/prequelui/ripple-button.js",
+      "type": "registry:ui",
+      "content": "import { animate } from \"motion\";\n\nexport function createRippleButton(root, options = {}) {\n  const {\n    label = \"Ripple\",\n    hoverScale = 1,\n    tapScale = 0.97,\n    className = \"\",\n  } = options;\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n  let hovered = false;\n  let nextId = 0;\n  const timers = new Set();\n\n  root.innerHTML = `\n    <button type=\"button\" data-slot=\"ripple-button\"\n      class=\"relative inline-flex h-10 items-center justify-center overflow-hidden rounded-lg bg-primary px-4 text-[13px] font-medium text-primary-foreground ${className}\">\n      <span>${label}</span>\n      <span data-ripples aria-hidden=\"true\" class=\"pointer-events-none absolute inset-0\"></span>\n    </button>`;\n  const button = root.querySelector(\"button\");\n  const wrap = root.querySelector(\"[data-ripples]\");\n\n  function click(event) {\n    const rect = button.getBoundingClientRect();\n    const scaleX = rect.width ? button.offsetWidth / rect.width : 1;\n    const scaleY = rect.height ? button.offsetHeight / rect.height : 1;\n    const node = document.createElement(\"span\");\n    node.className = \"absolute size-5 rounded-full bg-current opacity-50\";\n    node.style.left = `${(event.clientX - rect.left) * scaleX - 10}px`;\n    node.style.top = `${(event.clientY - rect.top) * scaleY - 10}px`;\n    wrap.appendChild(node);\n    const id = nextId++;\n    node.dataset.ripple = String(id);\n    const start = reduce() ? 10 : 0;\n    animate(\n      node,\n      { scale: [start, 10], opacity: [0.5, 0] },\n      { duration: 0.6, ease: \"easeOut\" },\n    );\n    const timer = setTimeout(() => {\n      timers.delete(timer);\n      node.remove();\n    }, 600);\n    timers.add(timer);\n  }\n\n  function press() {\n    if (reduce()) return;\n    animate(\n      button,\n      { scale: tapScale },\n      { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n    );\n  }\n\n  function release() {\n    if (reduce()) return;\n    animate(\n      button,\n      { scale: hovered && hoverScale !== 1 ? hoverScale : 1 },\n      { type: \"spring\", stiffness: 550, damping: 30, restSpeed: 10 },\n    );\n  }\n\n  button.addEventListener(\"click\", click);\n  button.addEventListener(\"pointerdown\", press);\n  button.addEventListener(\"pointerup\", release);\n  button.addEventListener(\"pointerenter\", () => {\n    hovered = true;\n    if (hoverScale !== 1) release();\n  });\n  button.addEventListener(\"pointerleave\", () => {\n    hovered = false;\n    release();\n  });\n\n  return {\n    element: button,\n    destroy() {\n      for (const timer of timers) clearTimeout(timer);\n      timers.clear();\n      root.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

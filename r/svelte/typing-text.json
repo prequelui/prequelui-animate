@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "typing-text",
+  "type": "registry:component",
+  "title": "Typing Text",
+  "description": "Text typed character by character with a blinking caret.",
+  "dependencies": [
+    "motion",
+    "lucide-svelte"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/TypingText.svelte",
+      "target": "~/src/lib/components/prequelui/TypingText.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount } from \"svelte\";\n  import { animate } from \"motion\";\n\n  let {\n    text = \"\",\n    duration = 100,\n    delay = 0,\n    holdDelay = 1000,\n    loop = false,\n    inView = false,\n    inViewOnce = true,\n    class: className = \"\",\n    ...rest\n  } = $props();\n\n  let root;\n  let cursor;\n  const texts = Array.isArray(text) ? text : [text];\n  const segments = texts.map((value) => Array.from(value));\n  let index = $state(0);\n  let count = $state(0);\n  let phase = $state(\"typing\");\n  let ready = $state(delay === 0);\n  let timer;\n  let observer;\n  let cursorControl;\n  let started = false;\n\n  const reduce = () =>\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n\n  const visible = $derived((segments[index] ?? []).slice(0, count).join(\"\"));\n\n  function schedule() {\n    clearTimeout(timer);\n    if (reduce()) {\n      const target = loop ? 0 : segments.length - 1;\n      index = target;\n      count = (segments[target] ?? []).length;\n      phase = \"done\";\n      return;\n    }\n    if (!ready) {\n      timer = setTimeout(() => {\n        ready = true;\n        schedule();\n      }, delay);\n      return;\n    }\n    if (phase === \"done\") return;\n    const length = (segments[index] ?? []).length;\n    const isLast = index === segments.length - 1;\n\n    if (phase === \"typing\") {\n      if (count < length) {\n        timer = setTimeout(() => {\n          count += 1;\n          schedule();\n        }, duration);\n      } else if (isLast && !loop) {\n        phase = \"done\";\n      } else {\n        phase = \"holding\";\n        timer = setTimeout(schedule, holdDelay);\n      }\n    } else if (phase === \"holding\") {\n      phase = \"erasing\";\n      timer = setTimeout(schedule, Math.max(60, duration));\n    } else if (phase === \"erasing\") {\n      if (count > 0) {\n        timer = setTimeout(() => {\n          count -= 1;\n          schedule();\n        }, Math.max(40, duration * 0.55));\n      } else {\n        index = isLast ? 0 : index + 1;\n        count = 0;\n        phase = \"typing\";\n        timer = setTimeout(schedule, Math.max(120, duration));\n      }\n    }\n  }\n\n  function start() {\n    if (started) return;\n    started = true;\n    if (cursor && !reduce()) {\n      cursorControl = animate(\n        cursor,\n        { opacity: [1, 1, 0, 0] },\n        { duration: 1, repeat: Infinity, ease: \"linear\", times: [0, 0.5, 0.5, 1] },\n      );\n    }\n    schedule();\n  }\n\n  onMount(() => {\n    if (!inView) {\n      start();\n      return;\n    }\n    observer = new IntersectionObserver((entries) => {\n      if (!entries.some((entry) => entry.isIntersecting)) return;\n      start();\n      if (inViewOnce) observer?.disconnect();\n    });\n    if (root) observer.observe(root);\n    return () => {\n      clearTimeout(timer);\n      observer?.disconnect();\n      cursorControl?.stop?.();\n    };\n  });\n</script>\n\n<span bind:this={root} data-slot=\"typing-text\" class={`inline ${className}`} {...rest}>\n  <span class=\"sr-only\">{texts.join(\", \")}</span>\n  <span aria-hidden=\"true\">{visible}</span>\n  <span\n    bind:this={cursor}\n    aria-hidden=\"true\"\n    data-slot=\"typing-text-cursor\"\n    class=\"ml-0.5 inline-block h-[1.05em] w-[2px] translate-y-[0.12em] bg-foreground\"\n  ></span>\n</span>\n"
+    }
+  ]
+}

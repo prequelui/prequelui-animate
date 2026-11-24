@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hexagon",
+  "type": "registry:ui",
+  "title": "Hexagon",
+  "description": "A hexagonal grid that lights each cell under the pointer.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/hexagon.js",
+      "target": "components/prequelui/hexagon.js",
+      "type": "registry:ui",
+      "content": "const HEX_CLIP = \"polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)\";\n\nexport function createHexagon(root, options = {}) {\n  const {\n    content = \"\",\n    hexagonSize = 46,\n    hexagonMargin = 3,\n    speed = 1,\n    className = \"\",\n  } = options;\n  const width = hexagonSize;\n  const height = width * 1.1;\n  const margin = hexagonMargin;\n  const rowSpacing = height * 0.75 + margin;\n  let observer;\n  let rows = 0;\n  let columns = 0;\n\n  root.innerHTML = `\n    <div data-slot=\"hexagon-background\"\n      class=\"relative isolate size-full overflow-hidden bg-[#f4f2ee] dark:bg-[#0b0b0f] ${className}\"\n      style=\"--hex-leave:${1000 / Math.max(0.1, speed)}ms\">\n      <div data-grid aria-hidden=\"true\" class=\"absolute left-0 top-0 size-full overflow-hidden [text-rendering:optimizeSpeed]\"></div>\n      <div class=\"pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(244,242,238,0.55))] dark:bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(11,11,15,0.65))]\"></div>\n      ${content}\n    </div>`;\n  const host = root.querySelector(\"[data-slot]\");\n  const grid = root.querySelector(\"[data-grid]\");\n\n  function render() {\n    let html = \"\";\n    for (let row = 0; row < rows; row += 1) {\n      const rowStyle = `margin-top:${row === 0 ? -height / 2 : rowSpacing - height}px;margin-left:${\n        (row % 2 === 0 ? 0 : -width / 2) - width / 2\n      }px`;\n      html += `<div class=\"flex w-max\" style=\"${rowStyle}\">`;\n      for (let column = 0; column < columns; column += 1) {\n        html += `\n          <div class=\"relative shrink-0\" style=\"width:${width}px;height:${height}px;margin-left:${margin}px\">\n            <div class=\"absolute inset-0 bg-foreground/[0.10] transition-colors [transition-duration:var(--hex-leave)] [clip-path:var(--hex-clip)] hover:bg-foreground/[0.22] hover:[transition-duration:0ms] dark:bg-foreground/[0.14] dark:hover:bg-foreground/[0.30]\"\n              style=\"--hex-clip:${HEX_CLIP}\"></div>\n            <div class=\"absolute bg-[#f4f2ee] transition-colors [transition-duration:var(--hex-leave)] [clip-path:var(--hex-clip)] hover:bg-foreground/[0.06] hover:[transition-duration:0ms] dark:bg-[#0b0b0f] dark:hover:bg-foreground/[0.12]\"\n              style=\"inset:${margin}px;--hex-clip:${HEX_CLIP}\"></div>\n          </div>`;\n      }\n      html += \"</div>\";\n    }\n    grid.innerHTML = html;\n  }\n\n  function update() {\n    const rect = host.getBoundingClientRect();\n    const nextRows = Math.ceil(rect.height / rowSpacing) + 2;\n    const nextColumns = Math.ceil(rect.width / (width + margin)) + 2;\n    if (nextRows === rows && nextColumns === columns) return;\n    rows = nextRows;\n    columns = nextColumns;\n    render();\n  }\n\n  update();\n  observer = new ResizeObserver(update);\n  observer.observe(host);\n\n  return {\n    element: host,\n    destroy() {\n      observer?.disconnect();\n      root.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

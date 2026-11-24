@@ -1,0 +1,56 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-wallet-color",
+  "type": "registry:ui",
+  "title": "Wallet · Color",
+  "description": "A folded wallet whose clasp catches the light on every play. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/react/icons/wallet.json"
+  ],
+  "meta": {
+    "style": "color",
+    "category": "Finance",
+    "roles": [
+      "primary",
+      "primary",
+      "accent",
+      "primary"
+    ],
+    "closed": [
+      true,
+      false,
+      true,
+      false
+    ],
+    "palette": {
+      "primary": "oklch(0.58 0.14 168)",
+      "primaryDark": "oklch(0.77 0.11 168)",
+      "accent": "oklch(0.72 0.15 85)",
+      "accentDark": "oklch(0.84 0.12 85)"
+    },
+    "emoji": {
+      "primary": "oklch(0.78 0.14 165)",
+      "secondary": "oklch(0.62 0.13 165)",
+      "accent": "oklch(0.82 0.16 85)"
+    },
+    "styles": [
+      "outline",
+      "solid",
+      "duotone",
+      "color",
+      "emoji"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-wallet-color.tsx",
+      "target": "components/prequelui/icons/prequel-wallet-color.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { PrequelWalletIcon, type IconProps } from \"./prequel-wallet\";\n\nexport function PrequelWalletColorIcon({ size = 28, ...props }: IconProps) {\n  return <PrequelWalletIcon size={size} variant=\"color\" {...props} />;\n}\n"
+    }
+  ]
+}
