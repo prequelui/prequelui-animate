@@ -2371,3 +2371,5 @@ export const phosphorIcons = [
   { name: "sun", category: "Status", icon: PhosphorSunIcon },
   { name: "moon", category: "Status", icon: PhosphorMoonIcon },
 ] as const;
+
+export { definitions as phosphorDefinitions };

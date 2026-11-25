@@ -1,15 +1,18 @@
 "use client";
 
 import * as React from "react";
-import { motion, type Variants } from "motion/react";
+import { motion, type SVGMotionProps, type Variants } from "motion/react";
 import {
   useAnimatedIconContext,
   useIconVariants,
   type IconAnimationSet,
   type IconControls,
 } from "../core";
-import type { IconProps } from "../lucide-set";
 import { SET_MOTIONS, type SetMotionName } from "./set-motion";
+
+export type IconProps = Omit<SVGMotionProps<SVGSVGElement>, "ref"> & {
+  size?: number;
+};
 
 export type SetPart = {
   tag:

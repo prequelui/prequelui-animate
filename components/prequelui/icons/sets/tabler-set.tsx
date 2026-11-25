@@ -4684,3 +4684,5 @@ export const tablerIcons = [
   { name: "sun", category: "Status", icon: TablerSunIcon },
   { name: "moon", category: "Status", icon: TablerMoonIcon },
 ] as const;
+
+export { definitions as tablerDefinitions };

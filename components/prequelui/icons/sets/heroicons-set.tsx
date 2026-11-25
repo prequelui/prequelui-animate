@@ -2025,3 +2025,5 @@ export const heroiconsIcons = [
   { name: "lock-open", category: "Status", icon: HeroiconsLockOpenIcon },
   { name: "key", category: "Status", icon: HeroiconsKeyIcon },
 ] as const;
+
+export { definitions as heroiconsDefinitions };

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "phosphor-arrow-elbow-right-up",
+  "type": "registry:ui",
+  "title": "Arrow Elbow Right Up",
+  "description": "Phosphor navigation icon, animated by the shared motion core (slideUp).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "phosphor",
+    "style": "fill",
+    "category": "Navigation",
+    "motion": "slideUp",
+    "license": "MIT",
+    "source": "https://github.com/phosphor-icons/core",
+    "styles": [
+      "fill"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/phosphor/arrow-elbow-right-up.tsx",
+      "target": "components/prequelui/icons/sets/phosphor/arrow-elbow-right-up.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { createSetIcon, type SetIconDefinition } from \"../set-icon\";\n\nconst definition: SetIconDefinition = {\n  \"name\": \"arrow-elbow-right-up\",\n  \"category\": \"Navigation\",\n  \"viewBox\": \"0 0 256 256\",\n  \"mode\": \"fill\",\n  \"strokeWidth\": 0,\n  \"motion\": \"slideUp\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M221.66,101.66a8,8,0,0,1-11.32,0L176,67.31V192a8,8,0,0,1-8,8H24a8,8,0,0,1,0-16H160V67.31l-34.34,34.35a8,8,0,0,1-11.32-11.32l48-48a8,8,0,0,1,11.32,0l48,48A8,8,0,0,1,221.66,101.66Z\"\n      }\n    }\n  ],\n  \"accents\": []\n};\n\nexport const PhosphorArrowElbowRightUpIcon = createSetIcon(definition);\n\nexport default PhosphorArrowElbowRightUpIcon;\n"
+    }
+  ]
+}
