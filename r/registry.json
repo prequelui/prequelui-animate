@@ -1697,7 +1697,7 @@
       "name": "icon-library",
       "type": "registry:ui",
       "title": "Animated Icons",
-      "description": "Two families of animated icons riding the same motion core.",
+      "description": "Five families of animated icons riding the same motion core.",
       "dependencies": [
         "motion",
         "clsx",
@@ -1743,6 +1743,31 @@
           "path": "components/prequelui/icons/huge-set.tsx",
           "type": "registry:ui",
           "target": "components/prequelui/icons/huge-set.tsx"
+        },
+        {
+          "path": "components/prequelui/icons/sets/set-icon.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/icons/sets/set-icon.tsx"
+        },
+        {
+          "path": "components/prequelui/icons/sets/set-motion.ts",
+          "type": "registry:lib",
+          "target": "components/prequelui/icons/sets/set-motion.ts"
+        },
+        {
+          "path": "components/prequelui/icons/sets/tabler-set.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/icons/sets/tabler-set.tsx"
+        },
+        {
+          "path": "components/prequelui/icons/sets/phosphor-set.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/icons/sets/phosphor-set.tsx"
+        },
+        {
+          "path": "components/prequelui/icons/sets/heroicons-set.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/icons/sets/heroicons-set.tsx"
         }
       ]
     },
