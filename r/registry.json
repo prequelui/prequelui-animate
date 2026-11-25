@@ -60133,6 +60133,978 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "bars-fade",
+      "type": "registry:ui",
+      "title": "Bars Fade",
+      "description": "A row of bars wakes from left to right, one after another, as if a hand brushed across it.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/bars-fade.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/bars-fade.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "bloom-toggle",
+      "type": "registry:ui",
+      "title": "Bloom Toggle",
+      "description": "A toggle that opens like a flower: the petals bloom from the knob before it slides home.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/bloom-toggle.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/bloom-toggle.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "snap-grid",
+      "type": "registry:ui",
+      "title": "Snap Grid",
+      "description": "A field of points that behaves like a grid of tiny magnets, snapping to the nearest cell under the pointer.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/snap-grid.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/snap-grid.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "card-fan",
+      "type": "registry:ui",
+      "title": "Card Fan",
+      "description": "A deck of cards that opens in a fan around its bottom edge when it is tapped.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/card-fan.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/card-fan.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "gooey-tab-bar",
+      "type": "registry:ui",
+      "title": "Gooey Tab Bar",
+      "description": "A tab bar with a liquid highlight that stretches, pinches and lands under the chosen tab.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/gooey-tab-bar.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/gooey-tab-bar.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "blocks-scale",
+      "type": "registry:ui",
+      "title": "Blocks Scale",
+      "description": "A grid of blocks that grows around the pointer with a soft distance falloff.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/blocks-scale.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/blocks-scale.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "stretch-toggle",
+      "type": "registry:ui",
+      "title": "Stretch Toggle",
+      "description": "A switch whose thumb elongates while it travels, then relaxes into a circle.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/stretch-toggle.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/stretch-toggle.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "merge-drops",
+      "type": "registry:ui",
+      "title": "Merge Drops",
+      "description": "Three droplets that surface-tension toward each other and merge into a single bead.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/merge-drops.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/merge-drops.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "paper-plane",
+      "type": "registry:ui",
+      "title": "Paper Plane",
+      "description": "A paper plane that leaves a dashed trail as it glides to the far corner and folds away.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/paper-plane.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/paper-plane.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "detent-dial",
+      "type": "registry:ui",
+      "title": "Detent Dial",
+      "description": "A rotary dial with eight detents that resists between notches and snaps on release.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/detent-dial.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/detent-dial.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "domino-row",
+      "type": "registry:ui",
+      "title": "Domino Row",
+      "description": "Dominoes that topple one after another, each one waiting for the tile before it.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/domino-row.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/domino-row.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "pebble-rating",
+      "type": "registry:ui",
+      "title": "Pebble Rating",
+      "description": "A rating made of pebbles: each one squishes when picked and the set settles unevenly.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/pebble-rating.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/pebble-rating.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "jelly-pad",
+      "type": "registry:ui",
+      "title": "Jelly Pad",
+      "description": "A soft pad that absorbs a press, ripples through itself and settles back to a calm rectangle.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/jelly-pad.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/jelly-pad.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "swipe-confirm",
+      "type": "registry:ui",
+      "title": "Swipe Confirm",
+      "description": "A confirm control that only fires when the knob is dragged all the way across its track.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/swipe-confirm.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/swipe-confirm.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "bookmark",
+      "type": "registry:ui",
+      "title": "Bookmark",
+      "description": "A bookmark that folds, flips and tucks itself into the page when it is saved.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/bookmark.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/bookmark.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "depth-stack",
+      "type": "registry:ui",
+      "title": "Depth Stack",
+      "description": "A stack of cards that opens in depth as the pointer approaches, each layer at its own distance.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/depth-stack.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/depth-stack.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "menu-morph",
+      "type": "registry:ui",
+      "title": "Menu Morph",
+      "description": "A menu button whose lines rotate into a cross while its panel unfolds underneath.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/menu-morph.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/menu-morph.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "elastic-string",
+      "type": "registry:ui",
+      "title": "Elastic String",
+      "description": "A bead on a string that can be pulled aside; the string snaps back with a visible vibration.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/elastic-string.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/elastic-string.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "ripple-pad",
+      "type": "registry:ui",
+      "title": "Ripple Pad",
+      "description": "A pad that answers every press with a ring born at the pointer and lost at the border.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/ripple-pad.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/ripple-pad.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "worm-dots",
+      "type": "registry:ui",
+      "title": "Worm Dots",
+      "description": "A chain of dots that follows the pointer, each one a little later than the one before.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/worm-dots.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/worm-dots.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "download-ring",
+      "type": "registry:ui",
+      "title": "Download Ring",
+      "description": "A circular download control that draws its progress and finishes with a small check.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/download-ring.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/download-ring.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "leaf-tabs",
+      "type": "registry:ui",
+      "title": "Leaf Tabs",
+      "description": "Tabs shaped like leaves: the active one lifts from its stem and the panel changes underneath.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/leaf-tabs.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/leaf-tabs.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "bell-toggle",
+      "type": "registry:ui",
+      "title": "Bell Toggle",
+      "description": "A bell that rocks on its crown when toggled, with one short ring and a quiet mute badge.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/bell-toggle.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/bell-toggle.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "ink-switch",
+      "type": "registry:ui",
+      "title": "Ink Switch",
+      "description": "A switch where colour does not slide: it soaks outward from the thumb like ink in paper.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/ink-switch.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/ink-switch.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "rocker-switch",
+      "type": "registry:ui",
+      "title": "Rocker Switch",
+      "description": "A physical rocker switch that tips in 3D, pressing one half and lifting the other.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/rocker-switch.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/rocker-switch.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "scrub-wave",
+      "type": "registry:ui",
+      "title": "Scrub Wave",
+      "description": "A waveform you can scrub: the playhead follows the pointer and the bars ripple around it.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/scrub-wave.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/scrub-wave.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "squash-play",
+      "type": "registry:ui",
+      "title": "Squash Play",
+      "description": "A play button that compresses under the press and unfolds into two pause bars.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/squash-play.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/squash-play.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "rubber-search",
+      "type": "registry:ui",
+      "title": "Rubber Search",
+      "description": "A search field that stretches like rubber when it takes focus, then settles around the query.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/rubber-search.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/rubber-search.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "odometer",
+      "type": "registry:ui",
+      "title": "Odometer",
+      "description": "A mechanical counter whose digit wheels roll independently to their next value.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/odometer.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/odometer.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "tide-progress",
+      "type": "registry:ui",
+      "title": "Tide Progress",
+      "description": "A progress bar filled like a tide: the surface moves while the level climbs.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/tide-progress.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/tide-progress.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "eclipse-half",
+      "type": "registry:ui",
+      "title": "Eclipse Half",
+      "description": "A light that can be half swallowed by a dark disc, with the corona left glowing.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/eclipse-half.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/eclipse-half.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "magnet-grid",
+      "type": "registry:ui",
+      "title": "Magnet Grid",
+      "description": "A dot field with a magnetic centre: points drift toward the pointer and relax when it leaves.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/magnet-grid.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/magnet-grid.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "checklist",
+      "type": "registry:ui",
+      "title": "Checklist",
+      "description": "A short checklist where each check is drawn by hand and completed rows settle back.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/checklist.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/checklist.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "flip-coin",
+      "type": "registry:ui",
+      "title": "Flip Coin",
+      "description": "A coin that tosses in the air, turns over and lands showing the other side.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/flip-coin.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/flip-coin.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "radial-menu",
+      "type": "registry:ui",
+      "title": "Radial Menu",
+      "description": "A menu that opens in a ring around its trigger, each item arriving on its own spring.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/radial-menu.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/radial-menu.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
+    },
+    {
+      "name": "dot-revolve",
+      "type": "registry:ui",
+      "title": "Dot Revolve",
+      "description": "A small system of dots orbiting a centre, where a click changes the speed and direction.",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/prequelui/moments/shared.tsx",
+          "type": "registry:lib",
+          "target": "components/prequelui/moments/shared.tsx"
+        },
+        {
+          "path": "components/prequelui/moments/dot-revolve.tsx",
+          "type": "registry:ui",
+          "target": "components/prequelui/moments/dot-revolve.tsx"
+        },
+        {
+          "path": "lib/use-reduced-motion.ts",
+          "type": "registry:lib",
+          "target": "lib/use-reduced-motion.ts"
+        }
+      ]
     }
   ]
 }
