@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hugeicons-alert-circle",
+  "type": "registry:ui",
+  "title": "Alert Circle",
+  "description": "Hugeicons interface icon, animated by the shared motion core (shake).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "hugeicons",
+    "style": "outline",
+    "category": "Interface",
+    "motion": "shake",
+    "license": "MIT",
+    "source": "https://github.com/hugeicons/hugeicons",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/hugeicons/alert-circle.tsx",
+      "target": "components/prequelui/icons/sets/hugeicons/alert-circle.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { createSetIcon, type SetIconDefinition } from \"../set-icon\";\n\nconst definition: SetIconDefinition = {\n  \"name\": \"alert-circle\",\n  \"category\": \"Interface\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 1.5,\n  \"motion\": \"shake\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M12 8V12\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M12.125 15.75H12M12.25 15.75C12.25 15.8881 12.1381 16 12 16C11.8619 16 11.75 15.8881 11.75 15.75C11.75 15.6119 11.8619 15.5 12 15.5C12.1381 15.5 12.25 15.6119 12.25 15.75Z\"\n      }\n    },\n    {\n      \"tag\": \"circle\",\n      \"attrs\": {\n        \"cx\": \"12\",\n        \"cy\": \"12\",\n        \"r\": \"10\"\n      }\n    }\n  ],\n  \"accents\": [\n    0,\n    1\n  ]\n};\n\nexport const HugeiconsAlertCircleIcon = createSetIcon(definition);\n\nexport default HugeiconsAlertCircleIcon;\n"
+    }
+  ]
+}

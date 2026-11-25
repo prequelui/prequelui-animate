@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "lucide-mail",
+  "type": "registry:ui",
+  "title": "Mail",
+  "description": "Lucide communication icon, animated by the shared motion core (mail).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "lucide",
+    "style": "outline",
+    "category": "Communication",
+    "motion": "mail",
+    "license": "ISC",
+    "source": "https://github.com/lucide-icons/lucide",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/lucide/mail.tsx",
+      "target": "components/prequelui/icons/sets/lucide/mail.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { createSetIcon, type SetIconDefinition } from \"../set-icon\";\n\nconst definition: SetIconDefinition = {\n  \"name\": \"mail\",\n  \"category\": \"Communication\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 2,\n  \"motion\": \"mail\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7\"\n      }\n    },\n    {\n      \"tag\": \"rect\",\n      \"attrs\": {\n        \"x\": \"2\",\n        \"y\": \"4\",\n        \"width\": \"20\",\n        \"height\": \"16\",\n        \"rx\": \"2\"\n      }\n    }\n  ],\n  \"accents\": [\n    0\n  ]\n};\n\nexport const LucideMailIcon = createSetIcon(definition);\n\nexport default LucideMailIcon;\n"
+    }
+  ]
+}

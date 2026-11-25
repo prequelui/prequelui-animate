@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "lucide-bookmark",
+  "type": "registry:ui",
+  "title": "Bookmark",
+  "description": "Lucide status icon, animated by the shared motion core (bookmark).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "lucide",
+    "style": "outline",
+    "category": "Status",
+    "motion": "bookmark",
+    "license": "ISC",
+    "source": "https://github.com/lucide-icons/lucide",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/lucide/bookmark.tsx",
+      "target": "components/prequelui/icons/sets/lucide/bookmark.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { createSetIcon, type SetIconDefinition } from \"../set-icon\";\n\nconst definition: SetIconDefinition = {\n  \"name\": \"bookmark\",\n  \"category\": \"Status\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 2,\n  \"motion\": \"bookmark\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z\"\n      }\n    }\n  ],\n  \"accents\": []\n};\n\nexport const LucideBookmarkIcon = createSetIcon(definition);\n\nexport default LucideBookmarkIcon;\n"
+    }
+  ]
+}

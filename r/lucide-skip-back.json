@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "lucide-skip-back",
+  "type": "registry:ui",
+  "title": "Skip Back",
+  "description": "Lucide media icon, animated by the shared motion core (bounce).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "lucide",
+    "style": "outline",
+    "category": "Media",
+    "motion": "bounce",
+    "license": "ISC",
+    "source": "https://github.com/lucide-icons/lucide",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/lucide/skip-back.tsx",
+      "target": "components/prequelui/icons/sets/lucide/skip-back.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { createSetIcon, type SetIconDefinition } from \"../set-icon\";\n\nconst definition: SetIconDefinition = {\n  \"name\": \"skip-back\",\n  \"category\": \"Media\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 2,\n  \"motion\": \"bounce\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M17.971 4.285A2 2 0 0 1 21 6v12a2 2 0 0 1-3.029 1.715l-9.997-5.998a2 2 0 0 1-.003-3.432z\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M3 20V4\"\n      }\n    }\n  ],\n  \"accents\": []\n};\n\nexport const LucideSkipBackIcon = createSetIcon(definition);\n\nexport default LucideSkipBackIcon;\n"
+    }
+  ]
+}

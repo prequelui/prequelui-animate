@@ -7,6 +7,8 @@ import { FAMILY_META, type FamilyKey, type FamilyMeta } from "./family-meta";
 import type { IconProps, SetIconDefinition } from "./set-icon";
 import type { SetMotionName } from "./set-motion";
 import { heroiconsDefinitions, heroiconsIcons } from "./heroicons-set";
+import { hugeiconsDefinitions, hugeiconsIcons } from "./hugeicons-set";
+import { lucideDefinitions, lucideIcons } from "./lucide-set";
 import { phosphorDefinitions, phosphorIcons } from "./phosphor-set";
 import { tablerDefinitions, tablerIcons } from "./tabler-set";
 
@@ -46,6 +48,14 @@ export type FamilyIcon = {
 };
 
 const CATALOGS: Record<FamilyKey, FamilyCatalog> = {
+  lucide: {
+    icons: lucideIcons as ReadonlyArray<CatalogItem>,
+    definitions: lucideDefinitions,
+  },
+  hugeicons: {
+    icons: hugeiconsIcons as ReadonlyArray<CatalogItem>,
+    definitions: hugeiconsDefinitions,
+  },
   tabler: {
     icons: tablerIcons as ReadonlyArray<CatalogItem>,
     definitions: tablerDefinitions,

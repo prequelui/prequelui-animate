@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "lucide-archive",
+  "type": "registry:ui",
+  "title": "Archive",
+  "description": "Lucide files icon, animated by the shared motion core (file).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "lucide",
+    "style": "outline",
+    "category": "Files",
+    "motion": "file",
+    "license": "ISC",
+    "source": "https://github.com/lucide-icons/lucide",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/lucide/archive.tsx",
+      "target": "components/prequelui/icons/sets/lucide/archive.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { createSetIcon, type SetIconDefinition } from \"../set-icon\";\n\nconst definition: SetIconDefinition = {\n  \"name\": \"archive\",\n  \"category\": \"Files\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 2,\n  \"motion\": \"file\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M10 12h4\"\n      }\n    },\n    {\n      \"tag\": \"rect\",\n      \"attrs\": {\n        \"width\": \"20\",\n        \"height\": \"5\",\n        \"x\": \"2\",\n        \"y\": \"3\",\n        \"rx\": \"1\"\n      }\n    }\n  ],\n  \"accents\": [\n    0,\n    1\n  ]\n};\n\nexport const LucideArchiveIcon = createSetIcon(definition);\n\nexport default LucideArchiveIcon;\n"
+    }
+  ]
+}

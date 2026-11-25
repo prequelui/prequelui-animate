@@ -1,4 +1,9 @@
-export type FamilyKey = "tabler" | "phosphor" | "heroicons";
+export type FamilyKey =
+  | "lucide"
+  | "hugeicons"
+  | "tabler"
+  | "phosphor"
+  | "heroicons";
 
 export type FamilyMeta = {
   key: FamilyKey;
@@ -16,6 +21,36 @@ export type FamilyMeta = {
 };
 
 export const FAMILY_META: Record<FamilyKey, FamilyMeta> = {
+  lucide: {
+    key: "lucide",
+    label: "Lucide",
+    prefix: "Lucide",
+    guideSlug: "lucide-icons",
+    guideHref: "/icons/guide/lucide-icons",
+    count: 150,
+    categories: 7,
+    license: "ISC",
+    source: "github.com/lucide-icons/lucide",
+    sourceUrl: "https://github.com/lucide-icons/lucide",
+    licenseFile: "/iconsets/licenses/lucide-LICENSE.txt",
+    description:
+      "The Lucide outline family: a 24 px grid and 2 px strokes, with a calm, friendly geometry.",
+  },
+  hugeicons: {
+    key: "hugeicons",
+    label: "Hugeicons",
+    prefix: "Hugeicons",
+    guideSlug: "hugeicons",
+    guideHref: "/icons/guide/hugeicons",
+    count: 120,
+    categories: 7,
+    license: "MIT",
+    source: "github.com/hugeicons/hugeicons",
+    sourceUrl: "https://github.com/hugeicons/hugeicons",
+    licenseFile: "/iconsets/licenses/hugeicons-LICENSE.txt",
+    description:
+      "The Hugeicons free stroke-rounded family: a 24 px grid and 1.5 px strokes.",
+  },
   tabler: {
     key: "tabler",
     label: "Tabler",

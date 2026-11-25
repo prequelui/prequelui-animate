@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hugeicons-sliders-horizontal",
+  "type": "registry:ui",
+  "title": "Sliders Horizontal",
+  "description": "Hugeicons interface icon, animated by the shared motion core (gear).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "hugeicons",
+    "style": "outline",
+    "category": "Interface",
+    "motion": "gear",
+    "license": "MIT",
+    "source": "https://github.com/hugeicons/hugeicons",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/hugeicons/sliders-horizontal.tsx",
+      "target": "components/prequelui/icons/sets/hugeicons/sliders-horizontal.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { createSetIcon, type SetIconDefinition } from \"../set-icon\";\n\nconst definition: SetIconDefinition = {\n  \"name\": \"sliders-horizontal\",\n  \"category\": \"Interface\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 1.5,\n  \"motion\": \"gear\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M3.99963 5.00055L9.99963 5.00031\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M12.9996 5.00031L19.9996 5.00031\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M15.9996 9.00031L15.9996 15.0003\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M9.99963 2.00031L9.99963 8.00031\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M11.9996 16.0003L11.9996 22.0003\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M15.9996 12.0001L19.9996 12.0003\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M3.99963 12.0005L12.9996 12.0003\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M11.9996 19.0003L19.9996 19.0003\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M3.99963 19.0005L8.99963 19.0003\"\n      }\n    }\n  ],\n  \"accents\": [\n    0,\n    1,\n    2,\n    3,\n    4,\n    5,\n    7,\n    8\n  ]\n};\n\nexport const HugeiconsSlidersHorizontalIcon = createSetIcon(definition);\n\nexport default HugeiconsSlidersHorizontalIcon;\n"
+    }
+  ]
+}

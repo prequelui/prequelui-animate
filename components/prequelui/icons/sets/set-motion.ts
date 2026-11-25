@@ -1,7 +1,7 @@
 import type { IconAnimationSet } from "../core";
 
 /*
- * The three imported families all share one grammar: a group transform for the
+ * The five imported families all share one grammar: a group transform for the
  * whole drawing and a small accent for the part that carries the meaning. The
  * recipes below are written once and applied to every icon, in the same spirit
  * as the hand-drawn catalogue: a bell rings, an arrow advances, a heart beats.

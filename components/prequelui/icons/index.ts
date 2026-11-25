@@ -27,8 +27,8 @@ export type {
   IconPaletteBundle,
   IconPaintApi,
 } from "./style";
-export * from "./lucide-set";
-export * from "./huge-set";
+export * from "./sets/lucide-set";
+export * from "./sets/hugeicons-set";
 export * from "./sets/tabler-set";
 export * from "./sets/phosphor-set";
 export * from "./sets/heroicons-set";

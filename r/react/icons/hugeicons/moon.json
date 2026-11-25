@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hugeicons-moon",
+  "type": "registry:ui",
+  "title": "Moon",
+  "description": "Hugeicons status icon, animated by the shared motion core (moon).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "hugeicons",
+    "style": "outline",
+    "category": "Status",
+    "motion": "moon",
+    "license": "MIT",
+    "source": "https://github.com/hugeicons/hugeicons",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/hugeicons/moon.tsx",
+      "target": "components/prequelui/icons/sets/hugeicons/moon.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { createSetIcon, type SetIconDefinition } from \"../set-icon\";\n\nconst definition: SetIconDefinition = {\n  \"name\": \"moon\",\n  \"category\": \"Status\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 1.5,\n  \"motion\": \"moon\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M12 22C15.3137 22 18 17.5228 18 12C18 6.47715 15.3137 2 12 2\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M10 14.5C10 15.3284 9.32843 16 8.5 16C7.67157 16 7 15.3284 7 14.5C7 13.6716 7.67157 13 8.5 13C9.32843 13 10 13.6716 10 14.5Z\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M11.125 7H11M11.25 7C11.25 7.13807 11.1381 7.25 11 7.25C10.8619 7.25 10.75 7.13807 10.75 7C10.75 6.86193 10.8619 6.75 11 6.75C11.1381 6.75 11.25 6.86193 11.25 7Z\"\n      }\n    }\n  ],\n  \"accents\": [\n    1,\n    2,\n    3\n  ]\n};\n\nexport const HugeiconsMoonIcon = createSetIcon(definition);\n\nexport default HugeiconsMoonIcon;\n"
+    }
+  ]
+}

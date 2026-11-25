@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "lucide-chevron-up",
+  "type": "registry:ui",
+  "title": "Chevron Up",
+  "description": "Lucide navigation icon, animated by the shared motion core (slideUp).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "lucide",
+    "style": "outline",
+    "category": "Navigation",
+    "motion": "slideUp",
+    "license": "ISC",
+    "source": "https://github.com/lucide-icons/lucide",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/lucide/chevron-up.tsx",
+      "target": "components/prequelui/icons/sets/lucide/chevron-up.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { createSetIcon, type SetIconDefinition } from \"../set-icon\";\n\nconst definition: SetIconDefinition = {\n  \"name\": \"chevron-up\",\n  \"category\": \"Navigation\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 2,\n  \"motion\": \"slideUp\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"m18 15-6-6-6 6\"\n      }\n    }\n  ],\n  \"accents\": []\n};\n\nexport const LucideChevronUpIcon = createSetIcon(definition);\n\nexport default LucideChevronUpIcon;\n"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "lucide-circle-stop",
+  "type": "registry:ui",
+  "title": "Circle Stop",
+  "description": "Lucide media icon, animated by the shared motion core (press).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "lucide",
+    "style": "outline",
+    "category": "Media",
+    "motion": "press",
+    "license": "ISC",
+    "source": "https://github.com/lucide-icons/lucide",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/lucide/circle-stop.tsx",
+      "target": "components/prequelui/icons/sets/lucide/circle-stop.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { createSetIcon, type SetIconDefinition } from \"../set-icon\";\n\nconst definition: SetIconDefinition = {\n  \"name\": \"circle-stop\",\n  \"category\": \"Media\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 2,\n  \"motion\": \"press\",\n  \"parts\": [\n    {\n      \"tag\": \"circle\",\n      \"attrs\": {\n        \"cx\": \"12\",\n        \"cy\": \"12\",\n        \"r\": \"10\"\n      }\n    },\n    {\n      \"tag\": \"rect\",\n      \"attrs\": {\n        \"x\": \"9\",\n        \"y\": \"9\",\n        \"width\": \"6\",\n        \"height\": \"6\",\n        \"rx\": \"1\"\n      }\n    }\n  ],\n  \"accents\": [\n    1\n  ]\n};\n\nexport const LucideCircleStopIcon = createSetIcon(definition);\n\nexport default LucideCircleStopIcon;\n"
+    }
+  ]
+}

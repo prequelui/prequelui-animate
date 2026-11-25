@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "lucide-share-2",
+  "type": "registry:ui",
+  "title": "Share 2",
+  "description": "Lucide communication icon, animated by the shared motion core (orbit).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "lucide",
+    "style": "outline",
+    "category": "Communication",
+    "motion": "orbit",
+    "license": "ISC",
+    "source": "https://github.com/lucide-icons/lucide",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/lucide/share-2.tsx",
+      "target": "components/prequelui/icons/sets/lucide/share-2.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { createSetIcon, type SetIconDefinition } from \"../set-icon\";\n\nconst definition: SetIconDefinition = {\n  \"name\": \"share-2\",\n  \"category\": \"Communication\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 2,\n  \"motion\": \"orbit\",\n  \"parts\": [\n    {\n      \"tag\": \"circle\",\n      \"attrs\": {\n        \"cx\": \"18\",\n        \"cy\": \"5\",\n        \"r\": \"3\"\n      }\n    },\n    {\n      \"tag\": \"circle\",\n      \"attrs\": {\n        \"cx\": \"6\",\n        \"cy\": \"12\",\n        \"r\": \"3\"\n      }\n    },\n    {\n      \"tag\": \"circle\",\n      \"attrs\": {\n        \"cx\": \"18\",\n        \"cy\": \"19\",\n        \"r\": \"3\"\n      }\n    },\n    {\n      \"tag\": \"line\",\n      \"attrs\": {\n        \"x1\": \"8.59\",\n        \"x2\": \"15.42\",\n        \"y1\": \"13.51\",\n        \"y2\": \"17.49\"\n      }\n    },\n    {\n      \"tag\": \"line\",\n      \"attrs\": {\n        \"x1\": \"15.41\",\n        \"x2\": \"8.59\",\n        \"y1\": \"6.51\",\n        \"y2\": \"10.49\"\n      }\n    }\n  ],\n  \"accents\": [\n    1,\n    2,\n    3,\n    4\n  ]\n};\n\nexport const LucideShare2Icon = createSetIcon(definition);\n\nexport default LucideShare2Icon;\n"
+    }
+  ]
+}

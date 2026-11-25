@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "lucide-smartphone",
+  "type": "registry:ui",
+  "title": "Smartphone",
+  "description": "Lucide media icon, animated by the shared motion core (shake).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "lucide",
+    "style": "outline",
+    "category": "Media",
+    "motion": "shake",
+    "license": "ISC",
+    "source": "https://github.com/lucide-icons/lucide",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/lucide/smartphone.tsx",
+      "target": "components/prequelui/icons/sets/lucide/smartphone.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { createSetIcon, type SetIconDefinition } from \"../set-icon\";\n\nconst definition: SetIconDefinition = {\n  \"name\": \"smartphone\",\n  \"category\": \"Media\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 2,\n  \"motion\": \"shake\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M12 18h.01\"\n      }\n    },\n    {\n      \"tag\": \"rect\",\n      \"attrs\": {\n        \"x\": \"6\",\n        \"y\": \"2\",\n        \"width\": \"12\",\n        \"height\": \"20\",\n        \"rx\": \"2\",\n        \"ry\": \"2\"\n      }\n    }\n  ],\n  \"accents\": [\n    0\n  ]\n};\n\nexport const LucideSmartphoneIcon = createSetIcon(definition);\n\nexport default LucideSmartphoneIcon;\n"
+    }
+  ]
+}

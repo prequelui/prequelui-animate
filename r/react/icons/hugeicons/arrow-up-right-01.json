@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hugeicons-arrow-up-right-01",
+  "type": "registry:ui",
+  "title": "Arrow Up Right 01",
+  "description": "Hugeicons navigation icon, animated by the shared motion core (slideUp).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "hugeicons",
+    "style": "outline",
+    "category": "Navigation",
+    "motion": "slideUp",
+    "license": "MIT",
+    "source": "https://github.com/hugeicons/hugeicons",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/hugeicons/arrow-up-right-01.tsx",
+      "target": "components/prequelui/icons/sets/hugeicons/arrow-up-right-01.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { createSetIcon, type SetIconDefinition } from \"../set-icon\";\n\nconst definition: SetIconDefinition = {\n  \"name\": \"arrow-up-right-01\",\n  \"category\": \"Navigation\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 1.5,\n  \"motion\": \"slideUp\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M9 6.65032C9 6.65032 15.9383 6.10759 16.9154 7.08463C17.8924 8.06167 17.3496 15 17.3496 15M16.5 7.5L6.5 17.5\"\n      }\n    }\n  ],\n  \"accents\": []\n};\n\nexport const HugeiconsArrowUpRight01Icon = createSetIcon(definition);\n\nexport default HugeiconsArrowUpRight01Icon;\n"
+    }
+  ]
+}

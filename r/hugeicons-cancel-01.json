@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hugeicons-cancel-01",
+  "type": "registry:ui",
+  "title": "Cancel 01",
+  "description": "Hugeicons interface icon, animated by the shared motion core (close).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "hugeicons",
+    "style": "outline",
+    "category": "Interface",
+    "motion": "close",
+    "license": "MIT",
+    "source": "https://github.com/hugeicons/hugeicons",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/hugeicons/cancel-01.tsx",
+      "target": "components/prequelui/icons/sets/hugeicons/cancel-01.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { createSetIcon, type SetIconDefinition } from \"../set-icon\";\n\nconst definition: SetIconDefinition = {\n  \"name\": \"cancel-01\",\n  \"category\": \"Interface\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 1.5,\n  \"motion\": \"close\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M18 6L6.00081 17.9992M17.9992 18L6 6.00085\"\n      }\n    }\n  ],\n  \"accents\": []\n};\n\nexport const HugeiconsCancel01Icon = createSetIcon(definition);\n\nexport default HugeiconsCancel01Icon;\n"
+    }
+  ]
+}

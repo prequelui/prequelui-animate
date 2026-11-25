@@ -13,7 +13,7 @@
 
 import { createSetIcon, type SetIconDefinition } from "./set-icon";
 
-export type { IconProps } from "../lucide-set";
+export type { IconProps } from "./set-icon";
 
 const definitions: Record<string, SetIconDefinition> = {
   "arrow-left": {

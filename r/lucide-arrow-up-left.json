@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "lucide-arrow-up-left",
+  "type": "registry:ui",
+  "title": "Arrow Up Left",
+  "description": "Lucide navigation icon, animated by the shared motion core (slideLeft).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "lucide",
+    "style": "outline",
+    "category": "Navigation",
+    "motion": "slideLeft",
+    "license": "ISC",
+    "source": "https://github.com/lucide-icons/lucide",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/lucide/arrow-up-left.tsx",
+      "target": "components/prequelui/icons/sets/lucide/arrow-up-left.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { createSetIcon, type SetIconDefinition } from \"../set-icon\";\n\nconst definition: SetIconDefinition = {\n  \"name\": \"arrow-up-left\",\n  \"category\": \"Navigation\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 2,\n  \"motion\": \"slideLeft\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M7 17V7h10\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M17 17 7 7\"\n      }\n    }\n  ],\n  \"accents\": [\n    1\n  ]\n};\n\nexport const LucideArrowUpLeftIcon = createSetIcon(definition);\n\nexport default LucideArrowUpLeftIcon;\n"
+    }
+  ]
+}
