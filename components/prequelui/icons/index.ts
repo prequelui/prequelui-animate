@@ -29,5 +29,8 @@ export type {
 } from "./style";
 export * from "./lucide-set";
 export * from "./huge-set";
+export * from "./sets/tabler-set";
+export * from "./sets/phosphor-set";
+export * from "./sets/heroicons-set";
 export * from "./prequel-set";
 export * from "./prequel-data.generated";
