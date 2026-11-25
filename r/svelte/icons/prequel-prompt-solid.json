@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-prompt-solid",
+  "type": "registry:component",
+  "title": "Prompt · Solid",
+  "description": "A prompt box whose caret types and whose spark answers. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-prompt.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelPromptSolidIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelPromptSolidIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelPromptIcon from \"./PrequelPromptIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelPromptIcon {...rest} variant=\"solid\" />\n"
+    }
+  ]
+}

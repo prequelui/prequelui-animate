@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-arrow-down-solid",
+  "type": "registry:component",
+  "title": "Arrow Down · Solid",
+  "description": "A vertical arrow that drops into place with a soft landing. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-arrow-down.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelArrowDownSolidIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelArrowDownSolidIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelArrowDownIcon from \"./PrequelArrowDownIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelArrowDownIcon {...rest} variant=\"solid\" />\n"
+    }
+  ]
+}

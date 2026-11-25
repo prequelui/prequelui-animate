@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-message-solid",
+  "type": "registry:ui",
+  "title": "Message · Solid",
+  "description": "A speech bubble whose three dots pulse in sequence. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-message.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-message-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-message-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelMessageIcon } from \"./prequel-message\";\n\nexport function PrequelMessageSolidIcon(props) {\n  return <PrequelMessageIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

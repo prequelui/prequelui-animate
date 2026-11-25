@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-phone-solid",
+  "type": "registry:ui",
+  "title": "Phone · Solid",
+  "description": "A handset that tips toward its ear and sends a soft ring. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-phone.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-phone-solid.js",
+      "target": "components/prequelui/icons/prequel-phone-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelPhoneIcon } from \"./prequel-phone.js\";\n\nexport function createPrequelPhoneSolidIcon(root, options = {}) {\n  const controller = createPrequelPhoneIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

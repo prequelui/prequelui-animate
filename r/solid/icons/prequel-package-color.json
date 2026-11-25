@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-package-color",
+  "type": "registry:ui",
+  "title": "Package · Color",
+  "description": "A parcel whose seams draw in and whose lid lifts away. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-package.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-package-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-package-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelPackageIcon } from \"./prequel-package\";\n\nexport function PrequelPackageColorIcon(props) {\n  return <PrequelPackageIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

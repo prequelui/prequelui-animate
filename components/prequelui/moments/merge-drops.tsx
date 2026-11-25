@@ -52,7 +52,7 @@ export function MergeDrops({ className, preview }: MomentProps) {
           />
         ))}
       </button>
-      <span className="text-[12px] uppercase tracking-[0.18em] text-white/45">
+      <span className="text-[13px] uppercase tracking-[0.18em] text-white/45">
         {joined ? "One bead" : "Three drops"}
       </span>
     </div>

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-arrow-up-right-solid",
+  "type": "registry:ui",
+  "title": "Arrow Up Right · Solid",
+  "description": "A diagonal arrow that leans out of its corner on hover. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-arrow-up-right.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-arrow-up-right-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-arrow-up-right-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelArrowUpRightIcon } from \"./prequel-arrow-up-right\";\n\nexport function PrequelArrowUpRightSolidIcon(props) {\n  return <PrequelArrowUpRightIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

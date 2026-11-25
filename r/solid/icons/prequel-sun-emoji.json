@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-sun-emoji",
+  "type": "registry:ui",
+  "title": "Sun · Emoji",
+  "description": "A round sun whose rays rotate and flicker together. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-sun.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-sun-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-sun-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelSunIcon } from \"./prequel-sun\";\n\nexport function PrequelSunEmojiIcon(props) {\n  return <PrequelSunIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

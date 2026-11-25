@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-cloud-rain-emoji",
+  "type": "registry:ui",
+  "title": "Cloud Rain · Emoji",
+  "description": "A cloud with three drops that fall in a staggered rhythm. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-cloud-rain.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-cloud-rain-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-cloud-rain-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelCloudRainIcon } from \"./prequel-cloud-rain\";\n\nexport function PrequelCloudRainEmojiIcon(props) {\n  return <PrequelCloudRainIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

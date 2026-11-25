@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-file-text-solid",
+  "type": "registry:ui",
+  "title": "File Text · Solid",
+  "description": "A typed page whose paragraph writes itself line by line. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-file-text.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-file-text-solid.js",
+      "target": "components/prequelui/icons/prequel-file-text-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelFileTextIcon } from \"./prequel-file-text.js\";\n\nexport function createPrequelFileTextSolidIcon(root, options = {}) {\n  const controller = createPrequelFileTextIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

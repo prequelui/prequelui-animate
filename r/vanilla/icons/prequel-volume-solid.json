@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-volume-solid",
+  "type": "registry:ui",
+  "title": "Volume · Solid",
+  "description": "A speaker cone whose sound waves ripple outward. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-volume.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-volume-solid.js",
+      "target": "components/prequelui/icons/prequel-volume-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelVolumeIcon } from \"./prequel-volume.js\";\n\nexport function createPrequelVolumeSolidIcon(root, options = {}) {\n  const controller = createPrequelVolumeIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

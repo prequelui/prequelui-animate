@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-database-color",
+  "type": "registry:ui",
+  "title": "Database · Color",
+  "description": "Stacked database discs that breathe as one. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-database.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-database-color.js",
+      "target": "components/prequelui/icons/prequel-database-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelDatabaseIcon } from \"./prequel-database.js\";\n\nexport function createPrequelDatabaseColorIcon(root, options = {}) {\n  const controller = createPrequelDatabaseIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

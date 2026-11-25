@@ -113,7 +113,7 @@ export function SwipeConfirm({ className, preview }: MomentProps) {
           transition={reduce ? { duration: 0 } : springFast}
           initial={false}
         />
-        <span className="pointer-events-none absolute inset-0 flex items-center justify-center pl-4 text-[11px] uppercase tracking-[0.18em] text-white/45">
+        <span className="pointer-events-none absolute inset-0 flex items-center justify-center pl-4 text-[13px] uppercase tracking-[0.18em] text-white/45">
           {done ? "Confirmed" : shown >= 88 ? "Release" : "Swipe to confirm"}
         </span>
         <motion.span

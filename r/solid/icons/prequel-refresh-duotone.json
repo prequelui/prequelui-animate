@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-refresh-duotone",
+  "type": "registry:ui",
+  "title": "Refresh · Duotone",
+  "description": "Two chasing arcs with arrowheads that redraw on each pass. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-refresh.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-refresh-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-refresh-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelRefreshIcon } from \"./prequel-refresh\";\n\nexport function PrequelRefreshDuotoneIcon(props) {\n  return <PrequelRefreshIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

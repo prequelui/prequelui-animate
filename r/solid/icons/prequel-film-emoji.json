@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-film-emoji",
+  "type": "registry:ui",
+  "title": "Film · Emoji",
+  "description": "A film strip whose sprocket holes tick past frame by frame. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-film.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-film-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-film-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelFilmIcon } from \"./prequel-film\";\n\nexport function PrequelFilmEmojiIcon(props) {\n  return <PrequelFilmIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

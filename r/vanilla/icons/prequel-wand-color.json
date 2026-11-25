@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-wand-color",
+  "type": "registry:ui",
+  "title": "Wand · Color",
+  "description": "A wand that taps its tip and leaves a small four-point star. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-wand.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-wand-color.js",
+      "target": "components/prequelui/icons/prequel-wand-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelWandIcon } from \"./prequel-wand.js\";\n\nexport function createPrequelWandColorIcon(root, options = {}) {\n  const controller = createPrequelWandIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

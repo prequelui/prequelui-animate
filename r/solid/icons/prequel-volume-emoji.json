@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-volume-emoji",
+  "type": "registry:ui",
+  "title": "Volume · Emoji",
+  "description": "A speaker cone whose sound waves ripple outward. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-volume.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-volume-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-volume-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelVolumeIcon } from \"./prequel-volume\";\n\nexport function PrequelVolumeEmojiIcon(props) {\n  return <PrequelVolumeIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

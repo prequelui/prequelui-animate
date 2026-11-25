@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-wand-emoji",
+  "type": "registry:ui",
+  "title": "Wand · Emoji",
+  "description": "A wand that taps its tip and leaves a small four-point star. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-wand.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-wand-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-wand-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelWandIcon } from \"./prequel-wand\";\n\nexport function PrequelWandEmojiIcon(props) {\n  return <PrequelWandIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

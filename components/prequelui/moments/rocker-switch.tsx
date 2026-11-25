@@ -34,10 +34,10 @@ export function RockerSwitch({ className, preview }: MomentProps) {
           animate={{ rotateX: up ? 18 : -18 }}
           transition={reduce ? { duration: 0 } : springSoft}
         >
-          <span className="flex h-1/2 w-full items-center justify-center bg-white/18 text-[10px] text-white/50">
+          <span className="flex h-1/2 w-full items-center justify-center bg-white/18 text-[13px] text-white/50">
             0
           </span>
-          <span className="flex h-1/2 w-full items-center justify-center bg-white text-[10px] font-semibold text-black">
+          <span className="flex h-1/2 w-full items-center justify-center bg-white text-[13px] font-semibold text-black">
             I
           </span>
           <motion.span
@@ -49,7 +49,7 @@ export function RockerSwitch({ className, preview }: MomentProps) {
       </button>
       <span
         aria-live="polite"
-        className="text-[12px] uppercase tracking-[0.18em] text-white/45"
+        className="text-[13px] uppercase tracking-[0.18em] text-white/45"
       >
         {up ? "On" : "Off"}
       </span>

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-sparkles-emoji",
+  "type": "registry:component",
+  "title": "Sparkles · Emoji",
+  "description": "A four-point spark that blooms while two smaller ones blink. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-sparkles.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelSparklesEmojiIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelSparklesEmojiIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelSparklesIcon from \"./PrequelSparklesIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelSparklesIcon {...rest} variant=\"emoji\" />\n"
+    }
+  ]
+}

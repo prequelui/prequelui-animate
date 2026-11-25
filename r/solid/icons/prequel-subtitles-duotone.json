@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-subtitles-duotone",
+  "type": "registry:ui",
+  "title": "Subtitles · Duotone",
+  "description": "A caption bar whose two lines write themselves in turn. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-subtitles.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-subtitles-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-subtitles-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelSubtitlesIcon } from \"./prequel-subtitles\";\n\nexport function PrequelSubtitlesDuotoneIcon(props) {\n  return <PrequelSubtitlesIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

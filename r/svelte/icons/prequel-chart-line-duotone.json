@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-chart-line-duotone",
+  "type": "registry:component",
+  "title": "Chart Line · Duotone",
+  "description": "An axes corner with a trend line that draws itself in. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-chart-line.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelChartLineDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelChartLineDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelChartLineIcon from \"./PrequelChartLineIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelChartLineIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

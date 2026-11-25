@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-bug-solid",
+  "type": "registry:ui",
+  "title": "Bug · Solid",
+  "description": "A beetle whose legs and antennae jitter together. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-bug.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-bug-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-bug-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelBugIcon } from \"./prequel-bug\";\n\nexport function PrequelBugSolidIcon(props) {\n  return <PrequelBugIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

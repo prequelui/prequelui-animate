@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-bag-emoji",
+  "type": "registry:ui",
+  "title": "Shopping Bag · Emoji",
+  "description": "A shopping bag whose handle pulses like a breath. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-bag.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-bag-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-bag-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelShoppingBagIcon } from \"./prequel-bag\";\n\nexport function PrequelShoppingBagEmojiIcon(props) {\n  return <PrequelShoppingBagIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

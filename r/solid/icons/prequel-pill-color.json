@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-pill-color",
+  "type": "registry:ui",
+  "title": "Pill · Color",
+  "description": "A capsule that splits along its seam on every press. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-pill.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-pill-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-pill-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelPillIcon } from \"./prequel-pill\";\n\nexport function PrequelPillColorIcon(props) {\n  return <PrequelPillIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

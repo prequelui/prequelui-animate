@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-alarm-clock-duotone",
+  "type": "registry:ui",
+  "title": "Alarm Clock · Duotone",
+  "description": "A ringing alarm with shaking bells and spinning hands. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-alarm-clock.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-alarm-clock-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-alarm-clock-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelAlarmClockIcon } from \"./prequel-alarm-clock\";\n\nexport function PrequelAlarmClockDuotoneIcon(props) {\n  return <PrequelAlarmClockIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

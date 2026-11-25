@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-clock-color",
+  "type": "registry:ui",
+  "title": "Clock · Color",
+  "description": "A clock face whose hands sweep forward on every play. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-clock.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-clock-color.js",
+      "target": "components/prequelui/icons/prequel-clock-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelClockIcon } from \"./prequel-clock.js\";\n\nexport function createPrequelClockColorIcon(root, options = {}) {\n  const controller = createPrequelClockIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

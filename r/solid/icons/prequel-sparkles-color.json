@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-sparkles-color",
+  "type": "registry:ui",
+  "title": "Sparkles · Color",
+  "description": "A four-point spark that blooms while two smaller ones blink. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-sparkles.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-sparkles-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-sparkles-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelSparklesIcon } from \"./prequel-sparkles\";\n\nexport function PrequelSparklesColorIcon(props) {\n  return <PrequelSparklesIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

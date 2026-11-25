@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-search-emoji",
+  "type": "registry:component",
+  "title": "Search · Emoji",
+  "description": "A magnifier that leans toward its target and back. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-search.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelSearchEmojiIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelSearchEmojiIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelSearchIcon from \"./PrequelSearchIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelSearchIcon {...rest} variant=\"emoji\" />\n"
+    }
+  ]
+}

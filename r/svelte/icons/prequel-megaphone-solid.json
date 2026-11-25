@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-megaphone-solid",
+  "type": "registry:component",
+  "title": "Megaphone · Solid",
+  "description": "A megaphone that swings while its sound arc pulses. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-megaphone.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelMegaphoneSolidIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelMegaphoneSolidIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelMegaphoneIcon from \"./PrequelMegaphoneIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelMegaphoneIcon {...rest} variant=\"solid\" />\n"
+    }
+  ]
+}

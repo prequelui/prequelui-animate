@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-truck-solid",
+  "type": "registry:ui",
+  "title": "Delivery Truck · Solid",
+  "description": "A delivery van that rolls forward with its wheels tripping. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-truck.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-truck-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-truck-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelDeliveryTruckIcon } from \"./prequel-truck\";\n\nexport function PrequelDeliveryTruckSolidIcon(props) {\n  return <PrequelDeliveryTruckIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

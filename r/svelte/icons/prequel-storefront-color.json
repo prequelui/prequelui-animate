@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-storefront-color",
+  "type": "registry:component",
+  "title": "Storefront · Color",
+  "description": "A shop front whose striped awning lifts and settles. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-storefront.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelStorefrontColorIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelStorefrontColorIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelStorefrontIcon from \"./PrequelStorefrontIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelStorefrontIcon {...rest} variant=\"color\" />\n"
+    }
+  ]
+}

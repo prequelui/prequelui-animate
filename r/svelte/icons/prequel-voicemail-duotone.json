@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-voicemail-duotone",
+  "type": "registry:component",
+  "title": "Voicemail · Duotone",
+  "description": "Two reels joined by a bar that pulses like a held note. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-voicemail.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelVoicemailDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelVoicemailDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelVoicemailIcon from \"./PrequelVoicemailIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelVoicemailIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

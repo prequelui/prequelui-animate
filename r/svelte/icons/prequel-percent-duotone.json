@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-percent-duotone",
+  "type": "registry:component",
+  "title": "Percent · Duotone",
+  "description": "Two rings and a slash that draws itself across the pair. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-percent.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelPercentDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelPercentDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelPercentIcon from \"./PrequelPercentIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelPercentIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

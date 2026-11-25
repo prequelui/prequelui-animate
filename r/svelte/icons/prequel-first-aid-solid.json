@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-first-aid-solid",
+  "type": "registry:component",
+  "title": "First Aid · Solid",
+  "description": "A medical kit whose cross is drawn and then lights up. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-first-aid.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelFirstAidSolidIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelFirstAidSolidIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelFirstAidIcon from \"./PrequelFirstAidIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelFirstAidIcon {...rest} variant=\"solid\" />\n"
+    }
+  ]
+}

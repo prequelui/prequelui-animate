@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-leaf-solid",
+  "type": "registry:component",
+  "title": "Leaf · Solid",
+  "description": "A leaf that sways while its central vein draws in. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-leaf.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelLeafSolidIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelLeafSolidIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelLeafIcon from \"./PrequelLeafIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelLeafIcon {...rest} variant=\"solid\" />\n"
+    }
+  ]
+}

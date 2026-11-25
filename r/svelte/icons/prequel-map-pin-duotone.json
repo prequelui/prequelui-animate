@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-map-pin-duotone",
+  "type": "registry:component",
+  "title": "Map Pin · Duotone",
+  "description": "A location pin that drops onto its spot and pulses once. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-map-pin.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelMapPinDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelMapPinDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelMapPinIcon from \"./PrequelMapPinIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelMapPinIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

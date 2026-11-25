@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-signal-emoji",
+  "type": "registry:component",
+  "title": "Signal · Emoji",
+  "description": "Four bars that rise from the ground in a cascade. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-signal.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelSignalEmojiIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelSignalEmojiIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelSignalIcon from \"./PrequelSignalIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelSignalIcon {...rest} variant=\"emoji\" />\n"
+    }
+  ]
+}

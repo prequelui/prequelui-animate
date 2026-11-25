@@ -118,7 +118,7 @@ export function MenuMorph({ className, preview }: MomentProps) {
                   setOpen(false);
                   trigger.current?.focus();
                 }}
-                className="flex h-7 w-full items-center rounded-lg px-2.5 text-left text-[12px] text-white/65 transition-colors hover:bg-white/10 hover:text-white focus-visible:bg-white/10 focus-visible:text-white focus-visible:outline-none"
+                className="flex h-7 w-full items-center rounded-lg px-2.5 text-left text-[13px] text-white/65 transition-colors hover:bg-white/10 hover:text-white focus-visible:bg-white/10 focus-visible:text-white focus-visible:outline-none"
               >
                 {item}
               </button>

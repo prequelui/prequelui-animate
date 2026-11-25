@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-moon-solid",
+  "type": "registry:component",
+  "title": "Moon · Solid",
+  "description": "A crescent moon that floats beside a twinkling star. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-moon.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelMoonSolidIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelMoonSolidIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelMoonIcon from \"./PrequelMoonIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelMoonIcon {...rest} variant=\"solid\" />\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-cart-duotone",
+  "type": "registry:component",
+  "title": "Shopping Cart · Duotone",
+  "description": "A cart that rolls forward while its wheels bounce. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-cart.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelShoppingCartDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelShoppingCartDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelShoppingCartIcon from \"./PrequelShoppingCartIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelShoppingCartIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

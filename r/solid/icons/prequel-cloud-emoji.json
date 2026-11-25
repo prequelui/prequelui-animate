@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-cloud-emoji",
+  "type": "registry:ui",
+  "title": "Cloud · Emoji",
+  "description": "A single cloud that drifts up and back down. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-cloud.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-cloud-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-cloud-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelCloudIcon } from \"./prequel-cloud\";\n\nexport function PrequelCloudEmojiIcon(props) {\n  return <PrequelCloudIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

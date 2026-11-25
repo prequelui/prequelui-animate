@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-sunrise-emoji",
+  "type": "registry:ui",
+  "title": "Sunrise · Emoji",
+  "description": "A sun that rises over the horizon with two warming rays. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-sunrise.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-sunrise-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-sunrise-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelSunriseIcon } from \"./prequel-sunrise\";\n\nexport function PrequelSunriseEmojiIcon(props) {\n  return <PrequelSunriseIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

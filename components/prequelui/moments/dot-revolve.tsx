@@ -193,13 +193,13 @@ export function DotRevolve({ className }: MomentProps) {
             })}
           </span>
         )}
-        <span className="relative z-10 flex size-8 items-center justify-center rounded-full bg-white text-[9px] font-semibold text-black">
+        <span className="relative z-10 flex size-8 items-center justify-center rounded-full bg-white text-[13px] font-semibold text-black">
           {directionLabel}
         </span>
       </div>
       <span
         aria-live="polite"
-        className="text-[12px] uppercase tracking-[0.18em] text-white/45"
+        className="text-[13px] uppercase tracking-[0.18em] text-white/45"
       >
         {speedLabel.toFixed(1)}× orbit · {directionLabel}
       </span>

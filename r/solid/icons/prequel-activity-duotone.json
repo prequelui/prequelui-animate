@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-activity-duotone",
+  "type": "registry:ui",
+  "title": "Activity · Duotone",
+  "description": "A monitor frame with a pulse line that sweeps across it. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-activity.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-activity-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-activity-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelActivityIcon } from \"./prequel-activity\";\n\nexport function PrequelActivityDuotoneIcon(props) {\n  return <PrequelActivityIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

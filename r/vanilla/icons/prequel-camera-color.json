@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-camera-color",
+  "type": "registry:ui",
+  "title": "Camera · Color",
+  "description": "A camera whose lens pulses like a shutter breath. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-camera.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-camera-color.js",
+      "target": "components/prequelui/icons/prequel-camera-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelCameraIcon } from \"./prequel-camera.js\";\n\nexport function createPrequelCameraColorIcon(root, options = {}) {\n  const controller = createPrequelCameraIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

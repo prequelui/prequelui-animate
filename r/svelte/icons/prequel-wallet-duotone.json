@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-wallet-duotone",
+  "type": "registry:component",
+  "title": "Wallet · Duotone",
+  "description": "A folded wallet whose clasp catches the light on every play. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-wallet.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelWalletDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelWalletDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelWalletIcon from \"./PrequelWalletIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelWalletIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

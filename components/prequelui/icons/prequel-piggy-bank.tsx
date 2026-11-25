@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { motion, type SVGMotionProps } from "motion/react";
 import {
   useAnimatedIconContext,
@@ -20,14 +19,14 @@ export type IconProps = Omit<SVGMotionProps<SVGSVGElement>, "ref"> & {
 
 const palette: IconPaletteBundle = {
   "color": {
-    "primary": "oklch(0.58 0.14 168)",
-    "primaryDark": "oklch(0.77 0.11 168)",
-    "accent": "oklch(0.72 0.15 85)",
-    "accentDark": "oklch(0.84 0.12 85)"
+    "primary": "oklch(0.56 0.1 225)",
+    "primaryDark": "oklch(0.78 0.08 225)",
+    "accent": "oklch(0.66 0.13 200)",
+    "accentDark": "oklch(0.8 0.1 200)"
   },
   "emoji": {
-    "primary": "oklch(0.78 0.14 165)",
-    "secondary": "oklch(0.62 0.13 165)",
+    "primary": "oklch(0.74 0.13 232)",
+    "secondary": "oklch(0.58 0.13 232)",
     "accent": "oklch(0.82 0.16 85)"
   }
 };
@@ -241,6 +240,14 @@ export function PrequelPiggyBankIcon({ size = 28, variant: variantProp, ...props
     sticker: paintSticker,
     highlight: paintHighlight,
   } = useIconPaint(palette, variantProp);
+
+  // Generated icons use a subset of these painters; marking them keeps the
+  // file buildable in projects that enable noUnusedLocals.
+  void paintPart;
+  void paintHalo;
+  void paintFlash;
+  void paintSticker;
+  void paintHighlight;
 
   return (
     <motion.svg

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-file-solid",
+  "type": "registry:ui",
+  "title": "File · Solid",
+  "description": "A document whose ruled lines pulse one after another. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-file.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-file-solid.js",
+      "target": "components/prequelui/icons/prequel-file-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelFileIcon } from \"./prequel-file.js\";\n\nexport function createPrequelFileSolidIcon(root, options = {}) {\n  const controller = createPrequelFileIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

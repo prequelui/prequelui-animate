@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-calendar-solid",
+  "type": "registry:ui",
+  "title": "Calendar · Solid",
+  "description": "A calendar whose day dots blink in sequence. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-calendar.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-calendar-solid.js",
+      "target": "components/prequelui/icons/prequel-calendar-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelCalendarIcon } from \"./prequel-calendar.js\";\n\nexport function createPrequelCalendarSolidIcon(root, options = {}) {\n  const controller = createPrequelCalendarIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

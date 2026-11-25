@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-git-commit-emoji",
+  "type": "registry:ui",
+  "title": "Git Commit · Emoji",
+  "description": "A commit node that slides along its history line. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-git-commit.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-git-commit-emoji.js",
+      "target": "components/prequelui/icons/prequel-git-commit-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelGitCommitIcon } from \"./prequel-git-commit.js\";\n\nexport function createPrequelGitCommitEmojiIcon(root, options = {}) {\n  const controller = createPrequelGitCommitIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

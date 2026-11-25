@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-arrow-up-duotone",
+  "type": "registry:component",
+  "title": "Arrow Up · Duotone",
+  "description": "A vertical arrow that lifts a little further on every trigger. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-arrow-up.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelArrowUpDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelArrowUpDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelArrowUpIcon from \"./PrequelArrowUpIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelArrowUpIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-plane-solid",
+  "type": "registry:component",
+  "title": "Plane · Solid",
+  "description": "A top-view airliner that banks just enough to feel airborne. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-plane.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelPlaneSolidIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelPlaneSolidIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelPlaneIcon from \"./PrequelPlaneIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelPlaneIcon {...rest} variant=\"solid\" />\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-bike-duotone",
+  "type": "registry:ui",
+  "title": "Bike · Duotone",
+  "description": "A bicycle that rolls as its pedals turn one full lap. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-bike.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-bike-duotone.js",
+      "target": "components/prequelui/icons/prequel-bike-duotone.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelBikeIcon } from \"./prequel-bike.js\";\n\nexport function createPrequelBikeDuotoneIcon(root, options = {}) {\n  const controller = createPrequelBikeIcon(root, { ...options, variant: \"duotone\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"duotone\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

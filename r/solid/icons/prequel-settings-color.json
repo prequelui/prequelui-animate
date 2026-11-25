@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-settings-color",
+  "type": "registry:ui",
+  "title": "Settings · Color",
+  "description": "A gear whose teeth spin around a still centre. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-settings.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-settings-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-settings-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelSettingsIcon } from \"./prequel-settings\";\n\nexport function PrequelSettingsColorIcon(props) {\n  return <PrequelSettingsIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

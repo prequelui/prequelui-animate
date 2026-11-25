@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-play-color",
+  "type": "registry:component",
+  "title": "Play · Color",
+  "description": "A play triangle that presses forward and rebounds. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-play.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelPlayColorIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelPlayColorIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelPlayIcon from \"./PrequelPlayIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelPlayIcon {...rest} variant=\"color\" />\n"
+    }
+  ]
+}

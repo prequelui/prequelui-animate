@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-fog-emoji",
+  "type": "registry:ui",
+  "title": "Fog · Emoji",
+  "description": "A low cloud with three bands of mist drifting through it. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-fog.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-fog-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-fog-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelFogIcon } from \"./prequel-fog\";\n\nexport function PrequelFogEmojiIcon(props) {\n  return <PrequelFogIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

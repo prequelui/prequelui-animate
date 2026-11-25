@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-chart-line",
+  "type": "registry:component",
+  "title": "Chart Line icon",
+  "description": "An axes corner with a trend line that draws itself in.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelChartLineIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelChartLineIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount } from \"svelte\";\n  import { bindPrequelIcon, renderIcon } from \"./prequel-icon-core.js\";\n\n  let {\n    size = 28,\n    variant = \"outline\",\n    weight = \"regular\",\n    speed = 1,\n    tempo = 1,\n    delay = 0,\n    loop = false,\n    animate: animateProp = false,\n    animateOnHover = true,\n    animateOnTap = true,\n    animateOnView = false,\n    animateOnViewOnce = true,\n    animation = \"hover\",\n    class: className = \"\",\n    label = \"\",\n    ...rest\n  } = $props();\n\n  const spec = {\"slug\":\"chart-line\",\"name\":\"Chart Line\",\"category\":\"Charts\",\"parts\":[{\"tag\":\"path\",\"attrs\":{\"d\":\"M4 4v16h16\"}},{\"tag\":\"polyline\",\"attrs\":{\"points\":\"7 15 11 10 15 13 20 6\"}}],\"roles\":[\"primary\",\"primary\"],\"closed\":[false,false],\"draw\":[false,true],\"inside\":[false,false],\"hasClosed\":false,\"highlight\":null,\"palette\":{\"color\":{\"primary\":\"oklch(0.6 0.16 290)\",\"primaryDark\":\"oklch(0.78 0.13 290)\",\"accent\":\"oklch(0.7 0.15 310)\",\"accentDark\":\"oklch(0.82 0.12 310)\"},\"emoji\":{\"primary\":\"oklch(0.6 0.2 300)\",\"secondary\":\"oklch(0.46 0.18 300)\",\"accent\":\"oklch(0.68 0.2 27)\"}},\"fill\":[],\"animations\":{\"hover\":{\"group\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,1.5,0],\"transition\":{\"duration\":0.45,\"ease\":\"easeOut\"}}},\"p0\":{},\"p1\":{\"initial\":{\"pathLength\":1,\"opacity\":1},\"animate\":{\"pathLength\":[0,1],\"opacity\":[0.35,1],\"transition\":{\"duration\":0.65,\"ease\":\"easeInOut\"}}}},\"tap\":{\"group\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,5,0],\"transition\":{\"duration\":0.6,\"ease\":[0.22,1,0.36,1]}}},\"p0\":{},\"p1\":{\"initial\":{\"pathLength\":1,\"opacity\":1},\"animate\":{\"pathLength\":[0,1],\"opacity\":[0.35,1],\"transition\":{\"duration\":0.8,\"ease\":\"easeInOut\"}}}},\"loop\":{\"group\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,2.4,0],\"transition\":{\"duration\":1.5,\"ease\":\"easeInOut\"}}},\"p0\":{},\"p1\":{\"initial\":{\"pathLength\":1,\"opacity\":1},\"animate\":{\"pathLength\":[1,0.15,1],\"opacity\":[1,0.6,1],\"transition\":{\"duration\":1.7,\"ease\":\"easeInOut\"}}}}},\"component\":\"PrequelChartLineIcon\"};\n  let host;\n  let controller;\n\n  onMount(() => {\n    controller = bindPrequelIcon(host, spec, () => ({\n      speed,\n      tempo,\n      delay,\n      loop,\n      animate: animateProp,\n      animateOnHover,\n      animateOnTap,\n      animateOnView,\n      animateOnViewOnce,\n      animation,\n    }));\n    return () => controller?.destroy();\n  });\n</script>\n\n<span\n  bind:this={host}\n  data-slot=\"prequel-icon-host\"\n  style=\"display: contents\"\n  {...rest}\n>\n  {@html renderIcon(spec, {\n    size,\n    variant: variant,\n    weight,\n    className,\n    label,\n  })}\n</span>\n"
+    }
+  ]
+}

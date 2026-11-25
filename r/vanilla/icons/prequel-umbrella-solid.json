@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-umbrella-solid",
+  "type": "registry:ui",
+  "title": "Umbrella · Solid",
+  "description": "An open umbrella that tilts with the wind and springs back. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-umbrella.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-umbrella-solid.js",
+      "target": "components/prequelui/icons/prequel-umbrella-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelUmbrellaIcon } from \"./prequel-umbrella.js\";\n\nexport function createPrequelUmbrellaSolidIcon(root, options = {}) {\n  const controller = createPrequelUmbrellaIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

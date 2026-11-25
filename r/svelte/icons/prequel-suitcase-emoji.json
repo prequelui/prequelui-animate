@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-suitcase-emoji",
+  "type": "registry:component",
+  "title": "Suitcase · Emoji",
+  "description": "A packed case that lifts and lands on its two little feet. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-suitcase.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelSuitcaseEmojiIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelSuitcaseEmojiIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelSuitcaseIcon from \"./PrequelSuitcaseIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelSuitcaseIcon {...rest} variant=\"emoji\" />\n"
+    }
+  ]
+}

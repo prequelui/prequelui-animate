@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-hotel-solid",
+  "type": "registry:component",
+  "title": "Hotel · Solid",
+  "description": "A hotel facade whose windows blink on in a quiet cascade. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-hotel.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelHotelSolidIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelHotelSolidIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelHotelIcon from \"./PrequelHotelIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelHotelIcon {...rest} variant=\"solid\" />\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-chart-bar-color",
+  "type": "registry:ui",
+  "title": "Chart Bar · Color",
+  "description": "Three columns that grow from the baseline one after another. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-chart-bar.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-chart-bar-color.js",
+      "target": "components/prequelui/icons/prequel-chart-bar-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelChartBarIcon } from \"./prequel-chart-bar.js\";\n\nexport function createPrequelChartBarColorIcon(root, options = {}) {\n  const controller = createPrequelChartBarIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

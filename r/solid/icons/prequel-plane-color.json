@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-plane-color",
+  "type": "registry:ui",
+  "title": "Plane · Color",
+  "description": "A top-view airliner that banks just enough to feel airborne. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-plane.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-plane-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-plane-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelPlaneIcon } from \"./prequel-plane\";\n\nexport function PrequelPlaneColorIcon(props) {\n  return <PrequelPlaneIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

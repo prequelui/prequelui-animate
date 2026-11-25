@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-safe-duotone",
+  "type": "registry:ui",
+  "title": "Safe · Duotone",
+  "description": "A floor safe whose dial turns and whose bolt slides home. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-safe.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-safe-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-safe-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelSafeIcon } from \"./prequel-safe\";\n\nexport function PrequelSafeDuotoneIcon(props) {\n  return <PrequelSafeIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

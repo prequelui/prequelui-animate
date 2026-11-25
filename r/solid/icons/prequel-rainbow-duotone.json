@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-rainbow-duotone",
+  "type": "registry:ui",
+  "title": "Rainbow · Duotone",
+  "description": "Three nested arcs that draw outward in a staggered pass. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-rainbow.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-rainbow-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-rainbow-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelRainbowIcon } from \"./prequel-rainbow\";\n\nexport function PrequelRainbowDuotoneIcon(props) {\n  return <PrequelRainbowIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

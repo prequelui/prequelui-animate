@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-safe-emoji",
+  "type": "registry:component",
+  "title": "Safe · Emoji",
+  "description": "A floor safe whose dial turns and whose bolt slides home. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-safe.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelSafeEmojiIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelSafeEmojiIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelSafeIcon from \"./PrequelSafeIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelSafeIcon {...rest} variant=\"emoji\" />\n"
+    }
+  ]
+}

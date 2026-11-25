@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-chart-pie-duotone",
+  "type": "registry:component",
+  "title": "Chart Pie · Duotone",
+  "description": "A pie outline whose highlighted slice draws on every trigger. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-chart-pie.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelChartPieDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelChartPieDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelChartPieIcon from \"./PrequelChartPieIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelChartPieIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

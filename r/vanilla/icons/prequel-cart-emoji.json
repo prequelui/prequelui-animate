@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-cart-emoji",
+  "type": "registry:ui",
+  "title": "Shopping Cart · Emoji",
+  "description": "A cart that rolls forward while its wheels bounce. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-cart.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-cart-emoji.js",
+      "target": "components/prequelui/icons/prequel-cart-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelShoppingCartIcon } from \"./prequel-cart.js\";\n\nexport function createPrequelShoppingCartEmojiIcon(root, options = {}) {\n  const controller = createPrequelShoppingCartIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "merge-drops",
+  "type": "registry:ui",
+  "title": "Merge Drops",
+  "description": "Merge Drops moment: one gesture, one physical answer.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/moments/moment-core.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/moments/merge-drops.js",
+      "target": "components/prequelui/moments/merge-drops.js",
+      "type": "registry:lib",
+      "content": "import { animate } from \"motion\";\nimport {\n  applySurface,\n  prefersReducedMotion,\n  previewPulse,\n  springSoft,\n} from \"./moment-core.js\";\n\nconst DROPS = [\n  { x: -38, size: 26, tone: \"bg-white/80\" },\n  { x: 0, size: 34, tone: \"bg-white\" },\n  { x: 38, size: 24, tone: \"bg-white/60\" },\n];\n\nexport function createMergeDrops(root, options = {}) {\n  const reduce = prefersReducedMotion();\n  let preview = Boolean(options.preview);\n  let merged = false;\n  let pulse = false;\n  let cancelPreview = () => {};\n\n  const surface = applySurface(root, \"flex-col gap-4\");\n  surface.innerHTML = `\n    <button type=\"button\" aria-pressed=\"false\" aria-label=\"Merge the drops\"\n      class=\"relative flex h-[74px] w-[150px] items-center justify-center outline-none focus-visible:ring-2 focus-visible:ring-white/50\"\n      style=\"filter:contrast(1.35) blur(0.1px)\">\n      ${DROPS.map(\n        (drop) =>\n          `<span data-drop class=\"absolute rounded-full ${drop.tone}\" style=\"width:${drop.size}px;height:${drop.size}px\"></span>`,\n      ).join(\"\")}\n    </button>\n    <span data-label class=\"text-[13px] uppercase tracking-[0.18em] text-white/45\">Three drops</span>`;\n\n  const button = surface.querySelector(\"button\");\n  const label = surface.querySelector(\"[data-label]\");\n  const drops = Array.from(surface.querySelectorAll(\"[data-drop]\"));\n\n  function render() {\n    const joined = preview ? pulse : merged;\n    button.setAttribute(\"aria-pressed\", String(joined));\n    label.textContent = joined ? \"One bead\" : \"Three drops\";\n    drops.forEach((drop, index) => {\n      const start = DROPS[index].x;\n      animate(\n        drop,\n        reduce\n          ? { x: joined ? 0 : start, scale: 1 }\n          : { x: joined ? start * 0.16 : start, scale: joined ? 1.12 : 1 },\n        reduce ? { duration: 0 } : { ...springSoft, delay: index * 0.02 },\n      );\n    });\n  }\n\n  button.addEventListener(\"click\", () => {\n    merged = !merged;\n    render();\n  });\n\n  function setPreview(value) {\n    preview = Boolean(value);\n    cancelPreview();\n    cancelPreview = previewPulse(preview, 1200, 2600, (on) => {\n      pulse = on;\n      render();\n    }, reduce);\n    render();\n  }\n\n  setPreview(preview);\n\n  return {\n    update(next = {}) {\n      if (next.preview !== undefined && Boolean(next.preview) !== preview) {\n        setPreview(next.preview);\n      }\n    },\n    destroy() {\n      cancelPreview();\n      surface.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

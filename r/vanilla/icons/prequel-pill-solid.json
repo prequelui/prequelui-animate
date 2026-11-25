@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-pill-solid",
+  "type": "registry:ui",
+  "title": "Pill · Solid",
+  "description": "A capsule that splits along its seam on every press. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-pill.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-pill-solid.js",
+      "target": "components/prequelui/icons/prequel-pill-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelPillIcon } from \"./prequel-pill.js\";\n\nexport function createPrequelPillSolidIcon(root, options = {}) {\n  const controller = createPrequelPillIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

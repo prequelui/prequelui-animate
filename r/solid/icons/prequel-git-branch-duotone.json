@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-git-branch-duotone",
+  "type": "registry:ui",
+  "title": "Git Branch · Duotone",
+  "description": "A branch line that draws from the trunk to its node. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-git-branch.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-git-branch-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-git-branch-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelGitBranchIcon } from \"./prequel-git-branch\";\n\nexport function PrequelGitBranchDuotoneIcon(props) {\n  return <PrequelGitBranchIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

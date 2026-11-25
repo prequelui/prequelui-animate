@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-coupon-solid",
+  "type": "registry:component",
+  "title": "Coupon · Solid",
+  "description": "A coupon that flexes at its perforation and settles. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-coupon.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelCouponSolidIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelCouponSolidIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelCouponIcon from \"./PrequelCouponIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelCouponIcon {...rest} variant=\"solid\" />\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-settings-duotone",
+  "type": "registry:ui",
+  "title": "Settings · Duotone",
+  "description": "A gear whose teeth spin around a still centre. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-settings.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-settings-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-settings-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelSettingsIcon } from \"./prequel-settings\";\n\nexport function PrequelSettingsDuotoneIcon(props) {\n  return <PrequelSettingsIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

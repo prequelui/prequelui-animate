@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-braces-color",
+  "type": "registry:ui",
+  "title": "Braces · Color",
+  "description": "A pair of braces that open wide and close around a dot. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-braces.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-braces-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-braces-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelBracesIcon } from \"./prequel-braces\";\n\nexport function PrequelBracesColorIcon(props) {\n  return <PrequelBracesIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

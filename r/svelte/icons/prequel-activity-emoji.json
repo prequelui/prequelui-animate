@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-activity-emoji",
+  "type": "registry:component",
+  "title": "Activity · Emoji",
+  "description": "A monitor frame with a pulse line that sweeps across it. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-activity.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelActivityEmojiIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelActivityEmojiIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelActivityIcon from \"./PrequelActivityIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelActivityIcon {...rest} variant=\"emoji\" />\n"
+    }
+  ]
+}

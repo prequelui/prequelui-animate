@@ -62,7 +62,7 @@ export function JellyPad({ className, preview }: MomentProps) {
         <span className="pointer-events-none absolute inset-x-5 top-3 h-px rounded-full bg-white/35" />
         <motion.span
           key={`label-${wave}`}
-          className="relative z-10 text-[11px] uppercase tracking-[0.22em] text-white/85"
+          className="relative z-10 text-[13px] uppercase tracking-[0.22em] text-white/85"
           animate={
             reduce || wave === 0
               ? { y: 0, opacity: 1 }

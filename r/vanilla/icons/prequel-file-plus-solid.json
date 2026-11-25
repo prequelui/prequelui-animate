@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-file-plus-solid",
+  "type": "registry:ui",
+  "title": "File Plus · Solid",
+  "description": "A blank page whose plus draws in and presses forward. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-file-plus.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-file-plus-solid.js",
+      "target": "components/prequelui/icons/prequel-file-plus-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelFilePlusIcon } from \"./prequel-file-plus.js\";\n\nexport function createPrequelFilePlusSolidIcon(root, options = {}) {\n  const controller = createPrequelFilePlusIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-file-plus-solid",
+  "type": "registry:component",
+  "title": "File Plus · Solid",
+  "description": "A blank page whose plus draws in and presses forward. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-file-plus.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelFilePlusSolidIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelFilePlusSolidIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelFilePlusIcon from \"./PrequelFilePlusIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelFilePlusIcon {...rest} variant=\"solid\" />\n"
+    }
+  ]
+}

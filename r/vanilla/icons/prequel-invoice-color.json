@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-invoice-color",
+  "type": "registry:ui",
+  "title": "Invoice · Color",
+  "description": "A billed page whose total signs itself at the foot. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-invoice.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-invoice-color.js",
+      "target": "components/prequelui/icons/prequel-invoice-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelInvoiceIcon } from \"./prequel-invoice.js\";\n\nexport function createPrequelInvoiceColorIcon(root, options = {}) {\n  const controller = createPrequelInvoiceIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

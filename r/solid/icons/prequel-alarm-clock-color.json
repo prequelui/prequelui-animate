@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-alarm-clock-color",
+  "type": "registry:ui",
+  "title": "Alarm Clock · Color",
+  "description": "A ringing alarm with shaking bells and spinning hands. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-alarm-clock.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-alarm-clock-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-alarm-clock-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelAlarmClockIcon } from \"./prequel-alarm-clock\";\n\nexport function PrequelAlarmClockColorIcon(props) {\n  return <PrequelAlarmClockIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

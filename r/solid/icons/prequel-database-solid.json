@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-database-solid",
+  "type": "registry:ui",
+  "title": "Database · Solid",
+  "description": "Stacked database discs that breathe as one. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-database.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-database-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-database-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelDatabaseIcon } from \"./prequel-database\";\n\nexport function PrequelDatabaseSolidIcon(props) {\n  return <PrequelDatabaseIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

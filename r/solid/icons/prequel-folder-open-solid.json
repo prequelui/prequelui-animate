@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-folder-open-solid",
+  "type": "registry:ui",
+  "title": "Folder Open · Solid",
+  "description": "An open folder whose front flap swings down to show its contents. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-folder-open.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-folder-open-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-folder-open-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelFolderOpenIcon } from \"./prequel-folder-open\";\n\nexport function PrequelFolderOpenSolidIcon(props) {\n  return <PrequelFolderOpenIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

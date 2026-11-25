@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-phone-emoji",
+  "type": "registry:ui",
+  "title": "Phone · Emoji",
+  "description": "A handset that tips toward its ear and sends a soft ring. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-phone.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-phone-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-phone-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelPhoneIcon } from \"./prequel-phone\";\n\nexport function PrequelPhoneEmojiIcon(props) {\n  return <PrequelPhoneIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

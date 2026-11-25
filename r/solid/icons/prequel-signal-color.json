@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-signal-color",
+  "type": "registry:ui",
+  "title": "Signal · Color",
+  "description": "Four bars that rise from the ground in a cascade. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-signal.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-signal-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-signal-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelSignalIcon } from \"./prequel-signal\";\n\nexport function PrequelSignalColorIcon(props) {\n  return <PrequelSignalIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

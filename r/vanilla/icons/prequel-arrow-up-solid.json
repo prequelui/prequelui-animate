@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-arrow-up-solid",
+  "type": "registry:ui",
+  "title": "Arrow Up · Solid",
+  "description": "A vertical arrow that lifts a little further on every trigger. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-arrow-up.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-arrow-up-solid.js",
+      "target": "components/prequelui/icons/prequel-arrow-up-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelArrowUpIcon } from \"./prequel-arrow-up.js\";\n\nexport function createPrequelArrowUpSolidIcon(root, options = {}) {\n  const controller = createPrequelArrowUpIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

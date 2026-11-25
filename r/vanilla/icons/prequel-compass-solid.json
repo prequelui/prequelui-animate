@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-compass-solid",
+  "type": "registry:ui",
+  "title": "Compass · Solid",
+  "description": "A navigator's compass whose needle finds north again. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-compass.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-compass-solid.js",
+      "target": "components/prequelui/icons/prequel-compass-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelCompassIcon } from \"./prequel-compass.js\";\n\nexport function createPrequelCompassSolidIcon(root, options = {}) {\n  const controller = createPrequelCompassIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

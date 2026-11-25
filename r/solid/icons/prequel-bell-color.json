@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-bell-color",
+  "type": "registry:ui",
+  "title": "Bell · Color",
+  "description": "A bell that swings from its crown while the clapper lags. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-bell.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-bell-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-bell-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelBellIcon } from \"./prequel-bell\";\n\nexport function PrequelBellColorIcon(props) {\n  return <PrequelBellIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

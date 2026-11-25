@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-battery-solid",
+  "type": "registry:ui",
+  "title": "Battery · Solid",
+  "description": "A battery whose charge cell breathes on hover. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-battery.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-battery-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-battery-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelBatteryIcon } from \"./prequel-battery\";\n\nexport function PrequelBatterySolidIcon(props) {\n  return <PrequelBatteryIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

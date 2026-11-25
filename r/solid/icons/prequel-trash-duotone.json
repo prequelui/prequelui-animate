@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-trash-duotone",
+  "type": "registry:ui",
+  "title": "Trash · Duotone",
+  "description": "A bin that rattles while its lid stays put. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-trash.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-trash-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-trash-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelTrashIcon } from \"./prequel-trash\";\n\nexport function PrequelTrashDuotoneIcon(props) {\n  return <PrequelTrashIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

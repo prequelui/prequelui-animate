@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-webhook-emoji",
+  "type": "registry:ui",
+  "title": "Webhook · Emoji",
+  "description": "Three hook nodes whose connecting loop draws on each call. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-webhook.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-webhook-emoji.js",
+      "target": "components/prequelui/icons/prequel-webhook-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelWebhookIcon } from \"./prequel-webhook.js\";\n\nexport function createPrequelWebhookEmojiIcon(root, options = {}) {\n  const controller = createPrequelWebhookIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

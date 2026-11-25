@@ -78,7 +78,7 @@ export function InkSwitch({ className, preview }: MomentProps) {
         />
         <span className="sr-only">{filled ? "On" : "Off"}</span>
       </button>
-      <span className="text-[12px] uppercase tracking-[0.18em] text-white/45">
+      <span className="text-[13px] uppercase tracking-[0.18em] text-white/45">
         {filled ? "Inked" : "Dry"}
       </span>
     </div>

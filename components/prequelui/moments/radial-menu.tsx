@@ -135,7 +135,7 @@ export function RadialMenu({ className, preview }: MomentProps) {
       </div>
       <span
         aria-live="polite"
-        className="text-[12px] uppercase tracking-[0.18em] text-white/45"
+        className="text-[13px] uppercase tracking-[0.18em] text-white/45"
       >
         {chosen ?? (shown ? "Choose" : "Actions")}
       </span>

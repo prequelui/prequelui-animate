@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-bag-color",
+  "type": "registry:component",
+  "title": "Shopping Bag · Color",
+  "description": "A shopping bag whose handle pulses like a breath. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-bag.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelShoppingBagColorIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelShoppingBagColorIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelShoppingBagIcon from \"./PrequelShoppingBagIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelShoppingBagIcon {...rest} variant=\"color\" />\n"
+    }
+  ]
+}

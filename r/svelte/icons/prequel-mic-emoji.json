@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-mic-emoji",
+  "type": "registry:component",
+  "title": "Microphone · Emoji",
+  "description": "A microphone that lifts off its stand and pulses. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-mic.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelMicrophoneEmojiIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelMicrophoneEmojiIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelMicrophoneIcon from \"./PrequelMicrophoneIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelMicrophoneIcon {...rest} variant=\"emoji\" />\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-currency-exchange-color",
+  "type": "registry:ui",
+  "title": "Currency Exchange · Color",
+  "description": "Two counter-flowing arrows trade places around a currency mark. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-currency-exchange.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-currency-exchange-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-currency-exchange-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelCurrencyExchangeIcon } from \"./prequel-currency-exchange\";\n\nexport function PrequelCurrencyExchangeColorIcon(props) {\n  return <PrequelCurrencyExchangeIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

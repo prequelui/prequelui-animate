@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-smartphone-duotone",
+  "type": "registry:component",
+  "title": "Smartphone · Duotone",
+  "description": "A phone that lifts and nudges on each press. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-smartphone.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelSmartphoneDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelSmartphoneDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelSmartphoneIcon from \"./PrequelSmartphoneIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelSmartphoneIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

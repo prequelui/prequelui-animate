@@ -58,7 +58,7 @@ export function CardFan({ className, preview }: MomentProps) {
                 reduce ? { duration: 0 } : { ...springSoft, delay: index * 0.025 }
               }
             >
-              <span className="absolute left-1.5 top-1 text-[11px] font-semibold">
+              <span className="absolute left-1.5 top-1 text-[13px] font-semibold">
                 {card.face}
               </span>
               <span className="absolute inset-0 flex items-center justify-center text-[16px]">
@@ -68,7 +68,7 @@ export function CardFan({ className, preview }: MomentProps) {
           );
         })}
       </button>
-      <span className="text-[12px] uppercase tracking-[0.18em] text-white/45">
+      <span className="text-[13px] uppercase tracking-[0.18em] text-white/45">
         {fanned ? "Fan" : "Deck"}
       </span>
     </div>

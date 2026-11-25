@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-scale-solid",
+  "type": "registry:ui",
+  "title": "Scale · Solid",
+  "description": "A balance that tips one pan and then returns to level. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-scale.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-scale-solid.js",
+      "target": "components/prequelui/icons/prequel-scale-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelScaleIcon } from \"./prequel-scale.js\";\n\nexport function createPrequelScaleSolidIcon(root, options = {}) {\n  const controller = createPrequelScaleIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

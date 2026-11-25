@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-neural-emoji",
+  "type": "registry:ui",
+  "title": "Neural · Emoji",
+  "description": "A network of nodes that pulses from the input to the output. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-neural.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-neural-emoji.js",
+      "target": "components/prequelui/icons/prequel-neural-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelNeuralIcon } from \"./prequel-neural.js\";\n\nexport function createPrequelNeuralEmojiIcon(root, options = {}) {\n  const controller = createPrequelNeuralIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

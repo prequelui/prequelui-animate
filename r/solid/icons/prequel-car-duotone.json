@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-car-duotone",
+  "type": "registry:ui",
+  "title": "Car · Duotone",
+  "description": "A compact car that bounces on its suspension. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-car.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-car-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-car-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelCarIcon } from \"./prequel-car\";\n\nexport function PrequelCarDuotoneIcon(props) {\n  return <PrequelCarIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

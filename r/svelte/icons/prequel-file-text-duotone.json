@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-file-text-duotone",
+  "type": "registry:component",
+  "title": "File Text · Duotone",
+  "description": "A typed page whose paragraph writes itself line by line. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-file-text.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelFileTextDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelFileTextDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelFileTextIcon from \"./PrequelFileTextIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelFileTextIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

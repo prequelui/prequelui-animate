@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-podcast-emoji",
+  "type": "registry:ui",
+  "title": "Podcast · Emoji",
+  "description": "A microphone tower whose broadcast rings widen and fade. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-podcast.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-podcast-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-podcast-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelPodcastIcon } from \"./prequel-podcast\";\n\nexport function PrequelPodcastEmojiIcon(props) {\n  return <PrequelPodcastIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-lightning-duotone",
+  "type": "registry:ui",
+  "title": "Lightning · Duotone",
+  "description": "A bolt that flashes its fill and flickers at the edges. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-lightning.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-lightning-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-lightning-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelLightningIcon } from \"./prequel-lightning\";\n\nexport function PrequelLightningDuotoneIcon(props) {\n  return <PrequelLightningIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

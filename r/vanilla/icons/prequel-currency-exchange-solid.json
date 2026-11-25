@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-currency-exchange-solid",
+  "type": "registry:ui",
+  "title": "Currency Exchange · Solid",
+  "description": "Two counter-flowing arrows trade places around a currency mark. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-currency-exchange.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-currency-exchange-solid.js",
+      "target": "components/prequelui/icons/prequel-currency-exchange-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelCurrencyExchangeIcon } from \"./prequel-currency-exchange.js\";\n\nexport function createPrequelCurrencyExchangeSolidIcon(root, options = {}) {\n  const controller = createPrequelCurrencyExchangeIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

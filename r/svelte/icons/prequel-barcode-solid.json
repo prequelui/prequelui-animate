@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-barcode-solid",
+  "type": "registry:component",
+  "title": "Barcode · Solid",
+  "description": "A barcode whose bars rise and fall like a tiny equalizer. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-barcode.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelBarcodeSolidIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelBarcodeSolidIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelBarcodeIcon from \"./PrequelBarcodeIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelBarcodeIcon {...rest} variant=\"solid\" />\n"
+    }
+  ]
+}

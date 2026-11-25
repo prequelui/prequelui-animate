@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-snowflake-emoji",
+  "type": "registry:component",
+  "title": "Snowflake · Emoji",
+  "description": "A six-branch flake that turns slowly and shimmers. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-snowflake.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelSnowflakeEmojiIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelSnowflakeEmojiIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelSnowflakeIcon from \"./PrequelSnowflakeIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelSnowflakeIcon {...rest} variant=\"emoji\" />\n"
+    }
+  ]
+}

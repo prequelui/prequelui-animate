@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-passport-color",
+  "type": "registry:component",
+  "title": "Passport · Color",
+  "description": "A passport with a globe stamp that turns under the cover. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-passport.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelPassportColorIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelPassportColorIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelPassportIcon from \"./PrequelPassportIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelPassportIcon {...rest} variant=\"color\" />\n"
+    }
+  ]
+}

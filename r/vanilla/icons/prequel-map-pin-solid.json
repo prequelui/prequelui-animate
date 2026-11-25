@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-map-pin-solid",
+  "type": "registry:ui",
+  "title": "Map Pin · Solid",
+  "description": "A location pin that drops onto its spot and pulses once. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-map-pin.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-map-pin-solid.js",
+      "target": "components/prequelui/icons/prequel-map-pin-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelMapPinIcon } from \"./prequel-map-pin.js\";\n\nexport function createPrequelMapPinSolidIcon(root, options = {}) {\n  const controller = createPrequelMapPinIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

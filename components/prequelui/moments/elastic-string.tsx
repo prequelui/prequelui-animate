@@ -163,7 +163,7 @@ export function ElasticString({ className, preview }: MomentProps) {
           />
         </svg>
       </div>
-      <span className="text-[10px] uppercase tracking-[0.2em] text-white/35">
+      <span className="text-[13px] uppercase tracking-[0.2em] text-white/35">
         {Math.round(Math.abs(shown)) === 0 ? "Pull the bead" : `${Math.round(Math.abs(shown))} px`}
       </span>
     </div>

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-cloud-rain-color",
+  "type": "registry:ui",
+  "title": "Cloud Rain · Color",
+  "description": "A cloud with three drops that fall in a staggered rhythm. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-cloud-rain.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-cloud-rain-color.js",
+      "target": "components/prequelui/icons/prequel-cloud-rain-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelCloudRainIcon } from \"./prequel-cloud-rain.js\";\n\nexport function createPrequelCloudRainColorIcon(root, options = {}) {\n  const controller = createPrequelCloudRainIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

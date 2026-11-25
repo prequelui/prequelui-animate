@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-thermometer-color",
+  "type": "registry:ui",
+  "title": "Thermometer · Color",
+  "description": "A clinical thermometer whose mercury rises on each trigger. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-thermometer.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-thermometer-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-thermometer-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelThermometerIcon } from \"./prequel-thermometer\";\n\nexport function PrequelThermometerColorIcon(props) {\n  return <PrequelThermometerIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-database-emoji",
+  "type": "registry:ui",
+  "title": "Database · Emoji",
+  "description": "Stacked database discs that breathe as one. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-database.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-database-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-database-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelDatabaseIcon } from \"./prequel-database\";\n\nexport function PrequelDatabaseEmojiIcon(props) {\n  return <PrequelDatabaseIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

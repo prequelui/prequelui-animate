@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-hospital-solid",
+  "type": "registry:ui",
+  "title": "Hospital · Solid",
+  "description": "A hospital block whose cross and doorway settle into place. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-hospital.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-hospital-solid.js",
+      "target": "components/prequelui/icons/prequel-hospital-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelHospitalIcon } from \"./prequel-hospital.js\";\n\nexport function createPrequelHospitalSolidIcon(root, options = {}) {\n  const controller = createPrequelHospitalIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

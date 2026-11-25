@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-truck-emoji",
+  "type": "registry:component",
+  "title": "Delivery Truck · Emoji",
+  "description": "A delivery van that rolls forward with its wheels tripping. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-truck.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelDeliveryTruckEmojiIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelDeliveryTruckEmojiIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelDeliveryTruckIcon from \"./PrequelDeliveryTruckIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelDeliveryTruckIcon {...rest} variant=\"emoji\" />\n"
+    }
+  ]
+}

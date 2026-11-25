@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-folder-open-emoji",
+  "type": "registry:ui",
+  "title": "Folder Open · Emoji",
+  "description": "An open folder whose front flap swings down to show its contents. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-folder-open.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-folder-open-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-folder-open-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelFolderOpenIcon } from \"./prequel-folder-open\";\n\nexport function PrequelFolderOpenEmojiIcon(props) {\n  return <PrequelFolderOpenIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

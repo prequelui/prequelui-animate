@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-plane-duotone",
+  "type": "registry:ui",
+  "title": "Plane · Duotone",
+  "description": "A top-view airliner that banks just enough to feel airborne. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-plane.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-plane-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-plane-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelPlaneIcon } from \"./prequel-plane\";\n\nexport function PrequelPlaneDuotoneIcon(props) {\n  return <PrequelPlaneIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

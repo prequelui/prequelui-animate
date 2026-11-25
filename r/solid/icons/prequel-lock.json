@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-lock",
+  "type": "registry:ui",
+  "title": "Lock icon",
+  "description": "A padlock whose shackle breathes above the body.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-lock.tsx",
+      "target": "src/components/prequelui/icons/prequel-lock.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { onCleanup, onMount } from \"solid-js\";\nimport { bindPrequelIcon, renderIcon } from \"./prequel-icon-core\";\n\nconst spec = {\"slug\":\"lock\",\"name\":\"Lock\",\"category\":\"Tools\",\"parts\":[{\"tag\":\"rect\",\"attrs\":{\"x\":5,\"y\":10,\"width\":14,\"height\":11,\"rx\":2.5}},{\"tag\":\"path\",\"attrs\":{\"d\":\"M8 10V7a4 4 0 0 1 8 0v3\"}},{\"tag\":\"circle\",\"attrs\":{\"cx\":12,\"cy\":15,\"r\":1.2}}],\"roles\":[\"primary\",\"primary\",\"accent\"],\"closed\":[true,false,true],\"draw\":[false,false,false],\"inside\":[false,false,true],\"hasClosed\":true,\"highlight\":{\"cx\":9.2,\"cy\":13.08,\"rx\":2.2,\"ry\":1.14},\"palette\":{\"color\":{\"primary\":\"oklch(0.56 0.1 225)\",\"primaryDark\":\"oklch(0.78 0.08 225)\",\"accent\":\"oklch(0.66 0.13 200)\",\"accentDark\":\"oklch(0.8 0.1 200)\"},\"emoji\":{\"primary\":\"oklch(0.74 0.13 232)\",\"secondary\":\"oklch(0.58 0.13 232)\",\"accent\":\"oklch(0.6 0.2 300)\"}},\"fill\":[],\"animations\":{\"hover\":{\"group\":{\"initial\":{\"scale\":1},\"animate\":{\"scale\":[1,1.06,1],\"transition\":{\"duration\":0.45,\"ease\":\"easeOut\"}}},\"p0\":{},\"p1\":{\"initial\":{\"opacity\":1,\"scale\":1},\"animate\":{\"opacity\":[1,0.55,1],\"scale\":[1,1.06,1],\"transition\":{\"duration\":0.55,\"ease\":\"easeInOut\"}}},\"p2\":{\"initial\":{\"opacity\":1,\"scale\":1},\"animate\":{\"opacity\":[1,0.55,1],\"scale\":[1,1.06,1],\"transition\":{\"duration\":0.55,\"ease\":\"easeInOut\"}}}},\"tap\":{\"group\":{\"initial\":{\"scale\":1},\"animate\":{\"scale\":[1,0.9,1.14,0.98,1],\"transition\":{\"duration\":0.55,\"ease\":[0.22,1,0.36,1]}}},\"p0\":{},\"p1\":{\"initial\":{\"opacity\":1,\"scale\":1},\"animate\":{\"opacity\":[1,0.4,1],\"scale\":[1,1.14,1],\"transition\":{\"duration\":0.55,\"ease\":[0.22,1,0.36,1]}}},\"p2\":{\"initial\":{\"opacity\":1,\"scale\":1},\"animate\":{\"opacity\":[1,0.4,1],\"scale\":[1,1.14,1],\"transition\":{\"duration\":0.55,\"ease\":[0.22,1,0.36,1]}}}},\"loop\":{\"group\":{\"initial\":{\"scale\":1},\"animate\":{\"scale\":[1,1.04,1],\"transition\":{\"duration\":1.5,\"ease\":\"easeInOut\"}}},\"p0\":{},\"p1\":{\"initial\":{\"opacity\":1,\"scale\":1},\"animate\":{\"opacity\":[1,0.55,1],\"scale\":[1,1.05,1],\"transition\":{\"duration\":1.5,\"ease\":\"easeInOut\"}}},\"p2\":{\"initial\":{\"opacity\":1,\"scale\":1},\"animate\":{\"opacity\":[1,0.55,1],\"scale\":[1,1.05,1],\"transition\":{\"duration\":1.5,\"ease\":\"easeInOut\"}}}}},\"component\":\"PrequelLockIcon\"};\n\nexport function PrequelLockIcon(props) {\n  let host;\n\n  const view = () =>\n    renderIcon(spec, {\n      size: props.size ?? 28,\n      variant: props.variant ?? \"outline\",\n      weight: props.weight ?? \"regular\",\n      className: props.class ?? \"\",\n      label: props.label ?? \"\",\n    });\n\n  onMount(() => {\n    const controller = bindPrequelIcon(host, spec, () => ({\n      speed: props.speed ?? 1,\n      tempo: props.tempo ?? 1,\n      delay: props.delay ?? 0,\n      loop: props.loop ?? false,\n      animate: props.animate ?? false,\n      animateOnHover: props.animateOnHover ?? true,\n      animateOnTap: props.animateOnTap ?? true,\n      animateOnView: props.animateOnView ?? false,\n      animateOnViewOnce: props.animateOnViewOnce ?? true,\n      animation: props.animation ?? \"hover\",\n    }));\n    onCleanup(() => controller.destroy());\n  });\n\n  return (\n    <span\n      ref={host}\n      data-slot=\"prequel-icon-host\"\n      style={{ display: \"contents\" }}\n      innerHTML={view()}\n    />\n  );\n}\n"
+    }
+  ]
+}

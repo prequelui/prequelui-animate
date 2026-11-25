@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-banknote-solid",
+  "type": "registry:ui",
+  "title": "Banknote · Solid",
+  "description": "A paper note whose central seal breathes like a watermark. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-banknote.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-banknote-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-banknote-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelBanknoteIcon } from \"./prequel-banknote\";\n\nexport function PrequelBanknoteSolidIcon(props) {\n  return <PrequelBanknoteIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

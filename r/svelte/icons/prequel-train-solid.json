@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-train-solid",
+  "type": "registry:component",
+  "title": "Train · Solid",
+  "description": "A railcar that glides forward while its windows flicker past. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-train.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelTrainSolidIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelTrainSolidIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelTrainIcon from \"./PrequelTrainIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelTrainIcon {...rest} variant=\"solid\" />\n"
+    }
+  ]
+}

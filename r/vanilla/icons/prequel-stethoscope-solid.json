@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-stethoscope-solid",
+  "type": "registry:ui",
+  "title": "Stethoscope · Solid",
+  "description": "A stethoscope whose tube dips while the chest piece listens. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-stethoscope.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-stethoscope-solid.js",
+      "target": "components/prequelui/icons/prequel-stethoscope-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelStethoscopeIcon } from \"./prequel-stethoscope.js\";\n\nexport function createPrequelStethoscopeSolidIcon(root, options = {}) {\n  const controller = createPrequelStethoscopeIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

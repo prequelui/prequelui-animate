@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-leaf-emoji",
+  "type": "registry:ui",
+  "title": "Leaf · Emoji",
+  "description": "A leaf that sways while its central vein draws in. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-leaf.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-leaf-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-leaf-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelLeafIcon } from \"./prequel-leaf\";\n\nexport function PrequelLeafEmojiIcon(props) {\n  return <PrequelLeafIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

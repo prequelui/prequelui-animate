@@ -81,7 +81,7 @@ export function TideProgress({ className, preview }: MomentProps) {
                 }
           }
         />
-        <span className="absolute bottom-2 left-3 text-[10px] uppercase tracking-[0.16em] text-white/50">
+        <span className="absolute bottom-2 left-3 text-[13px] uppercase tracking-[0.16em] text-white/50">
           Tide {Math.round(shown)}%
         </span>
       </div>

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-archive-emoji",
+  "type": "registry:ui",
+  "title": "Archive · Emoji",
+  "description": "A storage box whose lid lifts and whose handle pulls forward. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-archive.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-archive-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-archive-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelArchiveIcon } from \"./prequel-archive\";\n\nexport function PrequelArchiveEmojiIcon(props) {\n  return <PrequelArchiveIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-star-emoji",
+  "type": "registry:ui",
+  "title": "Star · Emoji",
+  "description": "A star that spins a little and flashes its fill. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-star.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-star-emoji.js",
+      "target": "components/prequelui/icons/prequel-star-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelStarIcon } from \"./prequel-star.js\";\n\nexport function createPrequelStarEmojiIcon(root, options = {}) {\n  const controller = createPrequelStarIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

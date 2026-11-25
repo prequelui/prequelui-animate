@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-heart-pulse-emoji",
+  "type": "registry:ui",
+  "title": "Heart Pulse · Emoji",
+  "description": "A steady heart with a trace that draws across its beat. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-heart-pulse.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-heart-pulse-emoji.js",
+      "target": "components/prequelui/icons/prequel-heart-pulse-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelHeartPulseIcon } from \"./prequel-heart-pulse.js\";\n\nexport function createPrequelHeartPulseEmojiIcon(root, options = {}) {\n  const controller = createPrequelHeartPulseIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

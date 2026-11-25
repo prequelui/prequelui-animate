@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-subtitles-emoji",
+  "type": "registry:component",
+  "title": "Subtitles · Emoji",
+  "description": "A caption bar whose two lines write themselves in turn. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-subtitles.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelSubtitlesEmojiIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelSubtitlesEmojiIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelSubtitlesIcon from \"./PrequelSubtitlesIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelSubtitlesIcon {...rest} variant=\"emoji\" />\n"
+    }
+  ]
+}

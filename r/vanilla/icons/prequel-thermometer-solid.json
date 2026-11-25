@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-thermometer-solid",
+  "type": "registry:ui",
+  "title": "Thermometer · Solid",
+  "description": "A clinical thermometer whose mercury rises on each trigger. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-thermometer.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-thermometer-solid.js",
+      "target": "components/prequelui/icons/prequel-thermometer-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelThermometerIcon } from \"./prequel-thermometer.js\";\n\nexport function createPrequelThermometerSolidIcon(root, options = {}) {\n  const controller = createPrequelThermometerIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-umbrella-color",
+  "type": "registry:component",
+  "title": "Umbrella · Color",
+  "description": "An open umbrella that tilts with the wind and springs back. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-umbrella.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelUmbrellaColorIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelUmbrellaColorIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelUmbrellaIcon from \"./PrequelUmbrellaIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelUmbrellaIcon {...rest} variant=\"color\" />\n"
+    }
+  ]
+}

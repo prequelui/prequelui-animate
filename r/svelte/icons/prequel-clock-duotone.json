@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-clock-duotone",
+  "type": "registry:component",
+  "title": "Clock · Duotone",
+  "description": "A clock face whose hands sweep forward on every play. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-clock.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelClockDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelClockDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelClockIcon from \"./PrequelClockIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelClockIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

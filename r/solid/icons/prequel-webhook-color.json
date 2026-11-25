@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-webhook-color",
+  "type": "registry:ui",
+  "title": "Webhook · Color",
+  "description": "Three hook nodes whose connecting loop draws on each call. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-webhook.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-webhook-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-webhook-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelWebhookIcon } from \"./prequel-webhook\";\n\nexport function PrequelWebhookColorIcon(props) {\n  return <PrequelWebhookIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

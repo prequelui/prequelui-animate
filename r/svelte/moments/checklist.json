@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checklist",
+  "type": "registry:component",
+  "title": "Checklist",
+  "description": "Checklist moment: one gesture, one physical answer.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/moments/moment-core.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/moments/checklist.js",
+      "target": "~/src/lib/components/prequelui/moments/checklist.js",
+      "type": "registry:lib",
+      "content": "import { animate } from \"motion\";\nimport {\n  applySurface,\n  prefersReducedMotion,\n  previewStep,\n  springSoft,\n} from \"./moment-core.js\";\n\nconst ITEMS = [\"Sketch the gesture\", \"Tune the spring\", \"Check reduced motion\"];\n\nexport function createChecklist(root, options = {}) {\n  const reduce = prefersReducedMotion();\n  let preview = Boolean(options.preview);\n  let done = [];\n  let step = 0;\n  let cancelPreview = () => {};\n\n  const surface = applySurface(\n    root,\n    \"flex-col items-stretch justify-center gap-1.5 px-3\",\n  );\n  surface.innerHTML = ITEMS.map(\n    (item, index) =>\n      `<button type=\"button\" role=\"checkbox\" aria-checked=\"false\"\n        class=\"group flex h-[30px] w-[190px] items-center gap-2.5 rounded-lg px-1 text-left outline-none transition-colors hover:bg-white/5 focus-visible:bg-white/5 focus-visible:ring-2 focus-visible:ring-white/40\">\n        <span data-box class=\"relative flex size-[18px] shrink-0 items-center justify-center rounded-[5px] border border-white/25 bg-transparent transition-colors\">\n          <svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\" aria-hidden=\"true\">\n            <path data-check d=\"M2.4 6.2 4.9 8.7 9.7 3.4\" fill=\"none\" stroke=\"#111114\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" />\n          </svg>\n        </span>\n        <span class=\"relative min-w-0 flex-1 truncate text-[13px] text-white/70\">\n          ${item}\n          <span data-strike aria-hidden=\"true\" class=\"absolute left-0 top-1/2 h-px bg-white/60\" style=\"transform-origin:left center\"></span>\n        </span>\n      </button>`,\n  ).join(\"\");\n\n  const buttons = Array.from(surface.querySelectorAll(\"button\"));\n  const checks = Array.from(surface.querySelectorAll(\"[data-check]\"));\n  const boxes = Array.from(surface.querySelectorAll(\"[data-box]\"));\n  const strikes = Array.from(surface.querySelectorAll(\"[data-strike]\"));\n\n  checks.forEach((path) => {\n    animate(path, { pathLength: 0, opacity: 0 }, { duration: 0 });\n  });\n  strikes.forEach((strike) => {\n    animate(strike, { scaleX: 0 }, { duration: 0 });\n  });\n\n  function render() {\n    const checked = preview\n      ? ITEMS.map((_, index) => index).filter((index) => index < step)\n      : done;\n    buttons.forEach((button, index) => {\n      const on = checked.includes(index);\n      button.setAttribute(\"aria-checked\", String(on));\n      boxes[index].className = `relative flex size-[18px] shrink-0 items-center justify-center rounded-[5px] border transition-colors ${\n        on ? \"border-white bg-white\" : \"border-white/25 bg-transparent\"\n      }`;\n      animate(\n        checks[index],\n        { pathLength: on ? 1 : 0, opacity: on ? 1 : 0 },\n        reduce ? { duration: 0 } : { duration: 0.28, ease: [0.23, 1, 0.32, 1] },\n      );\n      animate(\n        strikes[index],\n        { scaleX: on ? 1 : 0 },\n        reduce ? { duration: 0 } : springSoft,\n      );\n    });\n  }\n\n  buttons.forEach((button, index) => {\n    button.addEventListener(\"click\", () => {\n      done = done.includes(index)\n        ? done.filter((entry) => entry !== index)\n        : [...done, index];\n      render();\n    });\n  });\n\n  function setPreview(value) {\n    preview = Boolean(value);\n    cancelPreview();\n    cancelPreview = previewStep(preview, ITEMS.length + 1, 1100, (next) => {\n      step = next;\n      render();\n    }, reduce);\n    render();\n  }\n\n  setPreview(preview);\n\n  return {\n    update(next = {}) {\n      if (next.preview !== undefined && Boolean(next.preview) !== preview) {\n        setPreview(next.preview);\n      }\n    },\n    destroy() {\n      cancelPreview();\n      surface.innerHTML = \"\";\n    },\n  };\n}\n"
+    },
+    {
+      "path": "src/lib/components/prequelui/moments/Checklist.svelte",
+      "target": "~/src/lib/components/prequelui/moments/Checklist.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount } from \"svelte\";\n  import { createChecklist } from \"./checklist.js\";\n\n  let { className = \"\", preview = false } = $props();\n  let host;\n  let instance;\n\n  onMount(() => {\n    instance = createChecklist(host, { className, preview });\n    const extra = String(className || \"\").split(/\\s+/).filter(Boolean);\n    if (extra.length) host.classList.add(...extra);\n    return () => instance?.destroy();\n  });\n\n  $effect(() => {\n    const next = preview;\n    instance?.update({ preview: next });\n  });\n</script>\n\n<div bind:this={host}></div>\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-trending-up-duotone",
+  "type": "registry:ui",
+  "title": "Trending Up · Duotone",
+  "description": "A rising line that redraws while its arrowhead kicks upward. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-trending-up.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-trending-up-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-trending-up-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelTrendingUpIcon } from \"./prequel-trending-up\";\n\nexport function PrequelTrendingUpDuotoneIcon(props) {\n  return <PrequelTrendingUpIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

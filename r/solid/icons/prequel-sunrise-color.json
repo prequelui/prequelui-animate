@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-sunrise-color",
+  "type": "registry:ui",
+  "title": "Sunrise · Color",
+  "description": "A sun that rises over the horizon with two warming rays. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-sunrise.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-sunrise-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-sunrise-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelSunriseIcon } from \"./prequel-sunrise\";\n\nexport function PrequelSunriseColorIcon(props) {\n  return <PrequelSunriseIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

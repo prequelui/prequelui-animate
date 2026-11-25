@@ -98,7 +98,7 @@ export function PaperPlane({ className, preview }: MomentProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute bottom-2 left-3 text-[10px] uppercase tracking-[0.18em] text-white/35"
+              className="absolute bottom-2 left-3 text-[13px] uppercase tracking-[0.18em] text-white/35"
             >
               Tap to send
             </motion.span>

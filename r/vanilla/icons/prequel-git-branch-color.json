@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-git-branch-color",
+  "type": "registry:ui",
+  "title": "Git Branch · Color",
+  "description": "A branch line that draws from the trunk to its node. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-git-branch.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-git-branch-color.js",
+      "target": "components/prequelui/icons/prequel-git-branch-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelGitBranchIcon } from \"./prequel-git-branch.js\";\n\nexport function createPrequelGitBranchColorIcon(root, options = {}) {\n  const controller = createPrequelGitBranchIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "flip-coin",
+  "type": "registry:ui",
+  "title": "Flip Coin",
+  "description": "Flip Coin moment: one gesture, one physical answer.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/moments/moment-core.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/moments/flip-coin.js",
+      "target": "components/prequelui/moments/flip-coin.js",
+      "type": "registry:lib",
+      "content": "import { animate } from \"motion\";\nimport {\n  applySurface,\n  prefersReducedMotion,\n  previewPulse,\n} from \"./moment-core.js\";\n\nexport function createFlipCoin(root, options = {}) {\n  const reduce = prefersReducedMotion();\n  let preview = Boolean(options.preview);\n  let heads = true;\n  let flips = 0;\n  let pulse = false;\n  let previous = false;\n  let cancelPreview = () => {};\n\n  const surface = applySurface(root, \"flex-col gap-3\");\n  surface.innerHTML = `\n    <button type=\"button\" aria-label=\"Coin showing heads, flip it\"\n      class=\"flex size-[92px] items-center justify-center rounded-full outline-none focus-visible:ring-2 focus-visible:ring-white/50\"\n      style=\"perspective:700px\">\n      <span data-coin class=\"relative block size-[62px]\" style=\"transform-style:preserve-3d\">\n        <span class=\"absolute inset-0 flex items-center justify-center rounded-full border border-white/25 bg-white text-[20px] font-semibold text-black shadow-[0_10px_24px_rgba(0,0,0,.4)]\" style=\"backface-visibility:hidden\">H</span>\n        <span class=\"absolute inset-0 flex items-center justify-center rounded-full border border-white/20 bg-[#1a1a1f] text-[20px] font-semibold text-white shadow-[0_10px_24px_rgba(0,0,0,.4)]\" style=\"backface-visibility:hidden;transform:rotateY(180deg)\">T</span>\n      </span>\n    </button>\n    <span data-label aria-live=\"polite\" class=\"text-[13px] uppercase tracking-[0.18em] text-white/45\">Heads</span>`;\n\n  const button = surface.querySelector(\"button\");\n  const coin = surface.querySelector(\"[data-coin]\");\n  const label = surface.querySelector(\"[data-label]\");\n\n  function render() {\n    const rotation = (heads ? 0 : 180) + flips * 720;\n    button.setAttribute(\n      \"aria-label\",\n      `Coin showing ${heads ? \"heads\" : \"tails\"}, flip it`,\n    );\n    label.textContent = heads ? \"Heads\" : \"Tails\";\n    animate(\n      coin,\n      { rotateY: rotation, y: reduce ? 0 : [0, -18, 0] },\n      reduce\n        ? { duration: 0 }\n        : {\n            rotateY: { type: \"spring\", stiffness: 120, damping: 16 },\n            y: { duration: 1.05, ease: [0.22, 1, 0.36, 1] },\n          },\n    );\n  }\n\n  function flip() {\n    heads = !heads;\n    flips += 1;\n    render();\n  }\n\n  button.addEventListener(\"click\", flip);\n\n  function setPreview(value) {\n    preview = Boolean(value);\n    cancelPreview();\n    cancelPreview = previewPulse(preview, 1400, 3000, (on) => {\n      pulse = on;\n      if (preview && pulse && !previous) {\n        heads = !heads;\n        flips += 1;\n      }\n      previous = pulse;\n      render();\n    }, reduce);\n    render();\n  }\n\n  setPreview(preview);\n\n  return {\n    update(next = {}) {\n      if (next.preview !== undefined && Boolean(next.preview) !== preview) {\n        setPreview(next.preview);\n      }\n    },\n    destroy() {\n      cancelPreview();\n      button.removeEventListener(\"click\", flip);\n      surface.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

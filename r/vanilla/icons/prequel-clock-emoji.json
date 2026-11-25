@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-clock-emoji",
+  "type": "registry:ui",
+  "title": "Clock · Emoji",
+  "description": "A clock face whose hands sweep forward on every play. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-clock.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-clock-emoji.js",
+      "target": "components/prequelui/icons/prequel-clock-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelClockIcon } from \"./prequel-clock.js\";\n\nexport function createPrequelClockEmojiIcon(root, options = {}) {\n  const controller = createPrequelClockIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

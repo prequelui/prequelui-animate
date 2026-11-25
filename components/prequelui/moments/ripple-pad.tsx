@@ -65,7 +65,7 @@ export function RipplePad({ className, preview }: MomentProps) {
           aria-hidden="true"
           className="pointer-events-none absolute left-1/2 top-1/2 size-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/6 blur-lg"
         />
-        <span className="pointer-events-none absolute inset-0 flex items-center justify-center text-[11px] uppercase tracking-[0.18em] text-white/40">
+        <span className="pointer-events-none absolute inset-0 flex items-center justify-center text-[13px] uppercase tracking-[0.18em] text-white/40">
           Tap anywhere
         </span>
         <AnimatePresence>

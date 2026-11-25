@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-piggy-bank-emoji",
+  "type": "registry:ui",
+  "title": "Piggy Bank · Emoji",
+  "description": "A piggy bank that wiggles while its coin slot swallows a coin. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-piggy-bank.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-piggy-bank-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-piggy-bank-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelPiggyBankIcon } from \"./prequel-piggy-bank\";\n\nexport function PrequelPiggyBankEmojiIcon(props) {\n  return <PrequelPiggyBankIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

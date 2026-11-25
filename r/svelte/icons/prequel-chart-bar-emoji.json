@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-chart-bar-emoji",
+  "type": "registry:component",
+  "title": "Chart Bar · Emoji",
+  "description": "Three columns that grow from the baseline one after another. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-chart-bar.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelChartBarEmojiIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelChartBarEmojiIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelChartBarIcon from \"./PrequelChartBarIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelChartBarIcon {...rest} variant=\"emoji\" />\n"
+    }
+  ]
+}

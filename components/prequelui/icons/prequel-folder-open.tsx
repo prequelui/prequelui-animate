@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { motion, type SVGMotionProps } from "motion/react";
 import {
   useAnimatedIconContext,
@@ -228,6 +227,14 @@ export function PrequelFolderOpenIcon({ size = 28, variant: variantProp, ...prop
     highlight: paintHighlight,
   } = useIconPaint(palette, variantProp);
 
+  // Generated icons use a subset of these painters; marking them keeps the
+  // file buildable in projects that enable noUnusedLocals.
+  void paintPart;
+  void paintHalo;
+  void paintFlash;
+  void paintSticker;
+  void paintHighlight;
+
   return (
     <motion.svg
       xmlns="http://www.w3.org/2000/svg"
@@ -253,7 +260,7 @@ export function PrequelFolderOpenIcon({ size = 28, variant: variantProp, ...prop
           key={`${variant}-halo0`}
           className="pi-halo"
           data-paint="halo"
-          d={"M3 8V6a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v2"}
+          d={"M3 18V6a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v3"}
           style={paintHalo("primary")}
           variants={variants.p0}
           initial="initial"
@@ -265,7 +272,7 @@ export function PrequelFolderOpenIcon({ size = 28, variant: variantProp, ...prop
           key={`${variant}-halo2`}
           className="pi-halo"
           data-paint="halo"
-          d={"M6 13h12"}
+          d={"M7 13h9"}
           style={paintHalo("primary")}
           variants={variants.p2}
           initial="initial"
@@ -275,7 +282,7 @@ export function PrequelFolderOpenIcon({ size = 28, variant: variantProp, ...prop
       <motion.path
         key={`${variant}-p0`}
         className="pi-part"
-        d={"M3 8V6a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v2"}
+        d={"M3 18V6a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v3"}
         style={paintPart("primary", false, true, false)}
         variants={variants.p0}
         initial="initial"
@@ -284,7 +291,7 @@ export function PrequelFolderOpenIcon({ size = 28, variant: variantProp, ...prop
       <motion.path
         key={`${variant}-p1`}
         className="pi-part"
-        d={"M3 8h17.2a1.5 1.5 0 0 1 1.4 2l-2.2 7a2 2 0 0 1-1.9 1.4H5a2 2 0 0 1-2-2V8Z"}
+        d={"M3 10h15l3 8H6l-3-8Z"}
         style={paintPart("primary", true, false, false)}
         variants={variants.p1}
         initial="initial"
@@ -293,7 +300,7 @@ export function PrequelFolderOpenIcon({ size = 28, variant: variantProp, ...prop
       <motion.path
         key={`${variant}-p2`}
         className="pi-part"
-        d={"M6 13h12"}
+        d={"M7 13h9"}
         style={paintPart("primary", false, false, true)}
         variants={variants.p2}
         initial="initial"
@@ -303,11 +310,11 @@ export function PrequelFolderOpenIcon({ size = 28, variant: variantProp, ...prop
       {variant === "emoji" && (
         <ellipse
           className="pi-highlight"
-          cx={7.63}
-          cy={11.47}
-          rx={2.4}
-          ry={1.25}
-          transform="rotate(-24 7.63 11.47)"
+          cx={8.4}
+          cy={12.24}
+          rx={1.6}
+          ry={0.83}
+          transform="rotate(-24 8.4 12.24)"
           style={paintHighlight()}
         />
       )}

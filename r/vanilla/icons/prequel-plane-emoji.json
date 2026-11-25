@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-plane-emoji",
+  "type": "registry:ui",
+  "title": "Plane · Emoji",
+  "description": "A top-view airliner that banks just enough to feel airborne. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-plane.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-plane-emoji.js",
+      "target": "components/prequelui/icons/prequel-plane-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelPlaneIcon } from \"./prequel-plane.js\";\n\nexport function createPrequelPlaneEmojiIcon(root, options = {}) {\n  const controller = createPrequelPlaneIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

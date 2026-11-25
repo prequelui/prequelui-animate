@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-video-call-emoji",
+  "type": "registry:ui",
+  "title": "Video Call · Emoji",
+  "description": "A video window whose camera lens opens toward the room. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-video-call.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-video-call-emoji.js",
+      "target": "components/prequelui/icons/prequel-video-call-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelVideoCallIcon } from \"./prequel-video-call.js\";\n\nexport function createPrequelVideoCallEmojiIcon(root, options = {}) {\n  const controller = createPrequelVideoCallIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

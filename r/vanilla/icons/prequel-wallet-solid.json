@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-wallet-solid",
+  "type": "registry:ui",
+  "title": "Wallet · Solid",
+  "description": "A folded wallet whose clasp catches the light on every play. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-wallet.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-wallet-solid.js",
+      "target": "components/prequelui/icons/prequel-wallet-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelWalletIcon } from \"./prequel-wallet.js\";\n\nexport function createPrequelWalletSolidIcon(root, options = {}) {\n  const controller = createPrequelWalletIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

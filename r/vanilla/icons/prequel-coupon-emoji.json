@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-coupon-emoji",
+  "type": "registry:ui",
+  "title": "Coupon · Emoji",
+  "description": "A coupon that flexes at its perforation and settles. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-coupon.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-coupon-emoji.js",
+      "target": "components/prequelui/icons/prequel-coupon-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelCouponIcon } from \"./prequel-coupon.js\";\n\nexport function createPrequelCouponEmojiIcon(root, options = {}) {\n  const controller = createPrequelCouponIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

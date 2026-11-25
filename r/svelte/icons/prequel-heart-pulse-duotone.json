@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-heart-pulse-duotone",
+  "type": "registry:component",
+  "title": "Heart Pulse · Duotone",
+  "description": "A steady heart with a trace that draws across its beat. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-heart-pulse.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelHeartPulseDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelHeartPulseDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelHeartPulseIcon from \"./PrequelHeartPulseIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelHeartPulseIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

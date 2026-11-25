@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-tag-emoji",
+  "type": "registry:ui",
+  "title": "Tag · Emoji",
+  "description": "A price tag that sways around its hole. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-tag.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-tag-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-tag-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelTagIcon } from \"./prequel-tag\";\n\nexport function PrequelTagEmojiIcon(props) {\n  return <PrequelTagIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

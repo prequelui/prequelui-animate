@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-pill-duotone",
+  "type": "registry:component",
+  "title": "Pill · Duotone",
+  "description": "A capsule that splits along its seam on every press. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-pill.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelPillDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelPillDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelPillIcon from \"./PrequelPillIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelPillIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

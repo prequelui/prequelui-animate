@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-smartphone-solid",
+  "type": "registry:ui",
+  "title": "Smartphone · Solid",
+  "description": "A phone that lifts and nudges on each press. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-smartphone.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-smartphone-solid.js",
+      "target": "components/prequelui/icons/prequel-smartphone-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelSmartphoneIcon } from \"./prequel-smartphone.js\";\n\nexport function createPrequelSmartphoneSolidIcon(root, options = {}) {\n  const controller = createPrequelSmartphoneIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

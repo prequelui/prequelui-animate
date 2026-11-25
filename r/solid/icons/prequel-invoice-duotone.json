@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-invoice-duotone",
+  "type": "registry:ui",
+  "title": "Invoice · Duotone",
+  "description": "A billed page whose total signs itself at the foot. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-invoice.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-invoice-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-invoice-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelInvoiceIcon } from \"./prequel-invoice\";\n\nexport function PrequelInvoiceDuotoneIcon(props) {\n  return <PrequelInvoiceIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

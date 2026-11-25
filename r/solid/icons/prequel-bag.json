@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-bag",
+  "type": "registry:ui",
+  "title": "Shopping Bag icon",
+  "description": "A shopping bag whose handle pulses like a breath.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-bag.tsx",
+      "target": "src/components/prequelui/icons/prequel-bag.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { onCleanup, onMount } from \"solid-js\";\nimport { bindPrequelIcon, renderIcon } from \"./prequel-icon-core\";\n\nconst spec = {\"slug\":\"bag\",\"name\":\"Shopping Bag\",\"category\":\"Commerce\",\"parts\":[{\"tag\":\"path\",\"attrs\":{\"d\":\"M6 8h12l1 12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L6 8Z\"}},{\"tag\":\"path\",\"attrs\":{\"d\":\"M9 8V6a3 3 0 0 1 6 0v2\"}}],\"roles\":[\"primary\",\"primary\"],\"closed\":[true,false],\"draw\":[false,false],\"inside\":[false,false],\"hasClosed\":true,\"highlight\":{\"cx\":7.8,\"cy\":12.48,\"rx\":2.4,\"ry\":1.25},\"palette\":{\"color\":{\"primary\":\"oklch(0.62 0.14 160)\",\"primaryDark\":\"oklch(0.8 0.11 160)\",\"accent\":\"oklch(0.7 0.16 130)\",\"accentDark\":\"oklch(0.82 0.13 130)\"},\"emoji\":{\"primary\":\"oklch(0.82 0.18 130)\",\"secondary\":\"oklch(0.66 0.16 130)\",\"accent\":\"oklch(0.72 0.19 48)\"}},\"fill\":[],\"animations\":{\"hover\":{\"group\":{\"initial\":{\"y\":0},\"animate\":{\"y\":[0,-2,0],\"transition\":{\"duration\":0.45,\"ease\":\"easeOut\"}}},\"p0\":{},\"p1\":{\"initial\":{\"opacity\":1,\"scale\":1},\"animate\":{\"opacity\":[1,0.55,1],\"scale\":[1,1.06,1],\"transition\":{\"duration\":0.55,\"ease\":\"easeInOut\"}}}},\"tap\":{\"group\":{\"initial\":{\"y\":0},\"animate\":{\"y\":[0,-6,0],\"transition\":{\"duration\":0.5,\"ease\":[0.22,1,0.36,1]}}},\"p0\":{},\"p1\":{\"initial\":{\"opacity\":1,\"scale\":1},\"animate\":{\"opacity\":[1,0.4,1],\"scale\":[1,1.14,1],\"transition\":{\"duration\":0.55,\"ease\":[0.22,1,0.36,1]}}}},\"loop\":{\"group\":{\"initial\":{\"y\":0},\"animate\":{\"y\":[0,-2,0],\"transition\":{\"duration\":1.4,\"ease\":\"easeInOut\"}}},\"p0\":{},\"p1\":{\"initial\":{\"opacity\":1,\"scale\":1},\"animate\":{\"opacity\":[1,0.55,1],\"scale\":[1,1.05,1],\"transition\":{\"duration\":1.5,\"ease\":\"easeInOut\"}}}}},\"component\":\"PrequelShoppingBagIcon\"};\n\nexport function PrequelShoppingBagIcon(props) {\n  let host;\n\n  const view = () =>\n    renderIcon(spec, {\n      size: props.size ?? 28,\n      variant: props.variant ?? \"outline\",\n      weight: props.weight ?? \"regular\",\n      className: props.class ?? \"\",\n      label: props.label ?? \"\",\n    });\n\n  onMount(() => {\n    const controller = bindPrequelIcon(host, spec, () => ({\n      speed: props.speed ?? 1,\n      tempo: props.tempo ?? 1,\n      delay: props.delay ?? 0,\n      loop: props.loop ?? false,\n      animate: props.animate ?? false,\n      animateOnHover: props.animateOnHover ?? true,\n      animateOnTap: props.animateOnTap ?? true,\n      animateOnView: props.animateOnView ?? false,\n      animateOnViewOnce: props.animateOnViewOnce ?? true,\n      animation: props.animation ?? \"hover\",\n    }));\n    onCleanup(() => controller.destroy());\n  });\n\n  return (\n    <span\n      ref={host}\n      data-slot=\"prequel-icon-host\"\n      style={{ display: \"contents\" }}\n      innerHTML={view()}\n    />\n  );\n}\n"
+    }
+  ]
+}

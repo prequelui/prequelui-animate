@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-syringe-solid",
+  "type": "registry:ui",
+  "title": "Syringe · Solid",
+  "description": "A syringe that charges, presses and draws back its plunger. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-syringe.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-syringe-solid.js",
+      "target": "components/prequelui/icons/prequel-syringe-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelSyringeIcon } from \"./prequel-syringe.js\";\n\nexport function createPrequelSyringeSolidIcon(root, options = {}) {\n  const controller = createPrequelSyringeIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

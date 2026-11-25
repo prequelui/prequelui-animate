@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-scale-color",
+  "type": "registry:ui",
+  "title": "Scale · Color",
+  "description": "A balance that tips one pan and then returns to level. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-scale.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-scale-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-scale-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelScaleIcon } from \"./prequel-scale\";\n\nexport function PrequelScaleColorIcon(props) {\n  return <PrequelScaleIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

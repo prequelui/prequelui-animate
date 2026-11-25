@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-storefront-solid",
+  "type": "registry:ui",
+  "title": "Storefront · Solid",
+  "description": "A shop front whose striped awning lifts and settles. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-storefront.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-storefront-solid.js",
+      "target": "components/prequelui/icons/prequel-storefront-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelStorefrontIcon } from \"./prequel-storefront.js\";\n\nexport function createPrequelStorefrontSolidIcon(root, options = {}) {\n  const controller = createPrequelStorefrontIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

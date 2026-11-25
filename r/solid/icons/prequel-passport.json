@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-passport",
+  "type": "registry:ui",
+  "title": "Passport icon",
+  "description": "A passport with a globe stamp that turns under the cover.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-passport.tsx",
+      "target": "src/components/prequelui/icons/prequel-passport.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { onCleanup, onMount } from \"solid-js\";\nimport { bindPrequelIcon, renderIcon } from \"./prequel-icon-core\";\n\nconst spec = {\"slug\":\"passport\",\"name\":\"Passport\",\"category\":\"Travel\",\"parts\":[{\"tag\":\"rect\",\"attrs\":{\"x\":5,\"y\":2,\"width\":14,\"height\":20,\"rx\":2}},{\"tag\":\"circle\",\"attrs\":{\"cx\":12,\"cy\":10,\"r\":3.5}},{\"tag\":\"path\",\"attrs\":{\"d\":\"M8.5 10h7M12 6.5c1.5 1.5 1.5 5.5 0 7M12 6.5c-1.5 1.5-1.5 5.5 0 7\"}},{\"tag\":\"path\",\"attrs\":{\"d\":\"M8 17h8\"}}],\"roles\":[\"primary\",\"accent\",\"primary\",\"primary\"],\"closed\":[true,true,false,false],\"draw\":[false,false,false,false],\"inside\":[false,true,true,true],\"hasClosed\":true,\"highlight\":{\"cx\":9.2,\"cy\":7.6,\"rx\":2.24,\"ry\":1.16},\"palette\":{\"color\":{\"primary\":\"oklch(0.56 0.1 225)\",\"primaryDark\":\"oklch(0.78 0.08 225)\",\"accent\":\"oklch(0.66 0.13 200)\",\"accentDark\":\"oklch(0.8 0.1 200)\"},\"emoji\":{\"primary\":\"oklch(0.74 0.13 232)\",\"secondary\":\"oklch(0.58 0.13 232)\",\"accent\":\"oklch(0.82 0.16 85)\"}},\"fill\":[],\"animations\":{\"hover\":{\"group\":{\"initial\":{\"scale\":1},\"animate\":{\"scale\":[1,1.06,1],\"transition\":{\"duration\":0.45,\"ease\":\"easeOut\"}}},\"p0\":{},\"p1\":{},\"p2\":{\"initial\":{\"rotate\":0,\"transformOrigin\":\"12px 10px\"},\"animate\":{\"rotate\":[0,25,0],\"transition\":{\"duration\":0.55,\"ease\":\"easeInOut\"},\"transformOrigin\":\"12px 10px\"}},\"p3\":{}},\"tap\":{\"group\":{\"initial\":{\"scale\":1},\"animate\":{\"scale\":[1,0.9,1.14,0.98,1],\"transition\":{\"duration\":0.55,\"ease\":[0.22,1,0.36,1]}}},\"p0\":{},\"p1\":{},\"p2\":{\"initial\":{\"rotate\":0,\"transformOrigin\":\"12px 10px\"},\"animate\":{\"rotate\":[0,360],\"transition\":{\"duration\":0.85,\"ease\":[0.22,1,0.36,1]},\"transformOrigin\":\"12px 10px\"}},\"p3\":{}},\"loop\":{\"group\":{\"initial\":{\"scale\":1},\"animate\":{\"scale\":[1,1.04,1],\"transition\":{\"duration\":1.5,\"ease\":\"easeInOut\"}}},\"p0\":{},\"p1\":{},\"p2\":{\"initial\":{\"rotate\":0,\"transformOrigin\":\"12px 10px\"},\"animate\":{\"rotate\":[0,360],\"transition\":{\"duration\":1.8,\"ease\":\"easeInOut\"},\"transformOrigin\":\"12px 10px\"}},\"p3\":{}}},\"component\":\"PrequelPassportIcon\"};\n\nexport function PrequelPassportIcon(props) {\n  let host;\n\n  const view = () =>\n    renderIcon(spec, {\n      size: props.size ?? 28,\n      variant: props.variant ?? \"outline\",\n      weight: props.weight ?? \"regular\",\n      className: props.class ?? \"\",\n      label: props.label ?? \"\",\n    });\n\n  onMount(() => {\n    const controller = bindPrequelIcon(host, spec, () => ({\n      speed: props.speed ?? 1,\n      tempo: props.tempo ?? 1,\n      delay: props.delay ?? 0,\n      loop: props.loop ?? false,\n      animate: props.animate ?? false,\n      animateOnHover: props.animateOnHover ?? true,\n      animateOnTap: props.animateOnTap ?? true,\n      animateOnView: props.animateOnView ?? false,\n      animateOnViewOnce: props.animateOnViewOnce ?? true,\n      animation: props.animation ?? \"hover\",\n    }));\n    onCleanup(() => controller.destroy());\n  });\n\n  return (\n    <span\n      ref={host}\n      data-slot=\"prequel-icon-host\"\n      style={{ display: \"contents\" }}\n      innerHTML={view()}\n    />\n  );\n}\n"
+    }
+  ]
+}

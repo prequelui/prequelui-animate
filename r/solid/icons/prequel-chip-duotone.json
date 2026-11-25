@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-chip-duotone",
+  "type": "registry:ui",
+  "title": "Chip · Duotone",
+  "description": "A processor die whose pins pulse in a ring around it. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-chip.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-chip-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-chip-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelChipIcon } from \"./prequel-chip\";\n\nexport function PrequelChipDuotoneIcon(props) {\n  return <PrequelChipIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

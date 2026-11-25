@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-chat-bubbles-solid",
+  "type": "registry:ui",
+  "title": "Chat Bubbles · Solid",
+  "description": "Two speech bubbles that trade the conversation back and forth. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-chat-bubbles.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-chat-bubbles-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-chat-bubbles-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelChatBubblesIcon } from \"./prequel-chat-bubbles\";\n\nexport function PrequelChatBubblesSolidIcon(props) {\n  return <PrequelChatBubblesIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

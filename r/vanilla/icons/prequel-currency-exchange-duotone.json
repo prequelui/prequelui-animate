@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-currency-exchange-duotone",
+  "type": "registry:ui",
+  "title": "Currency Exchange · Duotone",
+  "description": "Two counter-flowing arrows trade places around a currency mark. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-currency-exchange.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-currency-exchange-duotone.js",
+      "target": "components/prequelui/icons/prequel-currency-exchange-duotone.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelCurrencyExchangeIcon } from \"./prequel-currency-exchange.js\";\n\nexport function createPrequelCurrencyExchangeDuotoneIcon(root, options = {}) {\n  const controller = createPrequelCurrencyExchangeIcon(root, { ...options, variant: \"duotone\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"duotone\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

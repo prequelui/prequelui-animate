@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-leaf-duotone",
+  "type": "registry:component",
+  "title": "Leaf · Duotone",
+  "description": "A leaf that sways while its central vein draws in. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-leaf.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelLeafDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelLeafDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelLeafIcon from \"./PrequelLeafIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelLeafIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

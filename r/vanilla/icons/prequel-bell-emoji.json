@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-bell-emoji",
+  "type": "registry:ui",
+  "title": "Bell · Emoji",
+  "description": "A bell that swings from its crown while the clapper lags. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-bell.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-bell-emoji.js",
+      "target": "components/prequelui/icons/prequel-bell-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelBellIcon } from \"./prequel-bell.js\";\n\nexport function createPrequelBellEmojiIcon(root, options = {}) {\n  const controller = createPrequelBellIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

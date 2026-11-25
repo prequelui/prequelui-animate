@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-hospital-duotone",
+  "type": "registry:component",
+  "title": "Hospital · Duotone",
+  "description": "A hospital block whose cross and doorway settle into place. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-hospital.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelHospitalDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelHospitalDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelHospitalIcon from \"./PrequelHospitalIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelHospitalIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

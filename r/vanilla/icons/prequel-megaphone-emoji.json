@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-megaphone-emoji",
+  "type": "registry:ui",
+  "title": "Megaphone · Emoji",
+  "description": "A megaphone that swings while its sound arc pulses. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-megaphone.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-megaphone-emoji.js",
+      "target": "components/prequelui/icons/prequel-megaphone-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelMegaphoneIcon } from \"./prequel-megaphone.js\";\n\nexport function createPrequelMegaphoneEmojiIcon(root, options = {}) {\n  const controller = createPrequelMegaphoneIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

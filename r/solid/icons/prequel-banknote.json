@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-banknote",
+  "type": "registry:ui",
+  "title": "Banknote icon",
+  "description": "A paper note whose central seal breathes like a watermark.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-banknote.tsx",
+      "target": "src/components/prequelui/icons/prequel-banknote.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { onCleanup, onMount } from \"solid-js\";\nimport { bindPrequelIcon, renderIcon } from \"./prequel-icon-core\";\n\nconst spec = {\"slug\":\"banknote\",\"name\":\"Banknote\",\"category\":\"Finance\",\"parts\":[{\"tag\":\"rect\",\"attrs\":{\"x\":2,\"y\":6,\"width\":20,\"height\":12,\"rx\":2}},{\"tag\":\"circle\",\"attrs\":{\"cx\":12,\"cy\":12,\"r\":2.6}},{\"tag\":\"path\",\"attrs\":{\"d\":\"M5 9v6M19 9v6\"}}],\"roles\":[\"primary\",\"accent\",\"primary\"],\"closed\":[true,true,false],\"draw\":[false,false,false],\"inside\":[false,true,true],\"hasClosed\":true,\"highlight\":{\"cx\":8,\"cy\":9.36,\"rx\":2.4,\"ry\":1.25},\"palette\":{\"color\":{\"primary\":\"oklch(0.56 0.1 225)\",\"primaryDark\":\"oklch(0.78 0.08 225)\",\"accent\":\"oklch(0.66 0.13 200)\",\"accentDark\":\"oklch(0.8 0.1 200)\"},\"emoji\":{\"primary\":\"oklch(0.74 0.13 232)\",\"secondary\":\"oklch(0.58 0.13 232)\",\"accent\":\"oklch(0.82 0.16 85)\"}},\"fill\":[],\"animations\":{\"hover\":{\"group\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,1.5,0],\"transition\":{\"duration\":0.45,\"ease\":\"easeOut\"}}},\"p0\":{},\"p1\":{\"initial\":{\"opacity\":1,\"scale\":1},\"animate\":{\"opacity\":[1,0.55,1],\"scale\":[1,1.06,1],\"transition\":{\"duration\":0.55,\"ease\":\"easeInOut\"}}},\"p2\":{}},\"tap\":{\"group\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,5,0],\"transition\":{\"duration\":0.6,\"ease\":[0.22,1,0.36,1]}}},\"p0\":{},\"p1\":{\"initial\":{\"opacity\":1,\"scale\":1},\"animate\":{\"opacity\":[1,0.4,1],\"scale\":[1,1.14,1],\"transition\":{\"duration\":0.55,\"ease\":[0.22,1,0.36,1]}}},\"p2\":{}},\"loop\":{\"group\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,2.4,0],\"transition\":{\"duration\":1.5,\"ease\":\"easeInOut\"}}},\"p0\":{},\"p1\":{\"initial\":{\"opacity\":1,\"scale\":1},\"animate\":{\"opacity\":[1,0.55,1],\"scale\":[1,1.05,1],\"transition\":{\"duration\":1.5,\"ease\":\"easeInOut\"}}},\"p2\":{}}},\"component\":\"PrequelBanknoteIcon\"};\n\nexport function PrequelBanknoteIcon(props) {\n  let host;\n\n  const view = () =>\n    renderIcon(spec, {\n      size: props.size ?? 28,\n      variant: props.variant ?? \"outline\",\n      weight: props.weight ?? \"regular\",\n      className: props.class ?? \"\",\n      label: props.label ?? \"\",\n    });\n\n  onMount(() => {\n    const controller = bindPrequelIcon(host, spec, () => ({\n      speed: props.speed ?? 1,\n      tempo: props.tempo ?? 1,\n      delay: props.delay ?? 0,\n      loop: props.loop ?? false,\n      animate: props.animate ?? false,\n      animateOnHover: props.animateOnHover ?? true,\n      animateOnTap: props.animateOnTap ?? true,\n      animateOnView: props.animateOnView ?? false,\n      animateOnViewOnce: props.animateOnViewOnce ?? true,\n      animation: props.animation ?? \"hover\",\n    }));\n    onCleanup(() => controller.destroy());\n  });\n\n  return (\n    <span\n      ref={host}\n      data-slot=\"prequel-icon-host\"\n      style={{ display: \"contents\" }}\n      innerHTML={view()}\n    />\n  );\n}\n"
+    }
+  ]
+}

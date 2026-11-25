@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-storefront-emoji",
+  "type": "registry:ui",
+  "title": "Storefront · Emoji",
+  "description": "A shop front whose striped awning lifts and settles. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-storefront.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-storefront-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-storefront-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelStorefrontIcon } from \"./prequel-storefront\";\n\nexport function PrequelStorefrontEmojiIcon(props) {\n  return <PrequelStorefrontIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

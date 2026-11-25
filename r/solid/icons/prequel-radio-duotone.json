@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-radio-duotone",
+  "type": "registry:ui",
+  "title": "Radio · Duotone",
+  "description": "A table radio whose speaker breathes with the signal. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-radio.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-radio-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-radio-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelRadioIcon } from \"./prequel-radio\";\n\nexport function PrequelRadioDuotoneIcon(props) {\n  return <PrequelRadioIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

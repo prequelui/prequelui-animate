@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-mail-solid",
+  "type": "registry:ui",
+  "title": "Mail · Solid",
+  "description": "An envelope whose flap lifts a touch when played. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-mail.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-mail-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-mail-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelMailIcon } from \"./prequel-mail\";\n\nexport function PrequelMailSolidIcon(props) {\n  return <PrequelMailIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

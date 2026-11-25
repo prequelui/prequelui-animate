@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-clipboard-solid",
+  "type": "registry:ui",
+  "title": "Clipboard · Solid",
+  "description": "A clipboard whose clip snaps shut over a short checklist. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-clipboard.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-clipboard-solid.js",
+      "target": "components/prequelui/icons/prequel-clipboard-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelClipboardIcon } from \"./prequel-clipboard.js\";\n\nexport function createPrequelClipboardSolidIcon(root, options = {}) {\n  const controller = createPrequelClipboardIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

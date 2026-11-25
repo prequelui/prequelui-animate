@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-syringe-color",
+  "type": "registry:component",
+  "title": "Syringe · Color",
+  "description": "A syringe that charges, presses and draws back its plunger. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-syringe.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelSyringeColorIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelSyringeColorIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelSyringeIcon from \"./PrequelSyringeIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelSyringeIcon {...rest} variant=\"color\" />\n"
+    }
+  ]
+}

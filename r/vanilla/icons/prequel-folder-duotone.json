@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-folder-duotone",
+  "type": "registry:ui",
+  "title": "Folder · Duotone",
+  "description": "A folder whose tab lifts and settles. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-folder.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-folder-duotone.js",
+      "target": "components/prequelui/icons/prequel-folder-duotone.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelFolderIcon } from \"./prequel-folder.js\";\n\nexport function createPrequelFolderDuotoneIcon(root, options = {}) {\n  const controller = createPrequelFolderIcon(root, { ...options, variant: \"duotone\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"duotone\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-video-call-duotone",
+  "type": "registry:ui",
+  "title": "Video Call · Duotone",
+  "description": "A video window whose camera lens opens toward the room. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-video-call.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-video-call-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-video-call-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelVideoCallIcon } from \"./prequel-video-call\";\n\nexport function PrequelVideoCallDuotoneIcon(props) {\n  return <PrequelVideoCallIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "blocks-scale",
+  "type": "registry:ui",
+  "title": "Blocks Scale",
+  "description": "Blocks Scale moment: one gesture, one physical answer.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vue/moments/moment-core.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/moments/blocks-scale.js",
+      "target": "components/prequelui/moments/blocks-scale.js",
+      "type": "registry:lib",
+      "content": "import { animate } from \"motion\";\nimport {\n  applySurface,\n  clamp,\n  localPoint,\n  prefersReducedMotion,\n  previewPointer,\n  springSoft,\n} from \"./moment-core.js\";\n\nconst SIZE = 4;\nconst CELL = 34;\nconst BLOCK = CELL - 6;\n\nexport function createBlocksScale(root, options = {}) {\n  const reduce = prefersReducedMotion();\n  let preview = Boolean(options.preview);\n  let point = { x: (SIZE * CELL) / 2, y: (SIZE * CELL) / 2 };\n  let cancelPreview = () => {};\n\n  const surface = applySurface(\n    root,\n    \"cursor-crosshair rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-white/50\",\n  );\n  surface.setAttribute(\"role\", \"group\");\n  surface.tabIndex = 0;\n  surface.setAttribute(\"aria-label\", \"Blocks scale, move the pointer over the grid\");\n  surface.innerHTML = `\n    <div data-grid class=\"grid gap-[6px]\" style=\"grid-template-columns:repeat(${SIZE}, ${BLOCK}px)\">\n      ${Array.from(\n        { length: SIZE * SIZE },\n        () =>\n          `<span class=\"block rounded-[6px] bg-white\" style=\"width:${BLOCK}px;height:${BLOCK}px\"></span>`,\n      ).join(\"\")}\n    </div>`;\n\n  const grid = surface.querySelector(\"[data-grid]\");\n  const blocks = Array.from(grid.querySelectorAll(\"span\"));\n\n  function render() {\n    blocks.forEach((block, index) => {\n      const column = index % SIZE;\n      const row = Math.floor(index / SIZE);\n      const x = column * CELL + CELL / 2;\n      const y = row * CELL + CELL / 2;\n      const distance = Math.hypot(point.x - x, point.y - y);\n      const closeness = clamp(1 - distance / 90, 0, 1);\n      animate(\n        block,\n        reduce\n          ? { scale: 1, opacity: 0.4 }\n          : { scale: 1 + closeness * 0.42, opacity: 0.3 + closeness * 0.7 },\n        reduce ? { duration: 0 } : springSoft,\n      );\n    });\n  }\n\n  function move(event) {\n    point = localPoint(event, event.currentTarget);\n    render();\n  }\n\n  function leave() {\n    point = { x: (SIZE * CELL) / 2, y: (SIZE * CELL) / 2 };\n    render();\n  }\n\n  function key(event) {\n    const moves = {\n      ArrowLeft: [-CELL, 0],\n      ArrowRight: [CELL, 0],\n      ArrowUp: [0, -CELL],\n      ArrowDown: [0, CELL],\n    };\n    const delta = moves[event.key];\n    if (!delta) return;\n    event.preventDefault();\n    point = {\n      x: clamp(point.x + delta[0], 0, SIZE * CELL),\n      y: clamp(point.y + delta[1], 0, SIZE * CELL),\n    };\n    render();\n  }\n\n  surface.addEventListener(\"keydown\", key);\n  grid.addEventListener(\"pointermove\", move);\n  grid.addEventListener(\"pointerleave\", leave);\n\n  function setPreview(value) {\n    preview = Boolean(value);\n    cancelPreview();\n    if (preview && !reduce) {\n      cancelPreview = previewPointer(\n        true,\n        SIZE * CELL,\n        SIZE * CELL,\n        (next) => {\n          point = next;\n          render();\n        },\n        reduce,\n      );\n    } else {\n      point = { x: (SIZE * CELL) / 2, y: (SIZE * CELL) / 2 };\n      render();\n    }\n  }\n\n  setPreview(preview);\n\n  return {\n    update(next = {}) {\n      if (next.preview !== undefined && Boolean(next.preview) !== preview) {\n        setPreview(next.preview);\n      }\n    },\n    destroy() {\n      cancelPreview();\n      surface.removeEventListener(\"keydown\", key);\n      grid.removeEventListener(\"pointermove\", move);\n      grid.removeEventListener(\"pointerleave\", leave);\n      surface.innerHTML = \"\";\n    },\n  };\n}\n"
+    },
+    {
+      "path": "components/prequelui/moments/BlocksScale.vue",
+      "target": "components/prequelui/moments/BlocksScale.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { onBeforeUnmount, onMounted, ref, watch } from \"vue\";\nimport { createBlocksScale } from \"./blocks-scale.js\";\n\nconst props = defineProps({\n  className: { type: String, default: \"\" },\n  preview: { type: Boolean, default: false },\n});\n\nconst host = ref(null);\nlet instance;\n\nonMounted(() => {\n  if (!host.value) return;\n  instance = createBlocksScale(host.value, {\n    className: props.className,\n    preview: props.preview,\n  });\n  const extra = String(props.className || \"\").split(/\\s+/).filter(Boolean);\n  if (extra.length) host.value.classList.add(...extra);\n});\n\nwatch(\n  () => props.preview,\n  (value) => instance?.update({ preview: value }),\n);\n\nonBeforeUnmount(() => {\n  instance?.destroy();\n  instance = undefined;\n});\n</script>\n\n<template>\n  <div ref=\"host\"></div>\n</template>\n"
+    }
+  ]
+}

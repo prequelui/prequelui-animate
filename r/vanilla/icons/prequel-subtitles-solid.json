@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-subtitles-solid",
+  "type": "registry:ui",
+  "title": "Subtitles · Solid",
+  "description": "A caption bar whose two lines write themselves in turn. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-subtitles.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-subtitles-solid.js",
+      "target": "components/prequelui/icons/prequel-subtitles-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelSubtitlesIcon } from \"./prequel-subtitles.js\";\n\nexport function createPrequelSubtitlesSolidIcon(root, options = {}) {\n  const controller = createPrequelSubtitlesIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

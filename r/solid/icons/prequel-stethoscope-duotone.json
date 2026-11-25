@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-stethoscope-duotone",
+  "type": "registry:ui",
+  "title": "Stethoscope · Duotone",
+  "description": "A stethoscope whose tube dips while the chest piece listens. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-stethoscope.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-stethoscope-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-stethoscope-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelStethoscopeIcon } from \"./prequel-stethoscope\";\n\nexport function PrequelStethoscopeDuotoneIcon(props) {\n  return <PrequelStethoscopeIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

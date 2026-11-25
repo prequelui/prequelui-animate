@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-globe-color",
+  "type": "registry:component",
+  "title": "Globe · Color",
+  "description": "A globe whose meridians turn while the equator holds still. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-globe.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelGlobeColorIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelGlobeColorIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelGlobeIcon from \"./PrequelGlobeIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelGlobeIcon {...rest} variant=\"color\" />\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-at-sign-emoji",
+  "type": "registry:component",
+  "title": "At Sign · Emoji",
+  "description": "An at sign whose inner ring tightens around its address. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-at-sign.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelAtSignEmojiIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelAtSignEmojiIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelAtSignIcon from \"./PrequelAtSignIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelAtSignIcon {...rest} variant=\"emoji\" />\n"
+    }
+  ]
+}

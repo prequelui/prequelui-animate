@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-arrow-up-right-duotone",
+  "type": "registry:component",
+  "title": "Arrow Up Right · Duotone",
+  "description": "A diagonal arrow that leans out of its corner on hover. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-arrow-up-right.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelArrowUpRightDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelArrowUpRightDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelArrowUpRightIcon from \"./PrequelArrowUpRightIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelArrowUpRightIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

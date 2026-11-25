@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-cart-solid",
+  "type": "registry:ui",
+  "title": "Shopping Cart · Solid",
+  "description": "A cart that rolls forward while its wheels bounce. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vue/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vue/icons/prequel-cart.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/PrequelShoppingCartSolidIcon.vue",
+      "target": "components/prequelui/icons/PrequelShoppingCartSolidIcon.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport PrequelShoppingCartIcon from \"./PrequelShoppingCartIcon.vue\";\n\nconst props = defineProps({\n  size: { type: Number, default: 28 },\n  variant: { type: String, default: \"outline\" },\n  weight: { type: String, default: \"regular\" },\n  speed: { type: Number, default: 1 },\n  tempo: { type: Number, default: 1 },\n  delay: { type: Number, default: 0 },\n  loop: { type: Boolean, default: false },\n  animate: { type: [Boolean, String], default: false },\n  animateOnHover: { type: Boolean, default: true },\n  animateOnTap: { type: Boolean, default: true },\n  animateOnView: { type: [Boolean, String], default: false },\n  animateOnViewOnce: { type: Boolean, default: true },\n  animation: { type: String, default: \"hover\" },\n  className: { type: String, default: \"\" },\n  label: { type: String, default: \"\" },\n});\n</script>\n\n<template>\n  <PrequelShoppingCartIcon\n    v-bind=\"props\"\n    variant=\"solid\"\n  />\n</template>\n"
+    }
+  ]
+}

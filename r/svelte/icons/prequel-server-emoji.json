@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-server-emoji",
+  "type": "registry:component",
+  "title": "Server · Emoji",
+  "description": "Two server bays that bounce against each other. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-server.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelServerEmojiIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelServerEmojiIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelServerIcon from \"./PrequelServerIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelServerIcon {...rest} variant=\"emoji\" />\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-arrow-down-left-emoji",
+  "type": "registry:ui",
+  "title": "Arrow Down Left · Emoji",
+  "description": "A diagonal arrow that points back into its corner. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-arrow-down-left.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-arrow-down-left-emoji.js",
+      "target": "components/prequelui/icons/prequel-arrow-down-left-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelArrowDownLeftIcon } from \"./prequel-arrow-down-left.js\";\n\nexport function createPrequelArrowDownLeftEmojiIcon(root, options = {}) {\n  const controller = createPrequelArrowDownLeftIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

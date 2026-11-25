@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-rainbow-color",
+  "type": "registry:ui",
+  "title": "Rainbow · Color",
+  "description": "Three nested arcs that draw outward in a staggered pass. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-rainbow.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-rainbow-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-rainbow-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelRainbowIcon } from \"./prequel-rainbow\";\n\nexport function PrequelRainbowColorIcon(props) {\n  return <PrequelRainbowIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

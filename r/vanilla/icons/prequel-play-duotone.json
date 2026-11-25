@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-play-duotone",
+  "type": "registry:ui",
+  "title": "Play · Duotone",
+  "description": "A play triangle that presses forward and rebounds. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-play.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-play-duotone.js",
+      "target": "components/prequelui/icons/prequel-play-duotone.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelPlayIcon } from \"./prequel-play.js\";\n\nexport function createPrequelPlayDuotoneIcon(root, options = {}) {\n  const controller = createPrequelPlayIcon(root, { ...options, variant: \"duotone\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"duotone\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

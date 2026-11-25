@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-reply",
+  "type": "registry:ui",
+  "title": "Reply icon",
+  "description": "A reply curl that springs back toward the sender.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-reply.js",
+      "target": "components/prequelui/icons/prequel-reply.js",
+      "type": "registry:ui",
+      "content": "import { bindPrequelIcon, renderIcon } from \"./prequel-icon-core.js\";\n\nexport const spec = {\"slug\":\"reply\",\"name\":\"Reply\",\"category\":\"Communication\",\"parts\":[{\"tag\":\"path\",\"attrs\":{\"d\":\"M9 7L3 12l6 5v-3h6a5 5 0 0 0 5-5V7\"}}],\"roles\":[\"primary\"],\"closed\":[false],\"draw\":[false],\"inside\":[false],\"hasClosed\":false,\"highlight\":null,\"palette\":{\"color\":{\"primary\":\"oklch(0.56 0.1 225)\",\"primaryDark\":\"oklch(0.78 0.08 225)\",\"accent\":\"oklch(0.66 0.13 200)\",\"accentDark\":\"oklch(0.8 0.1 200)\"},\"emoji\":{\"primary\":\"oklch(0.74 0.13 232)\",\"secondary\":\"oklch(0.58 0.13 232)\",\"accent\":\"oklch(0.82 0.16 85)\"}},\"fill\":[],\"animations\":{\"hover\":{\"group\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,-1.5,0],\"transition\":{\"duration\":0.45,\"ease\":\"easeOut\"}}},\"p0\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,-1.5,0],\"transition\":{\"duration\":0.45,\"ease\":\"easeOut\"}}}},\"tap\":{\"group\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,-5,0],\"transition\":{\"duration\":0.6,\"ease\":[0.22,1,0.36,1]}}},\"p0\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,-3,0],\"transition\":{\"duration\":0.55,\"ease\":[0.22,1,0.36,1]}}}},\"loop\":{\"group\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,-2.4,0],\"transition\":{\"duration\":1.5,\"ease\":\"easeInOut\"}}},\"p0\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,-1.5,0],\"transition\":{\"duration\":1.4,\"ease\":\"easeInOut\"}}}}},\"component\":\"PrequelReplyIcon\"};\n\nexport const meta = {\"slug\":\"reply\",\"name\":\"Reply\",\"category\":\"Communication\",\"component\":\"PrequelReplyIcon\",\"style\":\"outline\"};\n\nexport function createPrequelReplyIcon(root, options = {}) {\n  let current = { ...options };\n  const render = () => {\n    root.innerHTML = renderIcon(spec, current);\n  };\n  render();\n  const controller = bindPrequelIcon(root, spec, () => current);\n  return {\n    play: controller.play,\n    reset: controller.reset,\n    destroy: controller.destroy,\n    update(next = {}) {\n      current = { ...current, ...next };\n      render();\n    },\n    get observed() {\n      return controller.observed;\n    },\n  };\n}\n"
+    }
+  ]
+}

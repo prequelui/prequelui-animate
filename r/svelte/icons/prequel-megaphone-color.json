@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-megaphone-color",
+  "type": "registry:component",
+  "title": "Megaphone · Color",
+  "description": "A megaphone that swings while its sound arc pulses. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-megaphone.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelMegaphoneColorIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelMegaphoneColorIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelMegaphoneIcon from \"./PrequelMegaphoneIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelMegaphoneIcon {...rest} variant=\"color\" />\n"
+    }
+  ]
+}

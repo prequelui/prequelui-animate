@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-arrow-up-emoji",
+  "type": "registry:ui",
+  "title": "Arrow Up · Emoji",
+  "description": "A vertical arrow that lifts a little further on every trigger. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-arrow-up.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-arrow-up-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-arrow-up-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelArrowUpIcon } from \"./prequel-arrow-up\";\n\nexport function PrequelArrowUpEmojiIcon(props) {\n  return <PrequelArrowUpIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

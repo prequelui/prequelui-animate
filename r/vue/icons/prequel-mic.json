@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-mic",
+  "type": "registry:ui",
+  "title": "Microphone icon",
+  "description": "A microphone that lifts off its stand and pulses.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vue/icons/prequel-icon-core.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/PrequelMicrophoneIcon.vue",
+      "target": "components/prequelui/icons/PrequelMicrophoneIcon.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { computed, onBeforeUnmount, onMounted, ref } from \"vue\";\nimport { bindPrequelIcon, renderIcon } from \"./prequel-icon-core.js\";\n\nconst props = defineProps({\n  size: { type: Number, default: 28 },\n  variant: { type: String, default: \"outline\" },\n  weight: { type: String, default: \"regular\" },\n  speed: { type: Number, default: 1 },\n  tempo: { type: Number, default: 1 },\n  delay: { type: Number, default: 0 },\n  loop: { type: Boolean, default: false },\n  animate: { type: [Boolean, String], default: false },\n  animateOnHover: { type: Boolean, default: true },\n  animateOnTap: { type: Boolean, default: true },\n  animateOnView: { type: [Boolean, String], default: false },\n  animateOnViewOnce: { type: Boolean, default: true },\n  animation: { type: String, default: \"hover\" },\n  className: { type: String, default: \"\" },\n  label: { type: String, default: \"\" },\n});\n\nconst spec = {\"slug\":\"mic\",\"name\":\"Microphone\",\"category\":\"Media\",\"parts\":[{\"tag\":\"rect\",\"attrs\":{\"x\":9,\"y\":2,\"width\":6,\"height\":11,\"rx\":3}},{\"tag\":\"path\",\"attrs\":{\"d\":\"M5 11a7 7 0 0 0 14 0\"}},{\"tag\":\"path\",\"attrs\":{\"d\":\"M12 18v4\"}},{\"tag\":\"path\",\"attrs\":{\"d\":\"M8 22h8\"}}],\"roles\":[\"primary\",\"primary\",\"primary\",\"primary\"],\"closed\":[true,false,false,false],\"draw\":[false,false,false,false],\"inside\":[false,false,false,false],\"hasClosed\":true,\"highlight\":{\"cx\":10.8,\"cy\":5.08,\"rx\":1.1,\"ry\":0.7},\"palette\":{\"color\":{\"primary\":\"oklch(0.62 0.18 330)\",\"primaryDark\":\"oklch(0.79 0.14 330)\",\"accent\":\"oklch(0.72 0.16 355)\",\"accentDark\":\"oklch(0.84 0.13 355)\"},\"emoji\":{\"primary\":\"oklch(0.62 0.22 350)\",\"secondary\":\"oklch(0.48 0.2 350)\",\"accent\":\"oklch(0.6 0.2 300)\"}},\"fill\":[],\"animations\":{\"hover\":{\"group\":{\"initial\":{\"y\":0},\"animate\":{\"y\":[0,-2,0],\"transition\":{\"duration\":0.45,\"ease\":\"easeOut\"}}},\"p0\":{\"initial\":{\"opacity\":1,\"scale\":1},\"animate\":{\"opacity\":[1,0.55,1],\"scale\":[1,1.06,1],\"transition\":{\"duration\":0.55,\"ease\":\"easeInOut\"}}},\"p1\":{},\"p2\":{},\"p3\":{}},\"tap\":{\"group\":{\"initial\":{\"y\":0},\"animate\":{\"y\":[0,-6,0],\"transition\":{\"duration\":0.5,\"ease\":[0.22,1,0.36,1]}}},\"p0\":{\"initial\":{\"opacity\":1,\"scale\":1},\"animate\":{\"opacity\":[1,0.4,1],\"scale\":[1,1.14,1],\"transition\":{\"duration\":0.55,\"ease\":[0.22,1,0.36,1]}}},\"p1\":{},\"p2\":{},\"p3\":{}},\"loop\":{\"group\":{\"initial\":{\"y\":0},\"animate\":{\"y\":[0,-2,0],\"transition\":{\"duration\":1.4,\"ease\":\"easeInOut\"}}},\"p0\":{\"initial\":{\"opacity\":1,\"scale\":1},\"animate\":{\"opacity\":[1,0.55,1],\"scale\":[1,1.05,1],\"transition\":{\"duration\":1.5,\"ease\":\"easeInOut\"}}},\"p1\":{},\"p2\":{},\"p3\":{}}},\"component\":\"PrequelMicrophoneIcon\"};\nconst host = ref(null);\nlet controller = null;\n\nconst markup = computed(() =>\n  renderIcon(spec, {\n    size: props.size,\n    variant: props.variant,\n    weight: props.weight,\n    className: props.className,\n    label: props.label,\n  }),\n);\n\nonMounted(() => {\n  controller = bindPrequelIcon(host.value, spec, () => ({\n    speed: props.speed,\n    tempo: props.tempo,\n    delay: props.delay,\n    loop: props.loop,\n    animate: props.animate,\n    animateOnHover: props.animateOnHover,\n    animateOnTap: props.animateOnTap,\n    animateOnView: props.animateOnView,\n    animateOnViewOnce: props.animateOnViewOnce,\n    animation: props.animation,\n  }));\n});\n\nonBeforeUnmount(() => controller?.destroy());\n</script>\n\n<template>\n  <span\n    ref=\"host\"\n    data-slot=\"prequel-icon-host\"\n    style=\"display: contents\"\n    v-html=\"markup\"\n  ></span>\n</template>\n"
+    }
+  ]
+}

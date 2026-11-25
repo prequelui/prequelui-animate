@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-alarm-clock-emoji",
+  "type": "registry:ui",
+  "title": "Alarm Clock · Emoji",
+  "description": "A ringing alarm with shaking bells and spinning hands. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-alarm-clock.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-alarm-clock-emoji.js",
+      "target": "components/prequelui/icons/prequel-alarm-clock-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelAlarmClockIcon } from \"./prequel-alarm-clock.js\";\n\nexport function createPrequelAlarmClockEmojiIcon(root, options = {}) {\n  const controller = createPrequelAlarmClockIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-wallet-color",
+  "type": "registry:ui",
+  "title": "Wallet · Color",
+  "description": "A folded wallet whose clasp catches the light on every play. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-wallet.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-wallet-color.js",
+      "target": "components/prequelui/icons/prequel-wallet-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelWalletIcon } from \"./prequel-wallet.js\";\n\nexport function createPrequelWalletColorIcon(root, options = {}) {\n  const controller = createPrequelWalletIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}
