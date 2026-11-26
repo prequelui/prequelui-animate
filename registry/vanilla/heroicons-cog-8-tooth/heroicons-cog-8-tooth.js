@@ -35,8 +35,23 @@ export const meta = {
   "component": "createHeroiconsCog8ToothIcon"
 };
 
+export const defaults = {
+  size: 28,
+  className: "",
+  label: "",
+  speed: 1,
+  delay: 0,
+  loop: false,
+  animate: false,
+  animateOnHover: true,
+  animateOnTap: true,
+  animateOnView: false,
+  animateOnViewOnce: true,
+  animation: "hover",
+};
+
 export function createHeroiconsCog8ToothIcon(root, options = {}) {
-  let current = { ...options };
+  let current = { ...defaults, ...options };
   const render = () => {
     root.innerHTML = renderSetIcon(definition, current);
   };

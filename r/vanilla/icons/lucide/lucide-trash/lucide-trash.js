@@ -56,8 +56,23 @@ export const meta = {
   "component": "createLucideTrashIcon"
 };
 
+export const defaults = {
+  size: 28,
+  className: "",
+  label: "",
+  speed: 1,
+  delay: 0,
+  loop: false,
+  animate: false,
+  animateOnHover: true,
+  animateOnTap: true,
+  animateOnView: false,
+  animateOnViewOnce: true,
+  animation: "hover",
+};
+
 export function createLucideTrashIcon(root, options = {}) {
-  let current = { ...options };
+  let current = { ...defaults, ...options };
   const render = () => {
     root.innerHTML = renderSetIcon(definition, current);
   };

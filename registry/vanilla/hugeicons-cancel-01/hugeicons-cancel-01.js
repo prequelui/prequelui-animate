@@ -27,8 +27,23 @@ export const meta = {
   "component": "createHugeiconsCancel01Icon"
 };
 
+export const defaults = {
+  size: 28,
+  className: "",
+  label: "",
+  speed: 1,
+  delay: 0,
+  loop: false,
+  animate: false,
+  animateOnHover: true,
+  animateOnTap: true,
+  animateOnView: false,
+  animateOnViewOnce: true,
+  animation: "hover",
+};
+
 export function createHugeiconsCancel01Icon(root, options = {}) {
-  let current = { ...options };
+  let current = { ...defaults, ...options };
   const render = () => {
     root.innerHTML = renderSetIcon(definition, current);
   };
