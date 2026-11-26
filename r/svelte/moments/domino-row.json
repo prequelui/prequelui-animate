@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "domino-row",
+  "type": "registry:component",
+  "title": "Domino Row",
+  "description": "Domino Row moment: one gesture, one physical answer.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/moments/moment-core.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/moments/domino-row.js",
+      "target": "~/src/lib/components/prequelui/moments/domino-row.js",
+      "type": "registry:lib",
+      "content": "import { animate } from \"motion\";\nimport {\n  applySurface,\n  prefersReducedMotion,\n  previewPulse,\n} from \"./moment-core.js\";\n\nconst TILES = Array.from({ length: 8 }, (_, index) => index);\n\nexport function createDominoRow(root, options = {}) {\n  const reduce = prefersReducedMotion();\n  let preview = Boolean(options.preview);\n  let fallen = false;\n  let pulse = false;\n  let cancelPreview = () => {};\n\n  const surface = applySurface(root, \"flex-col gap-4\");\n  surface.innerHTML = `\n    <button type=\"button\" aria-pressed=\"false\" aria-label=\"Topple the dominoes\"\n      class=\"flex h-[92px] w-[188px] items-end justify-center gap-[7px] outline-none focus-visible:ring-2 focus-visible:ring-white/50\">\n      ${TILES.map(\n        () =>\n          `<span data-tile class=\"block h-[62px] w-[11px] origin-bottom rounded-[2px] border border-white/20 bg-white/90\"></span>`,\n      ).join(\"\")}\n    </button>\n    <span data-label class=\"text-[13px] uppercase tracking-[0.18em] text-white/45\">Standing</span>`;\n\n  const button = surface.querySelector(\"button\");\n  const label = surface.querySelector(\"[data-label]\");\n  const tiles = Array.from(surface.querySelectorAll(\"[data-tile]\"));\n\n  function render() {\n    const down = preview ? pulse : fallen;\n    button.setAttribute(\"aria-pressed\", String(down));\n    label.textContent = down ? \"Falling\" : \"Standing\";\n    tiles.forEach((tile, index) => {\n      animate(\n        tile,\n        { rotate: down ? 76 : 0 },\n        reduce\n          ? { duration: 0 }\n          : {\n              duration: 0.32,\n              ease: [0.4, 0, 0.9, 0.5],\n              delay: down ? index * 0.075 : (TILES.length - index) * 0.045,\n            },\n      );\n    });\n  }\n\n  button.addEventListener(\"click\", () => {\n    fallen = !fallen;\n    render();\n  });\n\n  function setPreview(value) {\n    preview = Boolean(value);\n    cancelPreview();\n    cancelPreview = previewPulse(preview, 1500, 3000, (on) => {\n      pulse = on;\n      render();\n    }, reduce);\n    render();\n  }\n\n  setPreview(preview);\n\n  return {\n    update(next = {}) {\n      if (next.preview !== undefined && Boolean(next.preview) !== preview) {\n        setPreview(next.preview);\n      }\n    },\n    destroy() {\n      cancelPreview();\n      surface.innerHTML = \"\";\n    },\n  };\n}\n"
+    },
+    {
+      "path": "src/lib/components/prequelui/moments/DominoRow.svelte",
+      "target": "~/src/lib/components/prequelui/moments/DominoRow.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount } from \"svelte\";\n  import { createDominoRow } from \"./domino-row.js\";\n\n  let { className = \"\", preview = false } = $props();\n  let host;\n  let instance;\n\n  onMount(() => {\n    instance = createDominoRow(host, { className, preview });\n    const extra = String(className || \"\").split(/\\s+/).filter(Boolean);\n    if (extra.length) host.classList.add(...extra);\n    return () => instance?.destroy();\n  });\n\n  $effect(() => {\n    const next = preview;\n    instance?.update({ preview: next });\n  });\n</script>\n\n<div bind:this={host}></div>\n"
+    }
+  ]
+}

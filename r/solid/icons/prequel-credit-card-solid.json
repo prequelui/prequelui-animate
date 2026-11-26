@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-credit-card-solid",
+  "type": "registry:ui",
+  "title": "Credit Card · Solid",
+  "description": "A payment card that slides while its chip blinks. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-credit-card.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-credit-card-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-credit-card-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelCreditCardIcon } from \"./prequel-credit-card\";\n\nexport function PrequelCreditCardSolidIcon(props) {\n  return <PrequelCreditCardIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

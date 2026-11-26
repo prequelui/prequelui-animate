@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-droplet-duotone",
+  "type": "registry:ui",
+  "title": "Droplet · Duotone",
+  "description": "A water drop that stretches as it falls and settles. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-droplet.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-droplet-duotone.js",
+      "target": "components/prequelui/icons/prequel-droplet-duotone.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelDropletIcon } from \"./prequel-droplet.js\";\n\nexport function createPrequelDropletDuotoneIcon(root, options = {}) {\n  const controller = createPrequelDropletIcon(root, { ...options, variant: \"duotone\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"duotone\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

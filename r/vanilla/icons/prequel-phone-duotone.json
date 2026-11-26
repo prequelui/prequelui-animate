@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-phone-duotone",
+  "type": "registry:ui",
+  "title": "Phone · Duotone",
+  "description": "A handset that tips toward its ear and sends a soft ring. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-phone.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-phone-duotone.js",
+      "target": "components/prequelui/icons/prequel-phone-duotone.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelPhoneIcon } from \"./prequel-phone.js\";\n\nexport function createPrequelPhoneDuotoneIcon(root, options = {}) {\n  const controller = createPrequelPhoneIcon(root, { ...options, variant: \"duotone\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"duotone\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

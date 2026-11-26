@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-flame-solid",
+  "type": "registry:ui",
+  "title": "Flame · Solid",
+  "description": "A flame whose inner core pulses brighter. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-flame.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-flame-solid.js",
+      "target": "components/prequelui/icons/prequel-flame-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelFlameIcon } from \"./prequel-flame.js\";\n\nexport function createPrequelFlameSolidIcon(root, options = {}) {\n  const controller = createPrequelFlameIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

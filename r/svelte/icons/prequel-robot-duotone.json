@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-robot-duotone",
+  "type": "registry:component",
+  "title": "Robot · Duotone",
+  "description": "A friendly robot whose antenna bobs and whose arms wave. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-robot.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelRobotDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelRobotDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelRobotIcon from \"./PrequelRobotIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelRobotIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

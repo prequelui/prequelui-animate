@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-calendar-color",
+  "type": "registry:component",
+  "title": "Calendar · Color",
+  "description": "A calendar whose day dots blink in sequence. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-calendar.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelCalendarColorIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelCalendarColorIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelCalendarIcon from \"./PrequelCalendarIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelCalendarIcon {...rest} variant=\"color\" />\n"
+    }
+  ]
+}

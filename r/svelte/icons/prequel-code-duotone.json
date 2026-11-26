@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-code-duotone",
+  "type": "registry:component",
+  "title": "Code · Duotone",
+  "description": "Two angle brackets that push apart around a slash. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-code.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelCodeDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelCodeDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelCodeIcon from \"./PrequelCodeIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelCodeIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

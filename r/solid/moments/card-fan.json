@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-fan",
+  "type": "registry:ui",
+  "title": "Card Fan",
+  "description": "Card Fan moment: one gesture, one physical answer.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/moments/moment-core.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/moments/card-fan.js",
+      "target": "src/components/prequelui/moments/card-fan.js",
+      "type": "registry:lib",
+      "content": "import { animate } from \"motion\";\nimport {\n  applySurface,\n  prefersReducedMotion,\n  previewPulse,\n  springSoft,\n} from \"./moment-core.js\";\n\nconst CARDS = [\n  { face: \"A\", tone: \"bg-white text-black\" },\n  { face: \"K\", tone: \"bg-white/85 text-black\" },\n  { face: \"Q\", tone: \"bg-white/70 text-black\" },\n  { face: \"J\", tone: \"bg-white/55 text-black\" },\n  { face: \"10\", tone: \"bg-white/40 text-black\" },\n];\n\nexport function createCardFan(root, options = {}) {\n  const reduce = prefersReducedMotion();\n  let preview = Boolean(options.preview);\n  let open = false;\n  let pulse = false;\n  let cancelPreview = () => {};\n\n  const surface = applySurface(root, \"flex-col gap-3\");\n  surface.innerHTML = `\n    <button type=\"button\" aria-pressed=\"false\" aria-label=\"Fan the card deck\"\n      class=\"group relative h-[92px] w-[184px] outline-none focus-visible:ring-2 focus-visible:ring-white/50\">\n      ${CARDS.map(\n        (card, index) =>\n          `<span data-card class=\"absolute bottom-0 left-1/2 h-[74px] w-[50px] origin-bottom rounded-lg border border-black/10 shadow-lg ${card.tone}\" style=\"margin-left:-25px\">\n            <span class=\"absolute left-1.5 top-1 text-[13px] font-semibold\">${card.face}</span>\n            <span class=\"absolute inset-0 flex items-center justify-center text-[16px]\">${index % 2 === 0 ? \"♠\" : \"♦\"}</span>\n          </span>`,\n      ).join(\"\")}\n    </button>\n    <span data-label class=\"text-[13px] uppercase tracking-[0.18em] text-white/45\">Deck</span>`;\n\n  const button = surface.querySelector(\"button\");\n  const label = surface.querySelector(\"[data-label]\");\n  const cards = Array.from(surface.querySelectorAll(\"[data-card]\"));\n  const middle = (CARDS.length - 1) / 2;\n\n  function render() {\n    const fanned = preview ? pulse : open;\n    button.setAttribute(\"aria-pressed\", String(fanned));\n    label.textContent = fanned ? \"Fan\" : \"Deck\";\n    cards.forEach((card, index) => {\n      const offset = index - middle;\n      animate(\n        card,\n        reduce\n          ? { x: offset * 20, y: 0, rotate: offset * 6 }\n          : {\n              x: fanned ? offset * 30 : offset * 3,\n              y: fanned ? -Math.abs(offset) * 2 : -index * 1.5,\n              rotate: fanned ? offset * 15 : offset * 4,\n            },\n        reduce ? { duration: 0 } : { ...springSoft, delay: index * 0.025 },\n      );\n    });\n  }\n\n  button.addEventListener(\"click\", () => {\n    open = !open;\n    render();\n  });\n\n  function setPreview(value) {\n    preview = Boolean(value);\n    cancelPreview();\n    cancelPreview = previewPulse(preview, 1200, 2600, (on) => {\n      pulse = on;\n      render();\n    }, reduce);\n    render();\n  }\n\n  setPreview(preview);\n\n  return {\n    update(next = {}) {\n      if (next.preview !== undefined && Boolean(next.preview) !== preview) {\n        setPreview(next.preview);\n      }\n    },\n    destroy() {\n      cancelPreview();\n      surface.innerHTML = \"\";\n    },\n  };\n}\n"
+    },
+    {
+      "path": "src/components/prequelui/moments/card-fan.tsx",
+      "target": "src/components/prequelui/moments/card-fan.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { createEffect, onCleanup, onMount } from \"solid-js\";\nimport { createCardFan } from \"./card-fan.js\";\n\nexport function CardFan(props) {\n  let host;\n  let instance;\n\n  onMount(() => {\n    instance = createCardFan(host, {\n      className: props.className ?? \"\",\n      preview: props.preview ?? false,\n    });\n    const extra = String(props.className || \"\").split(/\\s+/).filter(Boolean);\n    if (extra.length) host.classList.add(...extra);\n  });\n\n  createEffect(() => {\n    const next = props.preview ?? false;\n    instance?.update({ preview: next });\n  });\n  onCleanup(() => instance?.destroy());\n\n  return <div ref={host} />;\n}\n"
+    }
+  ]
+}

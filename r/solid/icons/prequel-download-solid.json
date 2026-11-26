@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-download-solid",
+  "type": "registry:ui",
+  "title": "Download · Solid",
+  "description": "An arrow that falls into its tray and lands. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-download.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-download-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-download-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelDownloadIcon } from \"./prequel-download\";\n\nexport function PrequelDownloadSolidIcon(props) {\n  return <PrequelDownloadIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

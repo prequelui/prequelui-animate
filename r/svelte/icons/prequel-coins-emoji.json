@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-coins-emoji",
+  "type": "registry:component",
+  "title": "Coins · Emoji",
+  "description": "A stack of coins that settles one layer at a time. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-coins.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelCoinsEmojiIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelCoinsEmojiIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelCoinsIcon from \"./PrequelCoinsIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelCoinsIcon {...rest} variant=\"emoji\" />\n"
+    }
+  ]
+}

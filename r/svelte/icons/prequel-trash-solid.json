@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-trash-solid",
+  "type": "registry:component",
+  "title": "Trash · Solid",
+  "description": "A bin that rattles while its lid stays put. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-trash.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelTrashSolidIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelTrashSolidIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelTrashIcon from \"./PrequelTrashIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelTrashIcon {...rest} variant=\"solid\" />\n"
+    }
+  ]
+}

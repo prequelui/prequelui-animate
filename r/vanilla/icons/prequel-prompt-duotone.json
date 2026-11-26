@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-prompt-duotone",
+  "type": "registry:ui",
+  "title": "Prompt · Duotone",
+  "description": "A prompt box whose caret types and whose spark answers. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-prompt.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-prompt-duotone.js",
+      "target": "components/prequelui/icons/prequel-prompt-duotone.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelPromptIcon } from \"./prequel-prompt.js\";\n\nexport function createPrequelPromptDuotoneIcon(root, options = {}) {\n  const controller = createPrequelPromptIcon(root, { ...options, variant: \"duotone\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"duotone\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

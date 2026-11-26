@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-package-solid",
+  "type": "registry:component",
+  "title": "Package · Solid",
+  "description": "A parcel whose seams draw in and whose lid lifts away. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-package.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelPackageSolidIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelPackageSolidIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelPackageIcon from \"./PrequelPackageIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelPackageIcon {...rest} variant=\"solid\" />\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-file-text-emoji",
+  "type": "registry:component",
+  "title": "File Text · Emoji",
+  "description": "A typed page whose paragraph writes itself line by line. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-file-text.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelFileTextEmojiIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelFileTextEmojiIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelFileTextIcon from \"./PrequelFileTextIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelFileTextIcon {...rest} variant=\"emoji\" />\n"
+    }
+  ]
+}

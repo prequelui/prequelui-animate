@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-file-color",
+  "type": "registry:ui",
+  "title": "File · Color",
+  "description": "A document whose ruled lines pulse one after another. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-file.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-file-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-file-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelFileIcon } from \"./prequel-file\";\n\nexport function PrequelFileColorIcon(props) {\n  return <PrequelFileIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

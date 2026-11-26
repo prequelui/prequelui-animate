@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-syringe-duotone",
+  "type": "registry:ui",
+  "title": "Syringe · Duotone",
+  "description": "A syringe that charges, presses and draws back its plunger. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-syringe.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-syringe-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-syringe-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelSyringeIcon } from \"./prequel-syringe\";\n\nexport function PrequelSyringeDuotoneIcon(props) {\n  return <PrequelSyringeIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

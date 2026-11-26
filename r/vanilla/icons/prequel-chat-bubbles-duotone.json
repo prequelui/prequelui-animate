@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-chat-bubbles-duotone",
+  "type": "registry:ui",
+  "title": "Chat Bubbles · Duotone",
+  "description": "Two speech bubbles that trade the conversation back and forth. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-chat-bubbles.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-chat-bubbles-duotone.js",
+      "target": "components/prequelui/icons/prequel-chat-bubbles-duotone.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelChatBubblesIcon } from \"./prequel-chat-bubbles.js\";\n\nexport function createPrequelChatBubblesDuotoneIcon(root, options = {}) {\n  const controller = createPrequelChatBubblesIcon(root, { ...options, variant: \"duotone\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"duotone\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

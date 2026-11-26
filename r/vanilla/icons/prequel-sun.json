@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-sun",
+  "type": "registry:ui",
+  "title": "Sun icon",
+  "description": "A round sun whose rays rotate and flicker together.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-sun.js",
+      "target": "components/prequelui/icons/prequel-sun.js",
+      "type": "registry:ui",
+      "content": "import { bindPrequelIcon, renderIcon } from \"./prequel-icon-core.js\";\n\nexport const spec = {\"slug\":\"sun\",\"name\":\"Sun\",\"category\":\"Weather\",\"parts\":[{\"tag\":\"circle\",\"attrs\":{\"cx\":12,\"cy\":12,\"r\":4}},{\"tag\":\"path\",\"attrs\":{\"d\":\"M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4\"}}],\"roles\":[\"primary\",\"primary\"],\"closed\":[true,false],\"draw\":[false,false],\"inside\":[false,false],\"hasClosed\":true,\"highlight\":{\"cx\":10.4,\"cy\":10.24,\"rx\":1.28,\"ry\":0.7},\"palette\":{\"color\":{\"primary\":\"oklch(0.62 0.14 235)\",\"primaryDark\":\"oklch(0.79 0.11 235)\",\"accent\":\"oklch(0.74 0.16 85)\",\"accentDark\":\"oklch(0.85 0.13 85)\"},\"emoji\":{\"primary\":\"oklch(0.74 0.13 232)\",\"secondary\":\"oklch(0.58 0.13 232)\",\"accent\":\"oklch(0.82 0.16 85)\"}},\"fill\":[],\"animations\":{\"hover\":{\"group\":{\"initial\":{\"rotate\":0},\"animate\":{\"rotate\":[0,18,0],\"transition\":{\"duration\":0.55,\"ease\":\"easeInOut\"}}},\"p0\":{},\"p1\":{\"initial\":{\"opacity\":1,\"scale\":1},\"animate\":{\"opacity\":[1,0.55,1],\"scale\":[1,1.06,1],\"transition\":{\"duration\":0.55,\"ease\":\"easeInOut\",\"delay\":0.04}}}},\"tap\":{\"group\":{\"initial\":{\"rotate\":0},\"animate\":{\"rotate\":[0,180,360],\"transition\":{\"duration\":0.8,\"ease\":[0.22,1,0.36,1]}}},\"p0\":{},\"p1\":{\"initial\":{\"opacity\":1,\"scale\":1},\"animate\":{\"opacity\":[1,0.4,1],\"scale\":[1,1.14,1],\"transition\":{\"duration\":0.55,\"ease\":[0.22,1,0.36,1],\"delay\":0.04}}}},\"loop\":{\"group\":{\"initial\":{\"rotate\":0},\"animate\":{\"rotate\":[0,360],\"transition\":{\"duration\":1.8,\"ease\":\"easeInOut\"}}},\"p0\":{},\"p1\":{\"initial\":{\"opacity\":1,\"scale\":1},\"animate\":{\"opacity\":[1,0.55,1],\"scale\":[1,1.05,1],\"transition\":{\"duration\":1.5,\"ease\":\"easeInOut\",\"delay\":0.04}}}}},\"component\":\"PrequelSunIcon\"};\n\nexport const meta = {\"slug\":\"sun\",\"name\":\"Sun\",\"category\":\"Weather\",\"component\":\"PrequelSunIcon\",\"style\":\"outline\"};\n\nexport function createPrequelSunIcon(root, options = {}) {\n  let current = { ...options };\n  const render = () => {\n    root.innerHTML = renderIcon(spec, current);\n  };\n  render();\n  const controller = bindPrequelIcon(root, spec, () => current);\n  return {\n    play: controller.play,\n    reset: controller.reset,\n    destroy: controller.destroy,\n    update(next = {}) {\n      current = { ...current, ...next };\n      render();\n    },\n    get observed() {\n      return controller.observed;\n    },\n  };\n}\n"
+    }
+  ]
+}

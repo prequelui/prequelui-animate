@@ -96,7 +96,7 @@ export function DetentDial({ className, preview }: MomentProps) {
         >
           <span className="absolute -left-[5px] top-0 size-[13px] rounded-full bg-white" />
         </motion.span>
-        <span className="relative z-10 flex size-9 items-center justify-center rounded-full border border-white/15 bg-[#18181c] text-[10px] tabular-nums text-white/60">
+        <span className="relative z-10 flex size-9 items-center justify-center rounded-full border border-white/15 bg-[#18181c] text-[13px] tabular-nums text-white/60">
           {value + 1}
         </span>
       </div>

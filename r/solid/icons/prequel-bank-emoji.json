@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-bank-emoji",
+  "type": "registry:ui",
+  "title": "Bank · Emoji",
+  "description": "A neoclassical bank whose columns settle under a steady pediment. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-bank.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-bank-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-bank-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelBankIcon } from \"./prequel-bank\";\n\nexport function PrequelBankEmojiIcon(props) {\n  return <PrequelBankIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

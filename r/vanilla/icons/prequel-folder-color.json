@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-folder-color",
+  "type": "registry:ui",
+  "title": "Folder · Color",
+  "description": "A folder whose tab lifts and settles. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-folder.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-folder-color.js",
+      "target": "components/prequelui/icons/prequel-folder-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelFolderIcon } from \"./prequel-folder.js\";\n\nexport function createPrequelFolderColorIcon(root, options = {}) {\n  const controller = createPrequelFolderIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

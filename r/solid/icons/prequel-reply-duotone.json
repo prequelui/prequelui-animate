@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-reply-duotone",
+  "type": "registry:ui",
+  "title": "Reply · Duotone",
+  "description": "A reply curl that springs back toward the sender. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-reply.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-reply-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-reply-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelReplyIcon } from \"./prequel-reply\";\n\nexport function PrequelReplyDuotoneIcon(props) {\n  return <PrequelReplyIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

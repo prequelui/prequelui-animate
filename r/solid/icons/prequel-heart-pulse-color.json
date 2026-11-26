@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-heart-pulse-color",
+  "type": "registry:ui",
+  "title": "Heart Pulse · Color",
+  "description": "A steady heart with a trace that draws across its beat. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-heart-pulse.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-heart-pulse-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-heart-pulse-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelHeartPulseIcon } from \"./prequel-heart-pulse\";\n\nexport function PrequelHeartPulseColorIcon(props) {\n  return <PrequelHeartPulseIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

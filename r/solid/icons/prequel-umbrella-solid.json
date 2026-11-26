@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-umbrella-solid",
+  "type": "registry:ui",
+  "title": "Umbrella · Solid",
+  "description": "An open umbrella that tilts with the wind and springs back. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-umbrella.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-umbrella-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-umbrella-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelUmbrellaIcon } from \"./prequel-umbrella\";\n\nexport function PrequelUmbrellaSolidIcon(props) {\n  return <PrequelUmbrellaIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

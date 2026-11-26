@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-at-sign-color",
+  "type": "registry:ui",
+  "title": "At Sign · Color",
+  "description": "An at sign whose inner ring tightens around its address. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-at-sign.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-at-sign-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-at-sign-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelAtSignIcon } from \"./prequel-at-sign\";\n\nexport function PrequelAtSignColorIcon(props) {\n  return <PrequelAtSignIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

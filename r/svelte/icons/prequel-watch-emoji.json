@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-watch-emoji",
+  "type": "registry:component",
+  "title": "Watch · Emoji",
+  "description": "A wristwatch that sways while its hands sweep. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-watch.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelWatchEmojiIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelWatchEmojiIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelWatchIcon from \"./PrequelWatchIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelWatchIcon {...rest} variant=\"emoji\" />\n"
+    }
+  ]
+}

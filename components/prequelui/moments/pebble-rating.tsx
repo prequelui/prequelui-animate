@@ -90,7 +90,7 @@ export function PebbleRating({ className, preview }: MomentProps) {
           );
         })}
       </div>
-      <span className="text-[12px] uppercase tracking-[0.18em] text-white/45">
+      <span className="text-[13px] uppercase tracking-[0.18em] text-white/45">
         {value} of 5
       </span>
     </div>

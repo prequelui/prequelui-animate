@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-bag-solid",
+  "type": "registry:ui",
+  "title": "Shopping Bag · Solid",
+  "description": "A shopping bag whose handle pulses like a breath. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-bag.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-bag-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-bag-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelShoppingBagIcon } from \"./prequel-bag\";\n\nexport function PrequelShoppingBagSolidIcon(props) {\n  return <PrequelShoppingBagIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

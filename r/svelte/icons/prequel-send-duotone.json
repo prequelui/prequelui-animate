@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-send-duotone",
+  "type": "registry:component",
+  "title": "Send · Duotone",
+  "description": "A paper plane that darts forward with its fold. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-send.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelSendDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelSendDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelSendIcon from \"./PrequelSendIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelSendIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

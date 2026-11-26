@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-compass-duotone",
+  "type": "registry:ui",
+  "title": "Compass · Duotone",
+  "description": "A navigator's compass whose needle finds north again. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-compass.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-compass-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-compass-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelCompassIcon } from \"./prequel-compass\";\n\nexport function PrequelCompassDuotoneIcon(props) {\n  return <PrequelCompassIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

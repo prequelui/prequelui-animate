@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-gift-solid",
+  "type": "registry:ui",
+  "title": "Gift · Solid",
+  "description": "A wrapped gift whose bow lifts and settles on the box. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-gift.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-gift-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-gift-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelGiftIcon } from \"./prequel-gift\";\n\nexport function PrequelGiftSolidIcon(props) {\n  return <PrequelGiftIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-smartphone",
+  "type": "registry:ui",
+  "title": "Smartphone icon",
+  "description": "A phone that lifts and nudges on each press.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vue/icons/prequel-icon-core.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/PrequelSmartphoneIcon.vue",
+      "target": "components/prequelui/icons/PrequelSmartphoneIcon.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { computed, onBeforeUnmount, onMounted, ref } from \"vue\";\nimport { bindPrequelIcon, renderIcon } from \"./prequel-icon-core.js\";\n\nconst props = defineProps({\n  size: { type: Number, default: 28 },\n  variant: { type: String, default: \"outline\" },\n  weight: { type: String, default: \"regular\" },\n  speed: { type: Number, default: 1 },\n  tempo: { type: Number, default: 1 },\n  delay: { type: Number, default: 0 },\n  loop: { type: Boolean, default: false },\n  animate: { type: [Boolean, String], default: false },\n  animateOnHover: { type: Boolean, default: true },\n  animateOnTap: { type: Boolean, default: true },\n  animateOnView: { type: [Boolean, String], default: false },\n  animateOnViewOnce: { type: Boolean, default: true },\n  animation: { type: String, default: \"hover\" },\n  className: { type: String, default: \"\" },\n  label: { type: String, default: \"\" },\n});\n\nconst spec = {\"slug\":\"smartphone\",\"name\":\"Smartphone\",\"category\":\"Devices\",\"parts\":[{\"tag\":\"rect\",\"attrs\":{\"x\":7,\"y\":2,\"width\":10,\"height\":20,\"rx\":2}},{\"tag\":\"path\",\"attrs\":{\"d\":\"M11 18h2\"}},{\"tag\":\"path\",\"attrs\":{\"d\":\"M10.5 5.5h3\"}}],\"roles\":[\"primary\",\"primary\",\"primary\"],\"closed\":[true,false,false],\"draw\":[false,false,false],\"inside\":[false,true,true],\"hasClosed\":true,\"highlight\":{\"cx\":10,\"cy\":7.6,\"rx\":1.6,\"ry\":0.83},\"palette\":{\"color\":{\"primary\":\"oklch(0.6 0.13 265)\",\"primaryDark\":\"oklch(0.78 0.1 265)\",\"accent\":\"oklch(0.7 0.15 285)\",\"accentDark\":\"oklch(0.82 0.12 285)\"},\"emoji\":{\"primary\":\"oklch(0.74 0.13 232)\",\"secondary\":\"oklch(0.58 0.13 232)\",\"accent\":\"oklch(0.6 0.2 300)\"}},\"fill\":[],\"animations\":{\"hover\":{\"group\":{\"initial\":{\"y\":0},\"animate\":{\"y\":[0,-2,0],\"transition\":{\"duration\":0.45,\"ease\":\"easeOut\"}}},\"p0\":{},\"p1\":{},\"p2\":{}},\"tap\":{\"group\":{\"initial\":{\"y\":0},\"animate\":{\"y\":[0,-6,0],\"transition\":{\"duration\":0.5,\"ease\":[0.22,1,0.36,1]}}},\"p0\":{},\"p1\":{},\"p2\":{}},\"loop\":{\"group\":{\"initial\":{\"y\":0},\"animate\":{\"y\":[0,-2,0],\"transition\":{\"duration\":1.4,\"ease\":\"easeInOut\"}}},\"p0\":{},\"p1\":{},\"p2\":{}}},\"component\":\"PrequelSmartphoneIcon\"};\nconst host = ref(null);\nlet controller = null;\n\nconst markup = computed(() =>\n  renderIcon(spec, {\n    size: props.size,\n    variant: props.variant,\n    weight: props.weight,\n    className: props.className,\n    label: props.label,\n  }),\n);\n\nonMounted(() => {\n  controller = bindPrequelIcon(host.value, spec, () => ({\n    speed: props.speed,\n    tempo: props.tempo,\n    delay: props.delay,\n    loop: props.loop,\n    animate: props.animate,\n    animateOnHover: props.animateOnHover,\n    animateOnTap: props.animateOnTap,\n    animateOnView: props.animateOnView,\n    animateOnViewOnce: props.animateOnViewOnce,\n    animation: props.animation,\n  }));\n});\n\nonBeforeUnmount(() => controller?.destroy());\n</script>\n\n<template>\n  <span\n    ref=\"host\"\n    data-slot=\"prequel-icon-host\"\n    style=\"display: contents\"\n    v-html=\"markup\"\n  ></span>\n</template>\n"
+    }
+  ]
+}

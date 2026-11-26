@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-bank-color",
+  "type": "registry:component",
+  "title": "Bank · Color",
+  "description": "A neoclassical bank whose columns settle under a steady pediment. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-bank.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelBankColorIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelBankColorIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelBankIcon from \"./PrequelBankIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelBankIcon {...rest} variant=\"color\" />\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-music-duotone",
+  "type": "registry:component",
+  "title": "Music · Duotone",
+  "description": "A pair of notes whose heads bob to a steady beat. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-music.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelMusicDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelMusicDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelMusicIcon from \"./PrequelMusicIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelMusicIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

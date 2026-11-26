@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bloom-toggle",
+  "type": "registry:ui",
+  "title": "Bloom Toggle",
+  "description": "Bloom Toggle moment: one gesture, one physical answer.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/moments/moment-core.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/moments/bloom-toggle.js",
+      "target": "src/components/prequelui/moments/bloom-toggle.js",
+      "type": "registry:lib",
+      "content": "import { animate } from \"motion\";\nimport {\n  applySurface,\n  prefersReducedMotion,\n  previewPulse,\n  springSoft,\n} from \"./moment-core.js\";\n\nconst PETALS = Array.from({ length: 7 }, (_, index) => index);\n\nexport function createBloomToggle(root, options = {}) {\n  const reduce = prefersReducedMotion();\n  let preview = Boolean(options.preview);\n  let checked = false;\n  let pulse = false;\n  let cancelPreview = () => {};\n\n  const surface = applySurface(root, \"flex-col gap-4\");\n  surface.innerHTML = `\n    <button type=\"button\" role=\"switch\" aria-checked=\"false\" aria-label=\"Bloom toggle\"\n      class=\"relative h-9 w-[74px] rounded-full p-1 outline-none transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-white/50\">\n      <span data-knob class=\"relative z-10 block size-7 rounded-full bg-white\">\n        <span aria-hidden=\"true\" class=\"absolute inset-0\">\n          ${PETALS.map(\n            (index) =>\n              `<span data-petal class=\"absolute left-1/2 top-1/2 size-[9px] rounded-full bg-white/80\" style=\"margin-left:-4.5px;margin-top:-4.5px\"></span>`,\n          ).join(\"\")}\n        </span>\n      </span>\n    </button>\n    <span data-label class=\"text-[13px] uppercase tracking-[0.18em] text-white/45\">Rest</span>`;\n\n  const button = surface.querySelector(\"button\");\n  const knob = surface.querySelector(\"[data-knob]\");\n  const label = surface.querySelector(\"[data-label]\");\n  const petals = Array.from(surface.querySelectorAll(\"[data-petal]\"));\n\n  function render() {\n    const on = preview ? pulse : checked;\n    button.setAttribute(\"aria-checked\", String(on));\n    button.classList.toggle(\"bg-white/25\", on);\n    button.classList.toggle(\"bg-white/10\", !on);\n    label.textContent = on ? \"Bloom\" : \"Rest\";\n    animate(knob, { x: on ? 38 : 0 }, reduce ? { duration: 0 } : springSoft);\n    petals.forEach((petal, index) => {\n      const angle = (360 / PETALS.length) * index;\n      const radians = (angle * Math.PI) / 180;\n      animate(\n        petal,\n        reduce\n          ? { opacity: on ? 1 : 0, scale: on ? 1 : 0 }\n          : {\n              opacity: on ? 1 : 0,\n              scale: on ? 1 : 0,\n              x: on ? Math.cos(radians) * 16 : 0,\n              y: on ? Math.sin(radians) * 16 : 0,\n            },\n        reduce ? { duration: 0 } : { ...springSoft, delay: index * 0.025 },\n      );\n    });\n  }\n\n  button.addEventListener(\"click\", () => {\n    checked = !checked;\n    render();\n  });\n\n  function setPreview(value) {\n    preview = Boolean(value);\n    cancelPreview();\n    cancelPreview = previewPulse(preview, 1100, 2600, (on) => {\n      pulse = on;\n      render();\n    }, reduce);\n    render();\n  }\n\n  setPreview(preview);\n\n  return {\n    update(next = {}) {\n      if (next.preview !== undefined && Boolean(next.preview) !== preview) {\n        setPreview(next.preview);\n      }\n    },\n    destroy() {\n      cancelPreview();\n      surface.innerHTML = \"\";\n    },\n  };\n}\n"
+    },
+    {
+      "path": "src/components/prequelui/moments/bloom-toggle.tsx",
+      "target": "src/components/prequelui/moments/bloom-toggle.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { createEffect, onCleanup, onMount } from \"solid-js\";\nimport { createBloomToggle } from \"./bloom-toggle.js\";\n\nexport function BloomToggle(props) {\n  let host;\n  let instance;\n\n  onMount(() => {\n    instance = createBloomToggle(host, {\n      className: props.className ?? \"\",\n      preview: props.preview ?? false,\n    });\n    const extra = String(props.className || \"\").split(/\\s+/).filter(Boolean);\n    if (extra.length) host.classList.add(...extra);\n  });\n\n  createEffect(() => {\n    const next = props.preview ?? false;\n    instance?.update({ preview: next });\n  });\n  onCleanup(() => instance?.destroy());\n\n  return <div ref={host} />;\n}\n"
+    }
+  ]
+}

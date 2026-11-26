@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-clipboard-duotone",
+  "type": "registry:ui",
+  "title": "Clipboard · Duotone",
+  "description": "A clipboard whose clip snaps shut over a short checklist. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-clipboard.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-clipboard-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-clipboard-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelClipboardIcon } from \"./prequel-clipboard\";\n\nexport function PrequelClipboardDuotoneIcon(props) {\n  return <PrequelClipboardIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

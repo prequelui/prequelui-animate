@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-chart-line-emoji",
+  "type": "registry:ui",
+  "title": "Chart Line · Emoji",
+  "description": "An axes corner with a trend line that draws itself in. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-chart-line.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-chart-line-emoji.js",
+      "target": "components/prequelui/icons/prequel-chart-line-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelChartLineIcon } from \"./prequel-chart-line.js\";\n\nexport function createPrequelChartLineEmojiIcon(root, options = {}) {\n  const controller = createPrequelChartLineIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

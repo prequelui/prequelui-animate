@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-trending-up-emoji",
+  "type": "registry:ui",
+  "title": "Trending Up · Emoji",
+  "description": "A rising line that redraws while its arrowhead kicks upward. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-trending-up.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-trending-up-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-trending-up-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelTrendingUpIcon } from \"./prequel-trending-up\";\n\nexport function PrequelTrendingUpEmojiIcon(props) {\n  return <PrequelTrendingUpIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-bluetooth-emoji",
+  "type": "registry:ui",
+  "title": "Bluetooth · Emoji",
+  "description": "A bluetooth rune that turns in place. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-bluetooth.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-bluetooth-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-bluetooth-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelBluetoothIcon } from \"./prequel-bluetooth\";\n\nexport function PrequelBluetoothEmojiIcon(props) {\n  return <PrequelBluetoothIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

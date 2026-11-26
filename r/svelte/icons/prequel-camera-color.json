@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-camera-color",
+  "type": "registry:component",
+  "title": "Camera · Color",
+  "description": "A camera whose lens pulses like a shutter breath. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-camera.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelCameraColorIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelCameraColorIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelCameraIcon from \"./PrequelCameraIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelCameraIcon {...rest} variant=\"color\" />\n"
+    }
+  ]
+}

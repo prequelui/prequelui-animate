@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-brain-circuit-solid",
+  "type": "registry:ui",
+  "title": "Brain Circuit · Solid",
+  "description": "A thinking brain whose circuit nodes light in sequence. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-brain-circuit.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-brain-circuit-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-brain-circuit-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelBrainCircuitIcon } from \"./prequel-brain-circuit\";\n\nexport function PrequelBrainCircuitSolidIcon(props) {\n  return <PrequelBrainCircuitIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

@@ -91,7 +91,7 @@ export function ScrubWave({ className, preview }: MomentProps) {
           animate={{ x: ratio * WIDTH }}
           transition={reduce ? { duration: 0 } : { type: "spring", stiffness: 500, damping: 40 }}
         />
-        <span className="absolute bottom-1.5 left-2 text-[9px] tabular-nums text-white/40">
+        <span className="absolute bottom-1.5 left-2 text-[13px] tabular-nums text-white/40">
           {Math.round(ratio * 100)}%
         </span>
       </div>

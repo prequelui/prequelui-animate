@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-webhook",
+  "type": "registry:ui",
+  "title": "Webhook icon",
+  "description": "Three hook nodes whose connecting loop draws on each call.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-webhook.js",
+      "target": "components/prequelui/icons/prequel-webhook.js",
+      "type": "registry:ui",
+      "content": "import { bindPrequelIcon, renderIcon } from \"./prequel-icon-core.js\";\n\nexport const spec = {\"slug\":\"webhook\",\"name\":\"Webhook\",\"category\":\"Development\",\"parts\":[{\"tag\":\"circle\",\"attrs\":{\"cx\":12,\"cy\":5,\"r\":2.5}},{\"tag\":\"circle\",\"attrs\":{\"cx\":5,\"cy\":18,\"r\":2.5}},{\"tag\":\"circle\",\"attrs\":{\"cx\":19,\"cy\":18,\"r\":2.5}},{\"tag\":\"path\",\"attrs\":{\"d\":\"M12 7.5v4a4 4 0 0 1-4 4H7M12 11.5a4 4 0 0 1 4 4M8.5 16.5h7\"}}],\"roles\":[\"primary\",\"accent\",\"accent\",\"primary\"],\"closed\":[true,true,true,false],\"draw\":[false,false,false,true],\"inside\":[false,false,false,false],\"hasClosed\":true,\"highlight\":{\"cx\":11,\"cy\":3.9,\"rx\":1.1,\"ry\":0.7},\"palette\":{\"color\":{\"primary\":\"oklch(0.58 0.16 275)\",\"primaryDark\":\"oklch(0.77 0.13 275)\",\"accent\":\"oklch(0.7 0.16 250)\",\"accentDark\":\"oklch(0.82 0.13 250)\"},\"emoji\":{\"primary\":\"oklch(0.6 0.2 300)\",\"secondary\":\"oklch(0.46 0.18 300)\",\"accent\":\"oklch(0.78 0.14 165)\"}},\"fill\":[],\"animations\":{\"hover\":{\"group\":{\"initial\":{\"scale\":1},\"animate\":{\"scale\":[1,1.06,1],\"transition\":{\"duration\":0.45,\"ease\":\"easeOut\"}}},\"p0\":{},\"p1\":{},\"p2\":{\"initial\":{\"opacity\":1,\"scale\":1},\"animate\":{\"opacity\":[1,0.55,1],\"scale\":[1,1.06,1],\"transition\":{\"duration\":0.55,\"ease\":\"easeInOut\",\"delay\":0.06}}},\"p3\":{\"initial\":{\"pathLength\":1,\"opacity\":1},\"animate\":{\"pathLength\":[0,1],\"opacity\":[0.35,1],\"transition\":{\"duration\":0.65,\"ease\":\"easeInOut\"}}}},\"tap\":{\"group\":{\"initial\":{\"scale\":1},\"animate\":{\"scale\":[1,0.9,1.14,0.98,1],\"transition\":{\"duration\":0.55,\"ease\":[0.22,1,0.36,1]}}},\"p0\":{},\"p1\":{},\"p2\":{\"initial\":{\"opacity\":1,\"scale\":1},\"animate\":{\"opacity\":[1,0.4,1],\"scale\":[1,1.14,1],\"transition\":{\"duration\":0.55,\"ease\":[0.22,1,0.36,1],\"delay\":0.06}}},\"p3\":{\"initial\":{\"pathLength\":1,\"opacity\":1},\"animate\":{\"pathLength\":[0,1],\"opacity\":[0.35,1],\"transition\":{\"duration\":0.8,\"ease\":\"easeInOut\"}}}},\"loop\":{\"group\":{\"initial\":{\"scale\":1},\"animate\":{\"scale\":[1,1.04,1],\"transition\":{\"duration\":1.5,\"ease\":\"easeInOut\"}}},\"p0\":{},\"p1\":{},\"p2\":{\"initial\":{\"opacity\":1,\"scale\":1},\"animate\":{\"opacity\":[1,0.55,1],\"scale\":[1,1.05,1],\"transition\":{\"duration\":1.5,\"ease\":\"easeInOut\",\"delay\":0.06}}},\"p3\":{\"initial\":{\"pathLength\":1,\"opacity\":1},\"animate\":{\"pathLength\":[1,0.15,1],\"opacity\":[1,0.6,1],\"transition\":{\"duration\":1.7,\"ease\":\"easeInOut\"}}}}},\"component\":\"PrequelWebhookIcon\"};\n\nexport const meta = {\"slug\":\"webhook\",\"name\":\"Webhook\",\"category\":\"Development\",\"component\":\"PrequelWebhookIcon\",\"style\":\"outline\"};\n\nexport function createPrequelWebhookIcon(root, options = {}) {\n  let current = { ...options };\n  const render = () => {\n    root.innerHTML = renderIcon(spec, current);\n  };\n  render();\n  const controller = bindPrequelIcon(root, spec, () => current);\n  return {\n    play: controller.play,\n    reset: controller.reset,\n    destroy: controller.destroy,\n    update(next = {}) {\n      current = { ...current, ...next };\n      render();\n    },\n    get observed() {\n      return controller.observed;\n    },\n  };\n}\n"
+    }
+  ]
+}

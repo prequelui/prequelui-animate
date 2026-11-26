@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-lightning-color",
+  "type": "registry:ui",
+  "title": "Lightning · Color",
+  "description": "A bolt that flashes its fill and flickers at the edges. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-lightning.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-lightning-color.js",
+      "target": "components/prequelui/icons/prequel-lightning-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelLightningIcon } from \"./prequel-lightning.js\";\n\nexport function createPrequelLightningColorIcon(root, options = {}) {\n  const controller = createPrequelLightningIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

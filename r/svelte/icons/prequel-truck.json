@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-truck",
+  "type": "registry:component",
+  "title": "Delivery Truck icon",
+  "description": "A delivery van that rolls forward with its wheels tripping.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelDeliveryTruckIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelDeliveryTruckIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount } from \"svelte\";\n  import { bindPrequelIcon, renderIcon } from \"./prequel-icon-core.js\";\n\n  let {\n    size = 28,\n    variant = \"outline\",\n    weight = \"regular\",\n    speed = 1,\n    tempo = 1,\n    delay = 0,\n    loop = false,\n    animate: animateProp = false,\n    animateOnHover = true,\n    animateOnTap = true,\n    animateOnView = false,\n    animateOnViewOnce = true,\n    animation = \"hover\",\n    class: className = \"\",\n    label = \"\",\n    ...rest\n  } = $props();\n\n  const spec = {\"slug\":\"truck\",\"name\":\"Delivery Truck\",\"category\":\"Commerce\",\"parts\":[{\"tag\":\"path\",\"attrs\":{\"d\":\"M3 6h11v11H3V6Z\"}},{\"tag\":\"path\",\"attrs\":{\"d\":\"M14 9h4l3 3v5h-7\"}},{\"tag\":\"circle\",\"attrs\":{\"cx\":7,\"cy\":19,\"r\":1.8}},{\"tag\":\"circle\",\"attrs\":{\"cx\":17.5,\"cy\":19,\"r\":1.8}},{\"tag\":\"path\",\"attrs\":{\"d\":\"M6 10h4\"}}],\"roles\":[\"primary\",\"primary\",\"accent\",\"accent\",\"primary\"],\"closed\":[true,false,true,true,false],\"draw\":[false,false,false,false,false],\"inside\":[false,false,false,false,true],\"hasClosed\":true,\"highlight\":{\"cx\":6.3,\"cy\":9.08,\"rx\":1.76,\"ry\":0.92},\"palette\":{\"color\":{\"primary\":\"oklch(0.62 0.14 160)\",\"primaryDark\":\"oklch(0.8 0.11 160)\",\"accent\":\"oklch(0.7 0.16 130)\",\"accentDark\":\"oklch(0.82 0.13 130)\"},\"emoji\":{\"primary\":\"oklch(0.82 0.18 130)\",\"secondary\":\"oklch(0.66 0.16 130)\",\"accent\":\"oklch(0.72 0.19 48)\"}},\"fill\":[],\"animations\":{\"hover\":{\"group\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,1.5,0],\"transition\":{\"duration\":0.45,\"ease\":\"easeOut\"}}},\"p0\":{},\"p1\":{},\"p2\":{\"initial\":{\"y\":0},\"animate\":{\"y\":[0,-2,0],\"transition\":{\"duration\":0.45,\"ease\":\"easeOut\"}}},\"p3\":{\"initial\":{\"y\":0},\"animate\":{\"y\":[0,-2,0],\"transition\":{\"duration\":0.45,\"ease\":\"easeOut\"}}},\"p4\":{}},\"tap\":{\"group\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,5,0],\"transition\":{\"duration\":0.6,\"ease\":[0.22,1,0.36,1]}}},\"p0\":{},\"p1\":{},\"p2\":{\"initial\":{\"y\":0},\"animate\":{\"y\":[0,-4,0],\"transition\":{\"duration\":0.5,\"ease\":[0.22,1,0.36,1]}}},\"p3\":{\"initial\":{\"y\":0},\"animate\":{\"y\":[0,-4,0],\"transition\":{\"duration\":0.5,\"ease\":[0.22,1,0.36,1]}}},\"p4\":{}},\"loop\":{\"group\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,2.4,0],\"transition\":{\"duration\":1.5,\"ease\":\"easeInOut\"}}},\"p0\":{},\"p1\":{},\"p2\":{\"initial\":{\"y\":0},\"animate\":{\"y\":[0,-1.5,0],\"transition\":{\"duration\":1.4,\"ease\":\"easeInOut\"}}},\"p3\":{\"initial\":{\"y\":0},\"animate\":{\"y\":[0,-1.5,0],\"transition\":{\"duration\":1.4,\"ease\":\"easeInOut\"}}},\"p4\":{}}},\"component\":\"PrequelDeliveryTruckIcon\"};\n  let host;\n  let controller;\n\n  onMount(() => {\n    controller = bindPrequelIcon(host, spec, () => ({\n      speed,\n      tempo,\n      delay,\n      loop,\n      animate: animateProp,\n      animateOnHover,\n      animateOnTap,\n      animateOnView,\n      animateOnViewOnce,\n      animation,\n    }));\n    return () => controller?.destroy();\n  });\n</script>\n\n<span\n  bind:this={host}\n  data-slot=\"prequel-icon-host\"\n  style=\"display: contents\"\n  {...rest}\n>\n  {@html renderIcon(spec, {\n    size,\n    variant: variant,\n    weight,\n    className,\n    label,\n  })}\n</span>\n"
+    }
+  ]
+}

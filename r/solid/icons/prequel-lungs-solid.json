@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-lungs-solid",
+  "type": "registry:ui",
+  "title": "Lungs · Solid",
+  "description": "A pair of lungs that fills and empties like a slow breath. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-lungs.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-lungs-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-lungs-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelLungsIcon } from \"./prequel-lungs\";\n\nexport function PrequelLungsSolidIcon(props) {\n  return <PrequelLungsIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { motion, type SVGMotionProps } from "motion/react";
 import {
   useAnimatedIconContext,
@@ -20,15 +19,15 @@ export type IconProps = Omit<SVGMotionProps<SVGSVGElement>, "ref"> & {
 
 const palette: IconPaletteBundle = {
   "color": {
-    "primary": "oklch(0.58 0.17 295)",
-    "primaryDark": "oklch(0.77 0.13 295)",
-    "accent": "oklch(0.7 0.14 195)",
-    "accentDark": "oklch(0.82 0.11 195)"
+    "primary": "oklch(0.56 0.1 225)",
+    "primaryDark": "oklch(0.78 0.08 225)",
+    "accent": "oklch(0.66 0.13 200)",
+    "accentDark": "oklch(0.8 0.1 200)"
   },
   "emoji": {
-    "primary": "oklch(0.6 0.2 300)",
-    "secondary": "oklch(0.46 0.18 300)",
-    "accent": "oklch(0.74 0.13 232)"
+    "primary": "oklch(0.74 0.13 232)",
+    "secondary": "oklch(0.58 0.13 232)",
+    "accent": "oklch(0.82 0.16 85)"
   }
 };
 
@@ -244,6 +243,14 @@ export function PrequelBotIcon({ size = 28, variant: variantProp, ...props }: Ic
     highlight: paintHighlight,
   } = useIconPaint(palette, variantProp);
 
+  // Generated icons use a subset of these painters; marking them keeps the
+  // file buildable in projects that enable noUnusedLocals.
+  void paintPart;
+  void paintHalo;
+  void paintFlash;
+  void paintSticker;
+  void paintHighlight;
+
   return (
     <motion.svg
       xmlns="http://www.w3.org/2000/svg"
@@ -269,7 +276,7 @@ export function PrequelBotIcon({ size = 28, variant: variantProp, ...props }: Ic
           key={`${variant}-halo1`}
           className="pi-halo"
           data-paint="halo"
-          d={"M12 4v4"}
+          d={"M12 3v3"}
           style={paintHalo("primary")}
           variants={variants.p1}
           initial="initial"
@@ -281,7 +288,7 @@ export function PrequelBotIcon({ size = 28, variant: variantProp, ...props }: Ic
           key={`${variant}-halo3`}
           className="pi-halo"
           data-paint="halo"
-          d={"M9 13h.01M15 13h.01"}
+          d={"M9 12h.01M15 12h.01"}
           style={paintHalo("primary")}
           variants={variants.p3}
           initial="initial"
@@ -293,7 +300,7 @@ export function PrequelBotIcon({ size = 28, variant: variantProp, ...props }: Ic
           key={`${variant}-halo4`}
           className="pi-halo"
           data-paint="halo"
-          d={"M2 13v2M22 13v2"}
+          d={"M2 11v2M22 11v2"}
           style={paintHalo("primary")}
           variants={variants.p4}
           initial="initial"
@@ -305,7 +312,7 @@ export function PrequelBotIcon({ size = 28, variant: variantProp, ...props }: Ic
           key={`${variant}-halo5`}
           className="pi-halo"
           data-paint="halo"
-          d={"M9 17h6"}
+          d={"M9.5 15.5h5"}
           style={paintHalo("primary")}
           variants={variants.p5}
           initial="initial"
@@ -316,10 +323,10 @@ export function PrequelBotIcon({ size = 28, variant: variantProp, ...props }: Ic
         key={`${variant}-p0`}
         className="pi-part"
         x={4}
-        y={8}
+        y={6}
         width={16}
         height={12}
-        rx={4}
+        rx={5}
         style={paintPart("primary", true, false, false)}
         variants={variants.p0}
         initial="initial"
@@ -328,7 +335,7 @@ export function PrequelBotIcon({ size = 28, variant: variantProp, ...props }: Ic
       <motion.path
         key={`${variant}-p1`}
         className="pi-part"
-        d={"M12 4v4"}
+        d={"M12 3v3"}
         style={paintPart("primary", false, false, false)}
         variants={variants.p1}
         initial="initial"
@@ -338,8 +345,8 @@ export function PrequelBotIcon({ size = 28, variant: variantProp, ...props }: Ic
         key={`${variant}-p2`}
         className="pi-part"
         cx={12}
-        cy={3}
-        r={1.5}
+        cy={2}
+        r={1.4}
         style={paintPart("accent", true, false, false)}
         variants={variants.p2}
         initial="initial"
@@ -348,7 +355,7 @@ export function PrequelBotIcon({ size = 28, variant: variantProp, ...props }: Ic
       <motion.path
         key={`${variant}-p3`}
         className="pi-part"
-        d={"M9 13h.01M15 13h.01"}
+        d={"M9 12h.01M15 12h.01"}
         style={paintPart("primary", false, false, true)}
         variants={variants.p3}
         initial="initial"
@@ -357,7 +364,7 @@ export function PrequelBotIcon({ size = 28, variant: variantProp, ...props }: Ic
       <motion.path
         key={`${variant}-p4`}
         className="pi-part"
-        d={"M2 13v2M22 13v2"}
+        d={"M2 11v2M22 11v2"}
         style={paintPart("primary", false, false, false)}
         variants={variants.p4}
         initial="initial"
@@ -366,7 +373,7 @@ export function PrequelBotIcon({ size = 28, variant: variantProp, ...props }: Ic
       <motion.path
         key={`${variant}-p5`}
         className="pi-part"
-        d={"M9 17h6"}
+        d={"M9.5 15.5h5"}
         style={paintPart("primary", false, false, true)}
         variants={variants.p5}
         initial="initial"
@@ -377,10 +384,10 @@ export function PrequelBotIcon({ size = 28, variant: variantProp, ...props }: Ic
         <ellipse
           className="pi-highlight"
           cx={8.8}
-          cy={11.36}
+          cy={9.36}
           rx={2.4}
           ry={1.25}
-          transform="rotate(-24 8.8 11.36)"
+          transform="rotate(-24 8.8 9.36)"
           style={paintHighlight()}
         />
       )}

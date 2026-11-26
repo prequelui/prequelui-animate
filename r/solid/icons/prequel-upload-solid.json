@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-upload-solid",
+  "type": "registry:ui",
+  "title": "Upload · Solid",
+  "description": "An arrow that rises from its tray and settles. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-upload.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-upload-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-upload-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelUploadIcon } from \"./prequel-upload\";\n\nexport function PrequelUploadSolidIcon(props) {\n  return <PrequelUploadIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

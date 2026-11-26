@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-wind-solid",
+  "type": "registry:ui",
+  "title": "Wind · Solid",
+  "description": "Three curling gusts that slide at slightly different speeds. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-wind.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-wind-solid.js",
+      "target": "components/prequelui/icons/prequel-wind-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelWindIcon } from \"./prequel-wind.js\";\n\nexport function createPrequelWindSolidIcon(root, options = {}) {\n  const controller = createPrequelWindIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

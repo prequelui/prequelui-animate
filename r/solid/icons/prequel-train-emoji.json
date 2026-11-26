@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-train-emoji",
+  "type": "registry:ui",
+  "title": "Train · Emoji",
+  "description": "A railcar that glides forward while its windows flicker past. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-train.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-train-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-train-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelTrainIcon } from \"./prequel-train\";\n\nexport function PrequelTrainEmojiIcon(props) {\n  return <PrequelTrainIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

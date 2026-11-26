@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-bot-emoji",
+  "type": "registry:ui",
+  "title": "Bot · Emoji",
+  "description": "A small assistant whose antenna bobs and whose eyes blink. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-bot.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-bot-emoji.js",
+      "target": "components/prequelui/icons/prequel-bot-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelBotIcon } from \"./prequel-bot.js\";\n\nexport function createPrequelBotEmojiIcon(root, options = {}) {\n  const controller = createPrequelBotIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-bag-duotone",
+  "type": "registry:ui",
+  "title": "Shopping Bag · Duotone",
+  "description": "A shopping bag whose handle pulses like a breath. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-bag.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-bag-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-bag-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelShoppingBagIcon } from \"./prequel-bag\";\n\nexport function PrequelShoppingBagDuotoneIcon(props) {\n  return <PrequelShoppingBagIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

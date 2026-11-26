@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-hotel-duotone",
+  "type": "registry:ui",
+  "title": "Hotel · Duotone",
+  "description": "A hotel facade whose windows blink on in a quiet cascade. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-hotel.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-hotel-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-hotel-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelHotelIcon } from \"./prequel-hotel\";\n\nexport function PrequelHotelDuotoneIcon(props) {\n  return <PrequelHotelIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

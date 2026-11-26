@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-car-solid",
+  "type": "registry:component",
+  "title": "Car · Solid",
+  "description": "A compact car that bounces on its suspension. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-car.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelCarSolidIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelCarSolidIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelCarIcon from \"./PrequelCarIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelCarIcon {...rest} variant=\"solid\" />\n"
+    }
+  ]
+}

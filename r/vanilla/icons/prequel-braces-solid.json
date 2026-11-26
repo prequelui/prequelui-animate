@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-braces-solid",
+  "type": "registry:ui",
+  "title": "Braces · Solid",
+  "description": "A pair of braces that open wide and close around a dot. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-braces.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-braces-solid.js",
+      "target": "components/prequelui/icons/prequel-braces-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelBracesIcon } from \"./prequel-braces.js\";\n\nexport function createPrequelBracesSolidIcon(root, options = {}) {\n  const controller = createPrequelBracesIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

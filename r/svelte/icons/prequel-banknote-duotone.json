@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-banknote-duotone",
+  "type": "registry:component",
+  "title": "Banknote · Duotone",
+  "description": "A paper note whose central seal breathes like a watermark. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-banknote.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelBanknoteDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelBanknoteDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelBanknoteIcon from \"./PrequelBanknoteIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelBanknoteIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

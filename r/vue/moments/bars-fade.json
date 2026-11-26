@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "bars-fade",
+  "type": "registry:ui",
+  "title": "Bars Fade",
+  "description": "Bars Fade moment: one gesture, one physical answer.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vue/moments/moment-core.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/moments/bars-fade.js",
+      "target": "components/prequelui/moments/bars-fade.js",
+      "type": "registry:lib",
+      "content": "import { animate } from \"motion\";\nimport {\n  applySurface,\n  prefersReducedMotion,\n  previewPulse,\n  springSoft,\n} from \"./moment-core.js\";\n\nconst BARS = [38, 62, 78, 48, 88, 66, 34];\n\nexport function createBarsFade(root, options = {}) {\n  const reduce = prefersReducedMotion();\n  let preview = Boolean(options.preview);\n  let pressed = false;\n  let pulse = false;\n  let timer = 0;\n  let cancelPreview = () => {};\n\n  const surface = applySurface(\n    root,\n    \"cursor-pointer rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-white/50\",\n  );\n  surface.setAttribute(\"role\", \"button\");\n  surface.tabIndex = 0;\n  surface.setAttribute(\"aria-label\", \"Play the bars fade\");\n  surface.innerHTML = `\n    <div class=\"flex h-[76px] items-center gap-[7px]\">\n      ${BARS.map(\n        (height) =>\n          `<span class=\"block w-[9px] rounded-full bg-current\" style=\"height:${height}px\"></span>`,\n      ).join(\"\")}\n    </div>`;\n\n  const bars = Array.from(surface.querySelectorAll(\"span\"));\n\n  function render() {\n    const lit = pressed || pulse;\n    bars.forEach((bar, index) => {\n      animate(\n        bar,\n        reduce\n          ? { opacity: 1, scaleY: 1 }\n          : { opacity: lit ? 1 : 0.28, scaleY: lit ? 1 : 0.42 },\n        reduce\n          ? { duration: 0 }\n          : { ...springSoft, delay: lit ? index * 0.045 : index * 0.02 },\n      );\n    });\n  }\n\n  function play() {\n    pressed = true;\n    window.clearTimeout(timer);\n    timer = window.setTimeout(() => {\n      pressed = false;\n      render();\n    }, 820);\n    render();\n  }\n\n  function onKey(event) {\n    if (event.key === \"Enter\" || event.key === \" \") {\n      event.preventDefault();\n      play();\n    }\n  }\n\n  function setPreview(value) {\n    preview = Boolean(value);\n    cancelPreview();\n    cancelPreview = previewPulse(preview, 820, 2500, (on) => {\n      pulse = on;\n      render();\n    }, reduce);\n    render();\n  }\n\n  surface.addEventListener(\"click\", play);\n  surface.addEventListener(\"keydown\", onKey);\n  setPreview(preview);\n\n  return {\n    update(next = {}) {\n      if (next.preview !== undefined && Boolean(next.preview) !== preview) {\n        setPreview(next.preview);\n      }\n    },\n    destroy() {\n      cancelPreview();\n      window.clearTimeout(timer);\n      surface.removeEventListener(\"click\", play);\n      surface.removeEventListener(\"keydown\", onKey);\n      surface.innerHTML = \"\";\n    },\n  };\n}\n"
+    },
+    {
+      "path": "components/prequelui/moments/BarsFade.vue",
+      "target": "components/prequelui/moments/BarsFade.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { onBeforeUnmount, onMounted, ref, watch } from \"vue\";\nimport { createBarsFade } from \"./bars-fade.js\";\n\nconst props = defineProps({\n  className: { type: String, default: \"\" },\n  preview: { type: Boolean, default: false },\n});\n\nconst host = ref(null);\nlet instance;\n\nonMounted(() => {\n  if (!host.value) return;\n  instance = createBarsFade(host.value, {\n    className: props.className,\n    preview: props.preview,\n  });\n  const extra = String(props.className || \"\").split(/\\s+/).filter(Boolean);\n  if (extra.length) host.value.classList.add(...extra);\n});\n\nwatch(\n  () => props.preview,\n  (value) => instance?.update({ preview: value }),\n);\n\nonBeforeUnmount(() => {\n  instance?.destroy();\n  instance = undefined;\n});\n</script>\n\n<template>\n  <div ref=\"host\"></div>\n</template>\n"
+    }
+  ]
+}

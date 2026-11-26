@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-bank-duotone",
+  "type": "registry:ui",
+  "title": "Bank · Duotone",
+  "description": "A neoclassical bank whose columns settle under a steady pediment. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-bank.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-bank-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-bank-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelBankIcon } from \"./prequel-bank\";\n\nexport function PrequelBankDuotoneIcon(props) {\n  return <PrequelBankIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

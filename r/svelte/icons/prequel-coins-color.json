@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-coins-color",
+  "type": "registry:component",
+  "title": "Coins · Color",
+  "description": "A stack of coins that settles one layer at a time. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-coins.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelCoinsColorIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelCoinsColorIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelCoinsIcon from \"./PrequelCoinsIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelCoinsIcon {...rest} variant=\"color\" />\n"
+    }
+  ]
+}

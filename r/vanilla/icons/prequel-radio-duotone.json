@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-radio-duotone",
+  "type": "registry:ui",
+  "title": "Radio · Duotone",
+  "description": "A table radio whose speaker breathes with the signal. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-radio.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-radio-duotone.js",
+      "target": "components/prequelui/icons/prequel-radio-duotone.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelRadioIcon } from \"./prequel-radio.js\";\n\nexport function createPrequelRadioDuotoneIcon(root, options = {}) {\n  const controller = createPrequelRadioIcon(root, { ...options, variant: \"duotone\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"duotone\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

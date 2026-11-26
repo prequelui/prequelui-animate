@@ -47,7 +47,7 @@ export function EclipseHalf({ className, preview }: MomentProps) {
         />
         <span
           aria-live="polite"
-          className="absolute bottom-1 text-[8px] uppercase tracking-[0.2em] text-white/40"
+          className="absolute bottom-1.5 text-[13px] uppercase tracking-[0.12em] text-white/40"
         >
           {on ? "Eclipse" : "Sun"}
         </span>

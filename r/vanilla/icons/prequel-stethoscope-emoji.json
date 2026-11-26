@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-stethoscope-emoji",
+  "type": "registry:ui",
+  "title": "Stethoscope · Emoji",
+  "description": "A stethoscope whose tube dips while the chest piece listens. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-stethoscope.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-stethoscope-emoji.js",
+      "target": "components/prequelui/icons/prequel-stethoscope-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelStethoscopeIcon } from \"./prequel-stethoscope.js\";\n\nexport function createPrequelStethoscopeEmojiIcon(root, options = {}) {\n  const controller = createPrequelStethoscopeIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

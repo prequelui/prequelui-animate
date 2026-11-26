@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-clipboard-color",
+  "type": "registry:component",
+  "title": "Clipboard · Color",
+  "description": "A clipboard whose clip snaps shut over a short checklist. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-clipboard.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelClipboardColorIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelClipboardColorIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelClipboardIcon from \"./PrequelClipboardIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelClipboardIcon {...rest} variant=\"color\" />\n"
+    }
+  ]
+}

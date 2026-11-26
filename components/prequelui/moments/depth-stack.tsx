@@ -97,7 +97,7 @@ export function DepthStack({ className, preview }: MomentProps) {
               >
                 {index === LAYERS.length - 1 ? (
                   <span className="flex size-full items-center justify-center rounded-xl bg-black/5">
-                    <span className="text-[9px] uppercase tracking-[0.16em] text-black/55">
+                    <span className="text-[13px] uppercase tracking-[0.16em] text-black/55">
                       {lifted ? "Open" : "Stack"}
                     </span>
                   </span>
@@ -107,7 +107,7 @@ export function DepthStack({ className, preview }: MomentProps) {
           })}
         </motion.div>
       </button>
-      <span className="text-[11px] uppercase tracking-[0.18em] text-white/40">
+      <span className="text-[13px] uppercase tracking-[0.18em] text-white/40">
         {lifted ? "Lifted" : "Hover or tap"}
       </span>
     </div>

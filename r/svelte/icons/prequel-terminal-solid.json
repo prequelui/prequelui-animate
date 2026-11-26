@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-terminal-solid",
+  "type": "registry:component",
+  "title": "Terminal · Solid",
+  "description": "A terminal window with a prompt that steps right. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-terminal.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelTerminalSolidIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelTerminalSolidIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelTerminalIcon from \"./PrequelTerminalIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelTerminalIcon {...rest} variant=\"solid\" />\n"
+    }
+  ]
+}

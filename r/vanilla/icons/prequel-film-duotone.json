@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-film-duotone",
+  "type": "registry:ui",
+  "title": "Film · Duotone",
+  "description": "A film strip whose sprocket holes tick past frame by frame. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-film.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-film-duotone.js",
+      "target": "components/prequelui/icons/prequel-film-duotone.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelFilmIcon } from \"./prequel-film.js\";\n\nexport function createPrequelFilmDuotoneIcon(root, options = {}) {\n  const controller = createPrequelFilmIcon(root, { ...options, variant: \"duotone\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"duotone\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

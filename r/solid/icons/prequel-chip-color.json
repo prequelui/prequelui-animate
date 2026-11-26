@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-chip-color",
+  "type": "registry:ui",
+  "title": "Chip · Color",
+  "description": "A processor die whose pins pulse in a ring around it. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-chip.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-chip-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-chip-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelChipIcon } from \"./prequel-chip\";\n\nexport function PrequelChipColorIcon(props) {\n  return <PrequelChipIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

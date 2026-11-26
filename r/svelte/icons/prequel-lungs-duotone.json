@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-lungs-duotone",
+  "type": "registry:component",
+  "title": "Lungs · Duotone",
+  "description": "A pair of lungs that fills and empties like a slow breath. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-lungs.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelLungsDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelLungsDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelLungsIcon from \"./PrequelLungsIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelLungsIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

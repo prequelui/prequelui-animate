@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-code-solid",
+  "type": "registry:ui",
+  "title": "Code · Solid",
+  "description": "Two angle brackets that push apart around a slash. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-code.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-code-solid.js",
+      "target": "components/prequelui/icons/prequel-code-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelCodeIcon } from \"./prequel-code.js\";\n\nexport function createPrequelCodeSolidIcon(root, options = {}) {\n  const controller = createPrequelCodeIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

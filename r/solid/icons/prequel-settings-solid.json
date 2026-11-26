@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-settings-solid",
+  "type": "registry:ui",
+  "title": "Settings · Solid",
+  "description": "A gear whose teeth spin around a still centre. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-settings.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-settings-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-settings-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelSettingsIcon } from \"./prequel-settings\";\n\nexport function PrequelSettingsSolidIcon(props) {\n  return <PrequelSettingsIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-neural-color",
+  "type": "registry:component",
+  "title": "Neural · Color",
+  "description": "A network of nodes that pulses from the input to the output. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-neural.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelNeuralColorIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelNeuralColorIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelNeuralIcon from \"./PrequelNeuralIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelNeuralIcon {...rest} variant=\"color\" />\n"
+    }
+  ]
+}

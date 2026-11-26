@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-chat-bubbles-emoji",
+  "type": "registry:ui",
+  "title": "Chat Bubbles · Emoji",
+  "description": "Two speech bubbles that trade the conversation back and forth. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-chat-bubbles.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-chat-bubbles-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-chat-bubbles-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelChatBubblesIcon } from \"./prequel-chat-bubbles\";\n\nexport function PrequelChatBubblesEmojiIcon(props) {\n  return <PrequelChatBubblesIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

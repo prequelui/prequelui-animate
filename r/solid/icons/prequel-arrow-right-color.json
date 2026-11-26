@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-arrow-right-color",
+  "type": "registry:ui",
+  "title": "Arrow Right · Color",
+  "description": "A horizontal arrow that steps right before settling. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-arrow-right.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-arrow-right-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-arrow-right-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelArrowRightIcon } from \"./prequel-arrow-right\";\n\nexport function PrequelArrowRightColorIcon(props) {\n  return <PrequelArrowRightIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

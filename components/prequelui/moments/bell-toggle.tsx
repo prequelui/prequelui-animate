@@ -87,14 +87,14 @@ export function BellToggle({ className, preview }: MomentProps) {
               animate={{ scale: 1, opacity: 1 }}
               exit={reduce ? { opacity: 0 } : { scale: 0.4, opacity: 0 }}
               transition={reduce ? { duration: 0 } : { type: "spring", stiffness: 520, damping: 24 }}
-              className="absolute right-0 top-0 flex size-4 items-center justify-center rounded-full bg-white text-[10px] font-bold leading-none text-black"
+              className="absolute right-0 top-0 flex size-4 items-center justify-center rounded-full bg-white text-[13px] font-bold leading-none text-black"
             >
               ×
             </motion.span>
           ) : null}
         </AnimatePresence>
       </button>
-      <span className="text-[12px] uppercase tracking-[0.18em] text-white/45">
+      <span className="text-[13px] uppercase tracking-[0.18em] text-white/45">
         {shown ? "Muted" : "Ringing"}
       </span>
     </div>

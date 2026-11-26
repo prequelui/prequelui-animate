@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-folder-open-color",
+  "type": "registry:ui",
+  "title": "Folder Open · Color",
+  "description": "An open folder whose front flap swings down to show its contents. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-folder-open.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-folder-open-color.js",
+      "target": "components/prequelui/icons/prequel-folder-open-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelFolderOpenIcon } from \"./prequel-folder-open.js\";\n\nexport function createPrequelFolderOpenColorIcon(root, options = {}) {\n  const controller = createPrequelFolderOpenIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-arrow-down-duotone",
+  "type": "registry:ui",
+  "title": "Arrow Down · Duotone",
+  "description": "A vertical arrow that drops into place with a soft landing. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-arrow-down.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-arrow-down-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-arrow-down-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelArrowDownIcon } from \"./prequel-arrow-down\";\n\nexport function PrequelArrowDownDuotoneIcon(props) {\n  return <PrequelArrowDownIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

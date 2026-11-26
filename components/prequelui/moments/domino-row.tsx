@@ -44,7 +44,7 @@ export function DominoRow({ className, preview }: MomentProps) {
           />
         ))}
       </button>
-      <span className="text-[12px] uppercase tracking-[0.18em] text-white/45">
+      <span className="text-[13px] uppercase tracking-[0.18em] text-white/45">
         {down ? "Falling" : "Standing"}
       </span>
     </div>

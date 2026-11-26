@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-git-branch-emoji",
+  "type": "registry:component",
+  "title": "Git Branch · Emoji",
+  "description": "A branch line that draws from the trunk to its node. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-git-branch.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelGitBranchEmojiIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelGitBranchEmojiIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelGitBranchIcon from \"./PrequelGitBranchIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelGitBranchIcon {...rest} variant=\"emoji\" />\n"
+    }
+  ]
+}

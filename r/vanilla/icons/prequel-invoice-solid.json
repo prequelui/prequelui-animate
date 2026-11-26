@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-invoice-solid",
+  "type": "registry:ui",
+  "title": "Invoice · Solid",
+  "description": "A billed page whose total signs itself at the foot. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-invoice.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-invoice-solid.js",
+      "target": "components/prequelui/icons/prequel-invoice-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelInvoiceIcon } from \"./prequel-invoice.js\";\n\nexport function createPrequelInvoiceSolidIcon(root, options = {}) {\n  const controller = createPrequelInvoiceIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-music-color",
+  "type": "registry:component",
+  "title": "Music · Color",
+  "description": "A pair of notes whose heads bob to a steady beat. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-music.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelMusicColorIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelMusicColorIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelMusicIcon from \"./PrequelMusicIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelMusicIcon {...rest} variant=\"color\" />\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-git-commit-duotone",
+  "type": "registry:ui",
+  "title": "Git Commit · Duotone",
+  "description": "A commit node that slides along its history line. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-git-commit.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-git-commit-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-git-commit-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelGitCommitIcon } from \"./prequel-git-commit\";\n\nexport function PrequelGitCommitDuotoneIcon(props) {\n  return <PrequelGitCommitIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

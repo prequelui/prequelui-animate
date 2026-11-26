@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-sun-solid",
+  "type": "registry:ui",
+  "title": "Sun · Solid",
+  "description": "A round sun whose rays rotate and flicker together. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-sun.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-sun-solid.js",
+      "target": "components/prequelui/icons/prequel-sun-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelSunIcon } from \"./prequel-sun.js\";\n\nexport function createPrequelSunSolidIcon(root, options = {}) {\n  const controller = createPrequelSunIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

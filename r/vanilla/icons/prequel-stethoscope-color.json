@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-stethoscope-color",
+  "type": "registry:ui",
+  "title": "Stethoscope · Color",
+  "description": "A stethoscope whose tube dips while the chest piece listens. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-stethoscope.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-stethoscope-color.js",
+      "target": "components/prequelui/icons/prequel-stethoscope-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelStethoscopeIcon } from \"./prequel-stethoscope.js\";\n\nexport function createPrequelStethoscopeColorIcon(root, options = {}) {\n  const controller = createPrequelStethoscopeIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

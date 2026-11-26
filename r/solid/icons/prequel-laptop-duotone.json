@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-laptop-duotone",
+  "type": "registry:ui",
+  "title": "Laptop · Duotone",
+  "description": "An open laptop that settles with a small pop. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-laptop.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-laptop-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-laptop-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelLaptopIcon } from \"./prequel-laptop\";\n\nexport function PrequelLaptopDuotoneIcon(props) {\n  return <PrequelLaptopIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

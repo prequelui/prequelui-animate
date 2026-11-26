@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-webhook-duotone",
+  "type": "registry:component",
+  "title": "Webhook · Duotone",
+  "description": "Three hook nodes whose connecting loop draws on each call. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-webhook.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelWebhookDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelWebhookDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelWebhookIcon from \"./PrequelWebhookIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelWebhookIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

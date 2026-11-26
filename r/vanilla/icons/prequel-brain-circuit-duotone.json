@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-brain-circuit-duotone",
+  "type": "registry:ui",
+  "title": "Brain Circuit · Duotone",
+  "description": "A thinking brain whose circuit nodes light in sequence. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-brain-circuit.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-brain-circuit-duotone.js",
+      "target": "components/prequelui/icons/prequel-brain-circuit-duotone.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelBrainCircuitIcon } from \"./prequel-brain-circuit.js\";\n\nexport function createPrequelBrainCircuitDuotoneIcon(root, options = {}) {\n  const controller = createPrequelBrainCircuitIcon(root, { ...options, variant: \"duotone\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"duotone\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

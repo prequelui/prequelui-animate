@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-banknote-emoji",
+  "type": "registry:ui",
+  "title": "Banknote · Emoji",
+  "description": "A paper note whose central seal breathes like a watermark. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-banknote.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-banknote-emoji.js",
+      "target": "components/prequelui/icons/prequel-banknote-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelBanknoteIcon } from \"./prequel-banknote.js\";\n\nexport function createPrequelBanknoteEmojiIcon(root, options = {}) {\n  const controller = createPrequelBanknoteIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

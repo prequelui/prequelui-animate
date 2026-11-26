@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-suitcase-color",
+  "type": "registry:component",
+  "title": "Suitcase · Color",
+  "description": "A packed case that lifts and lands on its two little feet. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-suitcase.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelSuitcaseColorIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelSuitcaseColorIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelSuitcaseIcon from \"./PrequelSuitcaseIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelSuitcaseIcon {...rest} variant=\"color\" />\n"
+    }
+  ]
+}

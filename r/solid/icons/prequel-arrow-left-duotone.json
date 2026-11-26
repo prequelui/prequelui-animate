@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-arrow-left-duotone",
+  "type": "registry:ui",
+  "title": "Arrow Left · Duotone",
+  "description": "A horizontal arrow that steps left before settling. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-arrow-left.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-arrow-left-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-arrow-left-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelArrowLeftIcon } from \"./prequel-arrow-left\";\n\nexport function PrequelArrowLeftDuotoneIcon(props) {\n  return <PrequelArrowLeftIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

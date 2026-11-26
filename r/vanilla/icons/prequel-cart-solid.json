@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-cart-solid",
+  "type": "registry:ui",
+  "title": "Shopping Cart · Solid",
+  "description": "A cart that rolls forward while its wheels bounce. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-cart.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-cart-solid.js",
+      "target": "components/prequelui/icons/prequel-cart-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelShoppingCartIcon } from \"./prequel-cart.js\";\n\nexport function createPrequelShoppingCartSolidIcon(root, options = {}) {\n  const controller = createPrequelShoppingCartIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

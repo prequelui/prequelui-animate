@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-file-duotone",
+  "type": "registry:component",
+  "title": "File · Duotone",
+  "description": "A document whose ruled lines pulse one after another. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-file.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelFileDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelFileDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelFileIcon from \"./PrequelFileIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelFileIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

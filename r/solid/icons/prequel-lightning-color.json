@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-lightning-color",
+  "type": "registry:ui",
+  "title": "Lightning · Color",
+  "description": "A bolt that flashes its fill and flickers at the edges. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-lightning.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-lightning-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-lightning-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelLightningIcon } from \"./prequel-lightning\";\n\nexport function PrequelLightningColorIcon(props) {\n  return <PrequelLightningIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

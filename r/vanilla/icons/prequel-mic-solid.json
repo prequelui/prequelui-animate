@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-mic-solid",
+  "type": "registry:ui",
+  "title": "Microphone · Solid",
+  "description": "A microphone that lifts off its stand and pulses. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-mic.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-mic-solid.js",
+      "target": "components/prequelui/icons/prequel-mic-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelMicrophoneIcon } from \"./prequel-mic.js\";\n\nexport function createPrequelMicrophoneSolidIcon(root, options = {}) {\n  const controller = createPrequelMicrophoneIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

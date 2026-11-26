@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-truck-duotone",
+  "type": "registry:ui",
+  "title": "Delivery Truck · Duotone",
+  "description": "A delivery van that rolls forward with its wheels tripping. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-truck.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-truck-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-truck-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelDeliveryTruckIcon } from \"./prequel-truck\";\n\nexport function PrequelDeliveryTruckDuotoneIcon(props) {\n  return <PrequelDeliveryTruckIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

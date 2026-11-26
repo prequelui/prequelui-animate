@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-heart-solid",
+  "type": "registry:component",
+  "title": "Heart · Solid",
+  "description": "A heart that beats once and flashes its fill. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-heart.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelHeartSolidIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelHeartSolidIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelHeartIcon from \"./PrequelHeartIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelHeartIcon {...rest} variant=\"solid\" />\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-send-emoji",
+  "type": "registry:ui",
+  "title": "Send · Emoji",
+  "description": "A paper plane that darts forward with its fold. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-send.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-send-emoji.js",
+      "target": "components/prequelui/icons/prequel-send-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelSendIcon } from \"./prequel-send.js\";\n\nexport function createPrequelSendEmojiIcon(root, options = {}) {\n  const controller = createPrequelSendIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

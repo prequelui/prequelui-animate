@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-smartphone-emoji",
+  "type": "registry:ui",
+  "title": "Smartphone · Emoji",
+  "description": "A phone that lifts and nudges on each press. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-smartphone.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-smartphone-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-smartphone-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelSmartphoneIcon } from \"./prequel-smartphone\";\n\nexport function PrequelSmartphoneEmojiIcon(props) {\n  return <PrequelSmartphoneIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

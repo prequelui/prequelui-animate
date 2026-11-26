@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-star-solid",
+  "type": "registry:component",
+  "title": "Star · Solid",
+  "description": "A star that spins a little and flashes its fill. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-star.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelStarSolidIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelStarSolidIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelStarIcon from \"./PrequelStarIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelStarIcon {...rest} variant=\"solid\" />\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-receipt-color",
+  "type": "registry:ui",
+  "title": "Receipt · Color",
+  "description": "A till receipt whose torn edge and lines reveal one by one. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-receipt.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-receipt-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-receipt-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelReceiptIcon } from \"./prequel-receipt\";\n\nexport function PrequelReceiptColorIcon(props) {\n  return <PrequelReceiptIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

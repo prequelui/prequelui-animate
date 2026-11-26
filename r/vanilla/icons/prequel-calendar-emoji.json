@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-calendar-emoji",
+  "type": "registry:ui",
+  "title": "Calendar · Emoji",
+  "description": "A calendar whose day dots blink in sequence. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-calendar.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-calendar-emoji.js",
+      "target": "components/prequelui/icons/prequel-calendar-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelCalendarIcon } from \"./prequel-calendar.js\";\n\nexport function createPrequelCalendarEmojiIcon(root, options = {}) {\n  const controller = createPrequelCalendarIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

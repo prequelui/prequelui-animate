@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-fog-solid",
+  "type": "registry:component",
+  "title": "Fog · Solid",
+  "description": "A low cloud with three bands of mist drifting through it. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-fog.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelFogSolidIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelFogSolidIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelFogIcon from \"./PrequelFogIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelFogIcon {...rest} variant=\"solid\" />\n"
+    }
+  ]
+}

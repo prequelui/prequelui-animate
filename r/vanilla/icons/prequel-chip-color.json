@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-chip-color",
+  "type": "registry:ui",
+  "title": "Chip · Color",
+  "description": "A processor die whose pins pulse in a ring around it. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-chip.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-chip-color.js",
+      "target": "components/prequelui/icons/prequel-chip-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelChipIcon } from \"./prequel-chip.js\";\n\nexport function createPrequelChipColorIcon(root, options = {}) {\n  const controller = createPrequelChipIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

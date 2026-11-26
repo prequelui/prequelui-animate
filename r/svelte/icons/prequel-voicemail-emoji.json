@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-voicemail-emoji",
+  "type": "registry:component",
+  "title": "Voicemail · Emoji",
+  "description": "Two reels joined by a bar that pulses like a held note. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-voicemail.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelVoicemailEmojiIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelVoicemailEmojiIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelVoicemailIcon from \"./PrequelVoicemailIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelVoicemailIcon {...rest} variant=\"emoji\" />\n"
+    }
+  ]
+}

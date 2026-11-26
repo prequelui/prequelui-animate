@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-laptop-emoji",
+  "type": "registry:ui",
+  "title": "Laptop · Emoji",
+  "description": "An open laptop that settles with a small pop. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vue/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vue/icons/prequel-laptop.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/PrequelLaptopEmojiIcon.vue",
+      "target": "components/prequelui/icons/PrequelLaptopEmojiIcon.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport PrequelLaptopIcon from \"./PrequelLaptopIcon.vue\";\n\nconst props = defineProps({\n  size: { type: Number, default: 28 },\n  variant: { type: String, default: \"outline\" },\n  weight: { type: String, default: \"regular\" },\n  speed: { type: Number, default: 1 },\n  tempo: { type: Number, default: 1 },\n  delay: { type: Number, default: 0 },\n  loop: { type: Boolean, default: false },\n  animate: { type: [Boolean, String], default: false },\n  animateOnHover: { type: Boolean, default: true },\n  animateOnTap: { type: Boolean, default: true },\n  animateOnView: { type: [Boolean, String], default: false },\n  animateOnViewOnce: { type: Boolean, default: true },\n  animation: { type: String, default: \"hover\" },\n  className: { type: String, default: \"\" },\n  label: { type: String, default: \"\" },\n});\n</script>\n\n<template>\n  <PrequelLaptopIcon\n    v-bind=\"props\"\n    variant=\"emoji\"\n  />\n</template>\n"
+    }
+  ]
+}

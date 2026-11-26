@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-globe-emoji",
+  "type": "registry:ui",
+  "title": "Globe · Emoji",
+  "description": "A globe whose meridians turn while the equator holds still. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-globe.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-globe-emoji.js",
+      "target": "components/prequelui/icons/prequel-globe-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelGlobeIcon } from \"./prequel-globe.js\";\n\nexport function createPrequelGlobeEmojiIcon(root, options = {}) {\n  const controller = createPrequelGlobeIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

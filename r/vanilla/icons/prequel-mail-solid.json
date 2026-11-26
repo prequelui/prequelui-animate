@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-mail-solid",
+  "type": "registry:ui",
+  "title": "Mail · Solid",
+  "description": "An envelope whose flap lifts a touch when played. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-mail.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-mail-solid.js",
+      "target": "components/prequelui/icons/prequel-mail-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelMailIcon } from \"./prequel-mail.js\";\n\nexport function createPrequelMailSolidIcon(root, options = {}) {\n  const controller = createPrequelMailIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

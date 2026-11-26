@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-arrow-down-left-duotone",
+  "type": "registry:component",
+  "title": "Arrow Down Left · Duotone",
+  "description": "A diagonal arrow that points back into its corner. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-arrow-down-left.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelArrowDownLeftDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelArrowDownLeftDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelArrowDownLeftIcon from \"./PrequelArrowDownLeftIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelArrowDownLeftIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

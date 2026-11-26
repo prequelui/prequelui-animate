@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-chart-line-color",
+  "type": "registry:ui",
+  "title": "Chart Line · Color",
+  "description": "An axes corner with a trend line that draws itself in. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-chart-line.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-chart-line-color.js",
+      "target": "components/prequelui/icons/prequel-chart-line-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelChartLineIcon } from \"./prequel-chart-line.js\";\n\nexport function createPrequelChartLineColorIcon(root, options = {}) {\n  const controller = createPrequelChartLineIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

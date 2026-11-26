@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-timer-color",
+  "type": "registry:ui",
+  "title": "Timer · Color",
+  "description": "A stopwatch with a top crown and a hand that whips around. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-timer.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-timer-color.js",
+      "target": "components/prequelui/icons/prequel-timer-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelTimerIcon } from \"./prequel-timer.js\";\n\nexport function createPrequelTimerColorIcon(root, options = {}) {\n  const controller = createPrequelTimerIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-radio-color",
+  "type": "registry:component",
+  "title": "Radio · Color",
+  "description": "A table radio whose speaker breathes with the signal. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-radio.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelRadioColorIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelRadioColorIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelRadioIcon from \"./PrequelRadioIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelRadioIcon {...rest} variant=\"color\" />\n"
+    }
+  ]
+}

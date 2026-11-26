@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ripple-pad",
+  "type": "registry:component",
+  "title": "Ripple Pad",
+  "description": "Ripple Pad moment: one gesture, one physical answer.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/moments/moment-core.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/moments/ripple-pad.js",
+      "target": "~/src/lib/components/prequelui/moments/ripple-pad.js",
+      "type": "registry:lib",
+      "content": "import { animate } from \"motion\";\nimport {\n  applySurface,\n  localPoint,\n  prefersReducedMotion,\n  previewPulse,\n} from \"./moment-core.js\";\n\nexport function createRipplePad(root, options = {}) {\n  const reduce = prefersReducedMotion();\n  let preview = Boolean(options.preview);\n  let pulse = false;\n  let cancelPreview = () => {};\n  let counter = 0;\n  const timers = new Set();\n  const ripples = [];\n\n  const surface = applySurface(root, \"\");\n  surface.innerHTML = `\n    <div data-pad role=\"button\" tabindex=\"0\" aria-label=\"Tap the pad to send a ripple\"\n      class=\"relative h-[112px] w-[178px] cursor-pointer overflow-hidden rounded-2xl border border-white/12 bg-white/8 outline-none focus-visible:ring-2 focus-visible:ring-white/50\">\n      <span aria-hidden=\"true\" class=\"pointer-events-none absolute left-1/2 top-1/2 size-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/6 blur-lg\"></span>\n      <span class=\"pointer-events-none absolute inset-0 flex items-center justify-center text-[13px] uppercase tracking-[0.18em] text-white/40\">Tap anywhere</span>\n    </div>`;\n\n  const pad = surface.querySelector(\"[data-pad]\");\n\n  function spawn(x, y) {\n    const ring = document.createElement(\"span\");\n    ring.dataset.ripple = String(++counter);\n    ring.setAttribute(\"aria-hidden\", \"true\");\n    ring.className =\n      \"pointer-events-none absolute rounded-full border border-white/70\";\n    ring.style.left = `${x - 12}px`;\n    ring.style.top = `${y - 12}px`;\n    ring.style.width = \"24px\";\n    ring.style.height = \"24px\";\n    pad.appendChild(ring);\n    ripples.push(ring);\n    if (ripples.length > 4) {\n      const dropped = ripples.shift();\n      if (dropped) dropped.remove();\n    }\n    animate(\n      ring,\n      { scale: [0.2, reduce ? 1 : 5.4], opacity: [0.9, 0] },\n      { duration: reduce ? 0.2 : 0.78, ease: [0.23, 1, 0.32, 1] },\n    );\n    const timer = window.setTimeout(() => {\n      ring.remove();\n      timers.delete(timer);\n      const index = ripples.indexOf(ring);\n      if (index >= 0) ripples.splice(index, 1);\n    }, 820);\n    timers.add(timer);\n  }\n\n  function onClick(event) {\n    const point = localPoint(event, pad);\n    spawn(point.x, point.y);\n  }\n\n  function onKey(event) {\n    if (event.key === \"Enter\" || event.key === \" \") {\n      event.preventDefault();\n      spawn(88, 56);\n    }\n  }\n\n  pad.addEventListener(\"click\", onClick);\n  pad.addEventListener(\"keydown\", onKey);\n\n  function setPreview(value) {\n    preview = Boolean(value);\n    cancelPreview();\n    cancelPreview = previewPulse(preview, 900, 2300, (on) => {\n      pulse = on;\n      if (pulse) spawn(88, 56);\n    }, reduce);\n  }\n\n  setPreview(preview);\n\n  return {\n    update(next = {}) {\n      if (next.preview !== undefined && Boolean(next.preview) !== preview) {\n        setPreview(next.preview);\n      }\n    },\n    destroy() {\n      cancelPreview();\n      timers.forEach((timer) => window.clearTimeout(timer));\n      timers.clear();\n      ripples.length = 0;\n      pad.removeEventListener(\"click\", onClick);\n      pad.removeEventListener(\"keydown\", onKey);\n      surface.innerHTML = \"\";\n    },\n  };\n}\n"
+    },
+    {
+      "path": "src/lib/components/prequelui/moments/RipplePad.svelte",
+      "target": "~/src/lib/components/prequelui/moments/RipplePad.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount } from \"svelte\";\n  import { createRipplePad } from \"./ripple-pad.js\";\n\n  let { className = \"\", preview = false } = $props();\n  let host;\n  let instance;\n\n  onMount(() => {\n    instance = createRipplePad(host, { className, preview });\n    const extra = String(className || \"\").split(/\\s+/).filter(Boolean);\n    if (extra.length) host.classList.add(...extra);\n    return () => instance?.destroy();\n  });\n\n  $effect(() => {\n    const next = preview;\n    instance?.update({ preview: next });\n  });\n</script>\n\n<div bind:this={host}></div>\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-moon-color",
+  "type": "registry:ui",
+  "title": "Moon · Color",
+  "description": "A crescent moon that floats beside a twinkling star. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-moon.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-moon-color.js",
+      "target": "components/prequelui/icons/prequel-moon-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelMoonIcon } from \"./prequel-moon.js\";\n\nexport function createPrequelMoonColorIcon(root, options = {}) {\n  const controller = createPrequelMoonIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

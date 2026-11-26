@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-heart-emoji",
+  "type": "registry:ui",
+  "title": "Heart · Emoji",
+  "description": "A heart that beats once and flashes its fill. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-heart.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-heart-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-heart-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelHeartIcon } from \"./prequel-heart\";\n\nexport function PrequelHeartEmojiIcon(props) {\n  return <PrequelHeartIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

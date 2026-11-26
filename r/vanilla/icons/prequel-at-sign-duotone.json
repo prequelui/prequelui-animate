@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-at-sign-duotone",
+  "type": "registry:ui",
+  "title": "At Sign · Duotone",
+  "description": "An at sign whose inner ring tightens around its address. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-at-sign.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-at-sign-duotone.js",
+      "target": "components/prequelui/icons/prequel-at-sign-duotone.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelAtSignIcon } from \"./prequel-at-sign.js\";\n\nexport function createPrequelAtSignDuotoneIcon(root, options = {}) {\n  const controller = createPrequelAtSignIcon(root, { ...options, variant: \"duotone\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"duotone\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

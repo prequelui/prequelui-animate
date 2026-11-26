@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-wifi-solid",
+  "type": "registry:component",
+  "title": "Wifi · Solid",
+  "description": "Three arcs and a dot that pulse outward like a broadcast. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-wifi.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelWifiSolidIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelWifiSolidIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelWifiIcon from \"./PrequelWifiIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelWifiIcon {...rest} variant=\"solid\" />\n"
+    }
+  ]
+}

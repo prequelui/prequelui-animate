@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-watch-color",
+  "type": "registry:ui",
+  "title": "Watch · Color",
+  "description": "A wristwatch that sways while its hands sweep. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-watch.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-watch-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-watch-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelWatchIcon } from \"./prequel-watch\";\n\nexport function PrequelWatchColorIcon(props) {\n  return <PrequelWatchIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

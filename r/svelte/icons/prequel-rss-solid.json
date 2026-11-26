@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-rss-solid",
+  "type": "registry:component",
+  "title": "Rss · Solid",
+  "description": "Two broadcast arcs that ripple out from a steady dot. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-rss.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelRssSolidIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelRssSolidIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelRssIcon from \"./PrequelRssIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelRssIcon {...rest} variant=\"solid\" />\n"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-git-commit",
+  "type": "registry:ui",
+  "title": "Git Commit icon",
+  "description": "A commit node that slides along its history line.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-git-commit.js",
+      "target": "components/prequelui/icons/prequel-git-commit.js",
+      "type": "registry:ui",
+      "content": "import { bindPrequelIcon, renderIcon } from \"./prequel-icon-core.js\";\n\nexport const spec = {\"slug\":\"git-commit\",\"name\":\"Git Commit\",\"category\":\"Development\",\"parts\":[{\"tag\":\"circle\",\"attrs\":{\"cx\":12,\"cy\":12,\"r\":3.5}},{\"tag\":\"path\",\"attrs\":{\"d\":\"M3 12h5.5M15.5 12H21\"}}],\"roles\":[\"primary\",\"primary\"],\"closed\":[true,false],\"draw\":[false,false],\"inside\":[false,false],\"hasClosed\":true,\"highlight\":{\"cx\":10.6,\"cy\":10.46,\"rx\":1.12,\"ry\":0.7},\"palette\":{\"color\":{\"primary\":\"oklch(0.58 0.16 275)\",\"primaryDark\":\"oklch(0.77 0.13 275)\",\"accent\":\"oklch(0.7 0.16 250)\",\"accentDark\":\"oklch(0.82 0.13 250)\"},\"emoji\":{\"primary\":\"oklch(0.6 0.2 300)\",\"secondary\":\"oklch(0.46 0.18 300)\",\"accent\":\"oklch(0.78 0.14 165)\"}},\"fill\":[],\"animations\":{\"hover\":{\"group\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,1.5,0],\"transition\":{\"duration\":0.45,\"ease\":\"easeOut\"}}},\"p0\":{\"initial\":{\"rotate\":0,\"transformOrigin\":\"12px 12px\"},\"animate\":{\"rotate\":[0,25,0],\"transition\":{\"duration\":0.55,\"ease\":\"easeInOut\"},\"transformOrigin\":\"12px 12px\"}},\"p1\":{}},\"tap\":{\"group\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,5,0],\"transition\":{\"duration\":0.6,\"ease\":[0.22,1,0.36,1]}}},\"p0\":{\"initial\":{\"rotate\":0,\"transformOrigin\":\"12px 12px\"},\"animate\":{\"rotate\":[0,360],\"transition\":{\"duration\":0.85,\"ease\":[0.22,1,0.36,1]},\"transformOrigin\":\"12px 12px\"}},\"p1\":{}},\"loop\":{\"group\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,2.4,0],\"transition\":{\"duration\":1.5,\"ease\":\"easeInOut\"}}},\"p0\":{\"initial\":{\"rotate\":0,\"transformOrigin\":\"12px 12px\"},\"animate\":{\"rotate\":[0,360],\"transition\":{\"duration\":1.8,\"ease\":\"easeInOut\"},\"transformOrigin\":\"12px 12px\"}},\"p1\":{}}},\"component\":\"PrequelGitCommitIcon\"};\n\nexport const meta = {\"slug\":\"git-commit\",\"name\":\"Git Commit\",\"category\":\"Development\",\"component\":\"PrequelGitCommitIcon\",\"style\":\"outline\"};\n\nexport function createPrequelGitCommitIcon(root, options = {}) {\n  let current = { ...options };\n  const render = () => {\n    root.innerHTML = renderIcon(spec, current);\n  };\n  render();\n  const controller = bindPrequelIcon(root, spec, () => current);\n  return {\n    play: controller.play,\n    reset: controller.reset,\n    destroy: controller.destroy,\n    update(next = {}) {\n      current = { ...current, ...next };\n      render();\n    },\n    get observed() {\n      return controller.observed;\n    },\n  };\n}\n"
+    }
+  ]
+}

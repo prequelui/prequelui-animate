@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-credit-card-duotone",
+  "type": "registry:component",
+  "title": "Credit Card · Duotone",
+  "description": "A payment card that slides while its chip blinks. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-credit-card.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelCreditCardDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelCreditCardDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelCreditCardIcon from \"./PrequelCreditCardIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelCreditCardIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-search-color",
+  "type": "registry:ui",
+  "title": "Search · Color",
+  "description": "A magnifier that leans toward its target and back. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-search.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-search-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-search-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelSearchIcon } from \"./prequel-search\";\n\nexport function PrequelSearchColorIcon(props) {\n  return <PrequelSearchIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

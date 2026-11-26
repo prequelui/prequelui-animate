@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-refresh-color",
+  "type": "registry:component",
+  "title": "Refresh · Color",
+  "description": "Two chasing arcs with arrowheads that redraw on each pass. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-refresh.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelRefreshColorIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelRefreshColorIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelRefreshIcon from \"./PrequelRefreshIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelRefreshIcon {...rest} variant=\"color\" />\n"
+    }
+  ]
+}

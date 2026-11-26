@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-syringe-emoji",
+  "type": "registry:ui",
+  "title": "Syringe · Emoji",
+  "description": "A syringe that charges, presses and draws back its plunger. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-syringe.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-syringe-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-syringe-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelSyringeIcon } from \"./prequel-syringe\";\n\nexport function PrequelSyringeEmojiIcon(props) {\n  return <PrequelSyringeIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

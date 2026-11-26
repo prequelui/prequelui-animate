@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-chip-emoji",
+  "type": "registry:ui",
+  "title": "Chip · Emoji",
+  "description": "A processor die whose pins pulse in a ring around it. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-chip.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-chip-emoji.js",
+      "target": "components/prequelui/icons/prequel-chip-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelChipIcon } from \"./prequel-chip.js\";\n\nexport function createPrequelChipEmojiIcon(root, options = {}) {\n  const controller = createPrequelChipIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

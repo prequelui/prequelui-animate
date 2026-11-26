@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-prompt-color",
+  "type": "registry:ui",
+  "title": "Prompt · Color",
+  "description": "A prompt box whose caret types and whose spark answers. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-prompt.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-prompt-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-prompt-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelPromptIcon } from \"./prequel-prompt\";\n\nexport function PrequelPromptColorIcon(props) {\n  return <PrequelPromptIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-passport-duotone",
+  "type": "registry:ui",
+  "title": "Passport · Duotone",
+  "description": "A passport with a globe stamp that turns under the cover. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-passport.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-passport-duotone.js",
+      "target": "components/prequelui/icons/prequel-passport-duotone.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelPassportIcon } from \"./prequel-passport.js\";\n\nexport function createPrequelPassportDuotoneIcon(root, options = {}) {\n  const controller = createPrequelPassportIcon(root, { ...options, variant: \"duotone\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"duotone\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { motion, type SVGMotionProps } from "motion/react";
 import {
   useAnimatedIconContext,
@@ -20,15 +19,15 @@ export type IconProps = Omit<SVGMotionProps<SVGSVGElement>, "ref"> & {
 
 const palette: IconPaletteBundle = {
   "color": {
-    "primary": "oklch(0.58 0.17 295)",
-    "primaryDark": "oklch(0.77 0.13 295)",
-    "accent": "oklch(0.7 0.14 195)",
-    "accentDark": "oklch(0.82 0.11 195)"
+    "primary": "oklch(0.56 0.1 225)",
+    "primaryDark": "oklch(0.78 0.08 225)",
+    "accent": "oklch(0.66 0.13 200)",
+    "accentDark": "oklch(0.8 0.1 200)"
   },
   "emoji": {
-    "primary": "oklch(0.6 0.2 300)",
-    "secondary": "oklch(0.46 0.18 300)",
-    "accent": "oklch(0.74 0.13 232)"
+    "primary": "oklch(0.74 0.13 232)",
+    "secondary": "oklch(0.58 0.13 232)",
+    "accent": "oklch(0.82 0.16 85)"
   }
 };
 
@@ -239,6 +238,14 @@ export function PrequelPromptIcon({ size = 28, variant: variantProp, ...props }:
     sticker: paintSticker,
     highlight: paintHighlight,
   } = useIconPaint(palette, variantProp);
+
+  // Generated icons use a subset of these painters; marking them keeps the
+  // file buildable in projects that enable noUnusedLocals.
+  void paintPart;
+  void paintHalo;
+  void paintFlash;
+  void paintSticker;
+  void paintHighlight;
 
   return (
     <motion.svg

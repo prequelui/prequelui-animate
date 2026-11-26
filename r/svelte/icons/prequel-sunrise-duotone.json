@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-sunrise-duotone",
+  "type": "registry:component",
+  "title": "Sunrise · Duotone",
+  "description": "A sun that rises over the horizon with two warming rays. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-sunrise.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelSunriseDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelSunriseDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelSunriseIcon from \"./PrequelSunriseIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelSunriseIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

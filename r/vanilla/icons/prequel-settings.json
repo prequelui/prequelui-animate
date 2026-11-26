@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-settings",
+  "type": "registry:ui",
+  "title": "Settings icon",
+  "description": "A gear whose teeth spin around a still centre.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-settings.js",
+      "target": "components/prequelui/icons/prequel-settings.js",
+      "type": "registry:ui",
+      "content": "import { bindPrequelIcon, renderIcon } from \"./prequel-icon-core.js\";\n\nexport const spec = {\"slug\":\"settings\",\"name\":\"Settings\",\"category\":\"Tools\",\"parts\":[{\"tag\":\"circle\",\"attrs\":{\"cx\":12,\"cy\":12,\"r\":3.2}},{\"tag\":\"path\",\"attrs\":{\"d\":\"M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1\"}}],\"roles\":[\"primary\",\"primary\"],\"closed\":[true,false],\"draw\":[false,false],\"inside\":[false,false],\"hasClosed\":true,\"highlight\":{\"cx\":10.72,\"cy\":10.59,\"rx\":1.1,\"ry\":0.7},\"palette\":{\"color\":{\"primary\":\"oklch(0.56 0.1 225)\",\"primaryDark\":\"oklch(0.78 0.08 225)\",\"accent\":\"oklch(0.66 0.13 200)\",\"accentDark\":\"oklch(0.8 0.1 200)\"},\"emoji\":{\"primary\":\"oklch(0.74 0.13 232)\",\"secondary\":\"oklch(0.58 0.13 232)\",\"accent\":\"oklch(0.6 0.2 300)\"}},\"fill\":[],\"animations\":{\"hover\":{\"group\":{\"initial\":{\"rotate\":0},\"animate\":{\"rotate\":[0,18,0],\"transition\":{\"duration\":0.55,\"ease\":\"easeInOut\"}}},\"p0\":{},\"p1\":{\"initial\":{\"rotate\":0},\"animate\":{\"rotate\":[0,25,0],\"transition\":{\"duration\":0.55,\"ease\":\"easeInOut\"}}}},\"tap\":{\"group\":{\"initial\":{\"rotate\":0},\"animate\":{\"rotate\":[0,180,360],\"transition\":{\"duration\":0.8,\"ease\":[0.22,1,0.36,1]}}},\"p0\":{},\"p1\":{\"initial\":{\"rotate\":0},\"animate\":{\"rotate\":[0,360],\"transition\":{\"duration\":0.85,\"ease\":[0.22,1,0.36,1]}}}},\"loop\":{\"group\":{\"initial\":{\"rotate\":0},\"animate\":{\"rotate\":[0,360],\"transition\":{\"duration\":1.8,\"ease\":\"easeInOut\"}}},\"p0\":{},\"p1\":{\"initial\":{\"rotate\":0},\"animate\":{\"rotate\":[0,360],\"transition\":{\"duration\":1.8,\"ease\":\"easeInOut\"}}}}},\"component\":\"PrequelSettingsIcon\"};\n\nexport const meta = {\"slug\":\"settings\",\"name\":\"Settings\",\"category\":\"Tools\",\"component\":\"PrequelSettingsIcon\",\"style\":\"outline\"};\n\nexport function createPrequelSettingsIcon(root, options = {}) {\n  let current = { ...options };\n  const render = () => {\n    root.innerHTML = renderIcon(spec, current);\n  };\n  render();\n  const controller = bindPrequelIcon(root, spec, () => current);\n  return {\n    play: controller.play,\n    reset: controller.reset,\n    destroy: controller.destroy,\n    update(next = {}) {\n      current = { ...current, ...next };\n      render();\n    },\n    get observed() {\n      return controller.observed;\n    },\n  };\n}\n"
+    }
+  ]
+}

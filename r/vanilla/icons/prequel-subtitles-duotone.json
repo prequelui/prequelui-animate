@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-subtitles-duotone",
+  "type": "registry:ui",
+  "title": "Subtitles · Duotone",
+  "description": "A caption bar whose two lines write themselves in turn. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-subtitles.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-subtitles-duotone.js",
+      "target": "components/prequelui/icons/prequel-subtitles-duotone.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelSubtitlesIcon } from \"./prequel-subtitles.js\";\n\nexport function createPrequelSubtitlesDuotoneIcon(root, options = {}) {\n  const controller = createPrequelSubtitlesIcon(root, { ...options, variant: \"duotone\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"duotone\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

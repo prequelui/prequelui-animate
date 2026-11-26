@@ -85,7 +85,7 @@ export function Bookmark({ className, preview }: MomentProps) {
         initial={reduce ? false : { opacity: 0, y: 4 }}
         animate={{ opacity: 1, y: 0 }}
         transition={reduce ? { duration: 0 } : springBounce}
-        className="text-[12px] uppercase tracking-[0.18em] text-white/45"
+        className="text-[13px] uppercase tracking-[0.18em] text-white/45"
       >
         {on ? "Saved" : "Save"}
       </motion.span>

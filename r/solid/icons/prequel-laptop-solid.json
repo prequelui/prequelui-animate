@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-laptop-solid",
+  "type": "registry:ui",
+  "title": "Laptop · Solid",
+  "description": "An open laptop that settles with a small pop. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-laptop.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-laptop-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-laptop-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelLaptopIcon } from \"./prequel-laptop\";\n\nexport function PrequelLaptopSolidIcon(props) {\n  return <PrequelLaptopIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

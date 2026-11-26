@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-link-duotone",
+  "type": "registry:component",
+  "title": "Link · Duotone",
+  "description": "Two chain halves that pull apart and close again. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-link.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelLinkDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelLinkDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelLinkIcon from \"./PrequelLinkIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelLinkIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

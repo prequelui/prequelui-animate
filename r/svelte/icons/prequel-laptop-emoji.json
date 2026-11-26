@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-laptop-emoji",
+  "type": "registry:component",
+  "title": "Laptop · Emoji",
+  "description": "An open laptop that settles with a small pop. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-laptop.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelLaptopEmojiIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelLaptopEmojiIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelLaptopIcon from \"./PrequelLaptopIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelLaptopIcon {...rest} variant=\"emoji\" />\n"
+    }
+  ]
+}

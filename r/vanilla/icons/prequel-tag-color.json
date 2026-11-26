@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-tag-color",
+  "type": "registry:ui",
+  "title": "Tag · Color",
+  "description": "A price tag that sways around its hole. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-tag.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-tag-color.js",
+      "target": "components/prequelui/icons/prequel-tag-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelTagIcon } from \"./prequel-tag.js\";\n\nexport function createPrequelTagColorIcon(root, options = {}) {\n  const controller = createPrequelTagIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

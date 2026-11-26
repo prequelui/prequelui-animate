@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-tag-solid",
+  "type": "registry:ui",
+  "title": "Tag · Solid",
+  "description": "A price tag that sways around its hole. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-tag.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-tag-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-tag-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelTagIcon } from \"./prequel-tag\";\n\nexport function PrequelTagSolidIcon(props) {\n  return <PrequelTagIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-podcast-color",
+  "type": "registry:ui",
+  "title": "Podcast · Color",
+  "description": "A microphone tower whose broadcast rings widen and fade. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-podcast.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-podcast-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-podcast-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelPodcastIcon } from \"./prequel-podcast\";\n\nexport function PrequelPodcastColorIcon(props) {\n  return <PrequelPodcastIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

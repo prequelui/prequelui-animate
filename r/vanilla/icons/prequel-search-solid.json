@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-search-solid",
+  "type": "registry:ui",
+  "title": "Search · Solid",
+  "description": "A magnifier that leans toward its target and back. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-search.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-search-solid.js",
+      "target": "components/prequelui/icons/prequel-search-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelSearchIcon } from \"./prequel-search.js\";\n\nexport function createPrequelSearchSolidIcon(root, options = {}) {\n  const controller = createPrequelSearchIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

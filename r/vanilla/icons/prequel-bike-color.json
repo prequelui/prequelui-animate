@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-bike-color",
+  "type": "registry:ui",
+  "title": "Bike · Color",
+  "description": "A bicycle that rolls as its pedals turn one full lap. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-bike.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-bike-color.js",
+      "target": "components/prequelui/icons/prequel-bike-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelBikeIcon } from \"./prequel-bike.js\";\n\nexport function createPrequelBikeColorIcon(root, options = {}) {\n  const controller = createPrequelBikeIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

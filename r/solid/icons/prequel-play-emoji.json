@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-play-emoji",
+  "type": "registry:ui",
+  "title": "Play · Emoji",
+  "description": "A play triangle that presses forward and rebounds. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-play.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-play-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-play-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelPlayIcon } from \"./prequel-play\";\n\nexport function PrequelPlayEmojiIcon(props) {\n  return <PrequelPlayIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-suitcase-duotone",
+  "type": "registry:ui",
+  "title": "Suitcase · Duotone",
+  "description": "A packed case that lifts and lands on its two little feet. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-suitcase.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-suitcase-duotone.js",
+      "target": "components/prequelui/icons/prequel-suitcase-duotone.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelSuitcaseIcon } from \"./prequel-suitcase.js\";\n\nexport function createPrequelSuitcaseDuotoneIcon(root, options = {}) {\n  const controller = createPrequelSuitcaseIcon(root, { ...options, variant: \"duotone\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"duotone\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

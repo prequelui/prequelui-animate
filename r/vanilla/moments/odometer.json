@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "odometer",
+  "type": "registry:ui",
+  "title": "Odometer",
+  "description": "Odometer moment: one gesture, one physical answer.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/moments/moment-core.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/moments/odometer.js",
+      "target": "components/prequelui/moments/odometer.js",
+      "type": "registry:lib",
+      "content": "import { animate } from \"motion\";\nimport {\n  applySurface,\n  prefersReducedMotion,\n  previewPulse,\n  springSoft,\n} from \"./moment-core.js\";\n\nconst DIGITS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];\nconst ROW = 26;\n\nexport function createOdometer(root, options = {}) {\n  const reduce = prefersReducedMotion();\n  let preview = Boolean(options.preview);\n  let value = 128;\n  let pulse = false;\n  let cancelPreview = () => {};\n\n  const surface = applySurface(root, \"\");\n  surface.innerHTML = `\n    <button type=\"button\" aria-label=\"Odometer, current value 128. Click or use arrow keys to change it.\"\n      class=\"flex items-center gap-1 rounded-xl border border-white/12 bg-[#111114] px-4 py-3 outline-none focus-visible:ring-2 focus-visible:ring-white/50\">\n      ${[100, 10, 1]\n        .map(\n          (place) =>\n            `<span class=\"relative block h-[26px] w-[18px] overflow-hidden\" aria-hidden=\"true\">\n              <span data-strip class=\"absolute inset-x-0 top-0 flex flex-col items-center\">\n                ${DIGITS.map(\n                  (number) =>\n                    `<span class=\"flex h-[26px] items-center justify-center text-[20px] tabular-nums text-white\">${number}</span>`,\n                ).join(\"\")}\n              </span>\n            </span>`,\n        )\n        .join(\"\")}\n      <span data-live class=\"sr-only\">128</span>\n    </button>`;\n\n  const button = surface.querySelector(\"button\");\n  const strips = Array.from(surface.querySelectorAll(\"[data-strip]\"));\n  const live = surface.querySelector(\"[data-live]\");\n  const places = [100, 10, 1];\n\n  function render() {\n    button.setAttribute(\n      \"aria-label\",\n      `Odometer, current value ${value}. Click or use arrow keys to change it.`,\n    );\n    live.textContent = String(value);\n    strips.forEach((strip, index) => {\n      const digit = Math.floor(value / places[index]) % 10;\n      animate(strip, { y: -digit * ROW }, reduce ? { duration: 0 } : springSoft);\n    });\n  }\n\n  function advance() {\n    value = (value + 37) % 1000;\n    render();\n  }\n\n  button.addEventListener(\"click\", advance);\n  button.addEventListener(\"pointerenter\", (event) => {\n    if (event.pointerType !== \"mouse\") return;\n    value = (value + 37) % 1000;\n    render();\n  });\n  button.addEventListener(\"keydown\", (event) => {\n    if (event.key === \"ArrowUp\" || event.key === \"ArrowRight\") {\n      event.preventDefault();\n      value = (value + 1) % 1000;\n      render();\n    }\n    if (event.key === \"ArrowDown\" || event.key === \"ArrowLeft\") {\n      event.preventDefault();\n      value = (value - 1 + 1000) % 1000;\n      render();\n    }\n  });\n\n  function setPreview(next) {\n    preview = Boolean(next);\n    cancelPreview();\n    cancelPreview = previewPulse(preview, 900, 2400, (on) => {\n      pulse = on;\n      if (pulse) {\n        value = (value + 37) % 1000;\n        render();\n      }\n    }, reduce);\n  }\n\n  setPreview(preview);\n  render();\n\n  return {\n    update(next = {}) {\n      if (next.preview !== undefined && Boolean(next.preview) !== preview) {\n        setPreview(next.preview);\n      }\n    },\n    destroy() {\n      cancelPreview();\n      surface.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

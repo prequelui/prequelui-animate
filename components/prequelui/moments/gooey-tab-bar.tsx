@@ -90,7 +90,7 @@ export function GooeyTabBar({ className, preview }: MomentProps) {
             tabIndex={index === tabIndex ? 0 : -1}
             onClick={() => setActive(tabIndex)}
             className={cn(
-              "relative z-10 flex h-9 items-center justify-center text-[11px] font-medium transition-colors",
+              "relative z-10 flex h-9 items-center justify-center text-[13px] font-medium transition-colors",
               index === tabIndex ? "text-black" : "text-white/55",
             )}
             style={{ width: SLOT }}

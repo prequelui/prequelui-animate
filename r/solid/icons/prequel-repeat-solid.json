@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-repeat-solid",
+  "type": "registry:ui",
+  "title": "Repeat · Solid",
+  "description": "Two return arrows that trade places in a quiet cycle. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-repeat.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-repeat-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-repeat-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelRepeatIcon } from \"./prequel-repeat\";\n\nexport function PrequelRepeatSolidIcon(props) {\n  return <PrequelRepeatIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

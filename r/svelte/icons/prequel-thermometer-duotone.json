@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-thermometer-duotone",
+  "type": "registry:component",
+  "title": "Thermometer · Duotone",
+  "description": "A clinical thermometer whose mercury rises on each trigger. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-thermometer.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelThermometerDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelThermometerDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelThermometerIcon from \"./PrequelThermometerIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelThermometerIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

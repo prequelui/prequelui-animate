@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-play-solid",
+  "type": "registry:ui",
+  "title": "Play · Solid",
+  "description": "A play triangle that presses forward and rebounds. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-play.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-play-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-play-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelPlayIcon } from \"./prequel-play\";\n\nexport function PrequelPlaySolidIcon(props) {\n  return <PrequelPlayIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

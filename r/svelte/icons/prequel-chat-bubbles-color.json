@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-chat-bubbles-color",
+  "type": "registry:component",
+  "title": "Chat Bubbles · Color",
+  "description": "Two speech bubbles that trade the conversation back and forth. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-chat-bubbles.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelChatBubblesColorIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelChatBubblesColorIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelChatBubblesIcon from \"./PrequelChatBubblesIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelChatBubblesIcon {...rest} variant=\"color\" />\n"
+    }
+  ]
+}

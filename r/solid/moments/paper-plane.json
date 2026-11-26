@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "paper-plane",
+  "type": "registry:ui",
+  "title": "Paper Plane",
+  "description": "Paper Plane moment: one gesture, one physical answer.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/moments/moment-core.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/moments/paper-plane.js",
+      "target": "src/components/prequelui/moments/paper-plane.js",
+      "type": "registry:lib",
+      "content": "import { animate } from \"motion\";\nimport {\n  applySurface,\n  prefersReducedMotion,\n  previewPulse,\n} from \"./moment-core.js\";\n\nexport function createPaperPlane(root, options = {}) {\n  const reduce = prefersReducedMotion();\n  let preview = Boolean(options.preview);\n  let pulse = false;\n  let flying = false;\n  let timer = 0;\n  let cancelPreview = () => {};\n\n  const surface = applySurface(root, \"\");\n  surface.innerHTML = `\n    <button type=\"button\" aria-label=\"Send the paper plane\"\n      class=\"relative h-[108px] w-[190px] overflow-hidden rounded-xl border border-white/10 bg-[#101013] outline-none focus-visible:ring-2 focus-visible:ring-white/50\">\n      <svg aria-hidden=\"true\" viewBox=\"0 0 190 108\" class=\"absolute inset-0 size-full\">\n        <path d=\"M24 84 C 70 54, 104 38, 158 24\" fill=\"none\" stroke=\"rgba(255,255,255,.16)\" stroke-width=\"1\" stroke-dasharray=\"4 5\" />\n        <path data-trail d=\"M24 84 C 70 54, 104 38, 158 24\" fill=\"none\" stroke=\"rgba(255,255,255,.75)\" stroke-width=\"1.5\" stroke-dasharray=\"4 5\" />\n      </svg>\n      <span data-plane class=\"absolute left-4 top-[78px] block\">\n        <svg width=\"26\" height=\"22\" viewBox=\"0 0 26 22\" aria-hidden=\"true\">\n          <path d=\"M1 10.5 25 1 17 21l-5.4-7.1L1 10.5Z\" fill=\"white\" stroke=\"white\" stroke-width=\"1\" stroke-linejoin=\"round\" />\n          <path d=\"m11.6 13.9 5.2-5.2\" stroke=\"#101013\" stroke-width=\"1\" />\n        </svg>\n      </span>\n      <span aria-hidden=\"true\" data-spark class=\"absolute right-6 top-5 size-1.5 rounded-full bg-white\"></span>\n      <span data-label class=\"absolute bottom-2 left-3 text-[13px] uppercase tracking-[0.18em] text-white/35\">Tap to send</span>\n    </button>`;\n\n  const button = surface.querySelector(\"button\");\n  const trail = surface.querySelector(\"[data-trail]\");\n  const plane = surface.querySelector(\"[data-plane]\");\n  const spark = surface.querySelector(\"[data-spark]\");\n  const label = surface.querySelector(\"[data-label]\");\n\n  animate(trail, { pathLength: 0 }, { duration: 0 });\n\n  function render() {\n    animate(\n      trail,\n      { pathLength: flying ? 1 : 0 },\n      { duration: reduce ? 0 : 1.1, ease: [0.23, 1, 0.32, 1] },\n    );\n    animate(\n      plane,\n      reduce\n        ? { x: 0, y: 0, rotate: 0, opacity: 1 }\n        : flying\n          ? { x: 128, y: -58, rotate: -18, opacity: [1, 1, 0.2] }\n          : { x: 0, y: 0, rotate: 0, opacity: 1 },\n      reduce ? { duration: 0 } : { duration: 1.15, ease: [0.22, 1, 0.36, 1] },\n    );\n    animate(\n      spark,\n      { opacity: flying ? [0, 1, 0] : 0.3, scale: flying ? 1.6 : 1 },\n      reduce ? { duration: 0 } : { duration: 1.1 },\n    );\n    animate(label, { opacity: flying ? 0 : 1 }, { duration: reduce ? 0 : 0.18 });\n  }\n\n  function schedule() {\n    window.clearTimeout(timer);\n    if (!flying) return;\n    timer = window.setTimeout(() => {\n      flying = false;\n      render();\n    }, reduce ? 200 : 1600);\n  }\n\n  function fly() {\n    flying = true;\n    schedule();\n    render();\n  }\n\n  button.addEventListener(\"click\", fly);\n\n  function setPreview(value) {\n    preview = Boolean(value);\n    cancelPreview();\n    cancelPreview = previewPulse(preview, 1500, 3000, (on) => {\n      pulse = on;\n      if (preview && pulse) fly();\n    }, reduce);\n  }\n\n  setPreview(preview);\n  render();\n\n  return {\n    update(next = {}) {\n      if (next.preview !== undefined && Boolean(next.preview) !== preview) {\n        setPreview(next.preview);\n      }\n    },\n    destroy() {\n      cancelPreview();\n      window.clearTimeout(timer);\n      surface.innerHTML = \"\";\n    },\n  };\n}\n"
+    },
+    {
+      "path": "src/components/prequelui/moments/paper-plane.tsx",
+      "target": "src/components/prequelui/moments/paper-plane.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { createEffect, onCleanup, onMount } from \"solid-js\";\nimport { createPaperPlane } from \"./paper-plane.js\";\n\nexport function PaperPlane(props) {\n  let host;\n  let instance;\n\n  onMount(() => {\n    instance = createPaperPlane(host, {\n      className: props.className ?? \"\",\n      preview: props.preview ?? false,\n    });\n    const extra = String(props.className || \"\").split(/\\s+/).filter(Boolean);\n    if (extra.length) host.classList.add(...extra);\n  });\n\n  createEffect(() => {\n    const next = props.preview ?? false;\n    instance?.update({ preview: next });\n  });\n  onCleanup(() => instance?.destroy());\n\n  return <div ref={host} />;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-basket-color",
+  "type": "registry:component",
+  "title": "Basket · Color",
+  "description": "A shopping basket that hops while its handles swing. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-basket.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelBasketColorIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelBasketColorIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelBasketIcon from \"./PrequelBasketIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelBasketIcon {...rest} variant=\"color\" />\n"
+    }
+  ]
+}

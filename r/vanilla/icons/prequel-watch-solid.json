@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-watch-solid",
+  "type": "registry:ui",
+  "title": "Watch · Solid",
+  "description": "A wristwatch that sways while its hands sweep. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-watch.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-watch-solid.js",
+      "target": "components/prequelui/icons/prequel-watch-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelWatchIcon } from \"./prequel-watch.js\";\n\nexport function createPrequelWatchSolidIcon(root, options = {}) {\n  const controller = createPrequelWatchIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

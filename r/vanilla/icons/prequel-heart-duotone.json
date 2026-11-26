@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-heart-duotone",
+  "type": "registry:ui",
+  "title": "Heart · Duotone",
+  "description": "A heart that beats once and flashes its fill. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-heart.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-heart-duotone.js",
+      "target": "components/prequelui/icons/prequel-heart-duotone.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelHeartIcon } from \"./prequel-heart.js\";\n\nexport function createPrequelHeartDuotoneIcon(root, options = {}) {\n  const controller = createPrequelHeartIcon(root, { ...options, variant: \"duotone\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"duotone\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

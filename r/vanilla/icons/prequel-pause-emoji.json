@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-pause-emoji",
+  "type": "registry:ui",
+  "title": "Pause · Emoji",
+  "description": "Two pause bars that swell and settle together. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-pause.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-pause-emoji.js",
+      "target": "components/prequelui/icons/prequel-pause-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelPauseIcon } from \"./prequel-pause.js\";\n\nexport function createPrequelPauseEmojiIcon(root, options = {}) {\n  const controller = createPrequelPauseIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

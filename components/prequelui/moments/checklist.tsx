@@ -60,7 +60,7 @@ export function Checklist({ className, preview }: MomentProps) {
                 />
               </svg>
             </span>
-            <span className="relative min-w-0 flex-1 truncate text-[11px] text-white/70">
+            <span className="relative min-w-0 flex-1 truncate text-[13px] text-white/70">
               {item}
               <motion.span
                 aria-hidden="true"

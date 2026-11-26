@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-gift-duotone",
+  "type": "registry:component",
+  "title": "Gift · Duotone",
+  "description": "A wrapped gift whose bow lifts and settles on the box. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-gift.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelGiftDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelGiftDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelGiftIcon from \"./PrequelGiftIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelGiftIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

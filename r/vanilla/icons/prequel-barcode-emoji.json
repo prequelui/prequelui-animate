@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-barcode-emoji",
+  "type": "registry:ui",
+  "title": "Barcode · Emoji",
+  "description": "A barcode whose bars rise and fall like a tiny equalizer. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-barcode.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-barcode-emoji.js",
+      "target": "components/prequelui/icons/prequel-barcode-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelBarcodeIcon } from \"./prequel-barcode.js\";\n\nexport function createPrequelBarcodeEmojiIcon(root, options = {}) {\n  const controller = createPrequelBarcodeIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

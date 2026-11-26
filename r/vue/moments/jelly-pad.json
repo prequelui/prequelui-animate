@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "jelly-pad",
+  "type": "registry:ui",
+  "title": "Jelly Pad",
+  "description": "Jelly Pad moment: one gesture, one physical answer.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vue/moments/moment-core.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/moments/jelly-pad.js",
+      "target": "components/prequelui/moments/jelly-pad.js",
+      "type": "registry:lib",
+      "content": "import { animate } from \"motion\";\nimport {\n  applySurface,\n  prefersReducedMotion,\n  previewPulse,\n} from \"./moment-core.js\";\n\nexport function createJellyPad(root, options = {}) {\n  const reduce = prefersReducedMotion();\n  let preview = Boolean(options.preview);\n  let wave = 0;\n  let pulse = false;\n  let cancelPreview = () => {};\n\n  const surface = applySurface(root, \"\");\n  surface.innerHTML = `\n    <button type=\"button\" aria-label=\"Press the jelly pad\" style=\"width:160px;height:112px\"\n      class=\"group relative flex items-center justify-center rounded-3xl outline-none focus-visible:ring-2 focus-visible:ring-white/50\">\n      <span data-pad aria-hidden=\"true\" class=\"absolute inset-0 rounded-3xl border border-white/15 bg-white/14 shadow-[inset_0_1px_0_rgba(255,255,255,.35),inset_0_-20px_34px_rgba(0,0,0,.22)]\"></span>\n      <span data-glow aria-hidden=\"true\" class=\"absolute size-16 rounded-full bg-white/20 blur-xl\"></span>\n      <span class=\"pointer-events-none absolute inset-x-5 top-3 h-px rounded-full bg-white/35\"></span>\n      <span data-label class=\"relative z-10 text-[13px] uppercase tracking-[0.22em] text-white/85\">Press</span>\n    </button>`;\n\n  const button = surface.querySelector(\"button\");\n  const pad = surface.querySelector(\"[data-pad]\");\n  const glow = surface.querySelector(\"[data-glow]\");\n  const label = surface.querySelector(\"[data-label]\");\n\n  const glowControl = animate(\n    glow,\n    reduce\n      ? { opacity: 0.4, scale: 1 }\n      : { opacity: [0.25, 0.5, 0.25], scale: [1, 1.12, 1] },\n    reduce\n      ? { duration: 0 }\n      : { duration: 2.8, repeat: Infinity, ease: \"easeInOut\" },\n  );\n\n  function render() {\n    if (reduce || wave === 0) {\n      animate(\n        pad,\n        { scaleX: 1, scaleY: 1, rotate: 0, borderRadius: 24 },\n        { duration: 0 },\n      );\n      animate(label, { y: 0, opacity: 1 }, { duration: 0 });\n      return;\n    }\n    animate(\n      pad,\n      {\n        scaleX: [1, 1.14, 0.9, 1.05, 0.98, 1],\n        scaleY: [1, 0.86, 1.1, 0.97, 1.01, 1],\n        rotate: [0, -2.5, 2, -1, 0.5, 0],\n        borderRadius: [24, 38, 16, 30, 22, 24],\n      },\n      { duration: 0.62, ease: [0.22, 1, 0.36, 1] },\n    );\n    animate(\n      label,\n      { y: [0, 3, -1, 0], opacity: [0.8, 1, 1] },\n      { duration: 0.5 },\n    );\n  }\n\n  button.addEventListener(\"click\", () => {\n    wave += 1;\n    render();\n  });\n\n  function setPreview(value) {\n    preview = Boolean(value);\n    cancelPreview();\n    cancelPreview = previewPulse(preview, 900, 2600, (on) => {\n      if (on && !pulse) {\n        pulse = true;\n        wave += 1;\n        render();\n      } else if (!on) {\n        pulse = false;\n      }\n    }, reduce);\n  }\n\n  setPreview(preview);\n\n  return {\n    update(next = {}) {\n      if (next.preview !== undefined && Boolean(next.preview) !== preview) {\n        setPreview(next.preview);\n      }\n    },\n    destroy() {\n      cancelPreview();\n      glowControl?.stop?.();\n      surface.innerHTML = \"\";\n    },\n  };\n}\n"
+    },
+    {
+      "path": "components/prequelui/moments/JellyPad.vue",
+      "target": "components/prequelui/moments/JellyPad.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { onBeforeUnmount, onMounted, ref, watch } from \"vue\";\nimport { createJellyPad } from \"./jelly-pad.js\";\n\nconst props = defineProps({\n  className: { type: String, default: \"\" },\n  preview: { type: Boolean, default: false },\n});\n\nconst host = ref(null);\nlet instance;\n\nonMounted(() => {\n  if (!host.value) return;\n  instance = createJellyPad(host.value, {\n    className: props.className,\n    preview: props.preview,\n  });\n  const extra = String(props.className || \"\").split(/\\s+/).filter(Boolean);\n  if (extra.length) host.value.classList.add(...extra);\n});\n\nwatch(\n  () => props.preview,\n  (value) => instance?.update({ preview: value }),\n);\n\nonBeforeUnmount(() => {\n  instance?.destroy();\n  instance = undefined;\n});\n</script>\n\n<template>\n  <div ref=\"host\"></div>\n</template>\n"
+    }
+  ]
+}

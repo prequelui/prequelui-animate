@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-hotel-color",
+  "type": "registry:ui",
+  "title": "Hotel · Color",
+  "description": "A hotel facade whose windows blink on in a quiet cascade. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-hotel.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-hotel-color.js",
+      "target": "components/prequelui/icons/prequel-hotel-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelHotelIcon } from \"./prequel-hotel.js\";\n\nexport function createPrequelHotelColorIcon(root, options = {}) {\n  const controller = createPrequelHotelIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

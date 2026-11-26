@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-brain-circuit-color",
+  "type": "registry:component",
+  "title": "Brain Circuit · Color",
+  "description": "A thinking brain whose circuit nodes light in sequence. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-brain-circuit.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelBrainCircuitColorIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelBrainCircuitColorIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelBrainCircuitIcon from \"./PrequelBrainCircuitIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelBrainCircuitIcon {...rest} variant=\"color\" />\n"
+    }
+  ]
+}

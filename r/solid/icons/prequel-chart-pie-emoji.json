@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-chart-pie-emoji",
+  "type": "registry:ui",
+  "title": "Chart Pie · Emoji",
+  "description": "A pie outline whose highlighted slice draws on every trigger. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-chart-pie.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-chart-pie-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-chart-pie-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelChartPieIcon } from \"./prequel-chart-pie\";\n\nexport function PrequelChartPieEmojiIcon(props) {\n  return <PrequelChartPieIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

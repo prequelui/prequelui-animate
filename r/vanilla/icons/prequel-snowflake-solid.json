@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-snowflake-solid",
+  "type": "registry:ui",
+  "title": "Snowflake · Solid",
+  "description": "A six-branch flake that turns slowly and shimmers. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-snowflake.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-snowflake-solid.js",
+      "target": "components/prequelui/icons/prequel-snowflake-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelSnowflakeIcon } from \"./prequel-snowflake.js\";\n\nexport function createPrequelSnowflakeSolidIcon(root, options = {}) {\n  const controller = createPrequelSnowflakeIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

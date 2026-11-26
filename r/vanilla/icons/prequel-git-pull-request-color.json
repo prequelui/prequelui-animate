@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-git-pull-request-color",
+  "type": "registry:ui",
+  "title": "Git Pull Request · Color",
+  "description": "Two branches whose request arrow travels to the target node. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-git-pull-request.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-git-pull-request-color.js",
+      "target": "components/prequelui/icons/prequel-git-pull-request-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelGitPullRequestIcon } from \"./prequel-git-pull-request.js\";\n\nexport function createPrequelGitPullRequestColorIcon(root, options = {}) {\n  const controller = createPrequelGitPullRequestIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

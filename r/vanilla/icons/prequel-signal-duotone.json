@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-signal-duotone",
+  "type": "registry:ui",
+  "title": "Signal · Duotone",
+  "description": "Four bars that rise from the ground in a cascade. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-signal.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-signal-duotone.js",
+      "target": "components/prequelui/icons/prequel-signal-duotone.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelSignalIcon } from \"./prequel-signal.js\";\n\nexport function createPrequelSignalDuotoneIcon(root, options = {}) {\n  const controller = createPrequelSignalIcon(root, { ...options, variant: \"duotone\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"duotone\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

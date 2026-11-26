@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-hospital-emoji",
+  "type": "registry:ui",
+  "title": "Hospital · Emoji",
+  "description": "A hospital block whose cross and doorway settle into place. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-hospital.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-hospital-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-hospital-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelHospitalIcon } from \"./prequel-hospital\";\n\nexport function PrequelHospitalEmojiIcon(props) {\n  return <PrequelHospitalIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

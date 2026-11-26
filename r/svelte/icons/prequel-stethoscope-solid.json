@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-stethoscope-solid",
+  "type": "registry:component",
+  "title": "Stethoscope · Solid",
+  "description": "A stethoscope whose tube dips while the chest piece listens. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-stethoscope.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelStethoscopeSolidIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelStethoscopeSolidIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelStethoscopeIcon from \"./PrequelStethoscopeIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelStethoscopeIcon {...rest} variant=\"solid\" />\n"
+    }
+  ]
+}

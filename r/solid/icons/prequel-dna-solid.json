@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-dna-solid",
+  "type": "registry:ui",
+  "title": "Dna · Solid",
+  "description": "A double helix whose rungs light from top to bottom. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-dna.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-dna-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-dna-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelDnaIcon } from \"./prequel-dna\";\n\nexport function PrequelDnaSolidIcon(props) {\n  return <PrequelDnaIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

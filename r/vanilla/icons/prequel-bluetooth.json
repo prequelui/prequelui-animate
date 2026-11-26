@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-bluetooth",
+  "type": "registry:ui",
+  "title": "Bluetooth icon",
+  "description": "A bluetooth rune that turns in place.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-bluetooth.js",
+      "target": "components/prequelui/icons/prequel-bluetooth.js",
+      "type": "registry:ui",
+      "content": "import { bindPrequelIcon, renderIcon } from \"./prequel-icon-core.js\";\n\nexport const spec = {\"slug\":\"bluetooth\",\"name\":\"Bluetooth\",\"category\":\"Connectivity\",\"parts\":[{\"tag\":\"path\",\"attrs\":{\"d\":\"M7 7l10 10-5 5V2l5 5L7 17\"}}],\"roles\":[\"primary\"],\"closed\":[false],\"draw\":[false],\"inside\":[false],\"hasClosed\":false,\"highlight\":null,\"palette\":{\"color\":{\"primary\":\"oklch(0.64 0.12 195)\",\"primaryDark\":\"oklch(0.8 0.1 195)\",\"accent\":\"oklch(0.68 0.14 170)\",\"accentDark\":\"oklch(0.8 0.12 170)\"},\"emoji\":{\"primary\":\"oklch(0.78 0.14 165)\",\"secondary\":\"oklch(0.62 0.13 165)\",\"accent\":\"oklch(0.74 0.13 232)\"}},\"fill\":[],\"animations\":{\"hover\":{\"group\":{\"initial\":{\"rotate\":0},\"animate\":{\"rotate\":[0,18,0],\"transition\":{\"duration\":0.55,\"ease\":\"easeInOut\"}}},\"p0\":{}},\"tap\":{\"group\":{\"initial\":{\"rotate\":0},\"animate\":{\"rotate\":[0,180,360],\"transition\":{\"duration\":0.8,\"ease\":[0.22,1,0.36,1]}}},\"p0\":{}},\"loop\":{\"group\":{\"initial\":{\"rotate\":0},\"animate\":{\"rotate\":[0,360],\"transition\":{\"duration\":1.8,\"ease\":\"easeInOut\"}}},\"p0\":{}}},\"component\":\"PrequelBluetoothIcon\"};\n\nexport const meta = {\"slug\":\"bluetooth\",\"name\":\"Bluetooth\",\"category\":\"Connectivity\",\"component\":\"PrequelBluetoothIcon\",\"style\":\"outline\"};\n\nexport function createPrequelBluetoothIcon(root, options = {}) {\n  let current = { ...options };\n  const render = () => {\n    root.innerHTML = renderIcon(spec, current);\n  };\n  render();\n  const controller = bindPrequelIcon(root, spec, () => current);\n  return {\n    play: controller.play,\n    reset: controller.reset,\n    destroy: controller.destroy,\n    update(next = {}) {\n      current = { ...current, ...next };\n      render();\n    },\n    get observed() {\n      return controller.observed;\n    },\n  };\n}\n"
+    }
+  ]
+}

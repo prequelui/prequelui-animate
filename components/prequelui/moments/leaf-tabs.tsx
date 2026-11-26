@@ -107,7 +107,7 @@ export function LeafTabs({ className, preview }: MomentProps) {
           initial={reduce ? false : { opacity: 0, x: 4 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: reduce ? 0 : 0.18 }}
-          className="text-[12px] font-medium"
+          className="text-[13px] font-medium"
         >
           {TABS[index].label}
         </motion.span>
@@ -116,7 +116,7 @@ export function LeafTabs({ className, preview }: MomentProps) {
           initial={reduce ? false : { opacity: 0, x: 4 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: reduce ? 0 : 0.22, delay: reduce ? 0 : 0.03 }}
-          className="mt-0.5 text-[10px] text-white/45"
+          className="mt-0.5 text-[13px] text-white/45"
         >
           {TABS[index].copy}
         </motion.span>

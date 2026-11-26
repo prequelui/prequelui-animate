@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-music-solid",
+  "type": "registry:ui",
+  "title": "Music · Solid",
+  "description": "A pair of notes whose heads bob to a steady beat. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-music.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-music-solid.js",
+      "target": "components/prequelui/icons/prequel-music-solid.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelMusicIcon } from \"./prequel-music.js\";\n\nexport function createPrequelMusicSolidIcon(root, options = {}) {\n  const controller = createPrequelMusicIcon(root, { ...options, variant: \"solid\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"solid\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-thermometer-emoji",
+  "type": "registry:ui",
+  "title": "Thermometer · Emoji",
+  "description": "A clinical thermometer whose mercury rises on each trigger. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-thermometer.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-thermometer-emoji.js",
+      "target": "components/prequelui/icons/prequel-thermometer-emoji.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelThermometerIcon } from \"./prequel-thermometer.js\";\n\nexport function createPrequelThermometerEmojiIcon(root, options = {}) {\n  const controller = createPrequelThermometerIcon(root, { ...options, variant: \"emoji\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"emoji\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

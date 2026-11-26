@@ -145,7 +145,7 @@ export function DownloadRing({ className, preview }: MomentProps) {
           )}
         </motion.span>
         {done ? null : (
-          <span className="absolute bottom-0.5 text-[10px] tabular-nums text-white/45">
+          <span className="absolute bottom-0.5 text-[13px] tabular-nums text-white/45">
             {Math.round(reduce && progress > 0 ? 100 : progress)}%
           </span>
         )}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-laptop-color",
+  "type": "registry:ui",
+  "title": "Laptop · Color",
+  "description": "An open laptop that settles with a small pop. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-laptop.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-laptop-color.js",
+      "target": "components/prequelui/icons/prequel-laptop-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelLaptopIcon } from \"./prequel-laptop.js\";\n\nexport function createPrequelLaptopColorIcon(root, options = {}) {\n  const controller = createPrequelLaptopIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-send",
+  "type": "registry:ui",
+  "title": "Send icon",
+  "description": "A paper plane that darts forward with its fold.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-send.tsx",
+      "target": "src/components/prequelui/icons/prequel-send.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { onCleanup, onMount } from \"solid-js\";\nimport { bindPrequelIcon, renderIcon } from \"./prequel-icon-core\";\n\nconst spec = {\"slug\":\"send\",\"name\":\"Send\",\"category\":\"Notifications\",\"parts\":[{\"tag\":\"path\",\"attrs\":{\"d\":\"M21 3L3 10l7 3 3 7 8-17Z\"}},{\"tag\":\"path\",\"attrs\":{\"d\":\"M10 13l5-5\"}}],\"roles\":[\"primary\",\"primary\"],\"closed\":[true,false],\"draw\":[false,false],\"inside\":[false,true],\"hasClosed\":true,\"highlight\":{\"cx\":8.4,\"cy\":7.76,\"rx\":2.4,\"ry\":1.25},\"palette\":{\"color\":{\"primary\":\"oklch(0.68 0.17 50)\",\"primaryDark\":\"oklch(0.83 0.13 50)\",\"accent\":\"oklch(0.62 0.18 25)\",\"accentDark\":\"oklch(0.78 0.14 25)\"},\"emoji\":{\"primary\":\"oklch(0.68 0.2 27)\",\"secondary\":\"oklch(0.54 0.19 25)\",\"accent\":\"oklch(0.82 0.16 85)\"}},\"fill\":[],\"animations\":{\"hover\":{\"group\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,1.5,0],\"transition\":{\"duration\":0.45,\"ease\":\"easeOut\"}}},\"p0\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,1.5,0],\"transition\":{\"duration\":0.45,\"ease\":\"easeOut\"}}},\"p1\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,1.5,0],\"transition\":{\"duration\":0.45,\"ease\":\"easeOut\"}}}},\"tap\":{\"group\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,5,0],\"transition\":{\"duration\":0.6,\"ease\":[0.22,1,0.36,1]}}},\"p0\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,3,0],\"transition\":{\"duration\":0.55,\"ease\":[0.22,1,0.36,1]}}},\"p1\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,3,0],\"transition\":{\"duration\":0.55,\"ease\":[0.22,1,0.36,1]}}}},\"loop\":{\"group\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,2.4,0],\"transition\":{\"duration\":1.5,\"ease\":\"easeInOut\"}}},\"p0\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,1.5,0],\"transition\":{\"duration\":1.4,\"ease\":\"easeInOut\"}}},\"p1\":{\"initial\":{\"x\":0},\"animate\":{\"x\":[0,1.5,0],\"transition\":{\"duration\":1.4,\"ease\":\"easeInOut\"}}}}},\"component\":\"PrequelSendIcon\"};\n\nexport function PrequelSendIcon(props) {\n  let host;\n\n  const view = () =>\n    renderIcon(spec, {\n      size: props.size ?? 28,\n      variant: props.variant ?? \"outline\",\n      weight: props.weight ?? \"regular\",\n      className: props.class ?? \"\",\n      label: props.label ?? \"\",\n    });\n\n  onMount(() => {\n    const controller = bindPrequelIcon(host, spec, () => ({\n      speed: props.speed ?? 1,\n      tempo: props.tempo ?? 1,\n      delay: props.delay ?? 0,\n      loop: props.loop ?? false,\n      animate: props.animate ?? false,\n      animateOnHover: props.animateOnHover ?? true,\n      animateOnTap: props.animateOnTap ?? true,\n      animateOnView: props.animateOnView ?? false,\n      animateOnViewOnce: props.animateOnViewOnce ?? true,\n      animation: props.animation ?? \"hover\",\n    }));\n    onCleanup(() => controller.destroy());\n  });\n\n  return (\n    <span\n      ref={host}\n      data-slot=\"prequel-icon-host\"\n      style={{ display: \"contents\" }}\n      innerHTML={view()}\n    />\n  );\n}\n"
+    }
+  ]
+}

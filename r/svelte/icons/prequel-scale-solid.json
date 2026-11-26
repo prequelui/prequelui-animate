@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-scale-solid",
+  "type": "registry:component",
+  "title": "Scale · Solid",
+  "description": "A balance that tips one pan and then returns to level. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-scale.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelScaleSolidIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelScaleSolidIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelScaleIcon from \"./PrequelScaleIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelScaleIcon {...rest} variant=\"solid\" />\n"
+    }
+  ]
+}

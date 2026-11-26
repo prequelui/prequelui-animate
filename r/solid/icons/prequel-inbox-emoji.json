@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-inbox-emoji",
+  "type": "registry:ui",
+  "title": "Inbox · Emoji",
+  "description": "A mail tray whose front lip dips as a letter lands. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-inbox.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-inbox-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-inbox-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelInboxIcon } from \"./prequel-inbox\";\n\nexport function PrequelInboxEmojiIcon(props) {\n  return <PrequelInboxIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

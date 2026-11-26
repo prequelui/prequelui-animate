@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-basket-solid",
+  "type": "registry:ui",
+  "title": "Basket · Solid",
+  "description": "A shopping basket that hops while its handles swing. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-basket.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-basket-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-basket-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelBasketIcon } from \"./prequel-basket\";\n\nexport function PrequelBasketSolidIcon(props) {\n  return <PrequelBasketIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

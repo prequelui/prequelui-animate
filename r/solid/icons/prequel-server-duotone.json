@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-server-duotone",
+  "type": "registry:ui",
+  "title": "Server · Duotone",
+  "description": "Two server bays that bounce against each other. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-server.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-server-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-server-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelServerIcon } from \"./prequel-server\";\n\nexport function PrequelServerDuotoneIcon(props) {\n  return <PrequelServerIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

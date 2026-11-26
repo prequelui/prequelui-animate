@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-bot-emoji",
+  "type": "registry:component",
+  "title": "Bot · Emoji",
+  "description": "A small assistant whose antenna bobs and whose eyes blink. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-bot.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelBotEmojiIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelBotEmojiIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelBotIcon from \"./PrequelBotIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelBotIcon {...rest} variant=\"emoji\" />\n"
+    }
+  ]
+}

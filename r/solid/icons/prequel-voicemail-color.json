@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-voicemail-color",
+  "type": "registry:ui",
+  "title": "Voicemail · Color",
+  "description": "Two reels joined by a bar that pulses like a held note. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-voicemail.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-voicemail-color.tsx",
+      "target": "src/components/prequelui/icons/prequel-voicemail-color.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelVoicemailIcon } from \"./prequel-voicemail\";\n\nexport function PrequelVoicemailColorIcon(props) {\n  return <PrequelVoicemailIcon {...props} variant=\"color\" />;\n}\n"
+    }
+  ]
+}

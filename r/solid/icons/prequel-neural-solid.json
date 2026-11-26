@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-neural-solid",
+  "type": "registry:ui",
+  "title": "Neural · Solid",
+  "description": "A network of nodes that pulses from the input to the output. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-neural.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-neural-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-neural-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelNeuralIcon } from \"./prequel-neural\";\n\nexport function PrequelNeuralSolidIcon(props) {\n  return <PrequelNeuralIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

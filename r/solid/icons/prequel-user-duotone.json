@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-user-duotone",
+  "type": "registry:ui",
+  "title": "User · Duotone",
+  "description": "A profile silhouette that lifts gently on each trigger. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-user.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-user-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-user-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelUserIcon } from \"./prequel-user\";\n\nexport function PrequelUserDuotoneIcon(props) {\n  return <PrequelUserIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

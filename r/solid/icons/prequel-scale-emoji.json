@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-scale-emoji",
+  "type": "registry:ui",
+  "title": "Scale · Emoji",
+  "description": "A balance that tips one pan and then returns to level. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-scale.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-scale-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-scale-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelScaleIcon } from \"./prequel-scale\";\n\nexport function PrequelScaleEmojiIcon(props) {\n  return <PrequelScaleIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

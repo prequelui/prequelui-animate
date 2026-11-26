@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-chart-pie-color",
+  "type": "registry:ui",
+  "title": "Chart Pie · Color",
+  "description": "A pie outline whose highlighted slice draws on every trigger. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-chart-pie.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-chart-pie-color.js",
+      "target": "components/prequelui/icons/prequel-chart-pie-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelChartPieIcon } from \"./prequel-chart-pie.js\";\n\nexport function createPrequelChartPieColorIcon(root, options = {}) {\n  const controller = createPrequelChartPieIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

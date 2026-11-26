@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-moon-duotone",
+  "type": "registry:ui",
+  "title": "Moon · Duotone",
+  "description": "A crescent moon that floats beside a twinkling star. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-moon.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-moon-duotone.js",
+      "target": "components/prequelui/icons/prequel-moon-duotone.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelMoonIcon } from \"./prequel-moon.js\";\n\nexport function createPrequelMoonDuotoneIcon(root, options = {}) {\n  const controller = createPrequelMoonIcon(root, { ...options, variant: \"duotone\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"duotone\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

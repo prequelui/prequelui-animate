@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-clipboard-emoji",
+  "type": "registry:component",
+  "title": "Clipboard · Emoji",
+  "description": "A clipboard whose clip snaps shut over a short checklist. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-clipboard.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelClipboardEmojiIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelClipboardEmojiIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelClipboardIcon from \"./PrequelClipboardIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelClipboardIcon {...rest} variant=\"emoji\" />\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-coins-duotone",
+  "type": "registry:ui",
+  "title": "Coins · Duotone",
+  "description": "A stack of coins that settles one layer at a time. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-coins.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-coins-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-coins-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelCoinsIcon } from \"./prequel-coins\";\n\nexport function PrequelCoinsDuotoneIcon(props) {\n  return <PrequelCoinsIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

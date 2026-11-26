@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-megaphone",
+  "type": "registry:component",
+  "title": "Megaphone icon",
+  "description": "A megaphone that swings while its sound arc pulses.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelMegaphoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelMegaphoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount } from \"svelte\";\n  import { bindPrequelIcon, renderIcon } from \"./prequel-icon-core.js\";\n\n  let {\n    size = 28,\n    variant = \"outline\",\n    weight = \"regular\",\n    speed = 1,\n    tempo = 1,\n    delay = 0,\n    loop = false,\n    animate: animateProp = false,\n    animateOnHover = true,\n    animateOnTap = true,\n    animateOnView = false,\n    animateOnViewOnce = true,\n    animation = \"hover\",\n    class: className = \"\",\n    label = \"\",\n    ...rest\n  } = $props();\n\n  const spec = {\"slug\":\"megaphone\",\"name\":\"Megaphone\",\"category\":\"Notifications\",\"parts\":[{\"tag\":\"path\",\"attrs\":{\"d\":\"M4 10v4l3 1 8 5V4L7 9l-3 1Z\"}},{\"tag\":\"path\",\"attrs\":{\"d\":\"M15 8a4 4 0 0 1 0 8\"}},{\"tag\":\"path\",\"attrs\":{\"d\":\"M7 15v4a2 2 0 0 0 4 0v-2\"}}],\"roles\":[\"primary\",\"primary\",\"primary\"],\"closed\":[true,false,false],\"draw\":[false,false,false],\"inside\":[false,false,false],\"hasClosed\":true,\"highlight\":{\"cx\":7.3,\"cy\":8.48,\"rx\":1.76,\"ry\":0.92},\"palette\":{\"color\":{\"primary\":\"oklch(0.68 0.17 50)\",\"primaryDark\":\"oklch(0.83 0.13 50)\",\"accent\":\"oklch(0.62 0.18 25)\",\"accentDark\":\"oklch(0.78 0.14 25)\"},\"emoji\":{\"primary\":\"oklch(0.68 0.2 27)\",\"secondary\":\"oklch(0.54 0.19 25)\",\"accent\":\"oklch(0.82 0.16 85)\"}},\"fill\":[],\"animations\":{\"hover\":{\"group\":{\"initial\":{\"rotate\":0},\"animate\":{\"rotate\":[0,-6,5,-3,0],\"transition\":{\"duration\":0.6,\"ease\":\"easeInOut\"}}},\"p0\":{},\"p1\":{\"initial\":{\"opacity\":1,\"scale\":1},\"animate\":{\"opacity\":[1,0.55,1],\"scale\":[1,1.06,1],\"transition\":{\"duration\":0.55,\"ease\":\"easeInOut\"}}},\"p2\":{}},\"tap\":{\"group\":{\"initial\":{\"rotate\":0},\"animate\":{\"rotate\":[0,-14,12,-8,4,0],\"transition\":{\"duration\":0.95,\"ease\":\"easeInOut\"}}},\"p0\":{},\"p1\":{\"initial\":{\"opacity\":1,\"scale\":1},\"animate\":{\"opacity\":[1,0.4,1],\"scale\":[1,1.14,1],\"transition\":{\"duration\":0.55,\"ease\":[0.22,1,0.36,1]}}},\"p2\":{}},\"loop\":{\"group\":{\"initial\":{\"rotate\":0},\"animate\":{\"rotate\":[0,-4,4,0],\"transition\":{\"duration\":1.6,\"ease\":\"easeInOut\"}}},\"p0\":{},\"p1\":{\"initial\":{\"opacity\":1,\"scale\":1},\"animate\":{\"opacity\":[1,0.55,1],\"scale\":[1,1.05,1],\"transition\":{\"duration\":1.5,\"ease\":\"easeInOut\"}}},\"p2\":{}}},\"component\":\"PrequelMegaphoneIcon\"};\n  let host;\n  let controller;\n\n  onMount(() => {\n    controller = bindPrequelIcon(host, spec, () => ({\n      speed,\n      tempo,\n      delay,\n      loop,\n      animate: animateProp,\n      animateOnHover,\n      animateOnTap,\n      animateOnView,\n      animateOnViewOnce,\n      animation,\n    }));\n    return () => controller?.destroy();\n  });\n</script>\n\n<span\n  bind:this={host}\n  data-slot=\"prequel-icon-host\"\n  style=\"display: contents\"\n  {...rest}\n>\n  {@html renderIcon(spec, {\n    size,\n    variant: variant,\n    weight,\n    className,\n    label,\n  })}\n</span>\n"
+    }
+  ]
+}

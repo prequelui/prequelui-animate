@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-reply-color",
+  "type": "registry:ui",
+  "title": "Reply · Color",
+  "description": "A reply curl that springs back toward the sender. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-reply.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-reply-color.js",
+      "target": "components/prequelui/icons/prequel-reply-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelReplyIcon } from \"./prequel-reply.js\";\n\nexport function createPrequelReplyColorIcon(root, options = {}) {\n  const controller = createPrequelReplyIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

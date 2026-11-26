@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tide-progress",
+  "type": "registry:ui",
+  "title": "Tide Progress",
+  "description": "Tide Progress moment: one gesture, one physical answer.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vue/moments/moment-core.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/moments/tide-progress.js",
+      "target": "components/prequelui/moments/tide-progress.js",
+      "type": "registry:lib",
+      "content": "import { animate } from \"motion\";\nimport {\n  applySurface,\n  clamp,\n  localPoint,\n  naturalWidth,\n  prefersReducedMotion,\n  previewPulse,\n  springSoft,\n} from \"./moment-core.js\";\n\nconst HEIGHT = 86;\nconst WAVE = 32;\n\nexport function createTideProgress(root, options = {}) {\n  const reduce = prefersReducedMotion();\n  let preview = Boolean(options.preview);\n  let level = 38;\n  let pulse = false;\n  let cancelPreview = () => {};\n\n  const surface = applySurface(root, \"\");\n  surface.innerHTML = `\n    <div data-track role=\"progressbar\" tabindex=\"0\" aria-label=\"Tide progress\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"38\" aria-valuetext=\"38 percent\"\n      class=\"relative h-[86px] w-[206px] overflow-hidden rounded-xl border border-white/12 bg-white/4 outline-none focus-visible:ring-2 focus-visible:ring-white/50\">\n      <div data-fill class=\"absolute inset-0 bg-white/25\"></div>\n      <div data-drift class=\"absolute inset-x-0 top-0 h-8\">\n        <div data-wave class=\"absolute inset-0\" style=\"background:repeating-linear-gradient(90deg, transparent 0 6px, rgba(255,255,255,.55) 6px 9px);mask-image:linear-gradient(to bottom, black, transparent);-webkit-mask-image:linear-gradient(to bottom, black, transparent)\"></div>\n      </div>\n      <span data-label class=\"absolute bottom-2 left-3 text-[13px] uppercase tracking-[0.16em] text-white/50\">Tide 38%</span>\n    </div>`;\n\n  const track = surface.querySelector(\"[data-track]\");\n  const fill = surface.querySelector(\"[data-fill]\");\n  const drift = surface.querySelector(\"[data-drift]\");\n  const wave = surface.querySelector(\"[data-wave]\");\n  const label = surface.querySelector(\"[data-label]\");\n\n  if (reduce) {\n    animate(drift, { x: 0 }, { duration: 0 });\n  } else {\n    animate(drift, { x: [0, -18, 0] }, { duration: 3.2, repeat: Infinity, ease: \"easeInOut\" });\n  }\n\n  function render() {\n    const shown = preview ? (pulse ? 92 : 28) : level;\n    track.setAttribute(\"aria-valuenow\", String(Math.round(shown)));\n    track.setAttribute(\"aria-valuetext\", `${Math.round(shown)} percent`);\n    label.textContent = `Tide ${Math.round(shown)}%`;\n    animate(\n      fill,\n      { clipPath: `inset(${100 - shown}% 0 0 0)` },\n      reduce ? { duration: 0 } : springSoft,\n    );\n    animate(\n      wave,\n      { y: (HEIGHT * (100 - shown)) / 100 - WAVE / 2 },\n      reduce ? { duration: 0 } : springSoft,\n    );\n  }\n\n  function move(event) {\n    const point = localPoint(event, track);\n    level = clamp((point.x / Math.max(1, naturalWidth(track))) * 100, 4, 100);\n    render();\n  }\n\n  function key(event) {\n    if (event.key === \"ArrowRight\" || event.key === \"ArrowUp\") {\n      event.preventDefault();\n      level = Math.min(100, level + 8);\n      render();\n    }\n    if (event.key === \"ArrowLeft\" || event.key === \"ArrowDown\") {\n      event.preventDefault();\n      level = Math.max(4, level - 8);\n      render();\n    }\n  }\n\n  track.addEventListener(\"pointermove\", move);\n  track.addEventListener(\"keydown\", key);\n\n  function setPreview(value) {\n    preview = Boolean(value);\n    cancelPreview();\n    cancelPreview = previewPulse(preview, 1600, 3200, (on) => {\n      pulse = on;\n      render();\n    }, reduce);\n    render();\n  }\n\n  setPreview(preview);\n\n  return {\n    update(next = {}) {\n      if (next.preview !== undefined && Boolean(next.preview) !== preview) {\n        setPreview(next.preview);\n      }\n    },\n    destroy() {\n      cancelPreview();\n      track.removeEventListener(\"pointermove\", move);\n      track.removeEventListener(\"keydown\", key);\n      surface.innerHTML = \"\";\n    },\n  };\n}\n"
+    },
+    {
+      "path": "components/prequelui/moments/TideProgress.vue",
+      "target": "components/prequelui/moments/TideProgress.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { onBeforeUnmount, onMounted, ref, watch } from \"vue\";\nimport { createTideProgress } from \"./tide-progress.js\";\n\nconst props = defineProps({\n  className: { type: String, default: \"\" },\n  preview: { type: Boolean, default: false },\n});\n\nconst host = ref(null);\nlet instance;\n\nonMounted(() => {\n  if (!host.value) return;\n  instance = createTideProgress(host.value, {\n    className: props.className,\n    preview: props.preview,\n  });\n  const extra = String(props.className || \"\").split(/\\s+/).filter(Boolean);\n  if (extra.length) host.value.classList.add(...extra);\n});\n\nwatch(\n  () => props.preview,\n  (value) => instance?.update({ preview: value }),\n);\n\nonBeforeUnmount(() => {\n  instance?.destroy();\n  instance = undefined;\n});\n</script>\n\n<template>\n  <div ref=\"host\"></div>\n</template>\n"
+    }
+  ]
+}

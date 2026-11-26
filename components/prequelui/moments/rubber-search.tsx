@@ -90,11 +90,11 @@ export function RubberSearch({ className, preview }: MomentProps) {
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
           onChange={(event) => setQuery(event.target.value)}
-          className="relative z-10 h-[44px] w-full bg-transparent pl-9 pr-3 text-[12px] text-white placeholder:text-white/35 focus:outline-none [&::-webkit-search-cancel-button]:hidden"
+          className="relative z-10 h-[44px] w-full bg-transparent pl-9 pr-3 text-[13px] text-white placeholder:text-white/35 focus:outline-none [&::-webkit-search-cancel-button]:hidden"
         />
         <motion.span
           aria-live="polite"
-          className="absolute right-3 top-1/2 z-10 -translate-y-1/2 text-[10px] uppercase tracking-[0.14em] text-white/35"
+          className="absolute right-3 top-1/2 z-10 -translate-y-1/2 text-[13px] uppercase tracking-[0.14em] text-white/35"
           animate={{ opacity: query ? 1 : 0.5 }}
         >
           {query ? `${hits} ${hits === 1 ? "hit" : "hits"}` : "Type"}

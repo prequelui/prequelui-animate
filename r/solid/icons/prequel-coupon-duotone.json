@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-coupon-duotone",
+  "type": "registry:ui",
+  "title": "Coupon · Duotone",
+  "description": "A coupon that flexes at its perforation and settles. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-coupon.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-coupon-duotone.tsx",
+      "target": "src/components/prequelui/icons/prequel-coupon-duotone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelCouponIcon } from \"./prequel-coupon\";\n\nexport function PrequelCouponDuotoneIcon(props) {\n  return <PrequelCouponIcon {...props} variant=\"duotone\" />;\n}\n"
+    }
+  ]
+}

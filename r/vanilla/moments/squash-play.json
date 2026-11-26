@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "squash-play",
+  "type": "registry:ui",
+  "title": "Squash Play",
+  "description": "Squash Play moment: one gesture, one physical answer.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/moments/moment-core.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/moments/squash-play.js",
+      "target": "components/prequelui/moments/squash-play.js",
+      "type": "registry:lib",
+      "content": "import { animate } from \"motion\";\nimport {\n  applySurface,\n  prefersReducedMotion,\n  previewPulse,\n} from \"./moment-core.js\";\n\nconst PLAY_GLYPH =\n  '<span class=\"block h-0 w-0\" style=\"border-top:11px solid transparent;border-bottom:11px solid transparent;border-left:17px solid black;margin-left:4px\"></span>';\nconst PAUSE_GLYPH =\n  '<span class=\"block h-5 w-[5px] rounded-full bg-black\"></span><span class=\"block h-5 w-[5px] rounded-full bg-black\"></span>';\n\nexport function createSquashPlay(root, options = {}) {\n  const reduce = prefersReducedMotion();\n  let preview = Boolean(options.preview);\n  let playing = false;\n  let squash = 0;\n  let lastSquash = 0;\n  let pulse = false;\n  let cancelPreview = () => {};\n\n  const surface = applySurface(root, \"flex-col gap-3\");\n  surface.innerHTML = `\n    <button type=\"button\" aria-pressed=\"false\" aria-label=\"Play\"\n      class=\"flex size-[88px] items-center justify-center rounded-full outline-none focus-visible:ring-2 focus-visible:ring-white/50\">\n      <span data-disc class=\"flex size-[74px] items-center justify-center bg-white text-black\" style=\"border-radius:37px\">\n        <span data-glyph class=\"flex items-center gap-[5px]\">${PLAY_GLYPH}</span>\n      </span>\n    </button>\n    <span data-label aria-live=\"polite\" class=\"text-[13px] uppercase tracking-[0.18em] text-white/45\">Paused</span>`;\n\n  const button = surface.querySelector(\"button\");\n  const disc = surface.querySelector(\"[data-disc]\");\n  const glyph = surface.querySelector(\"[data-glyph]\");\n  const label = surface.querySelector(\"[data-label]\");\n\n  function render() {\n    const active = preview ? pulse : playing;\n    button.setAttribute(\"aria-pressed\", String(active));\n    button.setAttribute(\"aria-label\", active ? \"Pause\" : \"Play\");\n    glyph.innerHTML = active ? PAUSE_GLYPH : PLAY_GLYPH;\n    label.textContent = active ? \"Playing\" : \"Paused\";\n\n    if (squash !== lastSquash) {\n      lastSquash = squash;\n      if (reduce || squash === 0) {\n        animate(\n          disc,\n          { scale: 1, rotate: 0, borderRadius: active ? 20 : 37 },\n          { duration: 0 },\n        );\n      } else {\n        animate(\n          disc,\n          {\n            scale: [1, 0.78, 1.06, 1],\n            rotate: [0, -3, 2, 0],\n            borderRadius: active ? 20 : 37,\n          },\n          { duration: 0.5, ease: [0.22, 1, 0.36, 1] },\n        );\n      }\n    } else {\n      animate(\n        disc,\n        { borderRadius: active ? 20 : 37 },\n        { duration: reduce ? 0 : 0.2 },\n      );\n    }\n  }\n\n  function press() {\n    playing = !playing;\n    if (!reduce) squash += 1;\n    render();\n  }\n\n  button.addEventListener(\"click\", press);\n\n  function setPreview(value) {\n    preview = Boolean(value);\n    cancelPreview();\n    cancelPreview = previewPulse(preview, 1200, 2700, (on) => {\n      pulse = on;\n      if (pulse) squash += 1;\n      render();\n    }, reduce);\n    render();\n  }\n\n  setPreview(preview);\n\n  return {\n    update(next = {}) {\n      if (next.preview !== undefined && Boolean(next.preview) !== preview) {\n        setPreview(next.preview);\n      }\n    },\n    destroy() {\n      cancelPreview();\n      button.removeEventListener(\"click\", press);\n      surface.innerHTML = \"\";\n    },\n  };\n}\n"
+    }
+  ]
+}

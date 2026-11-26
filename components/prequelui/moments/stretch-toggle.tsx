@@ -53,7 +53,7 @@ export function StretchToggle({ className, preview }: MomentProps) {
           transition={reduce ? { duration: 0 } : springFast}
         />
       </button>
-      <span className="text-[12px] uppercase tracking-[0.18em] text-white/45">
+      <span className="text-[13px] uppercase tracking-[0.18em] text-white/45">
         {on ? "Stretched" : "Resting"}
       </span>
     </div>

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-pause-color",
+  "type": "registry:ui",
+  "title": "Pause · Color",
+  "description": "Two pause bars that swell and settle together. Rendered in the color style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/prequel-pause.json"
+  ],
+  "files": [
+    {
+      "path": "components/prequelui/icons/prequel-pause-color.js",
+      "target": "components/prequelui/icons/prequel-pause-color.js",
+      "type": "registry:ui",
+      "content": "import { createPrequelPauseIcon } from \"./prequel-pause.js\";\n\nexport function createPrequelPauseColorIcon(root, options = {}) {\n  const controller = createPrequelPauseIcon(root, { ...options, variant: \"color\" });\n  return {\n    ...controller,\n    update(next = {}) {\n      controller.update({ ...next, variant: \"color\" });\n    },\n  };\n}\n"
+    }
+  ]
+}

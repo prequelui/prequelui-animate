@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-bug-emoji",
+  "type": "registry:ui",
+  "title": "Bug · Emoji",
+  "description": "A beetle whose legs and antennae jitter together. Rendered in the emoji style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-bug.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-bug-emoji.tsx",
+      "target": "src/components/prequelui/icons/prequel-bug-emoji.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelBugIcon } from \"./prequel-bug\";\n\nexport function PrequelBugEmojiIcon(props) {\n  return <PrequelBugIcon {...props} variant=\"emoji\" />;\n}\n"
+    }
+  ]
+}

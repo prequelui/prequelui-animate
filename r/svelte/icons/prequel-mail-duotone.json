@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-mail-duotone",
+  "type": "registry:component",
+  "title": "Mail · Duotone",
+  "description": "An envelope whose flap lifts a touch when played. Rendered in the duotone style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/prequel-mail.json"
+  ],
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/PrequelMailDuotoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/PrequelMailDuotoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import PrequelMailIcon from \"./PrequelMailIcon.svelte\";\n\n  let { ...rest } = $props();\n</script>\n\n<PrequelMailIcon {...rest} variant=\"duotone\" />\n"
+    }
+  ]
+}

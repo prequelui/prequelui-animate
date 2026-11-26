@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prequel-chip-solid",
+  "type": "registry:ui",
+  "title": "Chip · Solid",
+  "description": "A processor die whose pins pulse in a ring around it. Rendered in the solid style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-icon-core.json",
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/prequel-chip.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/prequel-chip-solid.tsx",
+      "target": "src/components/prequelui/icons/prequel-chip-solid.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { PrequelChipIcon } from \"./prequel-chip\";\n\nexport function PrequelChipSolidIcon(props) {\n  return <PrequelChipIcon {...props} variant=\"solid\" />;\n}\n"
+    }
+  ]
+}

@@ -70,7 +70,7 @@ export function BloomToggle({ className, preview }: MomentProps) {
           </span>
         </motion.span>
       </button>
-      <span className="text-[12px] uppercase tracking-[0.18em] text-white/45">
+      <span className="text-[13px] uppercase tracking-[0.18em] text-white/45">
         {on ? "Bloom" : "Rest"}
       </span>
     </div>
