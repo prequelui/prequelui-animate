@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "lucide-unlink",
+  "type": "registry:component",
+  "title": "Unlink",
+  "description": "Lucide communication icon, animated by the shared motion core (orbit).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "lucide",
+    "style": "outline",
+    "category": "Communication",
+    "motion": "orbit",
+    "license": "ISC",
+    "source": "https://github.com/lucide-icons/lucide",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/sets/lucide/LucideUnlinkIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/sets/lucide/LucideUnlinkIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount } from \"svelte\";\n  import { bindSetIcon, renderSetIcon } from \"../icon-set-core.js\";\n\n  let {\n    size = 28,\n    class: className = \"\",\n    label = \"\",\n    speed = 1,\n    delay = 0,\n    loop = false,\n    animate: animateProp = false,\n    animateOnHover = true,\n    animateOnTap = true,\n    animateOnView = false,\n    animateOnViewOnce = true,\n    animation = \"hover\",\n    ...rest\n  } = $props();\n\n  const definition = {\n  \"name\": \"unlink\",\n  \"category\": \"Communication\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 2,\n  \"motion\": \"orbit\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"m18.84 12.25 1.72-1.71h-.02a5.004 5.004 0 0 0-.12-7.07 5.006 5.006 0 0 0-6.95 0l-1.72 1.71\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"m5.17 11.75-1.71 1.71a5.004 5.004 0 0 0 .12 7.07 5.006 5.006 0 0 0 6.95 0l1.71-1.71\"\n      }\n    },\n    {\n      \"tag\": \"line\",\n      \"attrs\": {\n        \"x1\": \"8\",\n        \"x2\": \"8\",\n        \"y1\": \"2\",\n        \"y2\": \"5\"\n      }\n    },\n    {\n      \"tag\": \"line\",\n      \"attrs\": {\n        \"x1\": \"2\",\n        \"x2\": \"5\",\n        \"y1\": \"8\",\n        \"y2\": \"8\"\n      }\n    },\n    {\n      \"tag\": \"line\",\n      \"attrs\": {\n        \"x1\": \"16\",\n        \"x2\": \"16\",\n        \"y1\": \"19\",\n        \"y2\": \"22\"\n      }\n    },\n    {\n      \"tag\": \"line\",\n      \"attrs\": {\n        \"x1\": \"19\",\n        \"x2\": \"22\",\n        \"y1\": \"16\",\n        \"y2\": \"16\"\n      }\n    }\n  ],\n  \"accents\": [\n    1,\n    2,\n    3,\n    4,\n    5\n  ]\n};\n  let host;\n  let controller;\n\n  onMount(() => {\n    controller = bindSetIcon(host, definition, () => ({\n      speed,\n      delay,\n      loop,\n      animate: animateProp,\n      animateOnHover,\n      animateOnTap,\n      animateOnView,\n      animateOnViewOnce,\n      animation,\n    }));\n    return () => controller?.destroy();\n  });\n</script>\n\n<span\n  bind:this={host}\n  data-slot=\"prequel-set-icon-host\"\n  style=\"display: contents\"\n  class={className}\n  {...rest}\n>\n  {@html renderSetIcon(definition, { size, className, label })}\n</span>\n"
+    }
+  ]
+}

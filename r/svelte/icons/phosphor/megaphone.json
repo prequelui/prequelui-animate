@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "phosphor-megaphone",
+  "type": "registry:component",
+  "title": "Megaphone",
+  "description": "Phosphor communication icon, animated by the shared motion core (shake).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "phosphor",
+    "style": "fill",
+    "category": "Communication",
+    "motion": "shake",
+    "license": "MIT",
+    "source": "https://github.com/phosphor-icons/core",
+    "styles": [
+      "fill"
+    ]
+  },
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/sets/phosphor/PhosphorMegaphoneIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/sets/phosphor/PhosphorMegaphoneIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount } from \"svelte\";\n  import { bindSetIcon, renderSetIcon } from \"../icon-set-core.js\";\n\n  let {\n    size = 28,\n    class: className = \"\",\n    label = \"\",\n    speed = 1,\n    delay = 0,\n    loop = false,\n    animate: animateProp = false,\n    animateOnHover = true,\n    animateOnTap = true,\n    animateOnView = false,\n    animateOnViewOnce = true,\n    animation = \"hover\",\n    ...rest\n  } = $props();\n\n  const definition = {\n  \"name\": \"megaphone\",\n  \"category\": \"Communication\",\n  \"viewBox\": \"0 0 256 256\",\n  \"mode\": \"fill\",\n  \"strokeWidth\": 0,\n  \"motion\": \"shake\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M248,120a48.05,48.05,0,0,0-48-48H160.2c-2.91-.17-53.62-3.74-101.91-44.24A16,16,0,0,0,32,40V200a16,16,0,0,0,26.29,12.25c37.77-31.68,77-40.76,93.71-43.3v31.72A16,16,0,0,0,159.12,214l11,7.33A16,16,0,0,0,194.5,212l11.77-44.36A48.07,48.07,0,0,0,248,120ZM48,199.93V40h0c42.81,35.91,86.63,45,104,47.24v65.48C134.65,155,90.84,164.07,48,199.93Zm131,8,0,.11-11-7.33V168h21.6ZM200,152H168V88h32a32,32,0,1,1,0,64Z\"\n      }\n    }\n  ],\n  \"accents\": []\n};\n  let host;\n  let controller;\n\n  onMount(() => {\n    controller = bindSetIcon(host, definition, () => ({\n      speed,\n      delay,\n      loop,\n      animate: animateProp,\n      animateOnHover,\n      animateOnTap,\n      animateOnView,\n      animateOnViewOnce,\n      animation,\n    }));\n    return () => controller?.destroy();\n  });\n</script>\n\n<span\n  bind:this={host}\n  data-slot=\"prequel-set-icon-host\"\n  style=\"display: contents\"\n  class={className}\n  {...rest}\n>\n  {@html renderSetIcon(definition, { size, className, label })}\n</span>\n"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hugeicons-sliders-vertical",
+  "type": "registry:ui",
+  "title": "SlidersVertical",
+  "description": "Hugeicons interface icon, animated by the shared motion core (gear).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "hugeicons",
+    "style": "outline",
+    "category": "Interface",
+    "motion": "gear",
+    "license": "MIT",
+    "source": "https://github.com/hugeicons/hugeicons",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/sets/hugeicons/hugeicons-sliders-vertical.tsx",
+      "target": "src/components/prequelui/icons/sets/hugeicons/hugeicons-sliders-vertical.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { onCleanup, onMount } from \"solid-js\";\nimport { bindSetIcon, renderSetIcon } from \"../icon-set-core\";\n\nconst definition = {\n  \"name\": \"sliders-vertical\",\n  \"category\": \"Interface\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 1.5,\n  \"motion\": \"gear\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M5.00018 20.0001L4.99994 14.0001\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M4.99994 11.0001V4.00006\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M8.99994 8.00006H14.9999\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M1.99994 14.0001H7.99994\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M15.9999 12.0001H21.9999\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M11.9997 8.00006L11.9999 4.00006\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M12.0002 20.0001L11.9999 11.0001\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M18.9999 12.0001L18.9999 4.00006\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M19.0002 20.0001L18.9999 15.0001\"\n      }\n    }\n  ],\n  \"accents\": [\n    0,\n    1,\n    2,\n    3,\n    4,\n    5,\n    7,\n    8\n  ]\n};\n\nexport function HugeiconsSlidersVerticalIcon(props) {\n  let host;\n\n  const view = () =>\n    renderSetIcon(definition, {\n      size: props.size ?? 28,\n      className: props.class ?? \"\",\n      label: props.label ?? \"\",\n    });\n\n  onMount(() => {\n    const controller = bindSetIcon(host, definition, () => ({\n      speed: props.speed ?? 1,\n      delay: props.delay ?? 0,\n      loop: props.loop ?? false,\n      animate: props.animate ?? false,\n      animateOnHover: props.animateOnHover ?? true,\n      animateOnTap: props.animateOnTap ?? true,\n      animateOnView: props.animateOnView ?? false,\n      animateOnViewOnce: props.animateOnViewOnce ?? true,\n      animation: props.animation ?? \"hover\",\n    }));\n    onCleanup(() => controller.destroy());\n  });\n\n  return (\n    <span\n      ref={host}\n      data-slot=\"prequel-set-icon-host\"\n      style={{ display: \"contents\" }}\n      innerHTML={view()}\n    />\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabler-wallet",
+  "type": "registry:component",
+  "title": "Wallet",
+  "description": "Tabler commerce icon, animated by the shared motion core (coin).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "tabler",
+    "style": "outline",
+    "category": "Commerce",
+    "motion": "coin",
+    "license": "MIT",
+    "source": "https://github.com/tabler/tabler-icons",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/sets/tabler/TablerWalletIcon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/sets/tabler/TablerWalletIcon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount } from \"svelte\";\n  import { bindSetIcon, renderSetIcon } from \"../icon-set-core.js\";\n\n  let {\n    size = 28,\n    class: className = \"\",\n    label = \"\",\n    speed = 1,\n    delay = 0,\n    loop = false,\n    animate: animateProp = false,\n    animateOnHover = true,\n    animateOnTap = true,\n    animateOnView = false,\n    animateOnViewOnce = true,\n    animation = \"hover\",\n    ...rest\n  } = $props();\n\n  const definition = {\n  \"name\": \"wallet\",\n  \"category\": \"Commerce\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 2,\n  \"motion\": \"coin\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M20 12v4h-4a2 2 0 0 1 0 -4h4\"\n      }\n    }\n  ],\n  \"accents\": []\n};\n  let host;\n  let controller;\n\n  onMount(() => {\n    controller = bindSetIcon(host, definition, () => ({\n      speed,\n      delay,\n      loop,\n      animate: animateProp,\n      animateOnHover,\n      animateOnTap,\n      animateOnView,\n      animateOnViewOnce,\n      animation,\n    }));\n    return () => controller?.destroy();\n  });\n</script>\n\n<span\n  bind:this={host}\n  data-slot=\"prequel-set-icon-host\"\n  style=\"display: contents\"\n  class={className}\n  {...rest}\n>\n  {@html renderSetIcon(definition, { size, className, label })}\n</span>\n"
+    }
+  ]
+}

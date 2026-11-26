@@ -1,0 +1,49 @@
+import { bindSetIcon, renderSetIcon } from "../icon-set-core.js";
+
+export const definition = {
+  "name": "arrows-up-down",
+  "category": "Navigation",
+  "viewBox": "0 0 24 24",
+  "mode": "stroke",
+  "strokeWidth": 1.5,
+  "motion": "sway",
+  "parts": [
+    {
+      "tag": "path",
+      "attrs": {
+        "d": "M3 7.5 7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5"
+      }
+    }
+  ],
+  "accents": []
+};
+
+export const meta = {
+  "slug": "heroicons-arrows-up-down",
+  "family": "heroicons",
+  "name": "arrows-up-down",
+  "category": "Navigation",
+  "motion": "sway",
+  "component": "createHeroiconsArrowsUpDownIcon"
+};
+
+export function createHeroiconsArrowsUpDownIcon(root, options = {}) {
+  let current = { ...options };
+  const render = () => {
+    root.innerHTML = renderSetIcon(definition, current);
+  };
+  render();
+  const controller = bindSetIcon(root, definition, () => current);
+  return {
+    play: controller.play,
+    reset: controller.reset,
+    destroy: controller.destroy,
+    update(next = {}) {
+      current = { ...current, ...next };
+      render();
+    },
+    get observed() {
+      return controller.observed;
+    },
+  };
+}

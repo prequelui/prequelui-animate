@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hugeicons-mic-01",
+  "type": "registry:component",
+  "title": "Mic01",
+  "description": "Hugeicons media icon, animated by the shared motion core (bounce).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "hugeicons",
+    "style": "outline",
+    "category": "Media",
+    "motion": "bounce",
+    "license": "MIT",
+    "source": "https://github.com/hugeicons/hugeicons",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/icons/sets/hugeicons/HugeiconsMic01Icon.svelte",
+      "target": "~/src/lib/components/prequelui/icons/sets/hugeicons/HugeiconsMic01Icon.svelte",
+      "type": "registry:file",
+      "content": "<script>\n  import { onMount } from \"svelte\";\n  import { bindSetIcon, renderSetIcon } from \"../icon-set-core.js\";\n\n  let {\n    size = 28,\n    class: className = \"\",\n    label = \"\",\n    speed = 1,\n    delay = 0,\n    loop = false,\n    animate: animateProp = false,\n    animateOnHover = true,\n    animateOnTap = true,\n    animateOnView = false,\n    animateOnViewOnce = true,\n    animation = \"hover\",\n    ...rest\n  } = $props();\n\n  const definition = {\n  \"name\": \"mic-01\",\n  \"category\": \"Media\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 1.5,\n  \"motion\": \"bounce\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M7 6.5C7 4.01472 9.01472 2 11.5 2C13.9853 2 16 4.01472 16 6.5V11.5C16 13.9853 13.9853 16 11.5 16C9.01472 16 7 13.9853 7 11.5V6.5Z\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M11.5 19H11.0828C7.57267 19 4.57706 16.4623 4 13M11.5 19H11.9172C15.4273 19 18.4229 16.4623 19 13M11.5 19V22\"\n      }\n    }\n  ],\n  \"accents\": []\n};\n  let host;\n  let controller;\n\n  onMount(() => {\n    controller = bindSetIcon(host, definition, () => ({\n      speed,\n      delay,\n      loop,\n      animate: animateProp,\n      animateOnHover,\n      animateOnTap,\n      animateOnView,\n      animateOnViewOnce,\n      animation,\n    }));\n    return () => controller?.destroy();\n  });\n</script>\n\n<span\n  bind:this={host}\n  data-slot=\"prequel-set-icon-host\"\n  style=\"display: contents\"\n  class={className}\n  {...rest}\n>\n  {@html renderSetIcon(definition, { size, className, label })}\n</span>\n"
+    }
+  ]
+}

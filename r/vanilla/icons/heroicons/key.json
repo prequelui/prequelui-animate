@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "heroicons-key",
+  "type": "registry:ui",
+  "title": "Key",
+  "description": "Heroicons status icon, animated by the shared motion core (lock).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "heroicons",
+    "style": "outline",
+    "category": "Status",
+    "motion": "lock",
+    "license": "MIT",
+    "source": "https://github.com/tailwindlabs/heroicons",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/heroicons/heroicons-key.js",
+      "target": "components/prequelui/icons/sets/heroicons/heroicons-key.js",
+      "type": "registry:ui",
+      "content": "import { bindSetIcon, renderSetIcon } from \"../icon-set-core.js\";\n\nexport const definition = {\n  \"name\": \"key\",\n  \"category\": \"Status\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 1.5,\n  \"motion\": \"lock\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z\"\n      }\n    }\n  ],\n  \"accents\": [\n    0\n  ]\n};\n\nexport const meta = {\n  \"slug\": \"heroicons-key\",\n  \"family\": \"heroicons\",\n  \"name\": \"key\",\n  \"category\": \"Status\",\n  \"motion\": \"lock\",\n  \"component\": \"createHeroiconsKeyIcon\"\n};\n\nexport function createHeroiconsKeyIcon(root, options = {}) {\n  let current = { ...options };\n  const render = () => {\n    root.innerHTML = renderSetIcon(definition, current);\n  };\n  render();\n  const controller = bindSetIcon(root, definition, () => current);\n  return {\n    play: controller.play,\n    reset: controller.reset,\n    destroy: controller.destroy,\n    update(next = {}) {\n      current = { ...current, ...next };\n      render();\n    },\n    get observed() {\n      return controller.observed;\n    },\n  };\n}\n"
+    }
+  ]
+}

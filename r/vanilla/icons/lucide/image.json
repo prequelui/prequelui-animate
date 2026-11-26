@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "lucide-image",
+  "type": "registry:ui",
+  "title": "Image",
+  "description": "Lucide media icon, animated by the shared motion core (bounce).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "lucide",
+    "style": "outline",
+    "category": "Media",
+    "motion": "bounce",
+    "license": "ISC",
+    "source": "https://github.com/lucide-icons/lucide",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/lucide/lucide-image.js",
+      "target": "components/prequelui/icons/sets/lucide/lucide-image.js",
+      "type": "registry:ui",
+      "content": "import { bindSetIcon, renderSetIcon } from \"../icon-set-core.js\";\n\nexport const definition = {\n  \"name\": \"image\",\n  \"category\": \"Media\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 2,\n  \"motion\": \"bounce\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21\"\n      }\n    },\n    {\n      \"tag\": \"circle\",\n      \"attrs\": {\n        \"cx\": \"9\",\n        \"cy\": \"9\",\n        \"r\": \"2\"\n      }\n    },\n    {\n      \"tag\": \"rect\",\n      \"attrs\": {\n        \"width\": \"18\",\n        \"height\": \"18\",\n        \"x\": \"3\",\n        \"y\": \"3\",\n        \"rx\": \"2\",\n        \"ry\": \"2\"\n      }\n    }\n  ],\n  \"accents\": []\n};\n\nexport const meta = {\n  \"slug\": \"lucide-image\",\n  \"family\": \"lucide\",\n  \"name\": \"image\",\n  \"category\": \"Media\",\n  \"motion\": \"bounce\",\n  \"component\": \"createLucideImageIcon\"\n};\n\nexport function createLucideImageIcon(root, options = {}) {\n  let current = { ...options };\n  const render = () => {\n    root.innerHTML = renderSetIcon(definition, current);\n  };\n  render();\n  const controller = bindSetIcon(root, definition, () => current);\n  return {\n    play: controller.play,\n    reset: controller.reset,\n    destroy: controller.destroy,\n    update(next = {}) {\n      current = { ...current, ...next };\n      render();\n    },\n    get observed() {\n      return controller.observed;\n    },\n  };\n}\n"
+    }
+  ]
+}

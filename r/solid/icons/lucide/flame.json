@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "lucide-flame",
+  "type": "registry:ui",
+  "title": "Flame",
+  "description": "Lucide status icon, animated by the shared motion core (shake).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "lucide",
+    "style": "outline",
+    "category": "Status",
+    "motion": "shake",
+    "license": "ISC",
+    "source": "https://github.com/lucide-icons/lucide",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/sets/lucide/lucide-flame.tsx",
+      "target": "src/components/prequelui/icons/sets/lucide/lucide-flame.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { onCleanup, onMount } from \"solid-js\";\nimport { bindSetIcon, renderSetIcon } from \"../icon-set-core\";\n\nconst definition = {\n  \"name\": \"flame\",\n  \"category\": \"Status\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 2,\n  \"motion\": \"shake\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4\"\n      }\n    }\n  ],\n  \"accents\": []\n};\n\nexport function LucideFlameIcon(props) {\n  let host;\n\n  const view = () =>\n    renderSetIcon(definition, {\n      size: props.size ?? 28,\n      className: props.class ?? \"\",\n      label: props.label ?? \"\",\n    });\n\n  onMount(() => {\n    const controller = bindSetIcon(host, definition, () => ({\n      speed: props.speed ?? 1,\n      delay: props.delay ?? 0,\n      loop: props.loop ?? false,\n      animate: props.animate ?? false,\n      animateOnHover: props.animateOnHover ?? true,\n      animateOnTap: props.animateOnTap ?? true,\n      animateOnView: props.animateOnView ?? false,\n      animateOnViewOnce: props.animateOnViewOnce ?? true,\n      animation: props.animation ?? \"hover\",\n    }));\n    onCleanup(() => controller.destroy());\n  });\n\n  return (\n    <span\n      ref={host}\n      data-slot=\"prequel-set-icon-host\"\n      style={{ display: \"contents\" }}\n      innerHTML={view()}\n    />\n  );\n}\n"
+    }
+  ]
+}

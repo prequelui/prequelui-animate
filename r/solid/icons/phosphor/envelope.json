@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "phosphor-envelope",
+  "type": "registry:ui",
+  "title": "Envelope",
+  "description": "Phosphor communication icon, animated by the shared motion core (mail).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "phosphor",
+    "style": "fill",
+    "category": "Communication",
+    "motion": "mail",
+    "license": "MIT",
+    "source": "https://github.com/phosphor-icons/core",
+    "styles": [
+      "fill"
+    ]
+  },
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/sets/phosphor/phosphor-envelope.tsx",
+      "target": "src/components/prequelui/icons/sets/phosphor/phosphor-envelope.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { onCleanup, onMount } from \"solid-js\";\nimport { bindSetIcon, renderSetIcon } from \"../icon-set-core\";\n\nconst definition = {\n  \"name\": \"envelope\",\n  \"category\": \"Communication\",\n  \"viewBox\": \"0 0 256 256\",\n  \"mode\": \"fill\",\n  \"strokeWidth\": 0,\n  \"motion\": \"mail\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z\"\n      }\n    }\n  ],\n  \"accents\": [\n    0\n  ]\n};\n\nexport function PhosphorEnvelopeIcon(props) {\n  let host;\n\n  const view = () =>\n    renderSetIcon(definition, {\n      size: props.size ?? 28,\n      className: props.class ?? \"\",\n      label: props.label ?? \"\",\n    });\n\n  onMount(() => {\n    const controller = bindSetIcon(host, definition, () => ({\n      speed: props.speed ?? 1,\n      delay: props.delay ?? 0,\n      loop: props.loop ?? false,\n      animate: props.animate ?? false,\n      animateOnHover: props.animateOnHover ?? true,\n      animateOnTap: props.animateOnTap ?? true,\n      animateOnView: props.animateOnView ?? false,\n      animateOnViewOnce: props.animateOnViewOnce ?? true,\n      animation: props.animation ?? \"hover\",\n    }));\n    onCleanup(() => controller.destroy());\n  });\n\n  return (\n    <span\n      ref={host}\n      data-slot=\"prequel-set-icon-host\"\n      style={{ display: \"contents\" }}\n      innerHTML={view()}\n    />\n  );\n}\n"
+    }
+  ]
+}

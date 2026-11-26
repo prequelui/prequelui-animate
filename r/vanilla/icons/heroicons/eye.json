@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "heroicons-eye",
+  "type": "registry:ui",
+  "title": "Eye",
+  "description": "Heroicons interface icon, animated by the shared motion core (eye).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "heroicons",
+    "style": "outline",
+    "category": "Interface",
+    "motion": "eye",
+    "license": "MIT",
+    "source": "https://github.com/tailwindlabs/heroicons",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/heroicons/heroicons-eye.js",
+      "target": "components/prequelui/icons/sets/heroicons/heroicons-eye.js",
+      "type": "registry:ui",
+      "content": "import { bindSetIcon, renderSetIcon } from \"../icon-set-core.js\";\n\nexport const definition = {\n  \"name\": \"eye\",\n  \"category\": \"Interface\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 1.5,\n  \"motion\": \"eye\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z\"\n      }\n    }\n  ],\n  \"accents\": [\n    1\n  ]\n};\n\nexport const meta = {\n  \"slug\": \"heroicons-eye\",\n  \"family\": \"heroicons\",\n  \"name\": \"eye\",\n  \"category\": \"Interface\",\n  \"motion\": \"eye\",\n  \"component\": \"createHeroiconsEyeIcon\"\n};\n\nexport function createHeroiconsEyeIcon(root, options = {}) {\n  let current = { ...options };\n  const render = () => {\n    root.innerHTML = renderSetIcon(definition, current);\n  };\n  render();\n  const controller = bindSetIcon(root, definition, () => current);\n  return {\n    play: controller.play,\n    reset: controller.reset,\n    destroy: controller.destroy,\n    update(next = {}) {\n      current = { ...current, ...next };\n      render();\n    },\n    get observed() {\n      return controller.observed;\n    },\n  };\n}\n"
+    }
+  ]
+}

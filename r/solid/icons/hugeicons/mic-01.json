@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hugeicons-mic-01",
+  "type": "registry:ui",
+  "title": "Mic01",
+  "description": "Hugeicons media icon, animated by the shared motion core (bounce).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "hugeicons",
+    "style": "outline",
+    "category": "Media",
+    "motion": "bounce",
+    "license": "MIT",
+    "source": "https://github.com/hugeicons/hugeicons",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/sets/hugeicons/hugeicons-mic-01.tsx",
+      "target": "src/components/prequelui/icons/sets/hugeicons/hugeicons-mic-01.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { onCleanup, onMount } from \"solid-js\";\nimport { bindSetIcon, renderSetIcon } from \"../icon-set-core\";\n\nconst definition = {\n  \"name\": \"mic-01\",\n  \"category\": \"Media\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 1.5,\n  \"motion\": \"bounce\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M7 6.5C7 4.01472 9.01472 2 11.5 2C13.9853 2 16 4.01472 16 6.5V11.5C16 13.9853 13.9853 16 11.5 16C9.01472 16 7 13.9853 7 11.5V6.5Z\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M11.5 19H11.0828C7.57267 19 4.57706 16.4623 4 13M11.5 19H11.9172C15.4273 19 18.4229 16.4623 19 13M11.5 19V22\"\n      }\n    }\n  ],\n  \"accents\": []\n};\n\nexport function HugeiconsMic01Icon(props) {\n  let host;\n\n  const view = () =>\n    renderSetIcon(definition, {\n      size: props.size ?? 28,\n      className: props.class ?? \"\",\n      label: props.label ?? \"\",\n    });\n\n  onMount(() => {\n    const controller = bindSetIcon(host, definition, () => ({\n      speed: props.speed ?? 1,\n      delay: props.delay ?? 0,\n      loop: props.loop ?? false,\n      animate: props.animate ?? false,\n      animateOnHover: props.animateOnHover ?? true,\n      animateOnTap: props.animateOnTap ?? true,\n      animateOnView: props.animateOnView ?? false,\n      animateOnViewOnce: props.animateOnViewOnce ?? true,\n      animation: props.animation ?? \"hover\",\n    }));\n    onCleanup(() => controller.destroy());\n  });\n\n  return (\n    <span\n      ref={host}\n      data-slot=\"prequel-set-icon-host\"\n      style={{ display: \"contents\" }}\n      innerHTML={view()}\n    />\n  );\n}\n"
+    }
+  ]
+}

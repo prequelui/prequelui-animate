@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hugeicons-arrow-turn-down",
+  "type": "registry:ui",
+  "title": "ArrowTurnDown",
+  "description": "Hugeicons navigation icon, animated by the shared motion core (slideDown).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "hugeicons",
+    "style": "outline",
+    "category": "Navigation",
+    "motion": "slideDown",
+    "license": "MIT",
+    "source": "https://github.com/hugeicons/hugeicons",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/sets/hugeicons/hugeicons-arrow-turn-down.tsx",
+      "target": "src/components/prequelui/icons/sets/hugeicons/hugeicons-arrow-turn-down.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { onCleanup, onMount } from \"solid-js\";\nimport { bindSetIcon, renderSetIcon } from \"../icon-set-core\";\n\nconst definition = {\n  \"name\": \"arrow-turn-down\",\n  \"category\": \"Navigation\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 1.5,\n  \"motion\": \"slideDown\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M5.99994 13L5.99994 8.5C5.99994 6.01472 8.01466 4 10.4999 4C12.9852 4 14.9999 6.01472 14.9999 8.5V20\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M11.9999 17C11.9999 17 14.2093 20 14.9999 20C15.7905 20 17.9999 17 17.9999 17\"\n      }\n    }\n  ],\n  \"accents\": [\n    1\n  ]\n};\n\nexport function HugeiconsArrowTurnDownIcon(props) {\n  let host;\n\n  const view = () =>\n    renderSetIcon(definition, {\n      size: props.size ?? 28,\n      className: props.class ?? \"\",\n      label: props.label ?? \"\",\n    });\n\n  onMount(() => {\n    const controller = bindSetIcon(host, definition, () => ({\n      speed: props.speed ?? 1,\n      delay: props.delay ?? 0,\n      loop: props.loop ?? false,\n      animate: props.animate ?? false,\n      animateOnHover: props.animateOnHover ?? true,\n      animateOnTap: props.animateOnTap ?? true,\n      animateOnView: props.animateOnView ?? false,\n      animateOnViewOnce: props.animateOnViewOnce ?? true,\n      animation: props.animation ?? \"hover\",\n    }));\n    onCleanup(() => controller.destroy());\n  });\n\n  return (\n    <span\n      ref={host}\n      data-slot=\"prequel-set-icon-host\"\n      style={{ display: \"contents\" }}\n      innerHTML={view()}\n    />\n  );\n}\n"
+    }
+  ]
+}

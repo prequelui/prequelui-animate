@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "heroicons-magnifying-glass",
+  "type": "registry:ui",
+  "title": "MagnifyingGlass",
+  "description": "Heroicons navigation icon, animated by the shared motion core (focus).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "heroicons",
+    "style": "outline",
+    "category": "Navigation",
+    "motion": "focus",
+    "license": "MIT",
+    "source": "https://github.com/tailwindlabs/heroicons",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/heroicons/heroicons-magnifying-glass.js",
+      "target": "components/prequelui/icons/sets/heroicons/heroicons-magnifying-glass.js",
+      "type": "registry:ui",
+      "content": "import { bindSetIcon, renderSetIcon } from \"../icon-set-core.js\";\n\nexport const definition = {\n  \"name\": \"magnifying-glass\",\n  \"category\": \"Navigation\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 1.5,\n  \"motion\": \"focus\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z\"\n      }\n    }\n  ],\n  \"accents\": [\n    0\n  ]\n};\n\nexport const meta = {\n  \"slug\": \"heroicons-magnifying-glass\",\n  \"family\": \"heroicons\",\n  \"name\": \"magnifying-glass\",\n  \"category\": \"Navigation\",\n  \"motion\": \"focus\",\n  \"component\": \"createHeroiconsMagnifyingGlassIcon\"\n};\n\nexport function createHeroiconsMagnifyingGlassIcon(root, options = {}) {\n  let current = { ...options };\n  const render = () => {\n    root.innerHTML = renderSetIcon(definition, current);\n  };\n  render();\n  const controller = bindSetIcon(root, definition, () => current);\n  return {\n    play: controller.play,\n    reset: controller.reset,\n    destroy: controller.destroy,\n    update(next = {}) {\n      current = { ...current, ...next };\n      render();\n    },\n    get observed() {\n      return controller.observed;\n    },\n  };\n}\n"
+    }
+  ]
+}

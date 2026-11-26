@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabler-cash-banknote",
+  "type": "registry:ui",
+  "title": "CashBanknote",
+  "description": "Tabler commerce icon, animated by the shared motion core (coin).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "tabler",
+    "style": "outline",
+    "category": "Commerce",
+    "motion": "coin",
+    "license": "MIT",
+    "source": "https://github.com/tabler/tabler-icons",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/tabler/tabler-cash-banknote.js",
+      "target": "components/prequelui/icons/sets/tabler/tabler-cash-banknote.js",
+      "type": "registry:ui",
+      "content": "import { bindSetIcon, renderSetIcon } from \"../icon-set-core.js\";\n\nexport const definition = {\n  \"name\": \"cash-banknote\",\n  \"category\": \"Commerce\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 2,\n  \"motion\": \"coin\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M3 8a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2l0 -8\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M18 12h.01\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M6 12h.01\"\n      }\n    }\n  ],\n  \"accents\": []\n};\n\nexport const meta = {\n  \"slug\": \"tabler-cash-banknote\",\n  \"family\": \"tabler\",\n  \"name\": \"cash-banknote\",\n  \"category\": \"Commerce\",\n  \"motion\": \"coin\",\n  \"component\": \"createTablerCashBanknoteIcon\"\n};\n\nexport function createTablerCashBanknoteIcon(root, options = {}) {\n  let current = { ...options };\n  const render = () => {\n    root.innerHTML = renderSetIcon(definition, current);\n  };\n  render();\n  const controller = bindSetIcon(root, definition, () => current);\n  return {\n    play: controller.play,\n    reset: controller.reset,\n    destroy: controller.destroy,\n    update(next = {}) {\n      current = { ...current, ...next };\n      render();\n    },\n    get observed() {\n      return controller.observed;\n    },\n  };\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabler-star",
+  "type": "registry:ui",
+  "title": "Star",
+  "description": "Tabler status icon, animated by the shared motion core (star).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vue/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "tabler",
+    "style": "outline",
+    "category": "Status",
+    "motion": "star",
+    "license": "MIT",
+    "source": "https://github.com/tabler/tabler-icons",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/tabler/TablerStarIcon.vue",
+      "target": "components/prequelui/icons/sets/tabler/TablerStarIcon.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { computed, onBeforeUnmount, onMounted, ref } from \"vue\";\nimport { bindSetIcon, renderSetIcon } from \"../icon-set-core.js\";\n\nconst props = defineProps({\n  size: { type: Number, default: 28 },\n  className: { type: String, default: \"\" },\n  label: { type: String, default: \"\" },\n  speed: { type: Number, default: 1 },\n  delay: { type: Number, default: 0 },\n  loop: { type: Boolean, default: false },\n  animate: { type: [Boolean, String], default: false },\n  animateOnHover: { type: Boolean, default: true },\n  animateOnTap: { type: Boolean, default: true },\n  animateOnView: { type: [Boolean, String], default: false },\n  animateOnViewOnce: { type: Boolean, default: true },\n  animation: { type: String, default: \"hover\" },\n});\n\nconst definition = {\n  \"name\": \"star\",\n  \"category\": \"Status\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 2,\n  \"motion\": \"star\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245\"\n      }\n    }\n  ],\n  \"accents\": []\n};\nconst host = ref(null);\nlet controller = null;\n\nconst markup = computed(() =>\n  renderSetIcon(definition, {\n    size: props.size,\n    className: props.className,\n    label: props.label,\n  }),\n);\n\nonMounted(() => {\n  controller = bindSetIcon(host.value, definition, () => ({\n    speed: props.speed,\n    delay: props.delay,\n    loop: props.loop,\n    animate: props.animate,\n    animateOnHover: props.animateOnHover,\n    animateOnTap: props.animateOnTap,\n    animateOnView: props.animateOnView,\n    animateOnViewOnce: props.animateOnViewOnce,\n    animation: props.animation,\n  }));\n});\n\nonBeforeUnmount(() => controller?.destroy());\n</script>\n\n<template>\n  <span\n    ref=\"host\"\n    data-slot=\"prequel-set-icon-host\"\n    style=\"display: contents\"\n    v-html=\"markup\"\n  ></span>\n</template>\n"
+    }
+  ]
+}

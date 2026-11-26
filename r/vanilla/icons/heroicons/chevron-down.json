@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "heroicons-chevron-down",
+  "type": "registry:ui",
+  "title": "ChevronDown",
+  "description": "Heroicons navigation icon, animated by the shared motion core (slideDown).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "heroicons",
+    "style": "outline",
+    "category": "Navigation",
+    "motion": "slideDown",
+    "license": "MIT",
+    "source": "https://github.com/tailwindlabs/heroicons",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/heroicons/heroicons-chevron-down.js",
+      "target": "components/prequelui/icons/sets/heroicons/heroicons-chevron-down.js",
+      "type": "registry:ui",
+      "content": "import { bindSetIcon, renderSetIcon } from \"../icon-set-core.js\";\n\nexport const definition = {\n  \"name\": \"chevron-down\",\n  \"category\": \"Navigation\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 1.5,\n  \"motion\": \"slideDown\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"m19.5 8.25-7.5 7.5-7.5-7.5\"\n      }\n    }\n  ],\n  \"accents\": []\n};\n\nexport const meta = {\n  \"slug\": \"heroicons-chevron-down\",\n  \"family\": \"heroicons\",\n  \"name\": \"chevron-down\",\n  \"category\": \"Navigation\",\n  \"motion\": \"slideDown\",\n  \"component\": \"createHeroiconsChevronDownIcon\"\n};\n\nexport function createHeroiconsChevronDownIcon(root, options = {}) {\n  let current = { ...options };\n  const render = () => {\n    root.innerHTML = renderSetIcon(definition, current);\n  };\n  render();\n  const controller = bindSetIcon(root, definition, () => current);\n  return {\n    play: controller.play,\n    reset: controller.reset,\n    destroy: controller.destroy,\n    update(next = {}) {\n      current = { ...current, ...next };\n      render();\n    },\n    get observed() {\n      return controller.observed;\n    },\n  };\n}\n"
+    }
+  ]
+}

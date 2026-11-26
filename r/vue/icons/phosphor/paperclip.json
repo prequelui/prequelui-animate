@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "phosphor-paperclip",
+  "type": "registry:ui",
+  "title": "Paperclip",
+  "description": "Phosphor files icon, animated by the shared motion core (file).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vue/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "phosphor",
+    "style": "fill",
+    "category": "Files",
+    "motion": "file",
+    "license": "MIT",
+    "source": "https://github.com/phosphor-icons/core",
+    "styles": [
+      "fill"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/phosphor/PhosphorPaperclipIcon.vue",
+      "target": "components/prequelui/icons/sets/phosphor/PhosphorPaperclipIcon.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { computed, onBeforeUnmount, onMounted, ref } from \"vue\";\nimport { bindSetIcon, renderSetIcon } from \"../icon-set-core.js\";\n\nconst props = defineProps({\n  size: { type: Number, default: 28 },\n  className: { type: String, default: \"\" },\n  label: { type: String, default: \"\" },\n  speed: { type: Number, default: 1 },\n  delay: { type: Number, default: 0 },\n  loop: { type: Boolean, default: false },\n  animate: { type: [Boolean, String], default: false },\n  animateOnHover: { type: Boolean, default: true },\n  animateOnTap: { type: Boolean, default: true },\n  animateOnView: { type: [Boolean, String], default: false },\n  animateOnViewOnce: { type: Boolean, default: true },\n  animation: { type: String, default: \"hover\" },\n});\n\nconst definition = {\n  \"name\": \"paperclip\",\n  \"category\": \"Files\",\n  \"viewBox\": \"0 0 256 256\",\n  \"mode\": \"fill\",\n  \"strokeWidth\": 0,\n  \"motion\": \"file\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M209.66,122.34a8,8,0,0,1,0,11.32l-82.05,82a56,56,0,0,1-79.2-79.21L147.67,35.73a40,40,0,1,1,56.61,56.55L105,193A24,24,0,1,1,71,159L154.3,74.38A8,8,0,1,1,165.7,85.6L82.39,170.31a8,8,0,1,0,11.27,11.36L192.93,81A24,24,0,1,0,159,47L59.76,147.68a40,40,0,1,0,56.53,56.62l82.06-82A8,8,0,0,1,209.66,122.34Z\"\n      }\n    }\n  ],\n  \"accents\": [\n    0\n  ]\n};\nconst host = ref(null);\nlet controller = null;\n\nconst markup = computed(() =>\n  renderSetIcon(definition, {\n    size: props.size,\n    className: props.className,\n    label: props.label,\n  }),\n);\n\nonMounted(() => {\n  controller = bindSetIcon(host.value, definition, () => ({\n    speed: props.speed,\n    delay: props.delay,\n    loop: props.loop,\n    animate: props.animate,\n    animateOnHover: props.animateOnHover,\n    animateOnTap: props.animateOnTap,\n    animateOnView: props.animateOnView,\n    animateOnViewOnce: props.animateOnViewOnce,\n    animation: props.animation,\n  }));\n});\n\nonBeforeUnmount(() => controller?.destroy());\n</script>\n\n<template>\n  <span\n    ref=\"host\"\n    data-slot=\"prequel-set-icon-host\"\n    style=\"display: contents\"\n    v-html=\"markup\"\n  ></span>\n</template>\n"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabler-lock-open",
+  "type": "registry:ui",
+  "title": "LockOpen",
+  "description": "Tabler status icon, animated by the shared motion core (lock).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vue/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "tabler",
+    "style": "outline",
+    "category": "Status",
+    "motion": "lock",
+    "license": "MIT",
+    "source": "https://github.com/tabler/tabler-icons",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/tabler/TablerLockOpenIcon.vue",
+      "target": "components/prequelui/icons/sets/tabler/TablerLockOpenIcon.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { computed, onBeforeUnmount, onMounted, ref } from \"vue\";\nimport { bindSetIcon, renderSetIcon } from \"../icon-set-core.js\";\n\nconst props = defineProps({\n  size: { type: Number, default: 28 },\n  className: { type: String, default: \"\" },\n  label: { type: String, default: \"\" },\n  speed: { type: Number, default: 1 },\n  delay: { type: Number, default: 0 },\n  loop: { type: Boolean, default: false },\n  animate: { type: [Boolean, String], default: false },\n  animateOnHover: { type: Boolean, default: true },\n  animateOnTap: { type: Boolean, default: true },\n  animateOnView: { type: [Boolean, String], default: false },\n  animateOnViewOnce: { type: Boolean, default: true },\n  animation: { type: String, default: \"hover\" },\n});\n\nconst definition = {\n  \"name\": \"lock-open\",\n  \"category\": \"Status\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 2,\n  \"motion\": \"lock\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2l0 -6\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M11 16a1 1 0 1 0 2 0a1 1 0 1 0 -2 0\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M8 11v-5a4 4 0 0 1 8 0\"\n      }\n    }\n  ],\n  \"accents\": [\n    1,\n    2\n  ]\n};\nconst host = ref(null);\nlet controller = null;\n\nconst markup = computed(() =>\n  renderSetIcon(definition, {\n    size: props.size,\n    className: props.className,\n    label: props.label,\n  }),\n);\n\nonMounted(() => {\n  controller = bindSetIcon(host.value, definition, () => ({\n    speed: props.speed,\n    delay: props.delay,\n    loop: props.loop,\n    animate: props.animate,\n    animateOnHover: props.animateOnHover,\n    animateOnTap: props.animateOnTap,\n    animateOnView: props.animateOnView,\n    animateOnViewOnce: props.animateOnViewOnce,\n    animation: props.animation,\n  }));\n});\n\nonBeforeUnmount(() => controller?.destroy());\n</script>\n\n<template>\n  <span\n    ref=\"host\"\n    data-slot=\"prequel-set-icon-host\"\n    style=\"display: contents\"\n    v-html=\"markup\"\n  ></span>\n</template>\n"
+    }
+  ]
+}

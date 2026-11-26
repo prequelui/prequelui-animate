@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "lucide-mail-open",
+  "type": "registry:ui",
+  "title": "MailOpen",
+  "description": "Lucide communication icon, animated by the shared motion core (mail).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "lucide",
+    "style": "outline",
+    "category": "Communication",
+    "motion": "mail",
+    "license": "ISC",
+    "source": "https://github.com/lucide-icons/lucide",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/lucide/lucide-mail-open.js",
+      "target": "components/prequelui/icons/sets/lucide/lucide-mail-open.js",
+      "type": "registry:ui",
+      "content": "import { bindSetIcon, renderSetIcon } from \"../icon-set-core.js\";\n\nexport const definition = {\n  \"name\": \"mail-open\",\n  \"category\": \"Communication\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 2,\n  \"motion\": \"mail\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M21.2 8.4c.5.38.8.97.8 1.6v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V10a2 2 0 0 1 .8-1.6l8-6a2 2 0 0 1 2.4 0l8 6Z\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"m22 10-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 10\"\n      }\n    }\n  ],\n  \"accents\": [\n    1\n  ]\n};\n\nexport const meta = {\n  \"slug\": \"lucide-mail-open\",\n  \"family\": \"lucide\",\n  \"name\": \"mail-open\",\n  \"category\": \"Communication\",\n  \"motion\": \"mail\",\n  \"component\": \"createLucideMailOpenIcon\"\n};\n\nexport function createLucideMailOpenIcon(root, options = {}) {\n  let current = { ...options };\n  const render = () => {\n    root.innerHTML = renderSetIcon(definition, current);\n  };\n  render();\n  const controller = bindSetIcon(root, definition, () => current);\n  return {\n    play: controller.play,\n    reset: controller.reset,\n    destroy: controller.destroy,\n    update(next = {}) {\n      current = { ...current, ...next };\n      render();\n    },\n    get observed() {\n      return controller.observed;\n    },\n  };\n}\n"
+    }
+  ]
+}

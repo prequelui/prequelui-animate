@@ -1,0 +1,49 @@
+import { bindSetIcon, renderSetIcon } from "../icon-set-core.js";
+
+export const definition = {
+  "name": "bookmark",
+  "category": "Status",
+  "viewBox": "0 0 24 24",
+  "mode": "stroke",
+  "strokeWidth": 2,
+  "motion": "bookmark",
+  "parts": [
+    {
+      "tag": "path",
+      "attrs": {
+        "d": "M18 7v14l-6 -4l-6 4v-14a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4"
+      }
+    }
+  ],
+  "accents": []
+};
+
+export const meta = {
+  "slug": "tabler-bookmark",
+  "family": "tabler",
+  "name": "bookmark",
+  "category": "Status",
+  "motion": "bookmark",
+  "component": "createTablerBookmarkIcon"
+};
+
+export function createTablerBookmarkIcon(root, options = {}) {
+  let current = { ...options };
+  const render = () => {
+    root.innerHTML = renderSetIcon(definition, current);
+  };
+  render();
+  const controller = bindSetIcon(root, definition, () => current);
+  return {
+    play: controller.play,
+    reset: controller.reset,
+    destroy: controller.destroy,
+    update(next = {}) {
+      current = { ...current, ...next };
+      render();
+    },
+    get observed() {
+      return controller.observed;
+    },
+  };
+}

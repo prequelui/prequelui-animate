@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hugeicons-paperclip",
+  "type": "registry:ui",
+  "title": "Paperclip",
+  "description": "Hugeicons files icon, animated by the shared motion core (file).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vue/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "hugeicons",
+    "style": "outline",
+    "category": "Files",
+    "motion": "file",
+    "license": "MIT",
+    "source": "https://github.com/hugeicons/hugeicons",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/hugeicons/HugeiconsPaperclipIcon.vue",
+      "target": "components/prequelui/icons/sets/hugeicons/HugeiconsPaperclipIcon.vue",
+      "type": "registry:ui",
+      "content": "<script setup>\nimport { computed, onBeforeUnmount, onMounted, ref } from \"vue\";\nimport { bindSetIcon, renderSetIcon } from \"../icon-set-core.js\";\n\nconst props = defineProps({\n  size: { type: Number, default: 28 },\n  className: { type: String, default: \"\" },\n  label: { type: String, default: \"\" },\n  speed: { type: Number, default: 1 },\n  delay: { type: Number, default: 0 },\n  loop: { type: Boolean, default: false },\n  animate: { type: [Boolean, String], default: false },\n  animateOnHover: { type: Boolean, default: true },\n  animateOnTap: { type: Boolean, default: true },\n  animateOnView: { type: [Boolean, String], default: false },\n  animateOnViewOnce: { type: Boolean, default: true },\n  animation: { type: String, default: \"hover\" },\n});\n\nconst definition = {\n  \"name\": \"paperclip\",\n  \"category\": \"Files\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 1.5,\n  \"motion\": \"file\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M18.1688 12L19.713 10.4558C21.4186 8.75022 21.4186 5.98485 19.713 4.27922C18.0073 2.57359 15.242 2.57359 13.5363 4.27922L4.27141 13.5442C2.56578 15.2498 2.56578 18.0152 4.27141 19.7208C5.97704 21.4264 8.7424 21.4264 10.448 19.7208L13.9224 16.2464C14.9884 15.1804 14.9884 13.4521 13.9224 12.386C12.8564 11.32 11.128 11.32 10.062 12.386L8.1318 14.3162\"\n      }\n    }\n  ],\n  \"accents\": [\n    0\n  ]\n};\nconst host = ref(null);\nlet controller = null;\n\nconst markup = computed(() =>\n  renderSetIcon(definition, {\n    size: props.size,\n    className: props.className,\n    label: props.label,\n  }),\n);\n\nonMounted(() => {\n  controller = bindSetIcon(host.value, definition, () => ({\n    speed: props.speed,\n    delay: props.delay,\n    loop: props.loop,\n    animate: props.animate,\n    animateOnHover: props.animateOnHover,\n    animateOnTap: props.animateOnTap,\n    animateOnView: props.animateOnView,\n    animateOnViewOnce: props.animateOnViewOnce,\n    animation: props.animation,\n  }));\n});\n\nonBeforeUnmount(() => controller?.destroy());\n</script>\n\n<template>\n  <span\n    ref=\"host\"\n    data-slot=\"prequel-set-icon-host\"\n    style=\"display: contents\"\n    v-html=\"markup\"\n  ></span>\n</template>\n"
+    }
+  ]
+}

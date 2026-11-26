@@ -1,0 +1,51 @@
+import { bindSetIcon, renderSetIcon } from "../icon-set-core.js";
+
+export const definition = {
+  "name": "lock-closed",
+  "category": "Status",
+  "viewBox": "0 0 24 24",
+  "mode": "stroke",
+  "strokeWidth": 1.5,
+  "motion": "lock",
+  "parts": [
+    {
+      "tag": "path",
+      "attrs": {
+        "d": "M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"
+      }
+    }
+  ],
+  "accents": [
+    0
+  ]
+};
+
+export const meta = {
+  "slug": "heroicons-lock-closed",
+  "family": "heroicons",
+  "name": "lock-closed",
+  "category": "Status",
+  "motion": "lock",
+  "component": "createHeroiconsLockClosedIcon"
+};
+
+export function createHeroiconsLockClosedIcon(root, options = {}) {
+  let current = { ...options };
+  const render = () => {
+    root.innerHTML = renderSetIcon(definition, current);
+  };
+  render();
+  const controller = bindSetIcon(root, definition, () => current);
+  return {
+    play: controller.play,
+    reset: controller.reset,
+    destroy: controller.destroy,
+    update(next = {}) {
+      current = { ...current, ...next };
+      render();
+    },
+    get observed() {
+      return controller.observed;
+    },
+  };
+}

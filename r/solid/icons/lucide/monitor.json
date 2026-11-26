@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "lucide-monitor",
+  "type": "registry:ui",
+  "title": "Monitor",
+  "description": "Lucide media icon, animated by the shared motion core (bounce).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "lucide",
+    "style": "outline",
+    "category": "Media",
+    "motion": "bounce",
+    "license": "ISC",
+    "source": "https://github.com/lucide-icons/lucide",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "src/components/prequelui/icons/sets/lucide/lucide-monitor.tsx",
+      "target": "src/components/prequelui/icons/sets/lucide/lucide-monitor.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { onCleanup, onMount } from \"solid-js\";\nimport { bindSetIcon, renderSetIcon } from \"../icon-set-core\";\n\nconst definition = {\n  \"name\": \"monitor\",\n  \"category\": \"Media\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 2,\n  \"motion\": \"bounce\",\n  \"parts\": [\n    {\n      \"tag\": \"rect\",\n      \"attrs\": {\n        \"width\": \"20\",\n        \"height\": \"14\",\n        \"x\": \"2\",\n        \"y\": \"3\",\n        \"rx\": \"2\"\n      }\n    },\n    {\n      \"tag\": \"line\",\n      \"attrs\": {\n        \"x1\": \"8\",\n        \"x2\": \"16\",\n        \"y1\": \"21\",\n        \"y2\": \"21\"\n      }\n    },\n    {\n      \"tag\": \"line\",\n      \"attrs\": {\n        \"x1\": \"12\",\n        \"x2\": \"12\",\n        \"y1\": \"17\",\n        \"y2\": \"21\"\n      }\n    }\n  ],\n  \"accents\": []\n};\n\nexport function LucideMonitorIcon(props) {\n  let host;\n\n  const view = () =>\n    renderSetIcon(definition, {\n      size: props.size ?? 28,\n      className: props.class ?? \"\",\n      label: props.label ?? \"\",\n    });\n\n  onMount(() => {\n    const controller = bindSetIcon(host, definition, () => ({\n      speed: props.speed ?? 1,\n      delay: props.delay ?? 0,\n      loop: props.loop ?? false,\n      animate: props.animate ?? false,\n      animateOnHover: props.animateOnHover ?? true,\n      animateOnTap: props.animateOnTap ?? true,\n      animateOnView: props.animateOnView ?? false,\n      animateOnViewOnce: props.animateOnViewOnce ?? true,\n      animation: props.animation ?? \"hover\",\n    }));\n    onCleanup(() => controller.destroy());\n  });\n\n  return (\n    <span\n      ref={host}\n      data-slot=\"prequel-set-icon-host\"\n      style={{ display: \"contents\" }}\n      innerHTML={view()}\n    />\n  );\n}\n"
+    }
+  ]
+}

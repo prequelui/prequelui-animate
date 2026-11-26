@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "lucide-share-2",
+  "type": "registry:ui",
+  "title": "Share2",
+  "description": "Lucide communication icon, animated by the shared motion core (orbit).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "lucide",
+    "style": "outline",
+    "category": "Communication",
+    "motion": "orbit",
+    "license": "ISC",
+    "source": "https://github.com/lucide-icons/lucide",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/lucide/lucide-share-2.js",
+      "target": "components/prequelui/icons/sets/lucide/lucide-share-2.js",
+      "type": "registry:ui",
+      "content": "import { bindSetIcon, renderSetIcon } from \"../icon-set-core.js\";\n\nexport const definition = {\n  \"name\": \"share-2\",\n  \"category\": \"Communication\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 2,\n  \"motion\": \"orbit\",\n  \"parts\": [\n    {\n      \"tag\": \"circle\",\n      \"attrs\": {\n        \"cx\": \"18\",\n        \"cy\": \"5\",\n        \"r\": \"3\"\n      }\n    },\n    {\n      \"tag\": \"circle\",\n      \"attrs\": {\n        \"cx\": \"6\",\n        \"cy\": \"12\",\n        \"r\": \"3\"\n      }\n    },\n    {\n      \"tag\": \"circle\",\n      \"attrs\": {\n        \"cx\": \"18\",\n        \"cy\": \"19\",\n        \"r\": \"3\"\n      }\n    },\n    {\n      \"tag\": \"line\",\n      \"attrs\": {\n        \"x1\": \"8.59\",\n        \"x2\": \"15.42\",\n        \"y1\": \"13.51\",\n        \"y2\": \"17.49\"\n      }\n    },\n    {\n      \"tag\": \"line\",\n      \"attrs\": {\n        \"x1\": \"15.41\",\n        \"x2\": \"8.59\",\n        \"y1\": \"6.51\",\n        \"y2\": \"10.49\"\n      }\n    }\n  ],\n  \"accents\": [\n    1,\n    2,\n    3,\n    4\n  ]\n};\n\nexport const meta = {\n  \"slug\": \"lucide-share-2\",\n  \"family\": \"lucide\",\n  \"name\": \"share-2\",\n  \"category\": \"Communication\",\n  \"motion\": \"orbit\",\n  \"component\": \"createLucideShare2Icon\"\n};\n\nexport function createLucideShare2Icon(root, options = {}) {\n  let current = { ...options };\n  const render = () => {\n    root.innerHTML = renderSetIcon(definition, current);\n  };\n  render();\n  const controller = bindSetIcon(root, definition, () => current);\n  return {\n    play: controller.play,\n    reset: controller.reset,\n    destroy: controller.destroy,\n    update(next = {}) {\n      current = { ...current, ...next };\n      render();\n    },\n    get observed() {\n      return controller.observed;\n    },\n  };\n}\n"
+    }
+  ]
+}

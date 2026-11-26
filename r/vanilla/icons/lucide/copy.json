@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "lucide-copy",
+  "type": "registry:ui",
+  "title": "Copy",
+  "description": "Lucide files icon, animated by the shared motion core (copy).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "lucide",
+    "style": "outline",
+    "category": "Files",
+    "motion": "copy",
+    "license": "ISC",
+    "source": "https://github.com/lucide-icons/lucide",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/lucide/lucide-copy.js",
+      "target": "components/prequelui/icons/sets/lucide/lucide-copy.js",
+      "type": "registry:ui",
+      "content": "import { bindSetIcon, renderSetIcon } from \"../icon-set-core.js\";\n\nexport const definition = {\n  \"name\": \"copy\",\n  \"category\": \"Files\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 2,\n  \"motion\": \"copy\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"\n      }\n    },\n    {\n      \"tag\": \"rect\",\n      \"attrs\": {\n        \"width\": \"14\",\n        \"height\": \"14\",\n        \"x\": \"8\",\n        \"y\": \"8\",\n        \"rx\": \"2\",\n        \"ry\": \"2\"\n      }\n    }\n  ],\n  \"accents\": [\n    0\n  ]\n};\n\nexport const meta = {\n  \"slug\": \"lucide-copy\",\n  \"family\": \"lucide\",\n  \"name\": \"copy\",\n  \"category\": \"Files\",\n  \"motion\": \"copy\",\n  \"component\": \"createLucideCopyIcon\"\n};\n\nexport function createLucideCopyIcon(root, options = {}) {\n  let current = { ...options };\n  const render = () => {\n    root.innerHTML = renderSetIcon(definition, current);\n  };\n  render();\n  const controller = bindSetIcon(root, definition, () => current);\n  return {\n    play: controller.play,\n    reset: controller.reset,\n    destroy: controller.destroy,\n    update(next = {}) {\n      current = { ...current, ...next };\n      render();\n    },\n    get observed() {\n      return controller.observed;\n    },\n  };\n}\n"
+    }
+  ]
+}

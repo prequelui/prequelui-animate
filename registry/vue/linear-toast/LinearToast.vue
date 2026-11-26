@@ -1,0 +1,35 @@
+<script setup>
+import { onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { bindLinearScene, renderLinearScene } from "../linear-core.js";
+
+const props = defineProps({
+  className: { type: String, default: "" },
+  label: { type: String, default: "An isometric notice box with a ticket rising from its top slot and a lit dot." },
+  interactive: { type: Boolean, default: true },
+  replay: { type: Number, default: 0 },
+});
+
+const markup = renderLinearScene("<svg viewBox=\"0 0 400 320\" width=\"100%\" height=\"100%\" fill=\"none\" preserveAspectRatio=\"xMidYMid meet\" aria-hidden=\"true\"><path data-linear-well=\"0\" d=\"M302.41 204.89L300.13 208.41L295.78 211.4L274.49 222.04L268.51 224.22L261.47 225.36L254.07 225.36L247.03 224.22L241.05 222.04L140.71 171.87L136.36 168.88L134.07 165.36\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-well)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><g data-linear-block=\"ticket\" data-linear-index=\"1\"><path d=\"M184.22 69.93L185.47 68.01L187.84 66.38L196.96 61.82L200.22 60.63L204.06 60.01L208.1 60.01L211.94 60.63L215.2 61.82L303.38 105.91L305.75 107.54L307 109.46L307 141.27L305.75 143.19L303.38 144.82L294.26 149.38L290.99 150.57L287.15 151.19L283.12 151.19L279.28 150.57L276.01 149.38L187.84 105.29L185.47 103.66L184.22 101.74Z\" fill=\"var(--ls-plate)\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-edge)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M307 111.48L305.75 113.4L303.38 115.03L294.26 119.59L290.99 120.78L287.15 121.4L283.12 121.4L279.28 120.78L276.01 119.59L187.84 75.5L185.47 73.87L184.22 71.95\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M211.93 63.45L300.11 107.54L301.63 108.59L302.43 109.82L302.43 111.12L301.63 112.35L300.11 113.4L290.99 117.96L288.89 118.72L286.43 119.12L283.84 119.12L281.38 118.72L279.28 117.96L191.11 73.87L189.58 72.82L188.78 71.59L188.78 70.29L189.58 69.06L191.11 68.02L200.23 63.45L202.32 62.69L204.79 62.29L207.38 62.29L209.84 62.69L211.93 63.45Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-mid)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M216.72 73.22L262.33 96.03L263.12 96.57L263.54 97.21L263.54 97.88L263.12 98.52L262.33 99.07L261.24 99.46L259.96 99.67L258.62 99.67L257.34 99.46L256.25 99.07L210.64 76.26L209.85 75.72L209.44 75.08L209.44 74.41L209.85 73.77L210.64 73.22L211.73 72.83L213.01 72.62L214.36 72.62L215.63 72.83L216.72 73.22Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-hi)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /></g><g data-linear-block=\"box\" data-linear-index=\"0\"><path d=\"M76.01 134.87L78.92 130.39L84.46 126.58L157.43 90.09L165.05 87.32L174.01 85.87L183.42 85.87L192.38 87.32L200 90.09L315.54 147.86L321.08 151.67L323.99 156.15L323.99 212.99L321.08 217.47L315.54 221.28L242.57 257.77L234.95 260.53L225.99 261.99L216.58 261.99L207.62 260.53L200 257.77L84.46 200L78.92 196.19L76.01 191.71Z\" fill=\"var(--ls-plate)\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-edge)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M323.99 160.86L321.08 165.34L315.54 169.15L242.57 205.63L234.95 208.4L225.99 209.86L216.58 209.86L207.62 208.4L200 205.63L84.46 147.86L78.92 144.05L76.01 139.57\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M196.73 91.73L312.27 149.5L316.96 152.72L319.42 156.51L319.42 160.5L316.96 164.29L312.27 167.51L239.3 204L232.85 206.34L225.27 207.57L217.3 207.57L209.72 206.34L203.27 204L87.73 146.23L83.04 143L80.58 139.21L80.58 135.23L83.04 131.44L87.73 128.21L160.7 91.73L167.15 89.38L174.73 88.15L182.7 88.15L190.28 89.38L196.73 91.73Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-mid)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M183.28 109.09L247.13 141.02L248.31 141.84L248.94 142.8L248.94 143.81L248.31 144.76L247.13 145.58L245.5 146.17L243.58 146.49L241.56 146.49L239.64 146.17L238.01 145.58L174.16 113.66L172.97 112.84L172.35 111.88L172.35 110.87L172.97 109.91L174.16 109.09L175.79 108.5L177.71 108.19L179.73 108.19L181.64 108.5L183.28 109.09Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-hi)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M163.51 117.46L254.73 163.06L255.52 163.61L255.94 164.25L255.94 164.92L255.52 165.56L254.73 166.1L253.64 166.5L252.36 166.71L251.02 166.71L249.74 166.5L248.65 166.1L157.43 120.5L156.64 119.95L156.23 119.31L156.23 118.64L156.64 118L157.43 117.46L158.52 117.06L159.8 116.85L161.15 116.85L162.42 117.06L163.51 117.46Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-mid)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><ellipse cx=\"291.22\" cy=\"156.98\" rx=\"10.75\" ry=\"5.38\" stroke=\"none\" fill=\"var(--ls-hi)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /></g></svg>", {
+  className: props.className,
+  label: props.label,
+});
+
+const host = ref(null);
+let controller = null;
+
+onMounted(() => {
+  controller = bindLinearScene(host.value, { interactive: props.interactive });
+  if (props.replay) controller.replay();
+});
+
+watch(
+  () => props.replay,
+  () => controller?.replay(),
+);
+
+onBeforeUnmount(() => controller?.destroy());
+</script>
+
+<template>
+  <span ref="host" style="display: contents" v-html="markup"></span>
+</template>

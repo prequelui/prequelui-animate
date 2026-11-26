@@ -1,0 +1,30 @@
+<script>
+  import { onMount } from "svelte";
+  import { bindLinearScene, renderLinearScene } from "../linear-core.js";
+
+  let {
+    class: className = "",
+    label = "An isometric artifact: a slanted sheet with three ruled lines and a raised corner tab.",
+    interactive = true,
+    replay = 0,
+  } = $props();
+
+  const markup = renderLinearScene("<svg viewBox=\"0 0 400 320\" width=\"100%\" height=\"100%\" fill=\"none\" preserveAspectRatio=\"xMidYMid meet\" aria-hidden=\"true\"><g data-linear-block=\"sheet\" data-linear-index=\"0\"><path d=\"M80.07 142.57L86.15 103.04L256.42 160.81L256.42 179.43L250.34 218.96L80.07 161.19Z\" fill=\"var(--ls-plate)\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-edge)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M256.42 160.81L250.34 200.34\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M89.13 104.81L251.89 160.34L247.36 198.57L84.59 143.04Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-mid)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M120.35 126.23L176.6 154.35L177.59 155.03L178.11 155.83L178.11 156.67L177.59 157.47L176.6 158.15L175.24 158.65L173.64 158.91L171.96 158.91L170.36 158.65L169 158.15L112.75 130.03L111.76 129.35L111.24 128.55L111.24 127.71L111.76 126.91L112.75 126.23L114.11 125.73L115.71 125.47L117.39 125.47L118.99 125.73L120.35 126.23Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M116.55 139.53L207.77 185.14L208.56 185.68L208.98 186.32L208.98 186.99L208.56 187.63L207.77 188.18L206.68 188.57L205.4 188.78L204.06 188.78L202.78 188.57L201.69 188.18L110.47 142.57L109.68 142.02L109.27 141.38L109.27 140.71L109.68 140.07L110.47 139.53L111.56 139.13L112.84 138.92L114.19 138.92L115.47 139.13L116.55 139.53Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M113.51 153.21L162.16 177.53L162.95 178.08L163.37 178.72L163.37 179.39L162.95 180.03L162.16 180.58L161.07 180.97L159.79 181.18L158.45 181.18L157.17 180.97L156.08 180.58L107.43 156.25L106.64 155.71L106.23 155.07L106.23 154.39L106.64 153.75L107.43 153.21L108.52 152.82L109.8 152.61L111.15 152.61L112.42 152.82L113.51 153.21Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /></g><g data-linear-block=\"tab\" data-linear-index=\"1\"><path d=\"M241.55 137.44L243.01 135.21L245.78 133.3L254.9 128.74L258.71 127.36L263.19 126.63L267.9 126.63L272.37 127.36L276.18 128.74L315.71 148.5L318.48 150.41L319.93 152.65L319.93 169.9L318.48 172.14L315.71 174.04L306.59 178.6L302.78 179.99L298.3 180.71L293.59 180.71L289.11 179.99L285.3 178.6L245.78 158.84L243.01 156.93L241.55 154.69Z\" fill=\"var(--ls-plate)\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-edge)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M319.93 155L318.48 157.24L315.71 159.15L306.59 163.71L302.78 165.09L298.3 165.82L293.59 165.82L289.11 165.09L285.3 163.71L245.78 143.94L243.01 142.04L241.55 139.8\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M272.91 130.37L312.44 150.14L314.36 151.46L315.37 153.01L315.37 154.64L314.36 156.19L312.44 157.51L303.32 162.07L300.68 163.03L297.58 163.54L294.32 163.54L291.21 163.03L288.57 162.07L249.05 142.31L247.13 140.99L246.12 139.44L246.12 137.81L247.13 136.26L249.05 134.94L258.17 130.37L260.81 129.42L263.91 128.91L267.17 128.91L270.28 129.42L272.91 130.37Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-mid)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M275.42 137.48L298.23 148.88L299.22 149.56L299.74 150.36L299.74 151.2L299.22 152L298.23 152.68L296.87 153.18L295.27 153.44L293.59 153.44L291.99 153.18L290.63 152.68L267.82 141.28L266.83 140.6L266.31 139.8L266.31 138.96L266.83 138.16L267.82 137.48L269.18 136.99L270.78 136.73L272.46 136.73L274.06 136.99L275.42 137.48Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-hi)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /></g></svg>", {
+    className,
+    label,
+  });
+  let host;
+  let controller;
+
+  onMount(() => {
+    controller = bindLinearScene(host, { interactive });
+    if (replay) controller.replay();
+    return () => controller?.destroy();
+  });
+
+  $effect(() => {
+    if (replay) controller?.replay();
+  });
+</script>
+
+<span bind:this={host} style="display: contents">{@html markup}</span>

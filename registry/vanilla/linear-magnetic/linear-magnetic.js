@@ -1,0 +1,28 @@
+import { bindLinearScene, renderLinearScene } from "../linear-core.js";
+
+export const svg = "<svg viewBox=\"0 0 400 320\" width=\"100%\" height=\"100%\" fill=\"none\" preserveAspectRatio=\"xMidYMid meet\" aria-hidden=\"true\"><g data-linear-block=\"key\" data-linear-index=\"1\"><path d=\"M134.68 89.05L136.76 85.86L140.71 83.14L161.99 72.49L167.44 70.52L173.83 69.48L180.56 69.48L186.96 70.52L192.4 72.49L259.29 105.94L263.24 108.66L265.32 111.86L265.32 148.74L263.24 151.94L259.29 154.66L238.01 165.3L232.56 167.28L226.17 168.32L219.44 168.32L213.04 167.28L207.6 165.3L140.71 131.85L136.76 129.13L134.68 125.93Z\" fill=\"var(--ls-plate)\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-edge)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M265.32 115.22L263.24 118.42L259.29 121.14L238.01 131.78L232.56 133.76L226.17 134.8L219.44 134.8L213.04 133.76L207.6 131.78L140.71 98.34L136.76 95.62L134.68 92.42\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M189.13 74.13L256.02 107.57L259.13 109.71L260.76 112.22L260.76 114.86L259.13 117.37L256.02 119.51L234.74 130.15L230.47 131.7L225.44 132.52L220.16 132.52L215.14 131.7L210.87 130.15L143.98 96.7L140.87 94.57L139.24 92.06L139.24 89.42L140.87 86.91L143.98 84.77L165.26 74.13L169.53 72.58L174.56 71.76L179.84 71.76L184.86 72.58L189.13 74.13Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-mid)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M184.8 86.94L221.28 105.18L222.47 106L223.09 106.96L223.09 107.96L222.47 108.92L221.28 109.74L219.65 110.33L217.73 110.64L215.71 110.64L213.79 110.33L212.16 109.74L175.68 91.5L174.49 90.68L173.87 89.72L173.87 88.71L174.49 87.75L175.68 86.94L177.31 86.34L179.23 86.03L181.25 86.03L183.16 86.34L184.8 86.94Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-hi)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /></g><g data-linear-block=\"pad\" data-linear-index=\"0\"><path d=\"M65.37 134.44L68.28 129.96L73.82 126.15L104.22 110.95L111.84 108.18L120.8 106.72L130.21 106.72L139.17 108.18L146.79 110.95L326.18 200.64L331.72 204.45L334.63 208.93L334.63 224.81L331.72 229.29L326.18 233.1L295.78 248.3L288.16 251.07L279.2 252.52L269.79 252.52L260.83 251.07L253.21 248.3L73.82 158.6L68.28 154.79L65.37 150.32Z\" fill=\"var(--ls-plate)\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-edge)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M334.63 213.64L331.72 218.12L326.18 221.93L295.78 237.13L288.16 239.9L279.2 241.35L269.79 241.35L260.83 239.9L253.21 237.13L73.82 147.43L68.28 143.62L65.37 139.14\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M143.52 112.58L322.91 202.28L327.6 205.5L330.06 209.29L330.06 213.28L327.6 217.07L322.91 220.29L292.51 235.49L286.06 237.84L278.48 239.07L270.51 239.07L262.93 237.84L256.48 235.49L77.09 145.8L72.4 142.57L69.94 138.78L69.94 134.8L72.4 131.01L77.09 127.78L107.49 112.58L113.94 110.24L121.52 109.01L129.49 109.01L137.07 110.24L143.52 112.58Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-mid)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><ellipse cx=\"238.01\" cy=\"193.04\" rx=\"47.3\" ry=\"23.65\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M126.27 125.01L179.48 151.61L180.46 152.29L180.98 153.09L180.98 153.93L180.46 154.73L179.48 155.41L178.12 155.91L176.52 156.17L174.83 156.17L173.24 155.91L171.87 155.41L118.67 128.81L117.68 128.13L117.16 127.33L117.16 126.49L117.68 125.69L118.67 125.01L120.03 124.51L121.62 124.25L123.31 124.25L124.91 124.51L126.27 125.01Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /></g></svg>";
+
+export const meta = {
+  "slug": "magnetic",
+  "name": "Magnetic",
+  "family": "Interaction",
+  "collection": "Interface",
+  "component": "createLinearMagnetic"
+};
+
+export function createLinearMagnetic(root, options = {}) {
+  let current = { ...options };
+  const render = () => {
+    root.innerHTML = renderLinearScene(svg, current);
+  };
+  render();
+  const controller = bindLinearScene(root, current);
+  return {
+    replay: controller.replay,
+    destroy: controller.destroy,
+    update(next = {}) {
+      current = { ...current, ...next };
+      render();
+    },
+  };
+}

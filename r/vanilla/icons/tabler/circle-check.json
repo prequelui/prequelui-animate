@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabler-circle-check",
+  "type": "registry:ui",
+  "title": "CircleCheck",
+  "description": "Tabler interface icon, animated by the shared motion core (check).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "tabler",
+    "style": "outline",
+    "category": "Interface",
+    "motion": "check",
+    "license": "MIT",
+    "source": "https://github.com/tabler/tabler-icons",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/tabler/tabler-circle-check.js",
+      "target": "components/prequelui/icons/sets/tabler/tabler-circle-check.js",
+      "type": "registry:ui",
+      "content": "import { bindSetIcon, renderSetIcon } from \"../icon-set-core.js\";\n\nexport const definition = {\n  \"name\": \"circle-check\",\n  \"category\": \"Interface\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 2,\n  \"motion\": \"check\",\n  \"parts\": [\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0\"\n      }\n    },\n    {\n      \"tag\": \"path\",\n      \"attrs\": {\n        \"d\": \"M9 12l2 2l4 -4\"\n      }\n    }\n  ],\n  \"accents\": [\n    1\n  ]\n};\n\nexport const meta = {\n  \"slug\": \"tabler-circle-check\",\n  \"family\": \"tabler\",\n  \"name\": \"circle-check\",\n  \"category\": \"Interface\",\n  \"motion\": \"check\",\n  \"component\": \"createTablerCircleCheckIcon\"\n};\n\nexport function createTablerCircleCheckIcon(root, options = {}) {\n  let current = { ...options };\n  const render = () => {\n    root.innerHTML = renderSetIcon(definition, current);\n  };\n  render();\n  const controller = bindSetIcon(root, definition, () => current);\n  return {\n    play: controller.play,\n    reset: controller.reset,\n    destroy: controller.destroy,\n    update(next = {}) {\n      current = { ...current, ...next };\n      render();\n    },\n    get observed() {\n      return controller.observed;\n    },\n  };\n}\n"
+    }
+  ]
+}

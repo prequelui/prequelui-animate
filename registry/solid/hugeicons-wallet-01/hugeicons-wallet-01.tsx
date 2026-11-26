@@ -1,0 +1,68 @@
+// @ts-nocheck
+import { onCleanup, onMount } from "solid-js";
+import { bindSetIcon, renderSetIcon } from "../icon-set-core";
+
+const definition = {
+  "name": "wallet-01",
+  "category": "Commerce",
+  "viewBox": "0 0 24 24",
+  "mode": "stroke",
+  "strokeWidth": 1.5,
+  "motion": "coin",
+  "parts": [
+    {
+      "tag": "path",
+      "attrs": {
+        "d": "M14 3H5C3.89543 3 3 3.89543 3 5C3 6.10457 3.89543 7 5 7H18C18 6.07003 18 5.60504 17.8978 5.22354C17.6204 4.18827 16.8117 3.37962 15.7765 3.10222C15.395 3 14.93 3 14 3Z"
+      }
+    },
+    {
+      "tag": "path",
+      "attrs": {
+        "d": "M3 5V15C3 17.8284 3 19.2426 3.87868 20.1213C4.75736 21 6.17157 21 9 21H15C17.8284 21 19.2426 21 20.1213 20.1213C21 19.2426 21 17.8284 21 15V13C21 10.1716 21 8.75736 20.1213 7.87868C19.2426 7 17.8284 7 15 7H7"
+      }
+    },
+    {
+      "tag": "path",
+      "attrs": {
+        "d": "M21 12H19C18.535 12 18.3025 12 18.1118 12.0511C17.5941 12.1898 17.1898 12.5941 17.0511 13.1118C17 13.3025 17 13.535 17 14C17 14.465 17 14.6975 17.0511 14.8882C17.1898 15.4059 17.5941 15.8102 18.1118 15.9489C18.3025 16 18.535 16 19 16H21"
+      }
+    }
+  ],
+  "accents": []
+};
+
+export function HugeiconsWallet01Icon(props) {
+  let host;
+
+  const view = () =>
+    renderSetIcon(definition, {
+      size: props.size ?? 28,
+      className: props.class ?? "",
+      label: props.label ?? "",
+    });
+
+  onMount(() => {
+    const controller = bindSetIcon(host, definition, () => ({
+      speed: props.speed ?? 1,
+      delay: props.delay ?? 0,
+      loop: props.loop ?? false,
+      animate: props.animate ?? false,
+      animateOnHover: props.animateOnHover ?? true,
+      animateOnTap: props.animateOnTap ?? true,
+      animateOnView: props.animateOnView ?? false,
+      animateOnViewOnce: props.animateOnViewOnce ?? true,
+      animation: props.animation ?? "hover",
+    }));
+    onCleanup(() => controller.destroy());
+  });
+
+  return (
+    <span
+      ref={host}
+      data-slot="prequel-set-icon-host"
+      style={{ display: "contents" }}
+      innerHTML={view()}
+    />
+  );
+}

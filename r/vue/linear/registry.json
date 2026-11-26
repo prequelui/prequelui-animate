@@ -1,0 +1,4269 @@
+{
+  "items": [
+    {
+      "name": "linear-core",
+      "type": "registry:ui",
+      "title": "Linear object core",
+      "description": "The shared isometric runtime behind the Linear-style object set.",
+      "dependencies": [
+        "motion"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/linear-core.js",
+          "type": "registry:lib",
+          "target": "components/prequelui/linear/linear-core.js"
+        }
+      ]
+    },
+    {
+      "name": "linear-button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "A wide key and a lower echo key, both with an engraved label bar. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearButton.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearButton.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-button-group",
+      "type": "registry:ui",
+      "title": "Button Group",
+      "description": "Three keys welded into one rail; the centre one stands higher. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearButtonGroup.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearButtonGroup.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-toggle",
+      "type": "registry:ui",
+      "title": "Toggle",
+      "description": "A single pill key with an engraved label and a lit dot. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearToggle.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearToggle.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "A track with its knob parked at the right end. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearSwitch.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearSwitch.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "A square tray with an engraved tick and three ruled lines beside it. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearCheckbox.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearCheckbox.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-radio",
+      "type": "registry:ui",
+      "title": "Radio",
+      "description": "A round tray with a single ball seated in the middle. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearRadio.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearRadio.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "A long rail crossed by a chunky knob a little past the middle. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearSlider.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearSlider.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-theme-toggler",
+      "type": "registry:ui",
+      "title": "Theme Toggler",
+      "description": "Two discs share a seesaw sole: one full, one low, a small wedge between them. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearThemeToggler.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearThemeToggler.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "A deep field with an engraved line, a caret post and a floating label chip. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearInput.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearInput.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "A deep field ruled with three lines of text and a folded corner. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearTextarea.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearTextarea.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-input-otp",
+      "type": "registry:ui",
+      "title": "Input OTP",
+      "description": "Four little slots in a row; the third one is filled and taller. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearInputOtp.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearInputOtp.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "A trough with its chosen key hovering just above the opening. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearSelect.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearSelect.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "A search trough with a three-row result card floating over it. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearCombobox.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearCombobox.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-date-picker",
+      "type": "registry:ui",
+      "title": "Date Picker",
+      "description": "A small grid of day tiles with one chip lifted out of it. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearDatePicker.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearDatePicker.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-calendar",
+      "type": "registry:ui",
+      "title": "Calendar",
+      "description": "A four-by-three field of day tiles; one tile is raised and dotted. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearCalendar.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearCalendar.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-command",
+      "type": "registry:ui",
+      "title": "Command",
+      "description": "A long console with a search slot, three rows and a lifted action. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearCommand.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearCommand.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "A modal card hovers over its slot while two action keys wait below. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearDialog.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearDialog.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-drawer",
+      "type": "registry:ui",
+      "title": "Drawer",
+      "description": "A drawer slides out of its slot, handle first. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearDrawer.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearDrawer.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "A tall panel stands up out of a narrow slot. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearSheet.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearSheet.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "A small panel floats above a pin, two lines of content inside. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearPopover.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearPopover.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "A tiny pill hovers over a point, tethered by a thin stem. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearTooltip.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearTooltip.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "A rounded notice box with a ticket rising from its top slot. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearToast.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearToast.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "A tall notice box with an exclamation engraved on top and a small tail. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearAlert.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearAlert.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Four slats in a tray; the second one opens and stands proud. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearAccordion.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearAccordion.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Three upright panels on a rail, the middle one lit and taller. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearTabs.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearTabs.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "Three stepping stones on one engraved trail. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearBreadcrumb.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearBreadcrumb.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Five numbered keys in a row, the third one lifted. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearPagination.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearPagination.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-stepper",
+      "type": "registry:ui",
+      "title": "Stepper",
+      "description": "Three posts rise in a row, each marked with a dot. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearStepper.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearStepper.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-dock",
+      "type": "registry:ui",
+      "title": "Dock",
+      "description": "A rail carries three round icons, the middle one raised. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearDock.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearDock.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "A channel partly filled by a long block, with a knob at its head. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearProgress.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearProgress.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-spinner",
+      "type": "registry:ui",
+      "title": "Spinner",
+      "description": "A ring of standing fins circles a low hub; one fin is taller. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearSpinner.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearSpinner.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-status",
+      "type": "registry:ui",
+      "title": "Status",
+      "description": "Three cylinders stack into a signal tower, the top one lit. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearStatus.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearStatus.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "A bare card with three ruled bars, a floating ghost tile and a small chip. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearSkeleton.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearSkeleton.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "A card slab with a raised media tile and two caption lines. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearCard.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearCard.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "A grid of header tiles and body tiles, each cell raised a little. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearTable.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearTable.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-chart",
+      "type": "registry:ui",
+      "title": "Chart",
+      "description": "Four columns rise from one ruled base, tallest at the front right. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearChart.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearChart.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-kanban",
+      "type": "registry:ui",
+      "title": "Kanban",
+      "description": "Three columns of cards, one card lifted out of its lane. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearKanban.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearKanban.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-timeline",
+      "type": "registry:ui",
+      "title": "Timeline",
+      "description": "A rail with three posts of rising height, each carrying a dot. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearTimeline.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearTimeline.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "A head cylinder stands on a shoulder slab, a status dot at its side. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearAvatar.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearAvatar.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-image-zoom",
+      "type": "registry:ui",
+      "title": "Image Zoom",
+      "description": "A framed picture with a magnified tile lifted out of its centre. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearImageZoom.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearImageZoom.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-carousel",
+      "type": "registry:ui",
+      "title": "Carousel",
+      "description": "Three panels fan back in depth, the front one lifted and dotted. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearCarousel.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearCarousel.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-video-player",
+      "type": "registry:ui",
+      "title": "Video Player",
+      "description": "A screen slab with a play wedge and a scrub rail in front. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearVideoPlayer.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearVideoPlayer.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-code",
+      "type": "registry:ui",
+      "title": "Code",
+      "description": "A slab of code with four engraved lines and one raised token block. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearCode.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearCode.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-theme-switch",
+      "type": "registry:ui",
+      "title": "Theme Switch",
+      "description": "A toggle track engraved with a sun and a crescent, its knob on the right. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearThemeSwitch.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearThemeSwitch.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-cursor",
+      "type": "registry:ui",
+      "title": "Cursor",
+      "description": "A pointer wedge hovers over two concentric target rings. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearCursor.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearCursor.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-chat",
+      "type": "registry:ui",
+      "title": "Chat",
+      "description": "A wide bubble with a tail, answered by a smaller bubble behind it. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearChat.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearChat.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-prompt",
+      "type": "registry:ui",
+      "title": "Prompt",
+      "description": "A console slab with a raised prompt bar and a blinking caret post. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearPrompt.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearPrompt.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-reasoning",
+      "type": "registry:ui",
+      "title": "Reasoning",
+      "description": "Four steps climb like a staircase, the top one lit. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearReasoning.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearReasoning.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert Dialog",
+      "description": "A warning disc hovers over its slot while two answer keys wait below. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearAlertDialog.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearAlertDialog.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-avatar-group",
+      "type": "registry:ui",
+      "title": "Avatar Group",
+      "description": "Three head cylinders overlap on one broad shoulder slab. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearAvatarGroup.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearAvatarGroup.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "A wide label plaque with a clip notch and a smaller echo tag behind. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearBadge.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearBadge.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-banner",
+      "type": "registry:ui",
+      "title": "Banner",
+      "description": "A wide board hangs between two posts, its centre panel standing proud. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearBanner.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearBanner.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-bottom-navigation",
+      "type": "registry:ui",
+      "title": "Bottom Navigation",
+      "description": "A low bar carries three keys and a home indicator; the middle key is lit. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearBottomNavigation.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearBottomNavigation.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-bubble",
+      "type": "registry:ui",
+      "title": "Bubble",
+      "description": "A round speech bubble with a short tail and a smaller bubble nested in front. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearBubble.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearBubble.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-chips",
+      "type": "registry:ui",
+      "title": "Chips",
+      "description": "Three rounded tokens step down in a staircase, the front one engraved with a cross. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearChips.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearChips.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-context-menu",
+      "type": "registry:ui",
+      "title": "Context Menu",
+      "description": "A click pad with a pointer holds a side panel open, three rows inside. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearContextMenu.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearContextMenu.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-copy-button",
+      "type": "registry:ui",
+      "title": "Copy Button",
+      "description": "Two offset sheets, the copy in front, its tab standing above the original. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearCopyButton.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearCopyButton.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "A key holds a suspended panel with three rows, the first one lit. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearDropdownMenu.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearDropdownMenu.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-empty",
+      "type": "registry:ui",
+      "title": "Empty",
+      "description": "A hollow tray holds a bare ring while a small plus floats above it. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearEmpty.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearEmpty.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-file-drop",
+      "type": "registry:ui",
+      "title": "File Drop",
+      "description": "An open trough waits while a sheet with a folded corner floats above it. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearFileDrop.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearFileDrop.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-github-stars",
+      "type": "registry:ui",
+      "title": "GitHub Stars",
+      "description": "A five-branch star stands on a round base, a small counter dot at its foot. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearGithubStars.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearGithubStars.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-hover-card",
+      "type": "registry:ui",
+      "title": "Hover Card",
+      "description": "A card floats above a rail, held by two short stems. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearHoverCard.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearHoverCard.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-kpi-counter",
+      "type": "registry:ui",
+      "title": "KPI Counter",
+      "description": "A dial slab with a rising needle and a small value chip at its foot. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearKpiCounter.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearKpiCounter.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-magnetic",
+      "type": "registry:ui",
+      "title": "Magnetic",
+      "description": "A key is pulled out of its socket and hovers toward a ring. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearMagnetic.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearMagnetic.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-marquee",
+      "type": "registry:ui",
+      "title": "Marquee",
+      "description": "A rail carries a queue of identical blocks that run past its end. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearMarquee.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearMarquee.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-model-picker",
+      "type": "registry:ui",
+      "title": "Model Picker",
+      "description": "Three model plates fan in depth; a selector chip floats at the middle. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearModelPicker.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearModelPicker.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-notification",
+      "type": "registry:ui",
+      "title": "Notification",
+      "description": "A prismatic bell hangs from a short gantry, its clapper ready. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearNotification.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearNotification.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-rating",
+      "type": "registry:ui",
+      "title": "Rating",
+      "description": "Five staggered tiles rise in the middle, each engraved with a star. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearRating.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearRating.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-resizable",
+      "type": "registry:ui",
+      "title": "Resizable",
+      "description": "Two upright panels share a joint worked by a three-rib handle. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearResizable.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearResizable.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-scroll-area",
+      "type": "registry:ui",
+      "title": "Scroll Area",
+      "description": "A deep panel keeps a scroll track and its cursor raised at the side. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearScrollArea.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearScrollArea.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-sidebar",
+      "type": "registry:ui",
+      "title": "Sidebar",
+      "description": "A tall wall with three engraved shelves and a door slid half open. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearSidebar.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearSidebar.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-spotlight-card",
+      "type": "registry:ui",
+      "title": "Spotlight Card",
+      "description": "A card carries a light pool and its lamp chip at the top corner. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearSpotlightCard.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearSpotlightCard.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-star",
+      "type": "registry:ui",
+      "title": "Star",
+      "description": "A five-branch star lies flat, one branch raised into a small tower. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearStar.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearStar.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-action-bar",
+      "type": "registry:ui",
+      "title": "Action Bar",
+      "description": "A floating rail carries three keys above its trigger pad. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearActionBar.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearActionBar.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-agent",
+      "type": "registry:ui",
+      "title": "Agent",
+      "description": "A console slab lifts a ringed core while a status chip floats above. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearAgent.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearAgent.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-android",
+      "type": "registry:ui",
+      "title": "Android",
+      "description": "A tall handset stands on a low dock, its screen ruled and a home dot below. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearAndroid.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearAndroid.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-angle-slider",
+      "type": "registry:ui",
+      "title": "Angle Slider",
+      "description": "A round dial carries a bent needle ending in a raised knob. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearAngleSlider.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearAngleSlider.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-animated-beam",
+      "type": "registry:ui",
+      "title": "Animated Beam",
+      "description": "Two posts face each other across a beam built of three stepped segments. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearAnimatedBeam.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearAnimatedBeam.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-animated-cursor",
+      "type": "registry:ui",
+      "title": "Animated Cursor",
+      "description": "A pointer leans out of its pad while a small label trails behind it. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearAnimatedCursor.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearAnimatedCursor.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-animated-testimonials",
+      "type": "registry:ui",
+      "title": "Animated Testimonials",
+      "description": "Two quote cards fan in depth, a small face badge seated on the front one. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearAnimatedTestimonials.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearAnimatedTestimonials.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-animated-tooltip",
+      "type": "registry:ui",
+      "title": "Animated Tooltip",
+      "description": "A two-line card floats above its key, a short tail pointing down. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearAnimatedTooltip.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearAnimatedTooltip.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-announcement",
+      "type": "registry:ui",
+      "title": "Announcement",
+      "description": "A prismatic horn widens from a grip over its own round foot. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearAnnouncement.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearAnnouncement.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-artifact",
+      "type": "registry:ui",
+      "title": "Artifact",
+      "description": "A slanted sheet holds three ruled lines and a raised tab at its corner. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearArtifact.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearArtifact.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-aspect-ratio",
+      "type": "registry:ui",
+      "title": "Aspect Ratio",
+      "description": "A flat frame keeps a raised preview tile and a small ratio chip floating above. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearAspectRatio.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearAspectRatio.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-attachment",
+      "type": "registry:ui",
+      "title": "Attachment",
+      "description": "A paper sheet lies flat while a thick wire loop stands at its edge. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearAttachment.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearAttachment.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-audio-player",
+      "type": "registry:ui",
+      "title": "Audio Player",
+      "description": "A player slab seats a round disc and a raised play key beside its level rail. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearAudioPlayer.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearAudioPlayer.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-autocomplete",
+      "type": "registry:ui",
+      "title": "Autocomplete",
+      "description": "A field waits below three suggestion keys floating in a stepped stack. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearAutocomplete.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearAutocomplete.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-canvas",
+      "type": "registry:ui",
+      "title": "Canvas",
+      "description": "A stretched board stands between two posts, a brush laid across its foot. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearCanvas.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearCanvas.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-card-3d",
+      "type": "registry:ui",
+      "title": "3D Card",
+      "description": "A card leans on its edge above a second card lying flat behind it. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearCard3d.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearCard3d.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-chain-of-thought",
+      "type": "registry:ui",
+      "title": "Chain of Thought",
+      "description": "Three links climb in a zigzag, joined by short rails, the last one lit. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearChainOfThought.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearChainOfThought.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-checkpoint",
+      "type": "registry:ui",
+      "title": "Checkpoint",
+      "description": "A flag flies from a short pole planted in a long track. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearCheckpoint.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearCheckpoint.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-circular-progress",
+      "type": "registry:ui",
+      "title": "Circular Progress",
+      "description": "A thick ring carries a raised progress head opposite a quiet hub. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearCircularProgress.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearCircularProgress.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-circular-slider",
+      "type": "registry:ui",
+      "title": "Circular Slider",
+      "description": "A round track parks a big knob at its upper right, a marker line inside. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearCircularSlider.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearCircularSlider.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-clipboard",
+      "type": "registry:ui",
+      "title": "Clipboard",
+      "description": "A tall board with ruled lines wears a wide clip and a small tick. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearClipboard.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearClipboard.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-code-block",
+      "type": "registry:ui",
+      "title": "Code Block",
+      "description": "A deep slab of code carries three ruled lines and a raised language tab. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearCodeBlock.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearCodeBlock.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-code-editor",
+      "type": "registry:ui",
+      "title": "Code Editor",
+      "description": "A window with a title strip and a gutter keeps a tall caret on its lines. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearCodeEditor.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearCodeEditor.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "description": "A tray and its lid part like a box, a handle resting on the raised half. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearCollapsible.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearCollapsible.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-color-picker",
+      "type": "registry:ui",
+      "title": "Color Picker",
+      "description": "A palette holds three round wells while a swatch and a drop float above. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearColorPicker.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearColorPicker.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-commit",
+      "type": "registry:ui",
+      "title": "Commit",
+      "description": "A lit commit node sits on a rail while a branch rail forks upward. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearCommit.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearCommit.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-comparison",
+      "type": "registry:ui",
+      "title": "Comparison",
+      "description": "Two half-slabs share a seam; the right half stands taller with a lit line. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearComparison.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearComparison.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-confirmation",
+      "type": "registry:ui",
+      "title": "Confirmation",
+      "description": "A round seal with a drawn tick sits on a base, two ribbons at its foot. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearConfirmation.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearConfirmation.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-credit-card",
+      "type": "registry:ui",
+      "title": "Credit Card",
+      "description": "A rounded card wears a raised chip, a magnetic stripe and ruled lines. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearCreditCard.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearCreditCard.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-date-input",
+      "type": "registry:ui",
+      "title": "Date Input",
+      "description": "A field with a caret keeps a small calendar key floating at its end. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearDateInput.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearDateInput.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-context",
+      "type": "registry:ui",
+      "title": "Context",
+      "description": "Three context cards stand fanned in a shallow rack, the front card lifted. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearContext.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearContext.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-data-list",
+      "type": "registry:ui",
+      "title": "Data List",
+      "description": "A tall list card carries three rows, each with a dot, a title and a value. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearDataList.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearDataList.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-data-table",
+      "type": "registry:ui",
+      "title": "Data Table",
+      "description": "A table panel wears a header rail, a lifted sort key and a selected cell. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearDataTable.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearDataTable.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-editable",
+      "type": "registry:ui",
+      "title": "Editable",
+      "description": "A field with a caret carries an oblique edit nib floating nearby. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearEditable.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearEditable.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "A floating label sits above a field while a quiet helper line waits below. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearField.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearField.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-input-group",
+      "type": "registry:ui",
+      "title": "Input Group",
+      "description": "A long field is framed by two tall end keys, one with a dot, one with a chevron. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearInputGroup.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearInputGroup.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-number-input",
+      "type": "registry:ui",
+      "title": "Number Input",
+      "description": "A field keeps a tall stepper column with plus and minus keys at its end. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearNumberInput.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearNumberInput.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-password-input",
+      "type": "registry:ui",
+      "title": "Password Input",
+      "description": "A field shows four masked dots while an eye ring floats at its end. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearPasswordInput.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearPasswordInput.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-tags-input",
+      "type": "registry:ui",
+      "title": "Tags Input",
+      "description": "Two raised tags sit inside a field, ahead of a tall caret. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearTagsInput.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearTagsInput.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-segment-group",
+      "type": "registry:ui",
+      "title": "Segment Group",
+      "description": "A pill rail is cut into three segments; the middle one is lifted and lit. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearSegmentGroup.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearSegmentGroup.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-native-select",
+      "type": "registry:ui",
+      "title": "Native Select",
+      "description": "A compact box wears a plain base line and a small chevron key at its end. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearNativeSelect.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearNativeSelect.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-mini-calendar",
+      "type": "registry:ui",
+      "title": "Mini Calendar",
+      "description": "A week strip carries six day tiles while the selected day stands taller. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearMiniCalendar.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearMiniCalendar.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-relative-time",
+      "type": "registry:ui",
+      "title": "Relative Time",
+      "description": "A clock dial carries two hands while a small satellite dot orbits its rim. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearRelativeTime.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearRelativeTime.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-file-upload",
+      "type": "registry:ui",
+      "title": "File Upload",
+      "description": "An open tray carries an upward arrow while a sheet floats above it. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearFileUpload.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearFileUpload.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-signature-pad",
+      "type": "registry:ui",
+      "title": "Signature Pad",
+      "description": "A flat pad holds a traced signature while a slim stylus rests at its edge. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearSignaturePad.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearSignaturePad.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-list",
+      "type": "registry:ui",
+      "title": "List",
+      "description": "A framed list carries three bullet rows with one selected row standing proud. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearList.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearList.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-ticker",
+      "type": "registry:ui",
+      "title": "Ticker",
+      "description": "A long ticker band carries three value slots, the last one lifted with its arrow. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearTicker.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearTicker.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-gantt",
+      "type": "registry:ui",
+      "title": "Gantt",
+      "description": "A project grid carries three bars of increasing length and a diamond milestone. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearGantt.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearGantt.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-pin-list",
+      "type": "registry:ui",
+      "title": "Pin List",
+      "description": "A single list row is pinned down by a tall pin with a round head. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearPinList.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearPinList.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-steps",
+      "type": "registry:ui",
+      "title": "Steps",
+      "description": "Three flat steps climb away from the camera, each engraved with its number. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearSteps.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearSteps.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-toc",
+      "type": "registry:ui",
+      "title": "Table of Contents",
+      "description": "A tall contents panel lists four lines while a bookmark tab marks the live one. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearToc.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearToc.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-kbd",
+      "type": "registry:ui",
+      "title": "Kbd",
+      "description": "A tall keycap wears a four-loop command glyph, a smaller key waiting behind. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearKbd.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearKbd.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-sonner",
+      "type": "registry:ui",
+      "title": "Sonner",
+      "description": "Two notification pills stack up, the top one rising with a lit dot and two lines. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearSonner.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearSonner.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-menubar",
+      "type": "registry:ui",
+      "title": "Menubar",
+      "description": "A long bar carries three labels while a menu panel drops open in front of one. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearMenubar.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearMenubar.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-prompt-input",
+      "type": "registry:ui",
+      "title": "Prompt Input",
+      "description": "A wide composer keeps two lines, a seeded attachment and a raised send key. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearPromptInput.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearPromptInput.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-message",
+      "type": "registry:ui",
+      "title": "Message",
+      "description": "A tall message card carries an author dot, three lines, two reactions and a tail. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearMessage.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearMessage.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-terminal",
+      "type": "registry:ui",
+      "title": "Terminal",
+      "description": "A monitor on a stand shows a command chevron, a line and a solid cursor. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearTerminal.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearTerminal.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-qr-code",
+      "type": "registry:ui",
+      "title": "QR Code",
+      "description": "A square code plate carries three corner finders and scattered modules, one raised. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearQrCode.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearQrCode.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "A divider rail stands tall between two low slabs, a lit dot on its face. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearSeparator.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearSeparator.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-floating-panel",
+      "type": "registry:ui",
+      "title": "Floating Panel",
+      "description": "A wide panel hovers on three short legs above its shallow slot. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearFloatingPanel.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearFloatingPanel.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-hint",
+      "type": "registry:ui",
+      "title": "Hint",
+      "description": "A round plinth lifts a short post under a wide tag that floats off its side. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearHint.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearHint.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-tour",
+      "type": "registry:ui",
+      "title": "Tour",
+      "description": "Three stepped cards stand on one long tray while a marble rests on its own pad. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearTour.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearTour.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-toggle-tooltip",
+      "type": "registry:ui",
+      "title": "Toggle Tooltip",
+      "description": "A knob and a slot share a low bed while a two-line card lifts out of the slot. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearToggleTooltip.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearToggleTooltip.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-image-cropper",
+      "type": "registry:ui",
+      "title": "Image Cropper",
+      "description": "A thick mat holds a wide picture well with four corner brackets. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearImageCropper.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearImageCropper.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-pixel-image",
+      "type": "registry:ui",
+      "title": "Pixel Image",
+      "description": "Six pixel cubes stand in a 3×2 field, the centre one taller and lit. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearPixelImage.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearPixelImage.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-safari",
+      "type": "registry:ui",
+      "title": "Safari",
+      "description": "A browser slab wears three window dots, an address pill and two page panes. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearSafari.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearSafari.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-iphone",
+      "type": "registry:ui",
+      "title": "iPhone",
+      "description": "A rounded handset lies on its back, notch and camera pills engraved, a side key raised. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearIphone.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearIphone.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-item",
+      "type": "registry:ui",
+      "title": "Item",
+      "description": "Two list rows stack in depth; the front one raises a leading thumb and a trailing dot. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearItem.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearItem.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-direction",
+      "type": "registry:ui",
+      "title": "Direction",
+      "description": "Five upright panels step down along one tray to point the way forward. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearDirection.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearDirection.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-menu-dock",
+      "type": "registry:ui",
+      "title": "Menu Dock",
+      "description": "A long dock carries five small keys and one engraved slot between them. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearMenuDock.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearMenuDock.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-limelight-nav",
+      "type": "registry:ui",
+      "title": "Limelight Nav",
+      "description": "One key stands on a lit plinth at the head of a nav rail; four quieter keys follow. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearLimelightNav.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearLimelightNav.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-link-overlay",
+      "type": "registry:ui",
+      "title": "Link Overlay",
+      "description": "A flat card lays a link pill over an inset preview panel, a short tether between them. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearLinkOverlay.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearLinkOverlay.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-frame",
+      "type": "registry:ui",
+      "title": "Frame",
+      "description": "Two thick frame slabs stack; the top one is cut with a wide window and a small mat tab. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearFrame.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearFrame.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-generated-image",
+      "type": "registry:ui",
+      "title": "Generated Image",
+      "description": "A screen on a low foot shows a dot-matrix picture that fades across its face. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearGeneratedImage.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearGeneratedImage.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "A long key carries a raised tag with a hole, and a shallow well at its far end. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearLabel.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearLabel.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-listbox",
+      "type": "registry:ui",
+      "title": "Listbox",
+      "description": "A small cabinet stacks three drawers, each with its own pull. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearListbox.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearListbox.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-marker",
+      "type": "registry:ui",
+      "title": "Marker",
+      "description": "Two thick leaves stack like a book while a ribbon hangs from the top one. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearMarker.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearMarker.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-marquee-3d",
+      "type": "registry:ui",
+      "title": "Marquee 3D",
+      "description": "A narrow shelf marches one row of tiles past its end between two side rails. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearMarquee3d.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearMarquee3d.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-navigation-menu",
+      "type": "registry:ui",
+      "title": "Navigation Menu",
+      "description": "A broad tray holds three menu panels while three pills float in a rising line above. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearNavigationMenu.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearNavigationMenu.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-questionnaire",
+      "type": "registry:ui",
+      "title": "Questionnaire",
+      "description": "A tall question card shows three numbered rows, a second card fanned behind it. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearQuestionnaire.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearQuestionnaire.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "A long rail seats three circular choices; the first is filled with a raised ball. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearRadioGroup.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearRadioGroup.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-sandbox",
+      "type": "registry:ui",
+      "title": "Sandbox",
+      "description": "Two flat panels meet at an angle, one wearing stacked pills, the other a long bar. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearSandbox.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearSandbox.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-schema-display",
+      "type": "registry:ui",
+      "title": "Schema Display",
+      "description": "Three long schema bars stack on a plate, each carrying its own port. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearSchemaDisplay.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearSchemaDisplay.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-skip-nav",
+      "type": "registry:ui",
+      "title": "Skip Nav",
+      "description": "A keyboard rail holds a round start key, three round steps and a wide skip key. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearSkipNav.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearSkipNav.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-subagent",
+      "type": "registry:ui",
+      "title": "Subagent",
+      "description": "A tray divides three bays, each holding a pair of short posts. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearSubagent.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearSubagent.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-task",
+      "type": "registry:ui",
+      "title": "Task",
+      "description": "A long rail runs behind three task tiles, the last one lit and taller. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearTask.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearTask.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-timer",
+      "type": "registry:ui",
+      "title": "Timer",
+      "description": "A round watch dial carries minute ticks and one lit hand, with a crown at its side. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearTimer.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearTimer.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-tree-view",
+      "type": "registry:ui",
+      "title": "Tree View",
+      "description": "A plate grows three branches from one trunk, each ending in a small node. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearTreeView.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearTreeView.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-type-table",
+      "type": "registry:ui",
+      "title": "Type Table",
+      "description": "Four long type rows share a plate, each ruled with its own sample ticks. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearTypeTable.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearTypeTable.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-web-preview",
+      "type": "registry:ui",
+      "title": "Web Preview",
+      "description": "Two browser cards overlap, the back one with address dots, the front with two panes. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearWebPreview.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearWebPreview.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-anatomy",
+      "type": "registry:ui",
+      "title": "Anatomy",
+      "description": "An exploded stack: a base slab, a split plate floating above it and a pill knob on top, aligned by two short posts. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearAnatomy.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearAnatomy.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-environment-variables",
+      "type": "registry:ui",
+      "title": "Environment Variables",
+      "description": "A console plate holds three sealed slots; one token key is pushed in and lit, two ticks watch beside. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearEnvironmentVariables.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearEnvironmentVariables.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-file-tree",
+      "type": "registry:ui",
+      "title": "File Tree",
+      "description": "A bracket mast carries three folder tabs; the lower one is pulled forward while two rails fork to the upper pair. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearFileTree.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearFileTree.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-float",
+      "type": "registry:ui",
+      "title": "Float",
+      "description": "A square pad hovers above its socket on a short post, two engraved rings rippling on the cup below. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearFloat.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearFloat.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-guides",
+      "type": "registry:ui",
+      "title": "Guides",
+      "description": "An open manual lies flat while a guide rail rises at its side, two markers clipped to the rail. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearGuides.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearGuides.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-hello-effect",
+      "type": "registry:ui",
+      "title": "Hello Effect",
+      "description": "A low bar sends up three wire hoops of growing height, the middle one open and lit. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearHelloEffect.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearHelloEffect.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-inline-citation",
+      "type": "registry:ui",
+      "title": "Inline Citation",
+      "description": "A text plate raises two citation cards on short posts, each marked with lines, the taller card lit. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearInlineCitation.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearInlineCitation.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-keyboard-table",
+      "type": "registry:ui",
+      "title": "Keyboard Table",
+      "description": "A tray seats a cluster of five keycaps behind two long ruled rows, the middle cap standing lit. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearKeyboardTable.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearKeyboardTable.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-message-branch",
+      "type": "registry:ui",
+      "title": "Message Branch",
+      "description": "Two message cards stand behind a front card with a short tail, a branch knob clipped above the tray. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearMessageBranch.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearMessageBranch.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-message-scroller",
+      "type": "registry:ui",
+      "title": "Message Scroller",
+      "description": "A deep channel stacks four message pills while a raised thumb rides the right wall. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearMessageScroller.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearMessageScroller.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-mic-selector",
+      "type": "registry:ui",
+      "title": "Mic Selector",
+      "description": "A round tray seats one tall microphone capsule between two knobs, a choice card hovering above. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearMicSelector.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearMicSelector.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-model-selector",
+      "type": "registry:ui",
+      "title": "Model Selector",
+      "description": "A selector tongue floats above a socket of three model chips, a pull knob on its top face. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearModelSelector.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearModelSelector.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-motion-highlight",
+      "type": "registry:ui",
+      "title": "Motion Highlight",
+      "description": "A plate holds four tiles in a square, the far tile standing above a halo engraved under it. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearMotionHighlight.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearMotionHighlight.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-open-in-chat",
+      "type": "registry:ui",
+      "title": "Open in Chat",
+      "description": "A low rail carries four cubes; the first one lifts away with a chat-tail wedge behind it. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearOpenInChat.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearOpenInChat.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-package-info",
+      "type": "registry:ui",
+      "title": "Package Info",
+      "description": "Three boxes grow from a low pallet, the middle one floating with a lit label tab in front. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearPackageInfo.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearPackageInfo.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-persona",
+      "type": "registry:ui",
+      "title": "Persona",
+      "description": "A faceted head rises from a short neck on a ringed base, one bright facet at its crown. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearPersona.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearPersona.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-pin-3d",
+      "type": "registry:ui",
+      "title": "3D Pin",
+      "description": "A round pad ripples under a short post; the pin head floats above its collar, lit at the point. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearPin3d.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearPin3d.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-plan",
+      "type": "registry:ui",
+      "title": "Plan",
+      "description": "Four pads float in a falling diagonal, joined by short rails, the lowest one lit at its end. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearPlan.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearPlan.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-prose",
+      "type": "registry:ui",
+      "title": "Prose",
+      "description": "A single page is ruled with a thick heading and four body lines, its corner tab lifted and a caret at the end. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearProse.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearProse.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-queue",
+      "type": "registry:ui",
+      "title": "Queue",
+      "description": "A low chute feeds three pills toward a narrow mouth, the leading pill waiting at the lip. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearQueue.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearQueue.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-sandbox-run",
+      "type": "registry:ui",
+      "title": "Sandbox Run",
+      "description": "An open tray holds a stack of chips and a raised play wedge at its mouth, the wedge lit. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearSandboxRun.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearSandboxRun.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-sources",
+      "type": "registry:ui",
+      "title": "Sources",
+      "description": "A page is clipped by three source ribbons at its edge, the raised middle ribbon lit. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearSources.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearSources.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-speech-input",
+      "type": "registry:ui",
+      "title": "Speech Input",
+      "description": "A round pad rings a microphone capsule with twelve ticks, a wave pill raised in front. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearSpeechInput.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearSpeechInput.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-stack-trace",
+      "type": "registry:ui",
+      "title": "Stack Trace",
+      "description": "Five thin plates stagger in depth with one short line each, the top plate lifted and lit. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearStackTrace.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearStackTrace.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-suggestion",
+      "type": "registry:ui",
+      "title": "Suggestion",
+      "description": "A prompt bar sends three suggestion pills stepping down from its end, the first one lit. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearSuggestion.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearSuggestion.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-test-results",
+      "type": "registry:ui",
+      "title": "Test Results",
+      "description": "Five test tubes stand in a low rack; the fourth is short and filled, its cap lit. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearTestResults.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearTestResults.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-tool",
+      "type": "registry:ui",
+      "title": "Tool",
+      "description": "A toolbox sits with its lid lifted on a hinge while a small card floats above the tray. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearTool.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearTool.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-trace",
+      "type": "registry:ui",
+      "title": "Trace",
+      "description": "A plate carries a stepping trace that turns twice and ends at a lit node. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearTrace.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearTrace.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-transcription",
+      "type": "registry:ui",
+      "title": "Transcription",
+      "description": "A tray holds seven rising audio bars while a caption card floats above the tallest. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearTranscription.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearTranscription.vue"
+        }
+      ]
+    },
+    {
+      "name": "linear-voice-selector",
+      "type": "registry:ui",
+      "title": "Voice Selector",
+      "description": "A low rack holds three upright boards with wavy tops, the middle board lit and tallest. Hairline isometric object with the same 700 ms depth press and 45 ms stagger.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/vue/linear/linear-core.json"
+      ],
+      "meta": {
+        "style": "linear"
+      },
+      "files": [
+        {
+          "path": "components/prequelui/linear/illustrations/LinearVoiceSelector.vue",
+          "type": "registry:ui",
+          "target": "components/prequelui/linear/illustrations/LinearVoiceSelector.vue"
+        }
+      ]
+    }
+  ]
+}

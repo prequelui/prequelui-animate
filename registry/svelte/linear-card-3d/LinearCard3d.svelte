@@ -1,0 +1,30 @@
+<script>
+  import { onMount } from "svelte";
+  import { bindLinearScene, renderLinearScene } from "../linear-core.js";
+
+  let {
+    class: className = "",
+    label = "An isometric 3D card: a card leaning on its edge above a second card lying flat.",
+    interactive = true,
+    replay = 0,
+  } = $props();
+
+  const markup = renderLinearScene("<svg viewBox=\"0 0 400 320\" width=\"100%\" height=\"100%\" fill=\"none\" preserveAspectRatio=\"xMidYMid meet\" aria-hidden=\"true\"><g data-linear-block=\"card-tilt\" data-linear-index=\"1\"><path d=\"M156.35 126.47L168.51 86.94L341.82 140.15L341.82 166.22L329.66 205.74L156.35 152.53Z\" fill=\"var(--ls-plate)\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-edge)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M341.82 140.15L329.66 179.68\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M171.54 88.68L337.25 139.81L326.63 177.93L160.92 126.8Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-mid)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M211.84 108.6L271.13 138.25L272.12 138.93L272.64 139.73L272.64 140.57L272.12 141.37L271.13 142.05L269.77 142.54L268.17 142.8L266.49 142.8L264.89 142.54L263.53 142.05L204.23 112.4L203.25 111.72L202.73 110.92L202.73 110.08L203.25 109.28L204.23 108.6L205.6 108.11L207.19 107.85L208.88 107.85L210.48 108.11L211.84 108.6Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M208.04 121.9L290.13 162.95L290.92 163.5L291.34 164.14L291.34 164.81L290.92 165.45L290.13 165.99L289.04 166.39L287.76 166.6L286.42 166.6L285.14 166.39L284.05 165.99L201.95 124.95L201.16 124.4L200.75 123.76L200.75 123.09L201.16 122.45L201.95 121.9L203.04 121.51L204.32 121.3L205.67 121.3L206.95 121.51L208.04 121.9Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><ellipse cx=\"308.37\" cy=\"162.95\" rx=\"10.75\" ry=\"5.38\" stroke=\"none\" fill=\"var(--ls-hi)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /></g><g data-linear-block=\"card-back\" data-linear-index=\"0\"><path d=\"M58.18 132.25L60.05 129.37L63.61 126.92L87.93 114.76L92.83 112.98L98.59 112.04L104.64 112.04L110.4 112.98L115.3 114.76L276.45 195.33L280.01 197.78L281.88 200.66L281.88 214.86L280.01 217.74L276.45 220.19L252.12 232.35L247.23 234.13L241.47 235.06L235.41 235.06L229.66 234.13L224.76 232.35L63.61 151.77L60.05 149.32L58.18 146.44L58.18 143.42Z\" fill=\"var(--ls-plate)\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-edge)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M281.88 203.69L280.01 206.56L276.45 209.01L252.12 221.18L247.23 222.95L241.47 223.89L235.41 223.89L229.66 222.95L224.76 221.18L63.61 140.6L60.05 138.15L58.18 135.27\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M112.03 116.39L273.18 196.97L275.89 198.83L277.31 201.02L277.31 203.32L275.89 205.52L273.18 207.38L248.86 219.54L245.13 220.9L240.75 221.61L236.14 221.61L231.76 220.9L228.03 219.54L66.88 138.97L64.17 137.1L62.75 134.91L62.75 132.61L64.17 130.42L66.88 128.55L91.2 116.39L94.93 115.04L99.31 114.32L103.92 114.32L108.3 115.04L112.03 116.39Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-mid)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M108.46 129.58L192.07 171.39L193.06 172.07L193.58 172.87L193.58 173.71L193.06 174.51L192.07 175.19L190.71 175.68L189.11 175.94L187.43 175.94L185.83 175.68L184.47 175.19L100.86 133.38L99.87 132.7L99.35 131.9L99.35 131.06L99.87 130.26L100.86 129.58L102.22 129.08L103.82 128.82L105.5 128.82L107.1 129.08L108.46 129.58Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /></g></svg>", {
+    className,
+    label,
+  });
+  let host;
+  let controller;
+
+  onMount(() => {
+    controller = bindLinearScene(host, { interactive });
+    if (replay) controller.replay();
+    return () => controller?.destroy();
+  });
+
+  $effect(() => {
+    if (replay) controller?.replay();
+  });
+</script>
+
+<span bind:this={host} style="display: contents">{@html markup}</span>

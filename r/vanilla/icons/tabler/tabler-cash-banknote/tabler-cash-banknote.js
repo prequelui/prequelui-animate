@@ -1,0 +1,67 @@
+import { bindSetIcon, renderSetIcon } from "../icon-set-core.js";
+
+export const definition = {
+  "name": "cash-banknote",
+  "category": "Commerce",
+  "viewBox": "0 0 24 24",
+  "mode": "stroke",
+  "strokeWidth": 2,
+  "motion": "coin",
+  "parts": [
+    {
+      "tag": "path",
+      "attrs": {
+        "d": "M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"
+      }
+    },
+    {
+      "tag": "path",
+      "attrs": {
+        "d": "M3 8a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2l0 -8"
+      }
+    },
+    {
+      "tag": "path",
+      "attrs": {
+        "d": "M18 12h.01"
+      }
+    },
+    {
+      "tag": "path",
+      "attrs": {
+        "d": "M6 12h.01"
+      }
+    }
+  ],
+  "accents": []
+};
+
+export const meta = {
+  "slug": "tabler-cash-banknote",
+  "family": "tabler",
+  "name": "cash-banknote",
+  "category": "Commerce",
+  "motion": "coin",
+  "component": "createTablerCashBanknoteIcon"
+};
+
+export function createTablerCashBanknoteIcon(root, options = {}) {
+  let current = { ...options };
+  const render = () => {
+    root.innerHTML = renderSetIcon(definition, current);
+  };
+  render();
+  const controller = bindSetIcon(root, definition, () => current);
+  return {
+    play: controller.play,
+    reset: controller.reset,
+    destroy: controller.destroy,
+    update(next = {}) {
+      current = { ...current, ...next };
+      render();
+    },
+    get observed() {
+      return controller.observed;
+    },
+  };
+}

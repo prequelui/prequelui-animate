@@ -1,0 +1,56 @@
+// @ts-nocheck
+import { onCleanup, onMount } from "solid-js";
+import { bindSetIcon, renderSetIcon } from "../icon-set-core";
+
+const definition = {
+  "name": "receipt",
+  "category": "Commerce",
+  "viewBox": "0 0 256 256",
+  "mode": "fill",
+  "strokeWidth": 0,
+  "motion": "coin",
+  "parts": [
+    {
+      "tag": "path",
+      "attrs": {
+        "d": "M72,104a8,8,0,0,1,8-8h96a8,8,0,0,1,0,16H80A8,8,0,0,1,72,104Zm8,40h96a8,8,0,0,0,0-16H80a8,8,0,0,0,0,16ZM232,56V208a8,8,0,0,1-11.58,7.15L192,200.94l-28.42,14.21a8,8,0,0,1-7.16,0L128,200.94,99.58,215.15a8,8,0,0,1-7.16,0L64,200.94,35.58,215.15A8,8,0,0,1,24,208V56A16,16,0,0,1,40,40H216A16,16,0,0,1,232,56Zm-16,0H40V195.06l20.42-10.22a8,8,0,0,1,7.16,0L96,199.06l28.42-14.22a8,8,0,0,1,7.16,0L160,199.06l28.42-14.22a8,8,0,0,1,7.16,0L216,195.06Z"
+      }
+    }
+  ],
+  "accents": []
+};
+
+export function PhosphorReceiptIcon(props) {
+  let host;
+
+  const view = () =>
+    renderSetIcon(definition, {
+      size: props.size ?? 28,
+      className: props.class ?? "",
+      label: props.label ?? "",
+    });
+
+  onMount(() => {
+    const controller = bindSetIcon(host, definition, () => ({
+      speed: props.speed ?? 1,
+      delay: props.delay ?? 0,
+      loop: props.loop ?? false,
+      animate: props.animate ?? false,
+      animateOnHover: props.animateOnHover ?? true,
+      animateOnTap: props.animateOnTap ?? true,
+      animateOnView: props.animateOnView ?? false,
+      animateOnViewOnce: props.animateOnViewOnce ?? true,
+      animation: props.animation ?? "hover",
+    }));
+    onCleanup(() => controller.destroy());
+  });
+
+  return (
+    <span
+      ref={host}
+      data-slot="prequel-set-icon-host"
+      style={{ display: "contents" }}
+      innerHTML={view()}
+    />
+  );
+}

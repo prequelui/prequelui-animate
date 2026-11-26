@@ -1,0 +1,57 @@
+import { bindSetIcon, renderSetIcon } from "../icon-set-core.js";
+
+export const definition = {
+  "name": "corner-up-right",
+  "category": "Navigation",
+  "viewBox": "0 0 24 24",
+  "mode": "stroke",
+  "strokeWidth": 2,
+  "motion": "slideRight",
+  "parts": [
+    {
+      "tag": "path",
+      "attrs": {
+        "d": "m15 14 5-5-5-5"
+      }
+    },
+    {
+      "tag": "path",
+      "attrs": {
+        "d": "M4 20v-7a4 4 0 0 1 4-4h12"
+      }
+    }
+  ],
+  "accents": [
+    0
+  ]
+};
+
+export const meta = {
+  "slug": "lucide-corner-up-right",
+  "family": "lucide",
+  "name": "corner-up-right",
+  "category": "Navigation",
+  "motion": "slideRight",
+  "component": "createLucideCornerUpRightIcon"
+};
+
+export function createLucideCornerUpRightIcon(root, options = {}) {
+  let current = { ...options };
+  const render = () => {
+    root.innerHTML = renderSetIcon(definition, current);
+  };
+  render();
+  const controller = bindSetIcon(root, definition, () => current);
+  return {
+    play: controller.play,
+    reset: controller.reset,
+    destroy: controller.destroy,
+    update(next = {}) {
+      current = { ...current, ...next };
+      render();
+    },
+    get observed() {
+      return controller.observed;
+    },
+  };
+}

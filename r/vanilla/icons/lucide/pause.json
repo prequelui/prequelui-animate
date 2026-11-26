@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "lucide-pause",
+  "type": "registry:ui",
+  "title": "Pause",
+  "description": "Lucide media icon, animated by the shared motion core (press).",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/icons/icon-set-core.json"
+  ],
+  "meta": {
+    "family": "lucide",
+    "style": "outline",
+    "category": "Media",
+    "motion": "press",
+    "license": "ISC",
+    "source": "https://github.com/lucide-icons/lucide",
+    "styles": [
+      "outline"
+    ]
+  },
+  "files": [
+    {
+      "path": "components/prequelui/icons/sets/lucide/lucide-pause.js",
+      "target": "components/prequelui/icons/sets/lucide/lucide-pause.js",
+      "type": "registry:ui",
+      "content": "import { bindSetIcon, renderSetIcon } from \"../icon-set-core.js\";\n\nexport const definition = {\n  \"name\": \"pause\",\n  \"category\": \"Media\",\n  \"viewBox\": \"0 0 24 24\",\n  \"mode\": \"stroke\",\n  \"strokeWidth\": 2,\n  \"motion\": \"press\",\n  \"parts\": [\n    {\n      \"tag\": \"rect\",\n      \"attrs\": {\n        \"x\": \"14\",\n        \"y\": \"3\",\n        \"width\": \"5\",\n        \"height\": \"18\",\n        \"rx\": \"1\"\n      }\n    },\n    {\n      \"tag\": \"rect\",\n      \"attrs\": {\n        \"x\": \"5\",\n        \"y\": \"3\",\n        \"width\": \"5\",\n        \"height\": \"18\",\n        \"rx\": \"1\"\n      }\n    }\n  ],\n  \"accents\": [\n    1\n  ]\n};\n\nexport const meta = {\n  \"slug\": \"lucide-pause\",\n  \"family\": \"lucide\",\n  \"name\": \"pause\",\n  \"category\": \"Media\",\n  \"motion\": \"press\",\n  \"component\": \"createLucidePauseIcon\"\n};\n\nexport function createLucidePauseIcon(root, options = {}) {\n  let current = { ...options };\n  const render = () => {\n    root.innerHTML = renderSetIcon(definition, current);\n  };\n  render();\n  const controller = bindSetIcon(root, definition, () => current);\n  return {\n    play: controller.play,\n    reset: controller.reset,\n    destroy: controller.destroy,\n    update(next = {}) {\n      current = { ...current, ...next };\n      render();\n    },\n    get observed() {\n      return controller.observed;\n    },\n  };\n}\n"
+    }
+  ]
+}

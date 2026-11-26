@@ -1,0 +1,35 @@
+<script setup>
+import { onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { bindLinearScene, renderLinearScene } from "../linear-core.js";
+
+const props = defineProps({
+  className: { type: String, default: "" },
+  label: { type: String, default: "An isometric speech bubble with a short tail and a smaller bubble nested in front." },
+  interactive: { type: Boolean, default: true },
+  replay: { type: Number, default: 0 },
+});
+
+const markup = renderLinearScene("<svg viewBox=\"0 0 400 320\" width=\"100%\" height=\"100%\" fill=\"none\" preserveAspectRatio=\"xMidYMid meet\" aria-hidden=\"true\"><g data-linear-block=\"base\" data-linear-index=\"0\"><path d=\"M133.72 216.79L134.23 212.86L135.77 209L138.3 205.27L141.78 201.74L146.16 198.47L151.35 195.51L157.27 192.91L163.82 190.73L170.88 188.98L178.34 187.72L186.06 186.95L193.92 186.69L201.78 186.95L209.5 187.72L216.96 188.98L224.02 190.73L230.57 192.91L236.49 195.51L241.68 198.47L246.05 201.74L249.54 205.27L252.07 209L253.6 212.86L254.12 216.79L254.12 231.69L253.6 235.62L252.07 239.48L249.54 243.21L246.05 246.74L241.68 250.01L236.49 252.97L230.57 255.57L224.02 257.76L216.96 259.5L209.5 260.76L201.78 261.53L193.92 261.79L186.06 261.53L178.34 260.76L170.88 259.5L163.82 257.76L157.27 255.57L151.35 252.97L146.16 250.01L141.78 246.74L138.3 243.21L135.77 239.48L134.23 235.62L133.72 231.69Z\" fill=\"var(--ls-plate)\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-edge)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M253.6 220.72L252.07 224.58L249.54 228.31L246.05 231.84L241.68 235.12L236.49 238.08L230.57 240.67L224.02 242.86L216.96 244.6L209.5 245.87L201.78 246.64L193.92 246.89L186.06 246.64L178.34 245.87L170.88 244.6L163.82 242.86L157.27 240.67L151.35 238.08L146.16 235.12L141.78 231.84L138.3 228.31L135.77 224.58L134.23 220.72\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M233.22 236.44L227.75 238.84L221.71 240.86L215.19 242.47L208.3 243.63L201.17 244.34L193.92 244.58L186.66 244.34L179.53 243.63L172.65 242.47L166.13 240.86L160.09 238.84L154.62 236.44L149.83 233.71L145.79 230.69L142.57 227.43L140.24 223.98L138.82 220.42L138.34 216.79L138.82 213.17L140.24 209.6L142.57 206.16L145.79 202.9L149.83 199.88L154.62 197.14L160.09 194.75L166.13 192.73L172.65 191.12L179.53 189.95L186.66 189.24L193.92 189L201.17 189.24L208.3 189.95L215.19 191.12L221.71 192.73L227.75 194.75L233.22 197.14L238.01 199.88L242.05 202.9L245.27 206.16L247.6 209.6L249.02 213.17L249.5 216.79L249.02 220.42L247.6 223.98L245.27 227.43L242.05 230.69L238.01 233.71Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-mid)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><ellipse cx=\"193.92\" cy=\"216.79\" rx=\"43\" ry=\"21.5\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /></g><g data-linear-block=\"bubble\" data-linear-index=\"1\" data-linear-kind=\"sprite\"><path d=\"M193.18 184.91L253.38 184.91L264.9 182.62L274.67 176.1L281.19 166.33L283.48 154.81L283.48 90.31L281.19 78.79L274.67 69.03L264.9 62.5L253.38 60.21L158.78 60.21L147.26 62.5L137.5 69.03L130.97 78.79L128.68 90.31L128.68 154.81L130.97 166.33L137.5 176.1L147.26 182.62L158.78 184.91L158.78 184.91L132.98 223.61Z\" fill=\"var(--ls-plate)\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M181.02 190.99L241.22 190.99L252.74 188.7L262.5 182.18L269.03 172.41L271.32 160.89L271.32 96.39L269.03 84.87L262.5 75.11L252.74 68.58L241.22 66.29L146.62 66.29L135.1 68.58L125.33 75.11L118.81 84.87L116.52 96.39L116.52 160.89L118.81 172.41L125.33 182.18L135.1 188.7L146.62 190.99L146.62 190.99L120.82 229.69Z\" fill=\"var(--ls-plate)\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-edge)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M174.57 147.99L213.27 147.99L213.27 147.99L219.03 146.85L223.91 143.58L227.17 138.7L228.32 132.94L228.32 115.74L227.17 109.98L223.91 105.1L219.03 101.84L213.27 100.69L174.57 100.69L168.81 101.84L163.93 105.1L160.66 109.98L159.52 115.74L159.52 132.94L160.66 138.7L163.93 143.58L168.81 146.85L174.57 147.99Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M200.37 124.34L200.15 122.67L199.5 121.12L198.48 119.78L197.14 118.76L195.59 118.11L193.92 117.89L192.25 118.11L190.69 118.76L189.36 119.78L188.33 121.12L187.69 122.67L187.47 124.34L187.69 126.01L188.33 127.57L189.36 128.9L190.69 129.93L192.25 130.57L193.92 130.79L195.59 130.57L197.14 129.93L198.48 128.9L199.5 127.57L200.15 126.01Z\" fill=\"var(--ls-hi)\" stroke=\"none\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /></g></svg>", {
+  className: props.className,
+  label: props.label,
+});
+
+const host = ref(null);
+let controller = null;
+
+onMounted(() => {
+  controller = bindLinearScene(host.value, { interactive: props.interactive });
+  if (props.replay) controller.replay();
+});
+
+watch(
+  () => props.replay,
+  () => controller?.replay(),
+);
+
+onBeforeUnmount(() => controller?.destroy());
+</script>
+
+<template>
+  <span ref="host" style="display: contents" v-html="markup"></span>
+</template>

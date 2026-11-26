@@ -1,0 +1,56 @@
+// @ts-nocheck
+import { onCleanup, onMount } from "solid-js";
+import { bindSetIcon, renderSetIcon } from "../icon-set-core";
+
+const definition = {
+  "name": "truck",
+  "category": "Commerce",
+  "viewBox": "0 0 256 256",
+  "mode": "fill",
+  "strokeWidth": 0,
+  "motion": "float",
+  "parts": [
+    {
+      "tag": "path",
+      "attrs": {
+        "d": "M255.42,117l-14-35A15.93,15.93,0,0,0,226.58,72H192V64a8,8,0,0,0-8-8H32A16,16,0,0,0,16,72V184a16,16,0,0,0,16,16H49a32,32,0,0,0,62,0h50a32,32,0,0,0,62,0h17a16,16,0,0,0,16-16V120A7.94,7.94,0,0,0,255.42,117ZM192,88h34.58l9.6,24H192ZM32,72H176v64H32ZM80,208a16,16,0,1,1,16-16A16,16,0,0,1,80,208Zm81-24H111a32,32,0,0,0-62,0H32V152H176v12.31A32.11,32.11,0,0,0,161,184Zm31,24a16,16,0,1,1,16-16A16,16,0,0,1,192,208Zm48-24H223a32.06,32.06,0,0,0-31-24V128h48Z"
+      }
+    }
+  ],
+  "accents": []
+};
+
+export function PhosphorTruckIcon(props) {
+  let host;
+
+  const view = () =>
+    renderSetIcon(definition, {
+      size: props.size ?? 28,
+      className: props.class ?? "",
+      label: props.label ?? "",
+    });
+
+  onMount(() => {
+    const controller = bindSetIcon(host, definition, () => ({
+      speed: props.speed ?? 1,
+      delay: props.delay ?? 0,
+      loop: props.loop ?? false,
+      animate: props.animate ?? false,
+      animateOnHover: props.animateOnHover ?? true,
+      animateOnTap: props.animateOnTap ?? true,
+      animateOnView: props.animateOnView ?? false,
+      animateOnViewOnce: props.animateOnViewOnce ?? true,
+      animation: props.animation ?? "hover",
+    }));
+    onCleanup(() => controller.destroy());
+  });
+
+  return (
+    <span
+      ref={host}
+      data-slot="prequel-set-icon-host"
+      style={{ display: "contents" }}
+      innerHTML={view()}
+    />
+  );
+}

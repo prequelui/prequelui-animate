@@ -1,0 +1,35 @@
+<script setup>
+import { onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { bindLinearScene, renderLinearScene } from "../linear-core.js";
+
+const props = defineProps({
+  className: { type: String, default: "" },
+  label: { type: String, default: "An isometric code block: a deep slab with three ruled lines and a raised language tab." },
+  interactive: { type: Boolean, default: true },
+  replay: { type: Number, default: 0 },
+});
+
+const markup = renderLinearScene("<svg viewBox=\"0 0 400 320\" width=\"100%\" height=\"100%\" fill=\"none\" preserveAspectRatio=\"xMidYMid meet\" aria-hidden=\"true\"><g data-linear-block=\"slab\" data-linear-index=\"0\"><path d=\"M55 133.08L56.99 130.03L60.76 127.43L133.35 91.13L138.55 89.24L144.66 88.25L151.08 88.25L157.19 89.24L162.39 91.13L304.67 162.27L308.45 164.87L310.43 167.93L310.43 188.92L308.45 191.97L304.67 194.57L232.08 230.87L226.88 232.76L220.77 233.75L214.35 233.75L208.24 232.76L203.04 230.87L60.76 159.73L56.99 157.13L55 154.07Z\" fill=\"var(--ls-plate)\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-edge)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M310.43 171.14L308.45 174.19L304.67 176.79L232.08 213.09L226.88 214.97L220.77 215.97L214.35 215.97L208.24 214.97L203.04 213.09L60.76 141.95L56.99 139.35L55 136.29\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M159.27 92.69L301.55 163.83L304.51 165.87L306.07 168.27L306.07 170.79L304.51 173.19L301.55 175.23L228.96 211.53L224.88 213.01L220.08 213.79L215.04 213.79L210.24 213.01L206.16 211.53L63.88 140.39L60.92 138.35L59.36 135.95L59.36 133.43L60.92 131.03L63.88 128.99L136.47 92.69L140.55 91.21L145.35 90.43L150.39 90.43L155.19 91.21L159.27 92.69Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-mid)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M154.41 107.47L240.06 150.29L241.01 150.94L241.5 151.71L241.5 152.51L241.01 153.27L240.06 153.92L238.76 154.4L237.24 154.64L235.63 154.64L234.1 154.4L232.8 153.92L147.15 111.09L146.2 110.45L145.71 109.68L145.71 108.88L146.2 108.11L147.15 107.47L148.45 106.99L149.97 106.74L151.58 106.74L153.11 106.99L154.41 107.47Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M147.87 121.62L258.21 176.79L258.97 177.31L259.36 177.92L259.36 178.56L258.97 179.17L258.21 179.69L257.17 180.07L255.95 180.27L254.67 180.27L253.44 180.07L252.4 179.69L142.06 124.52L141.31 124L140.91 123.39L140.91 122.75L141.31 122.14L142.06 121.62L143.1 121.24L144.33 121.04L145.61 121.04L146.83 121.24L147.87 121.62Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M130.45 130.33L200.14 165.18L200.89 165.7L201.29 166.31L201.29 166.95L200.89 167.56L200.14 168.08L199.1 168.46L197.88 168.66L196.59 168.66L195.37 168.46L194.33 168.08L124.64 133.24L123.89 132.72L123.49 132.1L123.49 131.46L123.89 130.85L124.64 130.33L125.68 129.95L126.9 129.76L128.19 129.76L129.41 129.95L130.45 130.33Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M95.61 133.24L101.41 141.95L83.99 139.04\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /></g><g data-linear-block=\"tab\" data-linear-index=\"1\"><path d=\"M267.25 122.53L268.64 120.4L271.28 118.58L277.09 115.67L280.72 114.35L285 113.66L289.5 113.66L293.77 114.35L297.41 115.67L340.97 137.45L343.61 139.27L345 141.41L345 154.33L343.61 156.46L340.97 158.28L335.16 161.19L331.52 162.51L327.25 163.2L322.75 163.2L318.47 162.51L314.83 161.19L271.28 139.41L268.64 137.59L267.25 135.45Z\" fill=\"var(--ls-plate)\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-edge)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M345 143.66L343.61 145.8L340.97 147.61L335.16 150.52L331.52 151.84L327.25 152.53L322.75 152.53L318.47 151.84L314.83 150.52L271.28 128.74L268.64 126.92L267.25 124.78\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M294.29 117.23L337.85 139.01L339.68 140.27L340.64 141.75L340.64 143.31L339.68 144.79L337.85 146.05L332.04 148.96L329.52 149.87L326.55 150.35L323.44 150.35L320.48 149.87L317.96 148.96L274.4 127.18L272.57 125.92L271.61 124.44L271.61 122.88L272.57 121.4L274.4 120.14L280.21 117.23L282.73 116.32L285.69 115.84L288.81 115.84L291.77 116.32L294.29 117.23Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-mid)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M298.14 123.3L325.72 137.09L326.67 137.74L327.16 138.5L327.16 139.3L326.67 140.07L325.72 140.72L324.42 141.19L322.9 141.44L321.29 141.44L319.76 141.19L318.46 140.72L290.88 126.93L289.93 126.28L289.44 125.51L289.44 124.71L289.93 123.95L290.88 123.3L292.18 122.82L293.71 122.58L295.31 122.58L296.84 122.82L298.14 123.3Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-hi)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /></g></svg>", {
+  className: props.className,
+  label: props.label,
+});
+
+const host = ref(null);
+let controller = null;
+
+onMounted(() => {
+  controller = bindLinearScene(host.value, { interactive: props.interactive });
+  if (props.replay) controller.replay();
+});
+
+watch(
+  () => props.replay,
+  () => controller?.replay(),
+);
+
+onBeforeUnmount(() => controller?.destroy());
+</script>
+
+<template>
+  <span ref="host" style="display: contents" v-html="markup"></span>
+</template>

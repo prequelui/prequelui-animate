@@ -1,0 +1,35 @@
+<script setup>
+import { onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { bindLinearScene, renderLinearScene } from "../linear-core.js";
+
+const props = defineProps({
+  className: { type: String, default: "" },
+  label: { type: String, default: "An isometric empty state: a hollow tray with a bare ring and a small plus floating above." },
+  interactive: { type: Boolean, default: true },
+  replay: { type: Number, default: 0 },
+});
+
+const markup = renderLinearScene("<svg viewBox=\"0 0 400 320\" width=\"100%\" height=\"100%\" fill=\"none\" preserveAspectRatio=\"xMidYMid meet\" aria-hidden=\"true\"><g data-linear-block=\"tray\" data-linear-index=\"0\"><path d=\"M73.29 119.7L76.61 114.58L82.94 110.22L113.34 95.02L122.05 91.86L132.29 90.2L143.05 90.2L153.29 91.86L161.99 95.02L317.06 172.56L323.39 176.91L326.71 182.03L326.71 202.3L323.39 207.42L317.06 211.78L286.66 226.98L277.95 230.14L267.71 231.8L256.95 231.8L246.71 230.14L238.01 226.98L82.94 149.44L76.61 145.09L73.29 139.97Z\" fill=\"var(--ls-plate)\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-edge)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M326.71 187.41L323.39 192.53L317.06 196.88L286.66 212.08L277.95 215.25L267.71 216.91L256.95 216.91L246.71 215.25L238.01 212.08L82.94 134.55L76.61 130.2L73.29 125.08\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M158.72 96.66L313.79 174.19L319.27 177.96L322.15 182.39L322.15 187.05L319.27 191.48L313.79 195.25L283.39 210.45L275.85 213.19L266.99 214.63L257.67 214.63L248.81 213.19L241.28 210.45L86.21 132.91L80.73 129.15L77.85 124.72L77.85 120.06L80.73 115.63L86.21 111.86L116.61 96.66L124.15 93.92L133.01 92.48L142.33 92.48L151.19 93.92L158.72 96.66Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-mid)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><ellipse cx=\"171.11\" cy=\"139.11\" rx=\"43\" ry=\"21.5\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M152.87 129.99L189.36 148.23L190.15 148.78L190.56 149.42L190.56 150.09L190.15 150.73L189.36 151.27L188.27 151.67L186.99 151.88L185.64 151.88L184.37 151.67L183.28 151.27L146.79 133.03L146 132.48L145.58 131.84L145.58 131.17L146 130.53L146.79 129.99L147.88 129.59L149.16 129.38L150.5 129.38L151.78 129.59L152.87 129.99Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /></g><g data-linear-block=\"plus\" data-linear-index=\"1\"><path d=\"M217.98 130.4L219.64 127.84L222.8 125.67L241.05 116.54L245.4 114.96L250.52 114.13L255.9 114.13L261.02 114.96L265.37 116.54L283.62 125.67L286.78 127.84L288.44 130.4L288.44 147.99L286.78 150.55L283.62 152.72L265.37 161.84L261.02 163.43L255.9 164.26L250.52 164.26L245.4 163.43L241.05 161.84L222.8 152.72L219.64 150.55L217.98 147.99Z\" fill=\"var(--ls-plate)\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-edge)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M288.44 133.09L286.78 135.65L283.62 137.83L265.37 146.95L261.02 148.53L255.9 149.36L250.52 149.36L245.4 148.53L241.05 146.95L222.8 137.83L219.64 135.65L217.98 133.09\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-lo)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M262.1 118.18L280.35 127.3L282.66 128.89L283.88 130.76L283.88 132.73L282.66 134.6L280.35 136.19L262.1 145.31L258.92 146.47L255.18 147.08L251.24 147.08L247.5 146.47L244.32 145.31L226.07 136.19L223.76 134.6L222.54 132.73L222.54 130.76L223.76 128.89L226.07 127.3L244.32 118.18L247.5 117.02L251.24 116.41L255.18 116.41L258.92 117.02L262.1 118.18Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-mid)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M247.89 126.05L264.61 134.41L265.6 135.09L266.12 135.89L266.12 136.73L265.6 137.53L264.61 138.21L263.25 138.7L261.65 138.96L259.97 138.96L258.37 138.7L257.01 138.21L240.29 129.85L239.3 129.17L238.78 128.37L238.78 127.53L239.3 126.73L240.29 126.05L241.65 125.55L243.25 125.29L244.93 125.29L246.53 125.55L247.89 126.05Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-hi)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /><path d=\"M266.13 126.05L267.12 126.73L267.64 127.53L267.64 128.37L267.12 129.17L266.13 129.85L249.41 138.21L248.05 138.7L246.45 138.96L244.77 138.96L243.17 138.7L241.81 138.21L240.82 137.53L240.3 136.73L240.3 135.89L240.82 135.09L241.81 134.41L258.53 126.05L259.89 125.55L261.49 125.29L263.17 125.29L264.77 125.55L266.13 126.05Z\" fill=\"none\" stroke-width=\"0.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" vector-effect=\"non-scaling-stroke\" stroke=\"var(--ls-hi)\" style=\"transition:stroke 260ms cubic-bezier(0.5,0,0.1,1), fill 260ms cubic-bezier(0.5,0,0.1,1)\" /></g></svg>", {
+  className: props.className,
+  label: props.label,
+});
+
+const host = ref(null);
+let controller = null;
+
+onMounted(() => {
+  controller = bindLinearScene(host.value, { interactive: props.interactive });
+  if (props.replay) controller.replay();
+});
+
+watch(
+  () => props.replay,
+  () => controller?.replay(),
+);
+
+onBeforeUnmount(() => controller?.destroy());
+</script>
+
+<template>
+  <span ref="host" style="display: contents" v-html="markup"></span>
+</template>

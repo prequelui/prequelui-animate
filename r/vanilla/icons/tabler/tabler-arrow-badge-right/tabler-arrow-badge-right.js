@@ -1,0 +1,49 @@
+import { bindSetIcon, renderSetIcon } from "../icon-set-core.js";
+
+export const definition = {
+  "name": "arrow-badge-right",
+  "category": "Navigation",
+  "viewBox": "0 0 24 24",
+  "mode": "stroke",
+  "strokeWidth": 2,
+  "motion": "slideRight",
+  "parts": [
+    {
+      "tag": "path",
+      "attrs": {
+        "d": "M13 7h-6l4 5l-4 5h6l4 -5l-4 -5"
+      }
+    }
+  ],
+  "accents": []
+};
+
+export const meta = {
+  "slug": "tabler-arrow-badge-right",
+  "family": "tabler",
+  "name": "arrow-badge-right",
+  "category": "Navigation",
+  "motion": "slideRight",
+  "component": "createTablerArrowBadgeRightIcon"
+};
+
+export function createTablerArrowBadgeRightIcon(root, options = {}) {
+  let current = { ...options };
+  const render = () => {
+    root.innerHTML = renderSetIcon(definition, current);
+  };
+  render();
+  const controller = bindSetIcon(root, definition, () => current);
+  return {
+    play: controller.play,
+    reset: controller.reset,
+    destroy: controller.destroy,
+    update(next = {}) {
+      current = { ...current, ...next };
+      render();
+    },
+    get observed() {
+      return controller.observed;
+    },
+  };
+}

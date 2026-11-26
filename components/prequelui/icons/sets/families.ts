@@ -1,8 +1,14 @@
 "use client";
 
 import type { ComponentType } from "react";
+import {
+  familyCommand,
+  familyFilePath,
+  familySourceUrl,
+  familyUsage,
+  type FrameworkId,
+} from "@/lib/frameworks";
 import { buildSetSvg } from "@/lib/icon-set-svg";
-import { HOME_URL } from "@/lib/motion";
 import { FAMILY_META, type FamilyKey, type FamilyMeta } from "./family-meta";
 import type { IconProps, SetIconDefinition } from "./set-icon";
 import type { SetMotionName } from "./set-motion";
@@ -173,10 +179,14 @@ function localKeywords(name: string, category: string, motion: string) {
   );
 }
 
-const cache = new Map<FamilyKey, FamilyIcon[]>();
+const cache = new Map<string, FamilyIcon[]>();
 
-export function familyIcons(key: FamilyKey): FamilyIcon[] {
-  const cached = cache.get(key);
+export function familyIcons(
+  key: FamilyKey,
+  framework: FrameworkId = "react",
+): FamilyIcon[] {
+  const cacheKey = `${key}:${framework}`;
+  const cached = cache.get(cacheKey);
   if (cached) return cached;
   const meta = FAMILY_META[key];
   const catalog = CATALOGS[key];
@@ -185,7 +195,7 @@ export function familyIcons(key: FamilyKey): FamilyIcon[] {
     const definition = catalog.definitions[item.name];
     const motion = (definition?.motion ?? "pop") as SetMotionName;
     const component = `${meta.prefix}${pascal(item.name)}Icon`;
-    const file = `${key}/${item.name}.tsx`;
+    const file = familyFilePath(framework, key, item.name, component);
     const usageFile = `@/components/prequelui/icons/sets/${key}/${item.name}`;
     const motionLabel = MOTION_LABELS[motion];
     const motionNote = MOTION_NOTES[motion];
@@ -205,29 +215,26 @@ export function familyIcons(key: FamilyKey): FamilyIcon[] {
       file,
       usageFile,
       svg: definition ? buildSetSvg(definition) : "",
-      command: `npx shadcn@latest add ${HOME_URL}/r/react/icons/${key}/${item.name}.json`,
-      sourceUrl: `/r/react/icons/${key}/${item.name}.json`,
-      usage: `import { AnimatedIcon } from "@/components/prequelui/icons/core";
-import { ${component} } from "${usageFile}";
-
-<AnimatedIcon animateOnHover animateOnTap>
-  <${component} size={24} />
-</AnimatedIcon>
-
-<AnimatedIcon animate animation="loop" loop>
-  <${component} size={24} />
-</AnimatedIcon>`,
+      command: familyCommand(framework, key, item.name),
+      sourceUrl: familySourceUrl(framework, key, item.name),
+      usage: familyUsage(framework, key, item.name, component),
     } satisfies FamilyIcon;
   });
 
-  cache.set(key, list);
+  cache.set(cacheKey, list);
   return list;
 }
 
-export function familyIcon(key: FamilyKey, name: string) {
-  return familyIcons(key).find((icon) => icon.name === name);
+export function familyIcon(
+  key: FamilyKey,
+  name: string,
+  framework: FrameworkId = "react",
+) {
+  return familyIcons(key, framework).find((icon) => icon.name === name);
 }
 
-export function familyCategories(key: FamilyKey) {
-  return Array.from(new Set(familyIcons(key).map((icon) => icon.category))).sort();
+export function familyCategories(key: FamilyKey, framework: FrameworkId = "react") {
+  return Array.from(
+    new Set(familyIcons(key, framework).map((icon) => icon.category)),
+  ).sort();
 }
