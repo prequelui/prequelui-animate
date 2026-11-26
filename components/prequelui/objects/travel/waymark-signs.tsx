@@ -1,0 +1,7 @@
+"use client";
+
+import { LinObject, type LinObjectProps } from "../LinObject";
+
+export function WaymarkSigns(props: LinObjectProps) {
+  return <LinObject object="waymark-signs" {...props} />;
+}
