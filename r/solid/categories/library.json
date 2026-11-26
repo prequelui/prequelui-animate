@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-library",
+  "type": "registry:ui",
+  "title": "Library Pictogram",
+  "description": "An open book with a visible spine, an orb in the right page and a comet above.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Education",
+    "theme": "amber",
+    "motion": "float",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#ffc24a",
+        "#ff7a5c"
+      ],
+      "dark": [
+        "#ffd06a",
+        "#ff9a7c"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "src/components/prequelui/categories/pictogram-library.tsx",
+      "target": "src/components/prequelui/categories/pictogram-library.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { CategoryPictogram } from \"./category-core\";\n\nexport const definition = {\n  \"slug\": \"library\",\n  \"name\": \"Library\",\n  \"group\": \"Education\",\n  \"theme\": \"amber\",\n  \"keywords\": [\n    \"book\",\n    \"read\",\n    \"library\",\n    \"study\"\n  ],\n  \"description\": \"An open book with a visible spine, an orb in the right page and a comet above.\",\n  \"motion\": \"float\",\n  \"ink\": [\n    {\n      \"d\": \"M512 322C430 272 330 262 240 282V702C330 682 430 692 512 742C594 692 694 682 784 702V282C694 262 594 272 512 322Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M512 322V742\",\n      \"width\": 22\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-14 -99.02A100 100 0 1 0 -14 99.02Z\",\n      \"transform\": \"translate(700 380) rotate(0)\"\n    },\n    {\n      \"d\": \"M14 -99.02A100 100 0 0 1 14 99.02Z\",\n      \"transform\": \"translate(700 380) rotate(0)\"\n    },\n    {\n      \"d\": \"M108 0C59.4 -17 17 -17 0 -17A17 17 0 0 0 0 17C17 17 59.4 17 108 0Z\",\n      \"transform\": \"translate(320 300) rotate(148)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#ffc24a\",\n      \"#ff7a5c\"\n    ],\n    \"dark\": [\n      \"#ffd06a\",\n      \"#ff9a7c\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"y\": -10\n    },\n    \"accent\": {\n      \"y\": -14\n    }\n  }\n};\n\nexport function PrequelLibraryPictogram(props) {\n  return <CategoryPictogram definition={definition} {...props} />;\n}\n"
+    }
+  ]
+}

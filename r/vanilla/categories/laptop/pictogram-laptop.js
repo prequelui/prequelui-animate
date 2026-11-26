@@ -1,0 +1,69 @@
+import { createCategoryPictogram } from "./category-core.js";
+
+export const definition = {
+  "slug": "laptop",
+  "name": "Laptop",
+  "group": "Devices",
+  "theme": "primary",
+  "keywords": [
+    "computer",
+    "notebook",
+    "screen",
+    "work"
+  ],
+  "description": "An open notebook with a wide deck and a burst of comets escaping the top right.",
+  "motion": "comet",
+  "ink": [
+    {
+      "d": "M232 246H792A34 34 0 0 1 826 280V604A34 34 0 0 1 792 638H232A34 34 0 0 1 198 604V280A34 34 0 0 1 232 246Z",
+      "width": 23
+    },
+    {
+      "d": "M170 672H854A20 20 0 0 1 874 692V692A20 20 0 0 1 854 712H170A20 20 0 0 1 150 692V692A20 20 0 0 1 170 672Z",
+      "width": 23
+    }
+  ],
+  "accent": [
+    {
+      "d": "M150 0C82.5 -28 28 -28 0 -28A28 28 0 0 0 0 28C28 28 82.5 28 150 0Z",
+      "transform": "translate(644 232) rotate(-33)"
+    },
+    {
+      "d": "M112 0C61.6 -22 22 -22 0 -22A22 22 0 0 0 0 22C22 22 61.6 22 112 0Z",
+      "transform": "translate(730 262) rotate(-30)"
+    },
+    {
+      "d": "M78 0C42.9 -17 17 -17 0 -17A17 17 0 0 0 0 17C17 17 42.9 17 78 0Z",
+      "transform": "translate(792 304) rotate(-27)"
+    }
+  ],
+  "palette": {
+    "light": [
+      "#5b6cff",
+      "#b06cff"
+    ],
+    "dark": [
+      "#7c8bff",
+      "#c58cff"
+    ]
+  },
+  "motionConfig": {
+    "main": {},
+    "accent": {
+      "x": 22,
+      "y": -18
+    }
+  }
+};
+
+export const meta = {
+  "slug": "laptop",
+  "name": "Laptop",
+  "group": "Devices",
+  "motion": "comet",
+  "component": "PrequelLaptopPictogram"
+};
+
+export function createPrequelLaptopPictogram(root, options = {}) {
+  return createCategoryPictogram(root, definition, options);
+}

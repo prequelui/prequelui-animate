@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-graduation",
+  "type": "registry:ui",
+  "title": "Graduation Pictogram",
+  "description": "A mortarboard with a curved cap base, a hanging tassel and an orb at the left.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vue/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Education",
+    "theme": "amber",
+    "motion": "swing",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#ffc24a",
+        "#ff7a5c"
+      ],
+      "dark": [
+        "#ffd06a",
+        "#ff9a7c"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/PrequelGraduationPictogram.vue",
+      "target": "components/prequelui/categories/PrequelGraduationPictogram.vue",
+      "type": "registry:ui",
+      "content": "<script>\nexport const definition = {\n  \"slug\": \"graduation\",\n  \"name\": \"Graduation\",\n  \"group\": \"Education\",\n  \"theme\": \"amber\",\n  \"keywords\": [\n    \"cap\",\n    \"school\",\n    \"learn\",\n    \"degree\"\n  ],\n  \"description\": \"A mortarboard with a curved cap base, a hanging tassel and an orb at the left.\",\n  \"motion\": \"swing\",\n  \"ink\": [\n    {\n      \"d\": \"M512 268L820 398L512 528L204 398Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M340 466V596C340 654 416 694 512 694C608 694 684 654 684 596V466\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M782 414V560\",\n      \"width\": 22\n    },\n    {\n      \"d\": \"M758 590A24 24 0 1 0 806 590A24 24 0 1 0 758 590Z\",\n      \"fill\": true\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-13 -95.12A96 96 0 1 0 -13 95.12Z\",\n      \"transform\": \"translate(300 340) rotate(0)\"\n    },\n    {\n      \"d\": \"M13 -95.12A96 96 0 0 1 13 95.12Z\",\n      \"transform\": \"translate(300 340) rotate(0)\"\n    },\n    {\n      \"d\": \"M108 0C59.4 -17 17 -17 0 -17A17 17 0 0 0 0 17C17 17 59.4 17 108 0Z\",\n      \"transform\": \"translate(700 270) rotate(-22)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#ffc24a\",\n      \"#ff7a5c\"\n    ],\n    \"dark\": [\n      \"#ffd06a\",\n      \"#ff9a7c\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"rotate\": -3\n    },\n    \"accent\": {\n      \"y\": -8\n    }\n  }\n};\n</script>\n\n<script setup>\nimport CategoryPictogram from \"./category-core.vue\";\n</script>\n\n<template>\n  <CategoryPictogram :definition=\"definition\" />\n</template>\n"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+import { createCategoryPictogram } from "./category-core.js";
+
+export const definition = {
+  "slug": "id-badge",
+  "name": "ID badge",
+  "group": "Jobs",
+  "theme": "blue",
+  "keywords": [
+    "badge",
+    "id",
+    "work",
+    "staff",
+    "access"
+  ],
+  "description": "A lanyard badge with a metal clip, a round portrait and two lines of identification.",
+  "motion": "swing",
+  "ink": [
+    {
+      "d": "M420 280L468 388",
+      "width": 18
+    },
+    {
+      "d": "M604 280L556 388",
+      "width": 18
+    },
+    {
+      "d": "M484 350H540A12 12 0 0 1 552 362V382A12 12 0 0 1 540 394H484A12 12 0 0 1 472 382V362A12 12 0 0 1 484 350Z",
+      "width": 20
+    },
+    {
+      "d": "M384 386H640A30 30 0 0 1 670 416V756A30 30 0 0 1 640 786H384A30 30 0 0 1 354 756V416A30 30 0 0 1 384 386Z",
+      "width": 23
+    },
+    {
+      "d": "M456 500A56 56 0 1 0 568 500A56 56 0 1 0 456 500Z",
+      "width": 20
+    },
+    {
+      "d": "M420 610H604",
+      "width": 18
+    },
+    {
+      "d": "M420 660H556",
+      "width": 18
+    }
+  ],
+  "accent": [
+    {
+      "d": "M-15 -94.82A96 96 0 1 0 -15 94.82Z",
+      "transform": "translate(760 420) rotate(0)"
+    },
+    {
+      "d": "M15 -94.82A96 96 0 0 1 15 94.82Z",
+      "transform": "translate(760 420) rotate(0)"
+    },
+    {
+      "d": "M90 0C49.5 -14 14 -14 0 -14A14 14 0 0 0 0 14C14 14 49.5 14 90 0Z",
+      "transform": "translate(260 300) rotate(150)"
+    }
+  ],
+  "palette": {
+    "light": [
+      "#4aa8ff",
+      "#7a6cff"
+    ],
+    "dark": [
+      "#74baff",
+      "#9a8cff"
+    ]
+  },
+  "motionConfig": {
+    "main": {
+      "rotate": -3
+    },
+    "accent": {
+      "y": -8
+    }
+  }
+};
+
+export const meta = {
+  "slug": "id-badge",
+  "name": "ID badge",
+  "group": "Jobs",
+  "motion": "swing",
+  "component": "PrequelIDBadgePictogram"
+};
+
+export function createPrequelIDBadgePictogram(root, options = {}) {
+  return createCategoryPictogram(root, definition, options);
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-sold-sign",
+  "type": "registry:ui",
+  "title": "Sold sign Pictogram",
+  "description": "A yard sign on a post with a small house mark and a confident check, plus a split orb.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Real estate",
+    "theme": "indigo",
+    "motion": "swing",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#5b6cff",
+        "#38d4b0"
+      ],
+      "dark": [
+        "#7c8bff",
+        "#6fe6c8"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/pictogram-sold-sign.js",
+      "target": "components/prequelui/categories/pictogram-sold-sign.js",
+      "type": "registry:ui",
+      "content": "import { createCategoryPictogram } from \"./category-core.js\";\n\nexport const definition = {\n  \"slug\": \"sold-sign\",\n  \"name\": \"Sold sign\",\n  \"group\": \"Real estate\",\n  \"theme\": \"indigo\",\n  \"keywords\": [\n    \"sold\",\n    \"sign\",\n    \"house\",\n    \"estate\",\n    \"sale\"\n  ],\n  \"description\": \"A yard sign on a post with a small house mark and a confident check, plus a split orb.\",\n  \"motion\": \"swing\",\n  \"ink\": [\n    {\n      \"d\": \"M292 296H732A26 26 0 0 1 758 322V494A26 26 0 0 1 732 520H292A26 26 0 0 1 266 494V322A26 26 0 0 1 292 296Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M512 520V820\",\n      \"width\": 26\n    },\n    {\n      \"d\": \"M356 442L430 380L504 442V492H356Z\",\n      \"width\": 20\n    },\n    {\n      \"d\": \"M576 420L616 466L682 382\",\n      \"width\": 24\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-15 -94.82A96 96 0 1 0 -15 94.82Z\",\n      \"transform\": \"translate(760 400) rotate(0)\"\n    },\n    {\n      \"d\": \"M15 -94.82A96 96 0 0 1 15 94.82Z\",\n      \"transform\": \"translate(760 400) rotate(0)\"\n    },\n    {\n      \"d\": \"M90 0C49.5 -14 14 -14 0 -14A14 14 0 0 0 0 14C14 14 49.5 14 90 0Z\",\n      \"transform\": \"translate(280 280) rotate(150)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#5b6cff\",\n      \"#38d4b0\"\n    ],\n    \"dark\": [\n      \"#7c8bff\",\n      \"#6fe6c8\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"rotate\": -3\n    },\n    \"accent\": {\n      \"y\": -8\n    }\n  }\n};\n\nexport const meta = {\n  \"slug\": \"sold-sign\",\n  \"name\": \"Sold sign\",\n  \"group\": \"Real estate\",\n  \"motion\": \"swing\",\n  \"component\": \"PrequelSoldSignPictogram\"\n};\n\nexport function createPrequelSoldSignPictogram(root, options = {}) {\n  return createCategoryPictogram(root, definition, options);\n}\n"
+    }
+  ]
+}

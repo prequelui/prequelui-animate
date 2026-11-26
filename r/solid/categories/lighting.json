@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-lighting",
+  "type": "registry:ui",
+  "title": "Lighting Pictogram",
+  "description": "A pendant lamp with a trapezoid shade, a stem and a base, over a split orb.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Home",
+    "theme": "orange",
+    "motion": "swing",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#ff7a5c",
+        "#ff5ca8"
+      ],
+      "dark": [
+        "#ff9a7c",
+        "#ff7cc0"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "src/components/prequelui/categories/pictogram-lighting.tsx",
+      "target": "src/components/prequelui/categories/pictogram-lighting.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { CategoryPictogram } from \"./category-core\";\n\nexport const definition = {\n  \"slug\": \"lighting\",\n  \"name\": \"Lighting\",\n  \"group\": \"Home\",\n  \"theme\": \"orange\",\n  \"keywords\": [\n    \"lamp\",\n    \"light\",\n    \"interior\",\n    \"home\"\n  ],\n  \"description\": \"A pendant lamp with a trapezoid shade, a stem and a base, over a split orb.\",\n  \"motion\": \"swing\",\n  \"ink\": [\n    {\n      \"d\": \"M352 296H672L748 512H276Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M512 512V716\",\n      \"width\": 24\n    },\n    {\n      \"d\": \"M428 716H596A22 22 0 0 1 618 738V738A22 22 0 0 1 596 760H428A22 22 0 0 1 406 738V738A22 22 0 0 1 428 716Z\",\n      \"width\": 23\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-15 -108.97A110 110 0 1 0 -15 108.97Z\",\n      \"transform\": \"translate(512 420) rotate(0)\"\n    },\n    {\n      \"d\": \"M15 -108.97A110 110 0 0 1 15 108.97Z\",\n      \"transform\": \"translate(512 420) rotate(0)\"\n    },\n    {\n      \"d\": \"M100 0C55 -15 15 -15 0 -15A15 15 0 0 0 0 15C15 15 55 15 100 0Z\",\n      \"transform\": \"translate(740 300) rotate(-22)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#ff7a5c\",\n      \"#ff5ca8\"\n    ],\n    \"dark\": [\n      \"#ff9a7c\",\n      \"#ff7cc0\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"rotate\": -3\n    },\n    \"accent\": {\n      \"y\": -8\n    }\n  }\n};\n\nexport function PrequelLightingPictogram(props) {\n  return <CategoryPictogram definition={definition} {...props} />;\n}\n"
+    }
+  ]
+}

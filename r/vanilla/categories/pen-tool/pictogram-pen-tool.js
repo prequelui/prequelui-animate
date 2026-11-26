@@ -1,0 +1,75 @@
+import { createCategoryPictogram } from "./category-core.js";
+
+export const definition = {
+  "slug": "pen-tool",
+  "name": "Pen tool",
+  "group": "Design",
+  "theme": "pink",
+  "keywords": [
+    "pen",
+    "nib",
+    "vector",
+    "bezier"
+  ],
+  "description": "A vector nib with a hole, a slit and a split orb behind the shoulder.",
+  "motion": "tilt",
+  "ink": [
+    {
+      "d": "M512 214L700 430L626 690Q512 792 398 690L324 430Z",
+      "width": 23
+    },
+    {
+      "d": "M512 500V690",
+      "width": 22
+    },
+    {
+      "d": "M472 462A40 40 0 1 0 552 462A40 40 0 1 0 472 462Z",
+      "width": 23
+    }
+  ],
+  "accent": [
+    {
+      "d": "M-13 -95.12A96 96 0 1 0 -13 95.12Z",
+      "transform": "translate(762 352) rotate(0)"
+    },
+    {
+      "d": "M13 -95.12A96 96 0 0 1 13 95.12Z",
+      "transform": "translate(762 352) rotate(0)"
+    },
+    {
+      "d": "M108 0C59.4 -17 17 -17 0 -17A17 17 0 0 0 0 17C17 17 59.4 17 108 0Z",
+      "transform": "translate(300 300) rotate(148)"
+    }
+  ],
+  "palette": {
+    "light": [
+      "#ff6ca8",
+      "#c06cff"
+    ],
+    "dark": [
+      "#ff8cc0",
+      "#d08cff"
+    ]
+  },
+  "motionConfig": {
+    "main": {
+      "rotate": -2.4
+    },
+    "accent": {
+      "x": 12,
+      "y": -6
+    }
+  }
+};
+
+export const meta = {
+  "slug": "pen-tool",
+  "name": "Pen tool",
+  "group": "Design",
+  "motion": "tilt",
+  "component": "PrequelPenToolPictogram"
+};
+
+export function createPrequelPenToolPictogram(root, options = {}) {
+  return createCategoryPictogram(root, definition, options);
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-car",
+  "type": "registry:ui",
+  "title": "Car Pictogram",
+  "description": "A compact car in profile with two wheels, glazed windows and a comet trailing the exhaust.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Auto",
+    "theme": "steel",
+    "motion": "drive",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#7a8ba8",
+        "#4aa8ff"
+      ],
+      "dark": [
+        "#96a6c4",
+        "#74baff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/pictogram-car.js",
+      "target": "components/prequelui/categories/pictogram-car.js",
+      "type": "registry:ui",
+      "content": "import { createCategoryPictogram } from \"./category-core.js\";\n\nexport const definition = {\n  \"slug\": \"car\",\n  \"name\": \"Car\",\n  \"group\": \"Auto\",\n  \"theme\": \"steel\",\n  \"keywords\": [\n    \"car\",\n    \"auto\",\n    \"vehicle\",\n    \"drive\",\n    \"mobility\"\n  ],\n  \"description\": \"A compact car in profile with two wheels, glazed windows and a comet trailing the exhaust.\",\n  \"motion\": \"drive\",\n  \"ink\": [\n    {\n      \"d\": \"M214 604H286L356 474H606L676 552H810V660C810 688 788 710 760 710H264C236 710 214 688 214 660Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M390 492H486V548H344Z\",\n      \"width\": 20\n    },\n    {\n      \"d\": \"M514 492H594L640 548H514Z\",\n      \"width\": 20\n    },\n    {\n      \"d\": \"M270 710A70 70 0 1 0 410 710A70 70 0 1 0 270 710Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M630 710A70 70 0 1 0 770 710A70 70 0 1 0 630 710Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M310 710A30 30 0 1 0 370 710A30 30 0 1 0 310 710Z\",\n      \"width\": 20\n    },\n    {\n      \"d\": \"M670 710A30 30 0 1 0 730 710A30 30 0 1 0 670 710Z\",\n      \"width\": 20\n    },\n    {\n      \"d\": \"M766 584H794A8 8 0 0 1 802 592V594A8 8 0 0 1 794 602H766A8 8 0 0 1 758 594V592A8 8 0 0 1 766 584Z\",\n      \"fill\": true\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-15 -98.87A100 100 0 1 0 -15 98.87Z\",\n      \"transform\": \"translate(806 486) rotate(0)\"\n    },\n    {\n      \"d\": \"M15 -98.87A100 100 0 0 1 15 98.87Z\",\n      \"transform\": \"translate(806 486) rotate(0)\"\n    },\n    {\n      \"d\": \"M104 0C57.2 -15 15 -15 0 -15A15 15 0 0 0 0 15C15 15 57.2 15 104 0Z\",\n      \"transform\": \"translate(184 650) rotate(168)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#7a8ba8\",\n      \"#4aa8ff\"\n    ],\n    \"dark\": [\n      \"#96a6c4\",\n      \"#74baff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"x\": 8\n    },\n    \"accent\": {\n      \"x\": -12,\n      \"y\": -8\n    }\n  }\n};\n\nexport const meta = {\n  \"slug\": \"car\",\n  \"name\": \"Car\",\n  \"group\": \"Auto\",\n  \"motion\": \"drive\",\n  \"component\": \"PrequelCarPictogram\"\n};\n\nexport function createPrequelCarPictogram(root, options = {}) {\n  return createCategoryPictogram(root, definition, options);\n}\n"
+    }
+  ]
+}

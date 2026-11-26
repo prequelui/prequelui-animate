@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-solar",
+  "type": "registry:ui",
+  "title": "Solar panel Pictogram",
+  "description": "A tilted solar array on a stand, its face split into cells, with a split orb sun above.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Energy",
+    "theme": "volt",
+    "motion": "shine",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#a8d94a",
+        "#58c8ff"
+      ],
+      "dark": [
+        "#c0e87a",
+        "#7cd6ff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/pictogram-solar.js",
+      "target": "components/prequelui/categories/pictogram-solar.js",
+      "type": "registry:ui",
+      "content": "import { createCategoryPictogram } from \"./category-core.js\";\n\nexport const definition = {\n  \"slug\": \"solar\",\n  \"name\": \"Solar panel\",\n  \"group\": \"Energy\",\n  \"theme\": \"volt\",\n  \"keywords\": [\n    \"solar\",\n    \"energy\",\n    \"panel\",\n    \"sun\",\n    \"renewable\"\n  ],\n  \"description\": \"A tilted solar array on a stand, its face split into cells, with a split orb sun above.\",\n  \"motion\": \"shine\",\n  \"ink\": [\n    {\n      \"d\": \"M240 560L380 380H840L700 560Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M330 470H770\",\n      \"width\": 16\n    },\n    {\n      \"d\": \"M410 560H820\",\n      \"width\": 16\n    },\n    {\n      \"d\": \"M444 380L370 560\",\n      \"width\": 16\n    },\n    {\n      \"d\": \"M604 380L530 560\",\n      \"width\": 16\n    },\n    {\n      \"d\": \"M764 380L690 560\",\n      \"width\": 16\n    },\n    {\n      \"d\": \"M470 560V720\",\n      \"width\": 22\n    },\n    {\n      \"d\": \"M554 560V720\",\n      \"width\": 22\n    },\n    {\n      \"d\": \"M410 740H614A10 10 0 0 1 624 750V760A10 10 0 0 1 614 770H410A10 10 0 0 1 400 760V750A10 10 0 0 1 410 740Z\",\n      \"width\": 23\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-14 -86.88A88 88 0 1 0 -14 86.88Z\",\n      \"transform\": \"translate(790 280) rotate(0)\"\n    },\n    {\n      \"d\": \"M14 -86.88A88 88 0 0 1 14 86.88Z\",\n      \"transform\": \"translate(790 280) rotate(0)\"\n    },\n    {\n      \"d\": \"M90 0C49.5 -13 13 -13 0 -13A13 13 0 0 0 0 13C13 13 49.5 13 90 0Z\",\n      \"transform\": \"translate(690 250) rotate(-30)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#a8d94a\",\n      \"#58c8ff\"\n    ],\n    \"dark\": [\n      \"#c0e87a\",\n      \"#7cd6ff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {},\n    \"accent\": {\n      \"scale\": 1.12\n    }\n  }\n};\n\nexport const meta = {\n  \"slug\": \"solar\",\n  \"name\": \"Solar panel\",\n  \"group\": \"Energy\",\n  \"motion\": \"shine\",\n  \"component\": \"PrequelSolarPanelPictogram\"\n};\n\nexport function createPrequelSolarPanelPictogram(root, options = {}) {\n  return createCategoryPictogram(root, definition, options);\n}\n"
+    }
+  ]
+}

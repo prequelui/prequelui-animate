@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-code",
+  "type": "registry:ui",
+  "title": "Code Pictogram",
+  "description": "Two chevrons and a slash wrapped around a split orb.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Development",
+    "theme": "teal",
+    "motion": "pulse",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#2fd3c0",
+        "#46a4ff"
+      ],
+      "dark": [
+        "#5fe6d4",
+        "#6cbaff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "src/components/prequelui/categories/pictogram-code.tsx",
+      "target": "src/components/prequelui/categories/pictogram-code.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { CategoryPictogram } from \"./category-core\";\n\nexport const definition = {\n  \"slug\": \"code\",\n  \"name\": \"Code\",\n  \"group\": \"Development\",\n  \"theme\": \"teal\",\n  \"keywords\": [\n    \"code\",\n    \"brackets\",\n    \"developer\",\n    \"program\"\n  ],\n  \"description\": \"Two chevrons and a slash wrapped around a split orb.\",\n  \"motion\": \"pulse\",\n  \"ink\": [\n    {\n      \"d\": \"M408 342L252 512L408 682\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M616 342L772 512L616 682\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M566 300L458 724\",\n      \"width\": 23\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-20 -148.66A150 150 0 1 0 -20 148.66Z\",\n      \"transform\": \"translate(512 512) rotate(0)\"\n    },\n    {\n      \"d\": \"M20 -148.66A150 150 0 0 1 20 148.66Z\",\n      \"transform\": \"translate(512 512) rotate(0)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#2fd3c0\",\n      \"#46a4ff\"\n    ],\n    \"dark\": [\n      \"#5fe6d4\",\n      \"#6cbaff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {},\n    \"accent\": {\n      \"scale\": 1.08\n    }\n  }\n};\n\nexport function PrequelCodePictogram(props) {\n  return <CategoryPictogram definition={definition} {...props} />;\n}\n"
+    }
+  ]
+}

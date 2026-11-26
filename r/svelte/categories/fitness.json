@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-fitness",
+  "type": "registry:component",
+  "title": "Fitness Pictogram",
+  "description": "A tilted dumbbell with four stacked plates and a split orb behind the bar.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Sport",
+    "theme": "lime",
+    "motion": "tilt",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#a8d94a",
+        "#38d4b0"
+      ],
+      "dark": [
+        "#c0e87a",
+        "#6fe6c8"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/categories/PrequelFitnessPictogram.svelte",
+      "target": "~/src/lib/components/prequelui/categories/PrequelFitnessPictogram.svelte",
+      "type": "registry:file",
+      "content": "<script module>\n  export const definition = {\n  \"slug\": \"fitness\",\n  \"name\": \"Fitness\",\n  \"group\": \"Sport\",\n  \"theme\": \"lime\",\n  \"keywords\": [\n    \"dumbbell\",\n    \"gym\",\n    \"fitness\",\n    \"workout\"\n  ],\n  \"description\": \"A tilted dumbbell with four stacked plates and a split orb behind the bar.\",\n  \"motion\": \"tilt\",\n  \"ink\": [\n    {\n      \"d\": \"M352 512H672\",\n      \"width\": 30,\n      \"transform\": \"rotate(-18 512 512)\"\n    },\n    {\n      \"d\": \"M224 388H254A28 28 0 0 1 282 416V608A28 28 0 0 1 254 636H224A28 28 0 0 1 196 608V416A28 28 0 0 1 224 388Z\",\n      \"width\": 23,\n      \"transform\": \"rotate(-18 512 512)\"\n    },\n    {\n      \"d\": \"M304 432H316A22 22 0 0 1 338 454V570A22 22 0 0 1 316 592H304A22 22 0 0 1 282 570V454A22 22 0 0 1 304 432Z\",\n      \"width\": 23,\n      \"transform\": \"rotate(-18 512 512)\"\n    },\n    {\n      \"d\": \"M770 388H800A28 28 0 0 1 828 416V608A28 28 0 0 1 800 636H770A28 28 0 0 1 742 608V416A28 28 0 0 1 770 388Z\",\n      \"width\": 23,\n      \"transform\": \"rotate(-18 512 512)\"\n    },\n    {\n      \"d\": \"M708 432H720A22 22 0 0 1 742 454V570A22 22 0 0 1 720 592H708A22 22 0 0 1 686 570V454A22 22 0 0 1 708 432Z\",\n      \"width\": 23,\n      \"transform\": \"rotate(-18 512 512)\"\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-14 -96.99A98 98 0 1 0 -14 96.99Z\",\n      \"transform\": \"translate(740 344) rotate(0)\"\n    },\n    {\n      \"d\": \"M14 -96.99A98 98 0 0 1 14 96.99Z\",\n      \"transform\": \"translate(740 344) rotate(0)\"\n    },\n    {\n      \"d\": \"M108 0C59.4 -17 17 -17 0 -17A17 17 0 0 0 0 17C17 17 59.4 17 108 0Z\",\n      \"transform\": \"translate(286 300) rotate(148)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#a8d94a\",\n      \"#38d4b0\"\n    ],\n    \"dark\": [\n      \"#c0e87a\",\n      \"#6fe6c8\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"rotate\": -2.4\n    },\n    \"accent\": {\n      \"x\": 12,\n      \"y\": -6\n    }\n  }\n};\n</script>\n\n<script>\n  import CategoryPictogram from \"./category-core.svelte\";\n  let { ...rest } = $props();\n</script>\n\n<CategoryPictogram definition={definition} {...rest} />\n"
+    }
+  ]
+}

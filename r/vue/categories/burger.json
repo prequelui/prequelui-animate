@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-burger",
+  "type": "registry:ui",
+  "title": "Burger Pictogram",
+  "description": "A stacked burger with a domed bun, sesame seeds, lettuce, cheese and a split orb behind.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vue/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Food",
+    "theme": "citrus",
+    "motion": "orb",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#ffb24a",
+        "#ff6a5c"
+      ],
+      "dark": [
+        "#ffc46a",
+        "#ff8a7c"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/PrequelBurgerPictogram.vue",
+      "target": "components/prequelui/categories/PrequelBurgerPictogram.vue",
+      "type": "registry:ui",
+      "content": "<script>\nexport const definition = {\n  \"slug\": \"burger\",\n  \"name\": \"Burger\",\n  \"group\": \"Food\",\n  \"theme\": \"citrus\",\n  \"keywords\": [\n    \"burger\",\n    \"food\",\n    \"restaurant\",\n    \"fast\",\n    \"lunch\"\n  ],\n  \"description\": \"A stacked burger with a domed bun, sesame seeds, lettuce, cheese and a split orb behind.\",\n  \"motion\": \"orb\",\n  \"ink\": [\n    {\n      \"d\": \"M244 480C244 360 366 292 512 292C658 292 780 360 780 480Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M415 400A15 9 0 1 0 445 400A15 9 0 1 0 415 400Z\",\n      \"fill\": true\n    },\n    {\n      \"d\": \"M513 372A17 10 0 1 0 547 372A17 10 0 1 0 513 372Z\",\n      \"fill\": true\n    },\n    {\n      \"d\": \"M608 408A14 9 0 1 0 636 408A14 9 0 1 0 608 408Z\",\n      \"fill\": true\n    },\n    {\n      \"d\": \"M246 512C300 484 332 540 386 512C440 484 472 540 526 512C580 484 612 540 666 512C714 486 746 534 778 512\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M260 596H764\",\n      \"width\": 22\n    },\n    {\n      \"d\": \"M420 596V640Q420 664 444 664Q468 664 468 640V596\",\n      \"width\": 18\n    },\n    {\n      \"d\": \"M576 596V640Q576 664 600 664Q624 664 624 640V596\",\n      \"width\": 18\n    },\n    {\n      \"d\": \"M316 612H708A30 30 0 0 1 738 642V664A30 30 0 0 1 708 694H316A30 30 0 0 1 286 664V642A30 30 0 0 1 316 612Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M286 704H738C738 764 650 792 512 792C374 792 286 764 286 704Z\",\n      \"width\": 23\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-15 -106.95A108 108 0 1 0 -15 106.95Z\",\n      \"transform\": \"translate(772 524) rotate(-8)\"\n    },\n    {\n      \"d\": \"M15 -106.95A108 108 0 0 1 15 106.95Z\",\n      \"transform\": \"translate(772 524) rotate(-8)\"\n    },\n    {\n      \"d\": \"M100 0C55 -16 16 -16 0 -16A16 16 0 0 0 0 16C16 16 55 16 100 0Z\",\n      \"transform\": \"translate(240 330) rotate(152)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#ffb24a\",\n      \"#ff6a5c\"\n    ],\n    \"dark\": [\n      \"#ffc46a\",\n      \"#ff8a7c\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {},\n    \"accent\": {\n      \"x\": 16,\n      \"y\": -10\n    }\n  }\n};\n</script>\n\n<script setup>\nimport CategoryPictogram from \"./category-core.vue\";\n</script>\n\n<template>\n  <CategoryPictogram :definition=\"definition\" />\n</template>\n"
+    }
+  ]
+}

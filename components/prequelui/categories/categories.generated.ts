@@ -490,42 +490,42 @@ export const categoryPictograms: CategoryPictogramDefinition[] = [
     "motion": "pulse",
     "ink": [
       {
-        "d": "M227 322A285 93 0 1 0 797 322A285 93 0 1 0 227 322Z",
+        "d": "M322 370A190 62 0 1 0 702 370A190 62 0 1 0 322 370Z",
         "width": 23
       },
       {
-        "d": "M227 322V608",
+        "d": "M322 370V560",
         "width": 22
       },
       {
-        "d": "M797 322V608",
+        "d": "M702 370V560",
         "width": 22
       },
       {
-        "d": "M227 608A285 93 0 0 0 797 608",
+        "d": "M322 560A190 62 0 0 0 702 560",
         "width": 23
       },
       {
-        "d": "M227 412A285 93 0 0 0 797 412",
+        "d": "M322 430A190 62 0 0 0 702 430",
         "width": 20
       },
       {
-        "d": "M227 512A285 93 0 0 0 797 512",
+        "d": "M322 496A190 62 0 0 0 702 496",
         "width": 20
       }
     ],
     "accent": [
       {
         "d": "M-14 -99.02A100 100 0 1 0 -14 99.02Z",
-        "transform": "translate(804 350) rotate(0)"
+        "transform": "translate(752 420) rotate(0)"
       },
       {
         "d": "M14 -99.02A100 100 0 0 1 14 99.02Z",
-        "transform": "translate(804 350) rotate(0)"
+        "transform": "translate(752 420) rotate(0)"
       },
       {
         "d": "M110 0C60.5 -17 17 -17 0 -17A17 17 0 0 0 0 17C17 17 60.5 17 110 0Z",
-        "transform": "translate(250 215) rotate(146)"
+        "transform": "translate(286 300) rotate(146)"
       }
     ],
     "palette": {

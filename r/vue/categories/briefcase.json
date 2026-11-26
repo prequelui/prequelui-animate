@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-briefcase",
+  "type": "registry:ui",
+  "title": "Briefcase Pictogram",
+  "description": "A wide briefcase with a rounded handle, a centre seam and two bright clasps.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vue/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Jobs",
+    "theme": "blue",
+    "motion": "orb",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#4aa8ff",
+        "#7a6cff"
+      ],
+      "dark": [
+        "#74baff",
+        "#9a8cff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/PrequelBriefcasePictogram.vue",
+      "target": "components/prequelui/categories/PrequelBriefcasePictogram.vue",
+      "type": "registry:ui",
+      "content": "<script>\nexport const definition = {\n  \"slug\": \"briefcase\",\n  \"name\": \"Briefcase\",\n  \"group\": \"Jobs\",\n  \"theme\": \"blue\",\n  \"keywords\": [\n    \"briefcase\",\n    \"work\",\n    \"job\",\n    \"office\",\n    \"business\"\n  ],\n  \"description\": \"A wide briefcase with a rounded handle, a centre seam and two bright clasps.\",\n  \"motion\": \"orb\",\n  \"ink\": [\n    {\n      \"d\": \"M254 380H770A34 34 0 0 1 804 414V706A34 34 0 0 1 770 740H254A34 34 0 0 1 220 706V414A34 34 0 0 1 254 380Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M400 380V330Q400 260 512 260Q624 260 624 330V380\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M220 520H804\",\n      \"width\": 20\n    },\n    {\n      \"d\": \"M308 500H348A8 8 0 0 1 356 508V532A8 8 0 0 1 348 540H308A8 8 0 0 1 300 532V508A8 8 0 0 1 308 500Z\",\n      \"fill\": true\n    },\n    {\n      \"d\": \"M676 500H716A8 8 0 0 1 724 508V532A8 8 0 0 1 716 540H676A8 8 0 0 1 668 532V508A8 8 0 0 1 676 500Z\",\n      \"fill\": true\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-15 -98.87A100 100 0 1 0 -15 98.87Z\",\n      \"transform\": \"translate(760 440) rotate(0)\"\n    },\n    {\n      \"d\": \"M15 -98.87A100 100 0 0 1 15 98.87Z\",\n      \"transform\": \"translate(760 440) rotate(0)\"\n    },\n    {\n      \"d\": \"M90 0C49.5 -14 14 -14 0 -14A14 14 0 0 0 0 14C14 14 49.5 14 90 0Z\",\n      \"transform\": \"translate(260 300) rotate(150)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#4aa8ff\",\n      \"#7a6cff\"\n    ],\n    \"dark\": [\n      \"#74baff\",\n      \"#9a8cff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {},\n    \"accent\": {\n      \"x\": 16,\n      \"y\": -10\n    }\n  }\n};\n</script>\n\n<script setup>\nimport CategoryPictogram from \"./category-core.vue\";\n</script>\n\n<template>\n  <CategoryPictogram :definition=\"definition\" />\n</template>\n"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-paw",
+  "type": "registry:ui",
+  "title": "Paw Pictogram",
+  "description": "A broad paw pad with four toe pads, resting in front of a wide split orb.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vue/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Animals",
+    "theme": "forest",
+    "motion": "pulse",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#38d4b0",
+        "#a8d94a"
+      ],
+      "dark": [
+        "#6fe6c8",
+        "#c0e87a"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/PrequelPawPictogram.vue",
+      "target": "components/prequelui/categories/PrequelPawPictogram.vue",
+      "type": "registry:ui",
+      "content": "<script>\nexport const definition = {\n  \"slug\": \"paw\",\n  \"name\": \"Paw\",\n  \"group\": \"Animals\",\n  \"theme\": \"forest\",\n  \"keywords\": [\n    \"paw\",\n    \"pet\",\n    \"animal\",\n    \"dog\",\n    \"cat\"\n  ],\n  \"description\": \"A broad paw pad with four toe pads, resting in front of a wide split orb.\",\n  \"motion\": \"pulse\",\n  \"ink\": [\n    {\n      \"d\": \"M512 800C380 800 318 720 318 650C318 578 400 538 512 538C624 538 706 578 706 650C706 720 644 800 512 800Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M288 448A68 88 0 1 0 424 448A68 88 0 1 0 288 448Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M374 366A70 92 0 1 0 514 366A70 92 0 1 0 374 366Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M510 366A70 92 0 1 0 650 366A70 92 0 1 0 510 366Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M600 448A68 88 0 1 0 736 448A68 88 0 1 0 600 448Z\",\n      \"width\": 23\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-16 -129.01A130 130 0 1 0 -16 129.01Z\",\n      \"transform\": \"translate(512 650) rotate(0)\"\n    },\n    {\n      \"d\": \"M16 -129.01A130 130 0 0 1 16 129.01Z\",\n      \"transform\": \"translate(512 650) rotate(0)\"\n    },\n    {\n      \"d\": \"M90 0C49.5 -14 14 -14 0 -14A14 14 0 0 0 0 14C14 14 49.5 14 90 0Z\",\n      \"transform\": \"translate(790 300) rotate(-30)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#38d4b0\",\n      \"#a8d94a\"\n    ],\n    \"dark\": [\n      \"#6fe6c8\",\n      \"#c0e87a\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {},\n    \"accent\": {\n      \"scale\": 1.08\n    }\n  }\n};\n</script>\n\n<script setup>\nimport CategoryPictogram from \"./category-core.vue\";\n</script>\n\n<template>\n  <CategoryPictogram :definition=\"definition\" />\n</template>\n"
+    }
+  ]
+}

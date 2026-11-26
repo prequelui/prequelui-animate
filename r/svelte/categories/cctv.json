@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-cctv",
+  "type": "registry:component",
+  "title": "CCTV camera Pictogram",
+  "description": "A wall camera with a hooded body, a round lens and a short mounting bracket.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Security",
+    "theme": "alert",
+    "motion": "tilt",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#ff6a6a",
+        "#7a6cff"
+      ],
+      "dark": [
+        "#ff8a8a",
+        "#9a8cff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/categories/PrequelCCTVCameraPictogram.svelte",
+      "target": "~/src/lib/components/prequelui/categories/PrequelCCTVCameraPictogram.svelte",
+      "type": "registry:file",
+      "content": "<script module>\n  export const definition = {\n  \"slug\": \"cctv\",\n  \"name\": \"CCTV camera\",\n  \"group\": \"Security\",\n  \"theme\": \"alert\",\n  \"keywords\": [\n    \"cctv\",\n    \"camera\",\n    \"security\",\n    \"watch\",\n    \"surveillance\"\n  ],\n  \"description\": \"A wall camera with a hooded body, a round lens and a short mounting bracket.\",\n  \"motion\": \"tilt\",\n  \"ink\": [\n    {\n      \"d\": \"M280 380H650L730 450V530L650 600H280Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M600 490A50 50 0 1 0 700 490A50 50 0 1 0 600 490Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M626 490A24 24 0 1 0 674 490A24 24 0 1 0 626 490Z\",\n      \"fill\": true\n    },\n    {\n      \"d\": \"M420 600V720\",\n      \"width\": 22\n    },\n    {\n      \"d\": \"M362 720H518A12 12 0 0 1 530 732V742A12 12 0 0 1 518 754H362A12 12 0 0 1 350 742V732A12 12 0 0 1 362 720Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M318 430A12 12 0 1 0 342 430A12 12 0 1 0 318 430Z\",\n      \"fill\": true\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-15 -94.82A96 96 0 1 0 -15 94.82Z\",\n      \"transform\": \"translate(770 480) rotate(0)\"\n    },\n    {\n      \"d\": \"M15 -94.82A96 96 0 0 1 15 94.82Z\",\n      \"transform\": \"translate(770 480) rotate(0)\"\n    },\n    {\n      \"d\": \"M90 0C49.5 -14 14 -14 0 -14A14 14 0 0 0 0 14C14 14 49.5 14 90 0Z\",\n      \"transform\": \"translate(250 320) rotate(150)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#ff6a6a\",\n      \"#7a6cff\"\n    ],\n    \"dark\": [\n      \"#ff8a8a\",\n      \"#9a8cff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"rotate\": -2.4\n    },\n    \"accent\": {\n      \"x\": 12,\n      \"y\": -6\n    }\n  }\n};\n</script>\n\n<script>\n  import CategoryPictogram from \"./category-core.svelte\";\n  let { ...rest } = $props();\n</script>\n\n<CategoryPictogram definition={definition} {...rest} />\n"
+    }
+  ]
+}

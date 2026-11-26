@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-siren",
+  "type": "registry:ui",
+  "title": "Siren Pictogram",
+  "description": "A domed alarm on a plinth with three comets radiating from its crown.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Security",
+    "theme": "alert",
+    "motion": "pulse",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#ff6a6a",
+        "#7a6cff"
+      ],
+      "dark": [
+        "#ff8a8a",
+        "#9a8cff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/pictogram-siren.js",
+      "target": "components/prequelui/categories/pictogram-siren.js",
+      "type": "registry:ui",
+      "content": "import { createCategoryPictogram } from \"./category-core.js\";\n\nexport const definition = {\n  \"slug\": \"siren\",\n  \"name\": \"Siren\",\n  \"group\": \"Security\",\n  \"theme\": \"alert\",\n  \"keywords\": [\n    \"siren\",\n    \"alarm\",\n    \"security\",\n    \"alert\",\n    \"emergency\"\n  ],\n  \"description\": \"A domed alarm on a plinth with three comets radiating from its crown.\",\n  \"motion\": \"pulse\",\n  \"ink\": [\n    {\n      \"d\": \"M300 620C300 440 390 320 512 320C634 320 724 440 724 620Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M276 620H748A16 16 0 0 1 764 636V664A16 16 0 0 1 748 680H276A16 16 0 0 1 260 664V636A16 16 0 0 1 276 620Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M330 680V760\",\n      \"width\": 22\n    },\n    {\n      \"d\": \"M694 680V760\",\n      \"width\": 22\n    },\n    {\n      \"d\": \"M300 760H380\",\n      \"width\": 22\n    },\n    {\n      \"d\": \"M644 760H724\",\n      \"width\": 22\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-15 -108.97A110 110 0 1 0 -15 108.97Z\",\n      \"transform\": \"translate(512 520) rotate(0)\"\n    },\n    {\n      \"d\": \"M15 -108.97A110 110 0 0 1 15 108.97Z\",\n      \"transform\": \"translate(512 520) rotate(0)\"\n    },\n    {\n      \"d\": \"M80 0C44 -13 13 -13 0 -13A13 13 0 0 0 0 13C13 13 44 13 80 0Z\",\n      \"transform\": \"translate(380 280) rotate(-128)\"\n    },\n    {\n      \"d\": \"M96 0C52.8 -15 15 -15 0 -15A15 15 0 0 0 0 15C15 15 52.8 15 96 0Z\",\n      \"transform\": \"translate(512 250) rotate(-90)\"\n    },\n    {\n      \"d\": \"M80 0C44 -13 13 -13 0 -13A13 13 0 0 0 0 13C13 13 44 13 80 0Z\",\n      \"transform\": \"translate(644 280) rotate(-52)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#ff6a6a\",\n      \"#7a6cff\"\n    ],\n    \"dark\": [\n      \"#ff8a8a\",\n      \"#9a8cff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {},\n    \"accent\": {\n      \"scale\": 1.08\n    }\n  }\n};\n\nexport const meta = {\n  \"slug\": \"siren\",\n  \"name\": \"Siren\",\n  \"group\": \"Security\",\n  \"motion\": \"pulse\",\n  \"component\": \"PrequelSirenPictogram\"\n};\n\nexport function createPrequelSirenPictogram(root, options = {}) {\n  return createCategoryPictogram(root, definition, options);\n}\n"
+    }
+  ]
+}

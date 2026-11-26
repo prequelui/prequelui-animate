@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-balloon",
+  "type": "registry:component",
+  "title": "Balloon Pictogram",
+  "description": "A tall balloon with a knotted neck, a curling string and a bright highlight.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Kids",
+    "theme": "candy",
+    "motion": "swing",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#ff6ca8",
+        "#ffc24a"
+      ],
+      "dark": [
+        "#ff8cc0",
+        "#ffd06a"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/categories/PrequelBalloonPictogram.svelte",
+      "target": "~/src/lib/components/prequelui/categories/PrequelBalloonPictogram.svelte",
+      "type": "registry:file",
+      "content": "<script module>\n  export const definition = {\n  \"slug\": \"balloon\",\n  \"name\": \"Balloon\",\n  \"group\": \"Kids\",\n  \"theme\": \"candy\",\n  \"keywords\": [\n    \"balloon\",\n    \"party\",\n    \"kids\",\n    \"birthday\",\n    \"celebration\"\n  ],\n  \"description\": \"A tall balloon with a knotted neck, a curling string and a bright highlight.\",\n  \"motion\": \"swing\",\n  \"ink\": [\n    {\n      \"d\": \"M512 216C664 216 766 318 766 452C766 584 646 656 512 676C378 656 258 584 258 452C258 318 360 216 512 216Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M484 676H540L512 716Z\",\n      \"fill\": true\n    },\n    {\n      \"d\": \"M512 716C470 756 552 786 512 824\",\n      \"width\": 18\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M392 348A30 52 0 1 0 452 348A30 52 0 1 0 392 348Z\"\n    },\n    {\n      \"d\": \"M-14 -88.9A90 90 0 1 0 -14 88.9Z\",\n      \"transform\": \"translate(768 470) rotate(0)\"\n    },\n    {\n      \"d\": \"M14 -88.9A90 90 0 0 1 14 88.9Z\",\n      \"transform\": \"translate(768 470) rotate(0)\"\n    },\n    {\n      \"d\": \"M84 0C46.2 -13 13 -13 0 -13A13 13 0 0 0 0 13C13 13 46.2 13 84 0Z\",\n      \"transform\": \"translate(286 282) rotate(150)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#ff6ca8\",\n      \"#ffc24a\"\n    ],\n    \"dark\": [\n      \"#ff8cc0\",\n      \"#ffd06a\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"rotate\": -3\n    },\n    \"accent\": {\n      \"y\": -8\n    }\n  }\n};\n</script>\n\n<script>\n  import CategoryPictogram from \"./category-core.svelte\";\n  let { ...rest } = $props();\n</script>\n\n<CategoryPictogram definition={definition} {...rest} />\n"
+    }
+  ]
+}

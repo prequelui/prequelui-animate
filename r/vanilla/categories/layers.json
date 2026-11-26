@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-layers",
+  "type": "registry:ui",
+  "title": "Layers Pictogram",
+  "description": "Three stacked plates, with an orb inside the top plate and a comet above.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Design",
+    "theme": "pink",
+    "motion": "float",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#ff6ca8",
+        "#c06cff"
+      ],
+      "dark": [
+        "#ff8cc0",
+        "#d08cff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/pictogram-layers.js",
+      "target": "components/prequelui/categories/pictogram-layers.js",
+      "type": "registry:ui",
+      "content": "import { createCategoryPictogram } from \"./category-core.js\";\n\nexport const definition = {\n  \"slug\": \"layers\",\n  \"name\": \"Layers\",\n  \"group\": \"Design\",\n  \"theme\": \"pink\",\n  \"keywords\": [\n    \"layers\",\n    \"stack\",\n    \"order\",\n    \"design\"\n  ],\n  \"description\": \"Three stacked plates, with an orb inside the top plate and a comet above.\",\n  \"motion\": \"float\",\n  \"ink\": [\n    {\n      \"d\": \"M512 268L808 398L512 528L216 398Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M216 520L512 650L808 520\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M216 640L512 770L808 640\",\n      \"width\": 23\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-17 -128.88A130 130 0 1 0 -17 128.88Z\",\n      \"transform\": \"translate(512 398) rotate(0)\"\n    },\n    {\n      \"d\": \"M17 -128.88A130 130 0 0 1 17 128.88Z\",\n      \"transform\": \"translate(512 398) rotate(0)\"\n    },\n    {\n      \"d\": \"M100 0C55 -15 15 -15 0 -15A15 15 0 0 0 0 15C15 15 55 15 100 0Z\",\n      \"transform\": \"translate(700 260) rotate(-22)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#ff6ca8\",\n      \"#c06cff\"\n    ],\n    \"dark\": [\n      \"#ff8cc0\",\n      \"#d08cff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"y\": -10\n    },\n    \"accent\": {\n      \"y\": -14\n    }\n  }\n};\n\nexport const meta = {\n  \"slug\": \"layers\",\n  \"name\": \"Layers\",\n  \"group\": \"Design\",\n  \"motion\": \"float\",\n  \"component\": \"PrequelLayersPictogram\"\n};\n\nexport function createPrequelLayersPictogram(root, options = {}) {\n  return createCategoryPictogram(root, definition, options);\n}\n"
+    }
+  ]
+}

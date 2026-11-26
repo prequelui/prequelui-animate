@@ -1,0 +1,86 @@
+<script module>
+  export const definition = {
+  "slug": "fish",
+  "name": "Fish",
+  "group": "Animals",
+  "theme": "forest",
+  "keywords": [
+    "fish",
+    "sea",
+    "animal",
+    "aquarium",
+    "pet"
+  ],
+  "description": "A round fish with a fan tail, a dorsal fin and two bubbles drifting from its mouth.",
+  "motion": "swim",
+  "ink": [
+    {
+      "d": "M270 512C370 360 560 340 700 512C560 684 370 664 270 512Z",
+      "width": 23
+    },
+    {
+      "d": "M700 512L820 408V616Z",
+      "width": 23
+    },
+    {
+      "d": "M460 380Q514 296 568 380",
+      "width": 20
+    },
+    {
+      "d": "M374 484A22 22 0 1 0 418 484A22 22 0 1 0 374 484Z",
+      "fill": true
+    },
+    {
+      "d": "M414 440Q376 512 414 584",
+      "width": 20
+    },
+    {
+      "d": "M270 512H312",
+      "width": 18
+    }
+  ],
+  "accent": [
+    {
+      "d": "M-16 -118.93A120 120 0 1 0 -16 118.93Z",
+      "transform": "translate(520 512) rotate(0)"
+    },
+    {
+      "d": "M16 -118.93A120 120 0 0 1 16 118.93Z",
+      "transform": "translate(520 512) rotate(0)"
+    },
+    {
+      "d": "M80 0C44 -12 12 -12 0 -12A12 12 0 0 0 0 12C12 12 44 12 80 0Z",
+      "transform": "translate(252 400) rotate(150)"
+    },
+    {
+      "d": "M62 0C34.1 -10 10 -10 0 -10A10 10 0 0 0 0 10C10 10 34.1 10 62 0Z",
+      "transform": "translate(214 452) rotate(145)"
+    }
+  ],
+  "palette": {
+    "light": [
+      "#38d4b0",
+      "#a8d94a"
+    ],
+    "dark": [
+      "#6fe6c8",
+      "#c0e87a"
+    ]
+  },
+  "motionConfig": {
+    "main": {
+      "x": -8
+    },
+    "accent": {
+      "x": 12
+    }
+  }
+};
+</script>
+
+<script>
+  import CategoryPictogram from "./category-core.svelte";
+  let { ...rest } = $props();
+</script>
+
+<CategoryPictogram definition={definition} {...rest} />

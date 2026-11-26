@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-resume",
+  "type": "registry:ui",
+  "title": "Resume Pictogram",
+  "description": "A profile sheet with a portrait, a name block and four ruled sections, plus a comet.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vue/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Jobs",
+    "theme": "blue",
+    "motion": "comet",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#4aa8ff",
+        "#7a6cff"
+      ],
+      "dark": [
+        "#74baff",
+        "#9a8cff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/PrequelResumePictogram.vue",
+      "target": "components/prequelui/categories/PrequelResumePictogram.vue",
+      "type": "registry:ui",
+      "content": "<script>\nexport const definition = {\n  \"slug\": \"resume\",\n  \"name\": \"Resume\",\n  \"group\": \"Jobs\",\n  \"theme\": \"blue\",\n  \"keywords\": [\n    \"resume\",\n    \"cv\",\n    \"job\",\n    \"hire\",\n    \"profile\"\n  ],\n  \"description\": \"A profile sheet with a portrait, a name block and four ruled sections, plus a comet.\",\n  \"motion\": \"comet\",\n  \"ink\": [\n    {\n      \"d\": \"M324 220H700A24 24 0 0 1 724 244V780A24 24 0 0 1 700 804H324A24 24 0 0 1 300 780V244A24 24 0 0 1 324 220Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M348 336A52 52 0 1 0 452 336A52 52 0 1 0 348 336Z\",\n      \"width\": 20\n    },\n    {\n      \"d\": \"M482 310H650\",\n      \"width\": 18\n    },\n    {\n      \"d\": \"M482 360H610\",\n      \"width\": 18\n    },\n    {\n      \"d\": \"M340 470H684\",\n      \"width\": 18\n    },\n    {\n      \"d\": \"M340 520H684\",\n      \"width\": 18\n    },\n    {\n      \"d\": \"M340 570H620\",\n      \"width\": 18\n    },\n    {\n      \"d\": \"M340 620H660\",\n      \"width\": 18\n    },\n    {\n      \"d\": \"M340 670H580\",\n      \"width\": 18\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-15 -94.82A96 96 0 1 0 -15 94.82Z\",\n      \"transform\": \"translate(780 620) rotate(0)\"\n    },\n    {\n      \"d\": \"M15 -94.82A96 96 0 0 1 15 94.82Z\",\n      \"transform\": \"translate(780 620) rotate(0)\"\n    },\n    {\n      \"d\": \"M90 0C49.5 -14 14 -14 0 -14A14 14 0 0 0 0 14C14 14 49.5 14 90 0Z\",\n      \"transform\": \"translate(240 300) rotate(150)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#4aa8ff\",\n      \"#7a6cff\"\n    ],\n    \"dark\": [\n      \"#74baff\",\n      \"#9a8cff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {},\n    \"accent\": {\n      \"x\": 22,\n      \"y\": -18\n    }\n  }\n};\n</script>\n\n<script setup>\nimport CategoryPictogram from \"./category-core.vue\";\n</script>\n\n<template>\n  <CategoryPictogram :definition=\"definition\" />\n</template>\n"
+    }
+  ]
+}

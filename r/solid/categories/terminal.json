@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-terminal",
+  "type": "registry:ui",
+  "title": "Terminal Pictogram",
+  "description": "A console window with three dots, a prompt and a split orb on the right.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Development",
+    "theme": "teal",
+    "motion": "orb",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#2fd3c0",
+        "#46a4ff"
+      ],
+      "dark": [
+        "#5fe6d4",
+        "#6cbaff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "src/components/prequelui/categories/pictogram-terminal.tsx",
+      "target": "src/components/prequelui/categories/pictogram-terminal.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { CategoryPictogram } from \"./category-core\";\n\nexport const definition = {\n  \"slug\": \"terminal\",\n  \"name\": \"Terminal\",\n  \"group\": \"Development\",\n  \"theme\": \"teal\",\n  \"keywords\": [\n    \"terminal\",\n    \"shell\",\n    \"command\",\n    \"console\"\n  ],\n  \"description\": \"A console window with three dots, a prompt and a split orb on the right.\",\n  \"motion\": \"orb\",\n  \"ink\": [\n    {\n      \"d\": \"M230 260H794A40 40 0 0 1 834 300V724A40 40 0 0 1 794 764H230A40 40 0 0 1 190 724V300A40 40 0 0 1 230 260Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M190 356H834\",\n      \"width\": 22\n    },\n    {\n      \"d\": \"M229 308A15 15 0 1 0 259 308A15 15 0 1 0 229 308Z\",\n      \"fill\": true\n    },\n    {\n      \"d\": \"M279 308A15 15 0 1 0 309 308A15 15 0 1 0 279 308Z\",\n      \"fill\": true\n    },\n    {\n      \"d\": \"M329 308A15 15 0 1 0 359 308A15 15 0 1 0 329 308Z\",\n      \"fill\": true\n    },\n    {\n      \"d\": \"M300 456L382 512L300 568\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M430 568H566\",\n      \"width\": 22\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-15 -108.97A110 110 0 1 0 -15 108.97Z\",\n      \"transform\": \"translate(740 540) rotate(0)\"\n    },\n    {\n      \"d\": \"M15 -108.97A110 110 0 0 1 15 108.97Z\",\n      \"transform\": \"translate(740 540) rotate(0)\"\n    },\n    {\n      \"d\": \"M100 0C55 -15 15 -15 0 -15A15 15 0 0 0 0 15C15 15 55 15 100 0Z\",\n      \"transform\": \"translate(300 400) rotate(148)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#2fd3c0\",\n      \"#46a4ff\"\n    ],\n    \"dark\": [\n      \"#5fe6d4\",\n      \"#6cbaff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {},\n    \"accent\": {\n      \"x\": 16,\n      \"y\": -10\n    }\n  }\n};\n\nexport function PrequelTerminalPictogram(props) {\n  return <CategoryPictogram definition={definition} {...props} />;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-building",
+  "type": "registry:ui",
+  "title": "Building Pictogram",
+  "description": "Two neighbouring towers with lit windows, a door and an antenna, around a tall split orb.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Real estate",
+    "theme": "indigo",
+    "motion": "float",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#5b6cff",
+        "#38d4b0"
+      ],
+      "dark": [
+        "#7c8bff",
+        "#6fe6c8"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "src/components/prequelui/categories/pictogram-building.tsx",
+      "target": "src/components/prequelui/categories/pictogram-building.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { CategoryPictogram } from \"./category-core\";\n\nexport const definition = {\n  \"slug\": \"building\",\n  \"name\": \"Building\",\n  \"group\": \"Real estate\",\n  \"theme\": \"indigo\",\n  \"keywords\": [\n    \"building\",\n    \"estate\",\n    \"city\",\n    \"office\",\n    \"property\"\n  ],\n  \"description\": \"Two neighbouring towers with lit windows, a door and an antenna, around a tall split orb.\",\n  \"motion\": \"float\",\n  \"ink\": [\n    {\n      \"d\": \"M276 340H524A26 26 0 0 1 550 366V738A26 26 0 0 1 524 764H276A26 26 0 0 1 250 738V366A26 26 0 0 1 276 340Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M602 226H770A24 24 0 0 1 794 250V740A24 24 0 0 1 770 764H602A24 24 0 0 1 578 740V250A24 24 0 0 1 602 226Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M308 390H352A8 8 0 0 1 360 398V432A8 8 0 0 1 352 440H308A8 8 0 0 1 300 432V398A8 8 0 0 1 308 390Z\",\n      \"fill\": true\n    },\n    {\n      \"d\": \"M448 390H492A8 8 0 0 1 500 398V432A8 8 0 0 1 492 440H448A8 8 0 0 1 440 432V398A8 8 0 0 1 448 390Z\",\n      \"fill\": true\n    },\n    {\n      \"d\": \"M308 480H352A8 8 0 0 1 360 488V522A8 8 0 0 1 352 530H308A8 8 0 0 1 300 522V488A8 8 0 0 1 308 480Z\",\n      \"fill\": true\n    },\n    {\n      \"d\": \"M448 480H492A8 8 0 0 1 500 488V522A8 8 0 0 1 492 530H448A8 8 0 0 1 440 522V488A8 8 0 0 1 448 480Z\",\n      \"fill\": true\n    },\n    {\n      \"d\": \"M372 650H428A12 12 0 0 1 440 662V752A12 12 0 0 1 428 764H372A12 12 0 0 1 360 752V662A12 12 0 0 1 372 650Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M628 286H664A8 8 0 0 1 672 294V326A8 8 0 0 1 664 334H628A8 8 0 0 1 620 326V294A8 8 0 0 1 628 286Z\",\n      \"fill\": true\n    },\n    {\n      \"d\": \"M712 286H748A8 8 0 0 1 756 294V326A8 8 0 0 1 748 334H712A8 8 0 0 1 704 326V294A8 8 0 0 1 712 286Z\",\n      \"fill\": true\n    },\n    {\n      \"d\": \"M628 376H664A8 8 0 0 1 672 384V416A8 8 0 0 1 664 424H628A8 8 0 0 1 620 416V384A8 8 0 0 1 628 376Z\",\n      \"fill\": true\n    },\n    {\n      \"d\": \"M712 376H748A8 8 0 0 1 756 384V416A8 8 0 0 1 748 424H712A8 8 0 0 1 704 416V384A8 8 0 0 1 712 376Z\",\n      \"fill\": true\n    },\n    {\n      \"d\": \"M686 226V162\",\n      \"width\": 18\n    },\n    {\n      \"d\": \"M674 148A12 12 0 1 0 698 148A12 12 0 1 0 674 148Z\",\n      \"fill\": true\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-16 -116.91A118 118 0 1 0 -16 116.91Z\",\n      \"transform\": \"translate(512 548) rotate(0)\"\n    },\n    {\n      \"d\": \"M16 -116.91A118 118 0 0 1 16 116.91Z\",\n      \"transform\": \"translate(512 548) rotate(0)\"\n    },\n    {\n      \"d\": \"M90 0C49.5 -14 14 -14 0 -14A14 14 0 0 0 0 14C14 14 49.5 14 90 0Z\",\n      \"transform\": \"translate(248 280) rotate(150)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#5b6cff\",\n      \"#38d4b0\"\n    ],\n    \"dark\": [\n      \"#7c8bff\",\n      \"#6fe6c8\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"y\": -10\n    },\n    \"accent\": {\n      \"y\": -14\n    }\n  }\n};\n\nexport function PrequelBuildingPictogram(props) {\n  return <CategoryPictogram definition={definition} {...props} />;\n}\n"
+    }
+  ]
+}

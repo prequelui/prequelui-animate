@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-pencil",
+  "type": "registry:ui",
+  "title": "Pencil Pictogram",
+  "description": "A tilted pencil with a sharpened tip, an eraser block and a comet at the tail.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Education",
+    "theme": "amber",
+    "motion": "tilt",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#ffc24a",
+        "#ff7a5c"
+      ],
+      "dark": [
+        "#ffd06a",
+        "#ff9a7c"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/pictogram-pencil.js",
+      "target": "components/prequelui/categories/pictogram-pencil.js",
+      "type": "registry:ui",
+      "content": "import { createCategoryPictogram } from \"./category-core.js\";\n\nexport const definition = {\n  \"slug\": \"pencil\",\n  \"name\": \"Pencil\",\n  \"group\": \"Education\",\n  \"theme\": \"amber\",\n  \"keywords\": [\n    \"pencil\",\n    \"write\",\n    \"edit\",\n    \"draw\"\n  ],\n  \"description\": \"A tilted pencil with a sharpened tip, an eraser block and a comet at the tail.\",\n  \"motion\": \"tilt\",\n  \"ink\": [\n    {\n      \"d\": \"M448 236H576A18 18 0 0 1 594 254V570A18 18 0 0 1 576 588H448A18 18 0 0 1 430 570V254A18 18 0 0 1 448 236Z\",\n      \"width\": 23,\n      \"transform\": \"rotate(-40 512 512)\"\n    },\n    {\n      \"d\": \"M430 588L512 700L594 588\",\n      \"width\": 23,\n      \"transform\": \"rotate(-40 512 512)\"\n    },\n    {\n      \"d\": \"M446 236H578A16 16 0 0 1 594 252V266A16 16 0 0 1 578 282H446A16 16 0 0 1 430 266V252A16 16 0 0 1 446 236Z\",\n      \"fill\": true,\n      \"transform\": \"rotate(-40 512 512)\"\n    },\n    {\n      \"d\": \"M430 300H594\",\n      \"width\": 20,\n      \"transform\": \"rotate(-40 512 512)\"\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-13 -95.12A96 96 0 1 0 -13 95.12Z\",\n      \"transform\": \"translate(722 690) rotate(0)\"\n    },\n    {\n      \"d\": \"M13 -95.12A96 96 0 0 1 13 95.12Z\",\n      \"transform\": \"translate(722 690) rotate(0)\"\n    },\n    {\n      \"d\": \"M108 0C59.4 -17 17 -17 0 -17A17 17 0 0 0 0 17C17 17 59.4 17 108 0Z\",\n      \"transform\": \"translate(302 272) rotate(148)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#ffc24a\",\n      \"#ff7a5c\"\n    ],\n    \"dark\": [\n      \"#ffd06a\",\n      \"#ff9a7c\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"rotate\": -2.4\n    },\n    \"accent\": {\n      \"x\": 12,\n      \"y\": -6\n    }\n  }\n};\n\nexport const meta = {\n  \"slug\": \"pencil\",\n  \"name\": \"Pencil\",\n  \"group\": \"Education\",\n  \"motion\": \"tilt\",\n  \"component\": \"PrequelPencilPictogram\"\n};\n\nexport function createPrequelPencilPictogram(root, options = {}) {\n  return createCategoryPictogram(root, definition, options);\n}\n"
+    }
+  ]
+}

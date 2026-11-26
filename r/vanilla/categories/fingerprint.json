@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-fingerprint",
+  "type": "registry:ui",
+  "title": "Fingerprint Pictogram",
+  "description": "Four nested fingerprint ridges that close towards the centre, over a split orb.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Security",
+    "theme": "alert",
+    "motion": "pulse",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#ff6a6a",
+        "#7a6cff"
+      ],
+      "dark": [
+        "#ff8a8a",
+        "#9a8cff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/pictogram-fingerprint.js",
+      "target": "components/prequelui/categories/pictogram-fingerprint.js",
+      "type": "registry:ui",
+      "content": "import { createCategoryPictogram } from \"./category-core.js\";\n\nexport const definition = {\n  \"slug\": \"fingerprint\",\n  \"name\": \"Fingerprint\",\n  \"group\": \"Security\",\n  \"theme\": \"alert\",\n  \"keywords\": [\n    \"fingerprint\",\n    \"security\",\n    \"identity\",\n    \"biometric\",\n    \"access\"\n  ],\n  \"description\": \"Four nested fingerprint ridges that close towards the centre, over a split orb.\",\n  \"motion\": \"pulse\",\n  \"ink\": [\n    {\n      \"d\": \"M300 600C300 420 390 280 512 280C634 280 724 420 724 600\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M356 640C356 480 414 348 512 348C610 348 668 480 668 640\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M412 680C412 550 444 424 512 424C580 424 612 550 612 680\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M468 720C468 620 480 500 512 500C544 500 556 620 556 720\",\n      \"width\": 23\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-15 -119.06A120 120 0 1 0 -15 119.06Z\",\n      \"transform\": \"translate(512 512) rotate(0)\"\n    },\n    {\n      \"d\": \"M15 -119.06A120 120 0 0 1 15 119.06Z\",\n      \"transform\": \"translate(512 512) rotate(0)\"\n    },\n    {\n      \"d\": \"M90 0C49.5 -14 14 -14 0 -14A14 14 0 0 0 0 14C14 14 49.5 14 90 0Z\",\n      \"transform\": \"translate(790 300) rotate(-30)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#ff6a6a\",\n      \"#7a6cff\"\n    ],\n    \"dark\": [\n      \"#ff8a8a\",\n      \"#9a8cff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {},\n    \"accent\": {\n      \"scale\": 1.08\n    }\n  }\n};\n\nexport const meta = {\n  \"slug\": \"fingerprint\",\n  \"name\": \"Fingerprint\",\n  \"group\": \"Security\",\n  \"motion\": \"pulse\",\n  \"component\": \"PrequelFingerprintPictogram\"\n};\n\nexport function createPrequelFingerprintPictogram(root, options = {}) {\n  return createCategoryPictogram(root, definition, options);\n}\n"
+    }
+  ]
+}

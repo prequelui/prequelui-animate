@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-sunny",
+  "type": "registry:component",
+  "title": "Sunny Pictogram",
+  "description": "A sun disc with eight rounded rays, next to a split orb and a comet.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Weather",
+    "theme": "sky",
+    "motion": "spin",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#58c8ff",
+        "#8a6cff"
+      ],
+      "dark": [
+        "#7cd6ff",
+        "#a48cff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/categories/PrequelSunnyPictogram.svelte",
+      "target": "~/src/lib/components/prequelui/categories/PrequelSunnyPictogram.svelte",
+      "type": "registry:file",
+      "content": "<script module>\n  export const definition = {\n  \"slug\": \"sunny\",\n  \"name\": \"Sunny\",\n  \"group\": \"Weather\",\n  \"theme\": \"sky\",\n  \"keywords\": [\n    \"sun\",\n    \"weather\",\n    \"light\",\n    \"day\"\n  ],\n  \"description\": \"A sun disc with eight rounded rays, next to a split orb and a comet.\",\n  \"motion\": \"spin\",\n  \"ink\": [\n    {\n      \"d\": \"M374 512A138 138 0 1 0 650 512A138 138 0 1 0 374 512Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M708 512L780 512\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M650.59 650.59L701.5 701.5\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M512 708L512 780\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M373.41 650.59L322.5 701.5\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M316 512L244 512\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M373.41 373.41L322.5 322.5\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M512 316L512 244\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M650.59 373.41L701.5 322.5\",\n      \"width\": 23\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-13 -87.03A88 88 0 1 0 -13 87.03Z\",\n      \"transform\": \"translate(760 300) rotate(0)\"\n    },\n    {\n      \"d\": \"M13 -87.03A88 88 0 0 1 13 87.03Z\",\n      \"transform\": \"translate(760 300) rotate(0)\"\n    },\n    {\n      \"d\": \"M100 0C55 -15 15 -15 0 -15A15 15 0 0 0 0 15C15 15 55 15 100 0Z\",\n      \"transform\": \"translate(280 300) rotate(148)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#58c8ff\",\n      \"#8a6cff\"\n    ],\n    \"dark\": [\n      \"#7cd6ff\",\n      \"#a48cff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"rotate\": 10\n    },\n    \"accent\": {\n      \"x\": 10\n    }\n  }\n};\n</script>\n\n<script>\n  import CategoryPictogram from \"./category-core.svelte\";\n  let { ...rest } = $props();\n</script>\n\n<CategoryPictogram definition={definition} {...rest} />\n"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-t-shirt",
+  "type": "registry:component",
+  "title": "T-shirt Pictogram",
+  "description": "A short-sleeve tee with a rounded collar, a straight hem and a split orb behind the shoulder.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Fashion",
+    "theme": "berry",
+    "motion": "orb",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#ff5c8a",
+        "#c06cff"
+      ],
+      "dark": [
+        "#ff7ca4",
+        "#d08cff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/categories/PrequelTShirtPictogram.svelte",
+      "target": "~/src/lib/components/prequelui/categories/PrequelTShirtPictogram.svelte",
+      "type": "registry:file",
+      "content": "<script module>\n  export const definition = {\n  \"slug\": \"t-shirt\",\n  \"name\": \"T-shirt\",\n  \"group\": \"Fashion\",\n  \"theme\": \"berry\",\n  \"keywords\": [\n    \"shirt\",\n    \"clothing\",\n    \"fashion\",\n    \"wear\",\n    \"apparel\"\n  ],\n  \"description\": \"A short-sleeve tee with a rounded collar, a straight hem and a split orb behind the shoulder.\",\n  \"motion\": \"orb\",\n  \"ink\": [\n    {\n      \"d\": \"M366 292H452C462 336 486 352 512 352C538 352 562 336 572 292H658L754 392L660 474L622 440V790H402V440L364 474L270 392Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M402 742H622\",\n      \"width\": 20\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-15 -102.91A104 104 0 1 0 -15 102.91Z\",\n      \"transform\": \"translate(752 400) rotate(18)\"\n    },\n    {\n      \"d\": \"M15 -102.91A104 104 0 0 1 15 102.91Z\",\n      \"transform\": \"translate(752 400) rotate(18)\"\n    },\n    {\n      \"d\": \"M96 0C52.8 -15 15 -15 0 -15A15 15 0 0 0 0 15C15 15 52.8 15 96 0Z\",\n      \"transform\": \"translate(272 320) rotate(148)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#ff5c8a\",\n      \"#c06cff\"\n    ],\n    \"dark\": [\n      \"#ff7ca4\",\n      \"#d08cff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {},\n    \"accent\": {\n      \"x\": 16,\n      \"y\": -10\n    }\n  }\n};\n</script>\n\n<script>\n  import CategoryPictogram from \"./category-core.svelte\";\n  let { ...rest } = $props();\n</script>\n\n<CategoryPictogram definition={definition} {...rest} />\n"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-plug",
+  "type": "registry:ui",
+  "title": "Power plug Pictogram",
+  "description": "A two-pin plug with a rounded body, an indicator dot and a cable curling away.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Energy",
+    "theme": "steel",
+    "motion": "comet",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#7a8ba8",
+        "#4aa8ff"
+      ],
+      "dark": [
+        "#96a6c4",
+        "#74baff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/pictogram-plug.js",
+      "target": "components/prequelui/categories/pictogram-plug.js",
+      "type": "registry:ui",
+      "content": "import { createCategoryPictogram } from \"./category-core.js\";\n\nexport const definition = {\n  \"slug\": \"plug\",\n  \"name\": \"Power plug\",\n  \"group\": \"Energy\",\n  \"theme\": \"steel\",\n  \"keywords\": [\n    \"plug\",\n    \"power\",\n    \"energy\",\n    \"socket\",\n    \"charge\"\n  ],\n  \"description\": \"A two-pin plug with a rounded body, an indicator dot and a cable curling away.\",\n  \"motion\": \"comet\",\n  \"ink\": [\n    {\n      \"d\": \"M480 420H680A50 50 0 0 1 730 470V610A50 50 0 0 1 680 660H480A50 50 0 0 1 430 610V470A50 50 0 0 1 480 420Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M512 300H524A12 12 0 0 1 536 312V418A12 12 0 0 1 524 430H512A12 12 0 0 1 500 418V312A12 12 0 0 1 512 300Z\",\n      \"width\": 22\n    },\n    {\n      \"d\": \"M632 300H644A12 12 0 0 1 656 312V418A12 12 0 0 1 644 430H632A12 12 0 0 1 620 418V312A12 12 0 0 1 632 300Z\",\n      \"width\": 22\n    },\n    {\n      \"d\": \"M730 540C800 540 820 620 820 700C820 760 780 800 720 800\",\n      \"width\": 22\n    },\n    {\n      \"d\": \"M490 540A22 22 0 1 0 534 540A22 22 0 1 0 490 540Z\",\n      \"fill\": true\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-15 -94.82A96 96 0 1 0 -15 94.82Z\",\n      \"transform\": \"translate(760 420) rotate(0)\"\n    },\n    {\n      \"d\": \"M15 -94.82A96 96 0 0 1 15 94.82Z\",\n      \"transform\": \"translate(760 420) rotate(0)\"\n    },\n    {\n      \"d\": \"M90 0C49.5 -14 14 -14 0 -14A14 14 0 0 0 0 14C14 14 49.5 14 90 0Z\",\n      \"transform\": \"translate(726 800) rotate(150)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#7a8ba8\",\n      \"#4aa8ff\"\n    ],\n    \"dark\": [\n      \"#96a6c4\",\n      \"#74baff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {},\n    \"accent\": {\n      \"x\": 22,\n      \"y\": -18\n    }\n  }\n};\n\nexport const meta = {\n  \"slug\": \"plug\",\n  \"name\": \"Power plug\",\n  \"group\": \"Energy\",\n  \"motion\": \"comet\",\n  \"component\": \"PrequelPowerPlugPictogram\"\n};\n\nexport function createPrequelPowerPlugPictogram(root, options = {}) {\n  return createCategoryPictogram(root, definition, options);\n}\n"
+    }
+  ]
+}

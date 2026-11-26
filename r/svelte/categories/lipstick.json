@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-lipstick",
+  "type": "registry:component",
+  "title": "Lipstick Pictogram",
+  "description": "An open lipstick with a bevelled bullet, a collar ring and a split orb behind the cap.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Beauty",
+    "theme": "rose",
+    "motion": "tilt",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#ff7ca8",
+        "#ff9a5c"
+      ],
+      "dark": [
+        "#ff9ac0",
+        "#ffb07c"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/categories/PrequelLipstickPictogram.svelte",
+      "target": "~/src/lib/components/prequelui/categories/PrequelLipstickPictogram.svelte",
+      "type": "registry:file",
+      "content": "<script module>\n  export const definition = {\n  \"slug\": \"lipstick\",\n  \"name\": \"Lipstick\",\n  \"group\": \"Beauty\",\n  \"theme\": \"rose\",\n  \"keywords\": [\n    \"lipstick\",\n    \"makeup\",\n    \"beauty\",\n    \"cosmetic\",\n    \"colour\"\n  ],\n  \"description\": \"An open lipstick with a bevelled bullet, a collar ring and a split orb behind the cap.\",\n  \"motion\": \"tilt\",\n  \"ink\": [\n    {\n      \"d\": \"M434 548H590A24 24 0 0 1 614 572V760A24 24 0 0 1 590 784H434A24 24 0 0 1 410 760V572A24 24 0 0 1 434 548Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M410 508H614A20 20 0 0 1 634 528V540A20 20 0 0 1 614 560H410A20 20 0 0 1 390 540V528A20 20 0 0 1 410 508Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M432 508V420L512 300L592 420V508Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M410 722H614\",\n      \"width\": 20\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-15 -94.82A96 96 0 1 0 -15 94.82Z\",\n      \"transform\": \"translate(710 382) rotate(10)\"\n    },\n    {\n      \"d\": \"M15 -94.82A96 96 0 0 1 15 94.82Z\",\n      \"transform\": \"translate(710 382) rotate(10)\"\n    },\n    {\n      \"d\": \"M96 0C52.8 -15 15 -15 0 -15A15 15 0 0 0 0 15C15 15 52.8 15 96 0Z\",\n      \"transform\": \"translate(300 300) rotate(148)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#ff7ca8\",\n      \"#ff9a5c\"\n    ],\n    \"dark\": [\n      \"#ff9ac0\",\n      \"#ffb07c\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"rotate\": -2.4\n    },\n    \"accent\": {\n      \"x\": 12,\n      \"y\": -6\n    }\n  }\n};\n</script>\n\n<script>\n  import CategoryPictogram from \"./category-core.svelte\";\n  let { ...rest } = $props();\n</script>\n\n<CategoryPictogram definition={definition} {...rest} />\n"
+    }
+  ]
+}

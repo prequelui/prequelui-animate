@@ -40199,6 +40199,3243 @@
           "target": "~/src/lib/components/prequelui/linear/illustrations/LinearVoiceSelector.svelte"
         }
       ]
+    },
+    {
+      "name": "category-core",
+      "type": "registry:component",
+      "title": "Category Pictogram Core",
+      "description": "The 1024-grid category pictogram renderer: transparent ink, gradient split orbs and comets, and a tiny hover travel.",
+      "dependencies": [],
+      "meta": {
+        "style": "category",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "hover": "spring, 320 / 24"
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/category-core.svelte",
+          "target": "~/src/lib/components/prequelui/categories/category-core.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-row",
+      "type": "registry:component",
+      "title": "Category Row",
+      "description": "A reusable category row: pictogram, label, optional NEW badge, gradient underline and horizontal scrolling with arrows on small screens.",
+      "dependencies": [],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "display": 40,
+        "itemHeight": 62,
+        "underline": "24 x 2",
+        "hover": "100 ms ease-out"
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/category-row.svelte",
+          "target": "~/src/lib/components/prequelui/categories/category-row.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-smartphone",
+      "type": "registry:component",
+      "title": "Smartphone Pictogram",
+      "description": "A tall handset with a notch, a home mark and a split orb crossing the left bezel.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Devices",
+        "theme": "primary",
+        "motion": "orb",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#5b6cff",
+            "#b06cff"
+          ],
+          "dark": [
+            "#7c8bff",
+            "#c58cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelSmartphonePictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelSmartphonePictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-laptop",
+      "type": "registry:component",
+      "title": "Laptop Pictogram",
+      "description": "An open notebook with a wide deck and a burst of comets escaping the top right.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Devices",
+        "theme": "primary",
+        "motion": "comet",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#5b6cff",
+            "#b06cff"
+          ],
+          "dark": [
+            "#7c8bff",
+            "#c58cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelLaptopPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelLaptopPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-camera",
+      "type": "registry:component",
+      "title": "Camera Pictogram",
+      "description": "A camera body with a viewfinder hump, a lens ring and a split orb on the shutter side.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Devices",
+        "theme": "primary",
+        "motion": "orb",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#5b6cff",
+            "#b06cff"
+          ],
+          "dark": [
+            "#7c8bff",
+            "#c58cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelCameraPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelCameraPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-storefront",
+      "type": "registry:component",
+      "title": "Storefront Pictogram",
+      "description": "An awning over a small shop front with a window, a door and an orb behind the wall.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Commerce",
+        "theme": "orange",
+        "motion": "orb",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff7a5c",
+            "#ff5ca8"
+          ],
+          "dark": [
+            "#ff9a7c",
+            "#ff7cc0"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelStorefrontPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelStorefrontPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-shopping-bag",
+      "type": "registry:component",
+      "title": "Shopping bag Pictogram",
+      "description": "A soft-cornered bag with a rounded handle and a split orb at its right edge.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Commerce",
+        "theme": "orange",
+        "motion": "orb",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff7a5c",
+            "#ff5ca8"
+          ],
+          "dark": [
+            "#ff9a7c",
+            "#ff7cc0"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelShoppingBagPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelShoppingBagPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-price-tag",
+      "type": "registry:component",
+      "title": "Price tag Pictogram",
+      "description": "A tag pointing right, with a punched hole and two comets leaving the tip.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Commerce",
+        "theme": "orange",
+        "motion": "comet",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff7a5c",
+            "#ff5ca8"
+          ],
+          "dark": [
+            "#ff9a7c",
+            "#ff7cc0"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelPriceTagPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelPriceTagPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-bank-card",
+      "type": "registry:component",
+      "title": "Bank card Pictogram",
+      "description": "A payment card with a magnetic stripe, a chip and a split orb behind the right edge.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Finance",
+        "theme": "green",
+        "motion": "orb",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#38d4b0",
+            "#5b6cff"
+          ],
+          "dark": [
+            "#6fe6c8",
+            "#7c8bff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelBankCardPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelBankCardPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-wallet",
+      "type": "registry:component",
+      "title": "Wallet Pictogram",
+      "description": "A folded wallet with a card peeking out, a clasp ring and an orb at the left edge.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Finance",
+        "theme": "green",
+        "motion": "orb",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#38d4b0",
+            "#5b6cff"
+          ],
+          "dark": [
+            "#6fe6c8",
+            "#7c8bff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelWalletPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelWalletPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-coins",
+      "type": "registry:component",
+      "title": "Coins Pictogram",
+      "description": "A stack of coins built from three ridges, with an orb and a comet behind.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Finance",
+        "theme": "green",
+        "motion": "pulse",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#38d4b0",
+            "#5b6cff"
+          ],
+          "dark": [
+            "#6fe6c8",
+            "#7c8bff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelCoinsPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelCoinsPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-heart-rate",
+      "type": "registry:component",
+      "title": "Heart rate Pictogram",
+      "description": "A heart outline crossed by a pulse trace, with an orb and a comet behind.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Health",
+        "theme": "red",
+        "motion": "pulse",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff6a6a",
+            "#ff9a5c"
+          ],
+          "dark": [
+            "#ff8a8a",
+            "#ffb07c"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelHeartRatePictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelHeartRatePictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-pill",
+      "type": "registry:component",
+      "title": "Pill Pictogram",
+      "description": "A tilted capsule split by a seam, with a split orb behind its lower half.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Health",
+        "theme": "red",
+        "motion": "tilt",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff6a6a",
+            "#ff9a5c"
+          ],
+          "dark": [
+            "#ff8a8a",
+            "#ffb07c"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelPillPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelPillPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-clinic",
+      "type": "registry:component",
+      "title": "Clinic Pictogram",
+      "description": "An outlined medical cross with a split orb visible through its arms.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Health",
+        "theme": "red",
+        "motion": "pulse",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff6a6a",
+            "#ff9a5c"
+          ],
+          "dark": [
+            "#ff8a8a",
+            "#ffb07c"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelClinicPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelClinicPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-flight",
+      "type": "registry:component",
+      "title": "Flight Pictogram",
+      "description": "A plane seen from above, trailed by three comets instead of exhaust.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Travel",
+        "theme": "blue",
+        "motion": "comet",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#4aa8ff",
+            "#7a6cff"
+          ],
+          "dark": [
+            "#74baff",
+            "#9a8cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelFlightPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelFlightPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-suitcase",
+      "type": "registry:component",
+      "title": "Suitcase Pictogram",
+      "description": "A suitcase with a rounded handle, two latches and a split orb at the right wall.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Travel",
+        "theme": "blue",
+        "motion": "orb",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#4aa8ff",
+            "#7a6cff"
+          ],
+          "dark": [
+            "#74baff",
+            "#9a8cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelSuitcasePictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelSuitcasePictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-location",
+      "type": "registry:component",
+      "title": "Location Pictogram",
+      "description": "A map pin with a round eye, floating above a split orb and a comet.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Travel",
+        "theme": "blue",
+        "motion": "float",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#4aa8ff",
+            "#7a6cff"
+          ],
+          "dark": [
+            "#74baff",
+            "#9a8cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelLocationPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelLocationPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-library",
+      "type": "registry:component",
+      "title": "Library Pictogram",
+      "description": "An open book with a visible spine, an orb in the right page and a comet above.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Education",
+        "theme": "amber",
+        "motion": "float",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ffc24a",
+            "#ff7a5c"
+          ],
+          "dark": [
+            "#ffd06a",
+            "#ff9a7c"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelLibraryPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelLibraryPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-graduation",
+      "type": "registry:component",
+      "title": "Graduation Pictogram",
+      "description": "A mortarboard with a curved cap base, a hanging tassel and an orb at the left.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Education",
+        "theme": "amber",
+        "motion": "swing",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ffc24a",
+            "#ff7a5c"
+          ],
+          "dark": [
+            "#ffd06a",
+            "#ff9a7c"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelGraduationPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelGraduationPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-pencil",
+      "type": "registry:component",
+      "title": "Pencil Pictogram",
+      "description": "A tilted pencil with a sharpened tip, an eraser block and a comet at the tail.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Education",
+        "theme": "amber",
+        "motion": "tilt",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ffc24a",
+            "#ff7a5c"
+          ],
+          "dark": [
+            "#ffd06a",
+            "#ff9a7c"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelPencilPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelPencilPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-code",
+      "type": "registry:component",
+      "title": "Code Pictogram",
+      "description": "Two chevrons and a slash wrapped around a split orb.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Development",
+        "theme": "teal",
+        "motion": "pulse",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#2fd3c0",
+            "#46a4ff"
+          ],
+          "dark": [
+            "#5fe6d4",
+            "#6cbaff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelCodePictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelCodePictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-terminal",
+      "type": "registry:component",
+      "title": "Terminal Pictogram",
+      "description": "A console window with three dots, a prompt and a split orb on the right.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Development",
+        "theme": "teal",
+        "motion": "orb",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#2fd3c0",
+            "#46a4ff"
+          ],
+          "dark": [
+            "#5fe6d4",
+            "#6cbaff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelTerminalPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelTerminalPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-branches",
+      "type": "registry:component",
+      "title": "Branches Pictogram",
+      "description": "Two commits on a trunk and one on a branch, with an orb behind the fork.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Development",
+        "theme": "teal",
+        "motion": "pulse",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#2fd3c0",
+            "#46a4ff"
+          ],
+          "dark": [
+            "#5fe6d4",
+            "#6cbaff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelBranchesPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelBranchesPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-palette",
+      "type": "registry:component",
+      "title": "Palette Pictogram",
+      "description": "A painter's palette with a thumb hole and four paint wells filled from one gradient.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Design",
+        "theme": "pink",
+        "motion": "pulse",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff6ca8",
+            "#c06cff"
+          ],
+          "dark": [
+            "#ff8cc0",
+            "#d08cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelPalettePictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelPalettePictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-pen-tool",
+      "type": "registry:component",
+      "title": "Pen tool Pictogram",
+      "description": "A vector nib with a hole, a slit and a split orb behind the shoulder.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Design",
+        "theme": "pink",
+        "motion": "tilt",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff6ca8",
+            "#c06cff"
+          ],
+          "dark": [
+            "#ff8cc0",
+            "#d08cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelPenToolPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelPenToolPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-layers",
+      "type": "registry:component",
+      "title": "Layers Pictogram",
+      "description": "Three stacked plates, with an orb inside the top plate and a comet above.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Design",
+        "theme": "pink",
+        "motion": "float",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff6ca8",
+            "#c06cff"
+          ],
+          "dark": [
+            "#ff8cc0",
+            "#d08cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelLayersPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelLayersPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-music-note",
+      "type": "registry:component",
+      "title": "Music note Pictogram",
+      "description": "A beamed pair of notes with filled heads and a split orb behind the stem.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Music",
+        "theme": "violet",
+        "motion": "bounce",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#8a6cff",
+            "#e06cff"
+          ],
+          "dark": [
+            "#a48cff",
+            "#ec8cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelMusicNotePictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelMusicNotePictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-vinyl",
+      "type": "registry:component",
+      "title": "Vinyl Pictogram",
+      "description": "A record with two grooves, a label, a spindle hole and a radial tick.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Music",
+        "theme": "violet",
+        "motion": "spin",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#8a6cff",
+            "#e06cff"
+          ],
+          "dark": [
+            "#a48cff",
+            "#ec8cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelVinylPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelVinylPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-equalizer",
+      "type": "registry:component",
+      "title": "Equalizer Pictogram",
+      "description": "Four bottom-aligned levels in front of a wide split orb.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Music",
+        "theme": "violet",
+        "motion": "pulse",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#8a6cff",
+            "#e06cff"
+          ],
+          "dark": [
+            "#a48cff",
+            "#ec8cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelEqualizerPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelEqualizerPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-trophy",
+      "type": "registry:component",
+      "title": "Trophy Pictogram",
+      "description": "A cup with two handles, a stem and a foot, plus an orb behind the rim.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Sport",
+        "theme": "lime",
+        "motion": "bounce",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#a8d94a",
+            "#38d4b0"
+          ],
+          "dark": [
+            "#c0e87a",
+            "#6fe6c8"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelTrophyPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelTrophyPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-fitness",
+      "type": "registry:component",
+      "title": "Fitness Pictogram",
+      "description": "A tilted dumbbell with four stacked plates and a split orb behind the bar.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Sport",
+        "theme": "lime",
+        "motion": "tilt",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#a8d94a",
+            "#38d4b0"
+          ],
+          "dark": [
+            "#c0e87a",
+            "#6fe6c8"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelFitnessPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelFitnessPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-football",
+      "type": "registry:component",
+      "title": "Football Pictogram",
+      "description": "A panel ball with a central pentagon and five seams, in front of a split orb.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Sport",
+        "theme": "lime",
+        "motion": "spin",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#a8d94a",
+            "#38d4b0"
+          ],
+          "dark": [
+            "#c0e87a",
+            "#6fe6c8"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelFootballPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelFootballPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-house",
+      "type": "registry:component",
+      "title": "Home Pictogram",
+      "description": "A house with a pitched roof, a door and a round window, in front of a split orb.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Home",
+        "theme": "orange",
+        "motion": "float",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff7a5c",
+            "#ff5ca8"
+          ],
+          "dark": [
+            "#ff9a7c",
+            "#ff7cc0"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelHomePictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelHomePictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-lighting",
+      "type": "registry:component",
+      "title": "Lighting Pictogram",
+      "description": "A pendant lamp with a trapezoid shade, a stem and a base, over a split orb.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Home",
+        "theme": "orange",
+        "motion": "swing",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff7a5c",
+            "#ff5ca8"
+          ],
+          "dark": [
+            "#ff9a7c",
+            "#ff7cc0"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelLightingPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelLightingPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-plants",
+      "type": "registry:component",
+      "title": "Plants Pictogram",
+      "description": "A potted plant with three leaves on a stem, an orb and a comet behind.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Home",
+        "theme": "orange",
+        "motion": "float",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff7a5c",
+            "#ff5ca8"
+          ],
+          "dark": [
+            "#ff9a7c",
+            "#ff7cc0"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelPlantsPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelPlantsPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-sunny",
+      "type": "registry:component",
+      "title": "Sunny Pictogram",
+      "description": "A sun disc with eight rounded rays, next to a split orb and a comet.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Weather",
+        "theme": "sky",
+        "motion": "spin",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#58c8ff",
+            "#8a6cff"
+          ],
+          "dark": [
+            "#7cd6ff",
+            "#a48cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelSunnyPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelSunnyPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-cloudy",
+      "type": "registry:component",
+      "title": "Cloudy Pictogram",
+      "description": "A billowed cloud with a split orb peeking over its shoulder.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Weather",
+        "theme": "sky",
+        "motion": "float",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#58c8ff",
+            "#8a6cff"
+          ],
+          "dark": [
+            "#7cd6ff",
+            "#a48cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelCloudyPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelCloudyPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-nature",
+      "type": "registry:component",
+      "title": "Nature Pictogram",
+      "description": "A leaf with a midrib and two veins, in front of a split orb and a comet.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Weather",
+        "theme": "sky",
+        "motion": "swing",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#58c8ff",
+            "#8a6cff"
+          ],
+          "dark": [
+            "#7cd6ff",
+            "#a48cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelNaturePictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelNaturePictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-coffee",
+      "type": "registry:component",
+      "title": "Coffee Pictogram",
+      "description": "A takeaway cup with a wide lid, a tapered body and three comets rising as steam.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Food",
+        "theme": "citrus",
+        "motion": "comet",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ffb24a",
+            "#ff6a5c"
+          ],
+          "dark": [
+            "#ffc46a",
+            "#ff8a7c"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelCoffeePictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelCoffeePictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-burger",
+      "type": "registry:component",
+      "title": "Burger Pictogram",
+      "description": "A stacked burger with a domed bun, sesame seeds, lettuce, cheese and a split orb behind.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Food",
+        "theme": "citrus",
+        "motion": "orb",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ffb24a",
+            "#ff6a5c"
+          ],
+          "dark": [
+            "#ffc46a",
+            "#ff8a7c"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelBurgerPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelBurgerPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-bread",
+      "type": "registry:component",
+      "title": "Bread Pictogram",
+      "description": "A long scored loaf tilted across the grid, with a split orb behind and two crumbs flying.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Food",
+        "theme": "citrus",
+        "motion": "comet",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ffb24a",
+            "#ff6a5c"
+          ],
+          "dark": [
+            "#ffc46a",
+            "#ff8a7c"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelBreadPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelBreadPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-grocery",
+      "type": "registry:component",
+      "title": "Grocery Pictogram",
+      "description": "A paper grocery bag with a rounded handle and two leafy sprigs peeking over the fold.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Food",
+        "theme": "citrus",
+        "motion": "float",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ffb24a",
+            "#ff6a5c"
+          ],
+          "dark": [
+            "#ffc46a",
+            "#ff8a7c"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelGroceryPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelGroceryPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-t-shirt",
+      "type": "registry:component",
+      "title": "T-shirt Pictogram",
+      "description": "A short-sleeve tee with a rounded collar, a straight hem and a split orb behind the shoulder.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Fashion",
+        "theme": "berry",
+        "motion": "orb",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff5c8a",
+            "#c06cff"
+          ],
+          "dark": [
+            "#ff7ca4",
+            "#d08cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelTShirtPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelTShirtPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-sneaker",
+      "type": "registry:component",
+      "title": "Sneaker Pictogram",
+      "description": "A low sneaker in profile with a thick sole, laces and two comets leaving the toe.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Fashion",
+        "theme": "berry",
+        "motion": "comet",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff5c8a",
+            "#c06cff"
+          ],
+          "dark": [
+            "#ff7ca4",
+            "#d08cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelSneakerPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelSneakerPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-dress",
+      "type": "registry:component",
+      "title": "Dress Pictogram",
+      "description": "A hanger with a hooked neck holding a fitted dress that widens into a soft hem.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Fashion",
+        "theme": "berry",
+        "motion": "swing",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff5c8a",
+            "#c06cff"
+          ],
+          "dark": [
+            "#ff7ca4",
+            "#d08cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelDressPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelDressPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-sunglasses",
+      "type": "registry:component",
+      "title": "Sunglasses Pictogram",
+      "description": "Two round tinted lenses joined by a bridge, with straight temples and a wide split orb.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Fashion",
+        "theme": "berry",
+        "motion": "pulse",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff5c8a",
+            "#c06cff"
+          ],
+          "dark": [
+            "#ff7ca4",
+            "#d08cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelSunglassesPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelSunglassesPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-lipstick",
+      "type": "registry:component",
+      "title": "Lipstick Pictogram",
+      "description": "An open lipstick with a bevelled bullet, a collar ring and a split orb behind the cap.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Beauty",
+        "theme": "rose",
+        "motion": "tilt",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff7ca8",
+            "#ff9a5c"
+          ],
+          "dark": [
+            "#ff9ac0",
+            "#ffb07c"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelLipstickPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelLipstickPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-perfume",
+      "type": "registry:component",
+      "title": "Perfume Pictogram",
+      "description": "A flacon with a squared cap and an atomizer, throwing three fine comets of scent.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Beauty",
+        "theme": "rose",
+        "motion": "spray",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff7ca8",
+            "#ff9a5c"
+          ],
+          "dark": [
+            "#ff9ac0",
+            "#ffb07c"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelPerfumePictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelPerfumePictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-hair-dryer",
+      "type": "registry:component",
+      "title": "Hair dryer Pictogram",
+      "description": "A rounded dryer with a short nozzle and a loop handle, blowing three comets of warm air.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Beauty",
+        "theme": "rose",
+        "motion": "spray",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff7ca8",
+            "#ff9a5c"
+          ],
+          "dark": [
+            "#ff9ac0",
+            "#ffb07c"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelHairDryerPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelHairDryerPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-mirror",
+      "type": "registry:component",
+      "title": "Hand mirror Pictogram",
+      "description": "A hand mirror with a double rim and a tapered handle, its glass holding a split orb.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Beauty",
+        "theme": "rose",
+        "motion": "orb",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff7ca8",
+            "#ff9a5c"
+          ],
+          "dark": [
+            "#ff9ac0",
+            "#ffb07c"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelHandMirrorPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelHandMirrorPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-car",
+      "type": "registry:component",
+      "title": "Car Pictogram",
+      "description": "A compact car in profile with two wheels, glazed windows and a comet trailing the exhaust.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Auto",
+        "theme": "steel",
+        "motion": "drive",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#7a8ba8",
+            "#4aa8ff"
+          ],
+          "dark": [
+            "#96a6c4",
+            "#74baff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelCarPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelCarPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-fuel",
+      "type": "registry:component",
+      "title": "Fuel pump Pictogram",
+      "description": "A fuel pump with a display panel, a looping hose and a nozzle resting in its cradle.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Auto",
+        "theme": "steel",
+        "motion": "orb",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#7a8ba8",
+            "#4aa8ff"
+          ],
+          "dark": [
+            "#96a6c4",
+            "#74baff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelFuelPumpPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelFuelPumpPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-steering-wheel",
+      "type": "registry:component",
+      "title": "Steering wheel Pictogram",
+      "description": "A steering wheel with a double rim, a round hub and three spokes around a split orb.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Auto",
+        "theme": "steel",
+        "motion": "spin",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#7a8ba8",
+            "#4aa8ff"
+          ],
+          "dark": [
+            "#96a6c4",
+            "#74baff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelSteeringWheelPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelSteeringWheelPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-traffic-light",
+      "type": "registry:component",
+      "title": "Traffic light Pictogram",
+      "description": "A three-lamp traffic signal with rounded visors, each lamp filled from the same gradient.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Auto",
+        "theme": "steel",
+        "motion": "pulse",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#7a8ba8",
+            "#4aa8ff"
+          ],
+          "dark": [
+            "#96a6c4",
+            "#74baff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelTrafficLightPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelTrafficLightPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-building",
+      "type": "registry:component",
+      "title": "Building Pictogram",
+      "description": "Two neighbouring towers with lit windows, a door and an antenna, around a tall split orb.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Real estate",
+        "theme": "indigo",
+        "motion": "float",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#5b6cff",
+            "#38d4b0"
+          ],
+          "dark": [
+            "#7c8bff",
+            "#6fe6c8"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelBuildingPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelBuildingPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-keys",
+      "type": "registry:component",
+      "title": "House keys Pictogram",
+      "description": "A house key turned across the grid, with a double-ring bow and three cut teeth.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Real estate",
+        "theme": "indigo",
+        "motion": "swing",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#5b6cff",
+            "#38d4b0"
+          ],
+          "dark": [
+            "#7c8bff",
+            "#6fe6c8"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelHouseKeysPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelHouseKeysPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-sold-sign",
+      "type": "registry:component",
+      "title": "Sold sign Pictogram",
+      "description": "A yard sign on a post with a small house mark and a confident check, plus a split orb.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Real estate",
+        "theme": "indigo",
+        "motion": "swing",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#5b6cff",
+            "#38d4b0"
+          ],
+          "dark": [
+            "#7c8bff",
+            "#6fe6c8"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelSoldSignPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelSoldSignPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-blueprint",
+      "type": "registry:component",
+      "title": "Blueprint Pictogram",
+      "description": "A framed plan sheet showing a roof, walls, a door and a window in crisp line work.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Real estate",
+        "theme": "indigo",
+        "motion": "float",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#5b6cff",
+            "#38d4b0"
+          ],
+          "dark": [
+            "#7c8bff",
+            "#6fe6c8"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelBlueprintPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelBlueprintPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-briefcase",
+      "type": "registry:component",
+      "title": "Briefcase Pictogram",
+      "description": "A wide briefcase with a rounded handle, a centre seam and two bright clasps.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Jobs",
+        "theme": "blue",
+        "motion": "orb",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#4aa8ff",
+            "#7a6cff"
+          ],
+          "dark": [
+            "#74baff",
+            "#9a8cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelBriefcasePictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelBriefcasePictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-resume",
+      "type": "registry:component",
+      "title": "Resume Pictogram",
+      "description": "A profile sheet with a portrait, a name block and four ruled sections, plus a comet.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Jobs",
+        "theme": "blue",
+        "motion": "comet",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#4aa8ff",
+            "#7a6cff"
+          ],
+          "dark": [
+            "#74baff",
+            "#9a8cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelResumePictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelResumePictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-id-badge",
+      "type": "registry:component",
+      "title": "ID badge Pictogram",
+      "description": "A lanyard badge with a metal clip, a round portrait and two lines of identification.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Jobs",
+        "theme": "blue",
+        "motion": "swing",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#4aa8ff",
+            "#7a6cff"
+          ],
+          "dark": [
+            "#74baff",
+            "#9a8cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelIDBadgePictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelIDBadgePictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-megaphone",
+      "type": "registry:component",
+      "title": "Megaphone Pictogram",
+      "description": "A handheld megaphone with a broad horn and three sound comets spreading to the right.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Jobs",
+        "theme": "blue",
+        "motion": "comet",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#4aa8ff",
+            "#7a6cff"
+          ],
+          "dark": [
+            "#74baff",
+            "#9a8cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelMegaphonePictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelMegaphonePictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-paw",
+      "type": "registry:component",
+      "title": "Paw Pictogram",
+      "description": "A broad paw pad with four toe pads, resting in front of a wide split orb.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Animals",
+        "theme": "forest",
+        "motion": "pulse",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#38d4b0",
+            "#a8d94a"
+          ],
+          "dark": [
+            "#6fe6c8",
+            "#c0e87a"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelPawPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelPawPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-dog",
+      "type": "registry:component",
+      "title": "Dog Pictogram",
+      "description": "A friendly dog head with two folded ears, a round muzzle and a split orb behind.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Animals",
+        "theme": "forest",
+        "motion": "bounce",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#38d4b0",
+            "#a8d94a"
+          ],
+          "dark": [
+            "#6fe6c8",
+            "#c0e87a"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelDogPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelDogPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-cat",
+      "type": "registry:component",
+      "title": "Cat Pictogram",
+      "description": "A cat head with pointed ears, slit pupils, a small nose and four whiskers.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Animals",
+        "theme": "forest",
+        "motion": "tilt",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#38d4b0",
+            "#a8d94a"
+          ],
+          "dark": [
+            "#6fe6c8",
+            "#c0e87a"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelCatPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelCatPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-fish",
+      "type": "registry:component",
+      "title": "Fish Pictogram",
+      "description": "A round fish with a fan tail, a dorsal fin and two bubbles drifting from its mouth.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Animals",
+        "theme": "forest",
+        "motion": "swim",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#38d4b0",
+            "#a8d94a"
+          ],
+          "dark": [
+            "#6fe6c8",
+            "#c0e87a"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelFishPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelFishPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-teddy",
+      "type": "registry:component",
+      "title": "Teddy bear Pictogram",
+      "description": "A round teddy head with two ears, a soft muzzle and a tiny stitched smile.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Kids",
+        "theme": "candy",
+        "motion": "bounce",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff6ca8",
+            "#ffc24a"
+          ],
+          "dark": [
+            "#ff8cc0",
+            "#ffd06a"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelTeddyBearPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelTeddyBearPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-blocks",
+      "type": "registry:component",
+      "title": "Building blocks Pictogram",
+      "description": "Three toy blocks with a circle, a triangle and a cross, stacked in a little tower.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Kids",
+        "theme": "candy",
+        "motion": "float",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff6ca8",
+            "#ffc24a"
+          ],
+          "dark": [
+            "#ff8cc0",
+            "#ffd06a"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelBuildingBlocksPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelBuildingBlocksPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-stroller",
+      "type": "registry:component",
+      "title": "Stroller Pictogram",
+      "description": "A pram with a high rounded canopy, a deep basket, a push handle and two wheels.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Kids",
+        "theme": "candy",
+        "motion": "drive",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff6ca8",
+            "#ffc24a"
+          ],
+          "dark": [
+            "#ff8cc0",
+            "#ffd06a"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelStrollerPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelStrollerPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-balloon",
+      "type": "registry:component",
+      "title": "Balloon Pictogram",
+      "description": "A tall balloon with a knotted neck, a curling string and a bright highlight.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Kids",
+        "theme": "candy",
+        "motion": "swing",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff6ca8",
+            "#ffc24a"
+          ],
+          "dark": [
+            "#ff8cc0",
+            "#ffd06a"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelBalloonPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelBalloonPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-theater",
+      "type": "registry:component",
+      "title": "Theatre masks Pictogram",
+      "description": "A smiling mask and a pensive mask leaning towards each other over a split orb.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Culture",
+        "theme": "plum",
+        "motion": "swing",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#c06cff",
+            "#8a6cff"
+          ],
+          "dark": [
+            "#d08cff",
+            "#a48cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelTheatreMasksPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelTheatreMasksPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-museum",
+      "type": "registry:component",
+      "title": "Museum Pictogram",
+      "description": "A classical museum front with a pediment, four columns and a wide flight of steps.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Culture",
+        "theme": "plum",
+        "motion": "float",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#c06cff",
+            "#8a6cff"
+          ],
+          "dark": [
+            "#d08cff",
+            "#a48cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelMuseumPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelMuseumPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-art-frame",
+      "type": "registry:component",
+      "title": "Art frame Pictogram",
+      "description": "A double picture frame holding a mountain, a sun and a quiet horizon line.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Culture",
+        "theme": "plum",
+        "motion": "float",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#c06cff",
+            "#8a6cff"
+          ],
+          "dark": [
+            "#d08cff",
+            "#a48cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelArtFramePictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelArtFramePictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-clapper",
+      "type": "registry:component",
+      "title": "Clapperboard Pictogram",
+      "description": "A film clapperboard with a striped top bar, two hinges and a play mark.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Culture",
+        "theme": "plum",
+        "motion": "tilt",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#c06cff",
+            "#8a6cff"
+          ],
+          "dark": [
+            "#d08cff",
+            "#a48cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelClapperboardPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelClapperboardPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-stamp",
+      "type": "registry:component",
+      "title": "Stamp Pictogram",
+      "description": "A rubber stamp with a tall handle and a wide base, leaving a small checked mark.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Administration",
+        "theme": "slate",
+        "motion": "bounce",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#7a8ba8",
+            "#b06cff"
+          ],
+          "dark": [
+            "#96a6c4",
+            "#c58cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelStampPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelStampPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-folder",
+      "type": "registry:component",
+      "title": "Folder Pictogram",
+      "description": "A tabbed folder with two ruled lines, standing in front of a warm split orb.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Administration",
+        "theme": "slate",
+        "motion": "orb",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#7a8ba8",
+            "#b06cff"
+          ],
+          "dark": [
+            "#96a6c4",
+            "#c58cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelFolderPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelFolderPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-document",
+      "type": "registry:component",
+      "title": "Official document Pictogram",
+      "description": "A ruled document with a folded corner, a round seal and two ribbon tails.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Administration",
+        "theme": "slate",
+        "motion": "pulse",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#7a8ba8",
+            "#b06cff"
+          ],
+          "dark": [
+            "#96a6c4",
+            "#c58cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelOfficialDocumentPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelOfficialDocumentPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-government",
+      "type": "registry:component",
+      "title": "Government Pictogram",
+      "description": "A civic building with a pediment, four columns and a flag above the roof.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Administration",
+        "theme": "slate",
+        "motion": "float",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#7a8ba8",
+            "#b06cff"
+          ],
+          "dark": [
+            "#96a6c4",
+            "#c58cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelGovernmentPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelGovernmentPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-solar",
+      "type": "registry:component",
+      "title": "Solar panel Pictogram",
+      "description": "A tilted solar array on a stand, its face split into cells, with a split orb sun above.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Energy",
+        "theme": "volt",
+        "motion": "shine",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#a8d94a",
+            "#58c8ff"
+          ],
+          "dark": [
+            "#c0e87a",
+            "#7cd6ff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelSolarPanelPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelSolarPanelPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-wind-turbine",
+      "type": "registry:component",
+      "title": "Wind turbine Pictogram",
+      "description": "A three-blade wind turbine on a tapered tower, its hub centred on a wide split orb.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Energy",
+        "theme": "forest",
+        "motion": "spin",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#38d4b0",
+            "#a8d94a"
+          ],
+          "dark": [
+            "#6fe6c8",
+            "#c0e87a"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelWindTurbinePictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelWindTurbinePictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-battery",
+      "type": "registry:component",
+      "title": "Battery Pictogram",
+      "description": "A wide battery with a terminal and a lightning bolt cut through its face.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Energy",
+        "theme": "volt",
+        "motion": "pulse",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#a8d94a",
+            "#58c8ff"
+          ],
+          "dark": [
+            "#c0e87a",
+            "#7cd6ff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelBatteryPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelBatteryPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-plug",
+      "type": "registry:component",
+      "title": "Power plug Pictogram",
+      "description": "A two-pin plug with a rounded body, an indicator dot and a cable curling away.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Energy",
+        "theme": "steel",
+        "motion": "comet",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#7a8ba8",
+            "#4aa8ff"
+          ],
+          "dark": [
+            "#96a6c4",
+            "#74baff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelPowerPlugPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelPowerPlugPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-shield",
+      "type": "registry:component",
+      "title": "Shield Pictogram",
+      "description": "A double-rimmed shield with a bold check, standing over a wide split orb.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Security",
+        "theme": "alert",
+        "motion": "pulse",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff6a6a",
+            "#7a6cff"
+          ],
+          "dark": [
+            "#ff8a8a",
+            "#9a8cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelShieldPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelShieldPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-cctv",
+      "type": "registry:component",
+      "title": "CCTV camera Pictogram",
+      "description": "A wall camera with a hooded body, a round lens and a short mounting bracket.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Security",
+        "theme": "alert",
+        "motion": "tilt",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff6a6a",
+            "#7a6cff"
+          ],
+          "dark": [
+            "#ff8a8a",
+            "#9a8cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelCCTVCameraPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelCCTVCameraPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-fingerprint",
+      "type": "registry:component",
+      "title": "Fingerprint Pictogram",
+      "description": "Four nested fingerprint ridges that close towards the centre, over a split orb.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Security",
+        "theme": "alert",
+        "motion": "pulse",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff6a6a",
+            "#7a6cff"
+          ],
+          "dark": [
+            "#ff8a8a",
+            "#9a8cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelFingerprintPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelFingerprintPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
+    },
+    {
+      "name": "category-siren",
+      "type": "registry:component",
+      "title": "Siren Pictogram",
+      "description": "A domed alarm on a plinth with three comets radiating from its crown.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+      ],
+      "meta": {
+        "style": "category",
+        "group": "Security",
+        "theme": "alert",
+        "motion": "pulse",
+        "grid": 1024,
+        "stroke": 23,
+        "display": 40,
+        "palette": {
+          "light": [
+            "#ff6a6a",
+            "#7a6cff"
+          ],
+          "dark": [
+            "#ff8a8a",
+            "#9a8cff"
+          ]
+        }
+      },
+      "files": [
+        {
+          "path": "src/lib/components/prequelui/categories/PrequelSirenPictogram.svelte",
+          "target": "~/src/lib/components/prequelui/categories/PrequelSirenPictogram.svelte",
+          "type": "registry:file"
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,66 @@
+<script>
+export const definition = {
+  "slug": "location",
+  "name": "Location",
+  "group": "Travel",
+  "theme": "blue",
+  "keywords": [
+    "pin",
+    "map",
+    "place",
+    "gps"
+  ],
+  "description": "A map pin with a round eye, floating above a split orb and a comet.",
+  "motion": "float",
+  "ink": [
+    {
+      "d": "M512 784C512 784 720 566 720 422C720 307 627 214 512 214C397 214 304 307 304 422C304 566 512 784 512 784Z",
+      "width": 23
+    },
+    {
+      "d": "M440 422A72 72 0 1 0 584 422A72 72 0 1 0 440 422Z",
+      "width": 23
+    }
+  ],
+  "accent": [
+    {
+      "d": "M-14 -99.02A100 100 0 1 0 -14 99.02Z",
+      "transform": "translate(750 360) rotate(20)"
+    },
+    {
+      "d": "M14 -99.02A100 100 0 0 1 14 99.02Z",
+      "transform": "translate(750 360) rotate(20)"
+    },
+    {
+      "d": "M108 0C59.4 -17 17 -17 0 -17A17 17 0 0 0 0 17C17 17 59.4 17 108 0Z",
+      "transform": "translate(280 300) rotate(148)"
+    }
+  ],
+  "palette": {
+    "light": [
+      "#4aa8ff",
+      "#7a6cff"
+    ],
+    "dark": [
+      "#74baff",
+      "#9a8cff"
+    ]
+  },
+  "motionConfig": {
+    "main": {
+      "y": -10
+    },
+    "accent": {
+      "y": -14
+    }
+  }
+};
+</script>
+
+<script setup>
+import CategoryPictogram from "./category-core.vue";
+</script>
+
+<template>
+  <CategoryPictogram :definition="definition" />
+</template>

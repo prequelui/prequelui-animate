@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-clinic",
+  "type": "registry:ui",
+  "title": "Clinic Pictogram",
+  "description": "An outlined medical cross with a split orb visible through its arms.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Health",
+    "theme": "red",
+    "motion": "pulse",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#ff6a6a",
+        "#ff9a5c"
+      ],
+      "dark": [
+        "#ff8a8a",
+        "#ffb07c"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/pictogram-clinic.js",
+      "target": "components/prequelui/categories/pictogram-clinic.js",
+      "type": "registry:ui",
+      "content": "import { createCategoryPictogram } from \"./category-core.js\";\n\nexport const definition = {\n  \"slug\": \"clinic\",\n  \"name\": \"Clinic\",\n  \"group\": \"Health\",\n  \"theme\": \"red\",\n  \"keywords\": [\n    \"cross\",\n    \"clinic\",\n    \"medical\",\n    \"hospital\"\n  ],\n  \"description\": \"An outlined medical cross with a split orb visible through its arms.\",\n  \"motion\": \"pulse\",\n  \"ink\": [\n    {\n      \"d\": \"M466 236H558V466H788V558H558V788H466V558H236V466H466Z\",\n      \"width\": 23\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-20 -148.66A150 150 0 1 0 -20 148.66Z\",\n      \"transform\": \"translate(512 512) rotate(45)\"\n    },\n    {\n      \"d\": \"M20 -148.66A150 150 0 0 1 20 148.66Z\",\n      \"transform\": \"translate(512 512) rotate(45)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#ff6a6a\",\n      \"#ff9a5c\"\n    ],\n    \"dark\": [\n      \"#ff8a8a\",\n      \"#ffb07c\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {},\n    \"accent\": {\n      \"scale\": 1.08\n    }\n  }\n};\n\nexport const meta = {\n  \"slug\": \"clinic\",\n  \"name\": \"Clinic\",\n  \"group\": \"Health\",\n  \"motion\": \"pulse\",\n  \"component\": \"PrequelClinicPictogram\"\n};\n\nexport function createPrequelClinicPictogram(root, options = {}) {\n  return createCategoryPictogram(root, definition, options);\n}\n"
+    }
+  ]
+}

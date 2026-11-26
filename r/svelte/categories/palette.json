@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-palette",
+  "type": "registry:component",
+  "title": "Palette Pictogram",
+  "description": "A painter's palette with a thumb hole and four paint wells filled from one gradient.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Design",
+    "theme": "pink",
+    "motion": "pulse",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#ff6ca8",
+        "#c06cff"
+      ],
+      "dark": [
+        "#ff8cc0",
+        "#d08cff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/categories/PrequelPalettePictogram.svelte",
+      "target": "~/src/lib/components/prequelui/categories/PrequelPalettePictogram.svelte",
+      "type": "registry:file",
+      "content": "<script module>\n  export const definition = {\n  \"slug\": \"palette\",\n  \"name\": \"Palette\",\n  \"group\": \"Design\",\n  \"theme\": \"pink\",\n  \"keywords\": [\n    \"palette\",\n    \"paint\",\n    \"colour\",\n    \"design\"\n  ],\n  \"description\": \"A painter's palette with a thumb hole and four paint wells filled from one gradient.\",\n  \"motion\": \"pulse\",\n  \"ink\": [\n    {\n      \"d\": \"M512 240C700 240 828 356 828 512C828 606 770 664 680 664C620 664 596 622 618 574C640 526 612 492 552 492H504C382 492 284 434 284 352C284 282 380 240 512 240Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M644 592A46 58 0 1 0 736 592A46 58 0 1 0 644 592Z\",\n      \"width\": 23\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-11 -71.15A72 72 0 1 0 -11 71.15Z\",\n      \"transform\": \"translate(790 380) rotate(0)\"\n    },\n    {\n      \"d\": \"M11 -71.15A72 72 0 0 1 11 71.15Z\",\n      \"transform\": \"translate(790 380) rotate(0)\"\n    },\n    {\n      \"d\": \"M364 360A26 26 0 1 0 416 360A26 26 0 1 0 364 360Z\"\n    },\n    {\n      \"d\": \"M454 330A26 26 0 1 0 506 330A26 26 0 1 0 454 330Z\"\n    },\n    {\n      \"d\": \"M550 360A26 26 0 1 0 602 360A26 26 0 1 0 550 360Z\"\n    },\n    {\n      \"d\": \"M624 414A26 26 0 1 0 676 414A26 26 0 1 0 624 414Z\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#ff6ca8\",\n      \"#c06cff\"\n    ],\n    \"dark\": [\n      \"#ff8cc0\",\n      \"#d08cff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {},\n    \"accent\": {\n      \"scale\": 1.08\n    }\n  }\n};\n</script>\n\n<script>\n  import CategoryPictogram from \"./category-core.svelte\";\n  let { ...rest } = $props();\n</script>\n\n<CategoryPictogram definition={definition} {...rest} />\n"
+    }
+  ]
+}

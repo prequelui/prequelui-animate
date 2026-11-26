@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-vinyl",
+  "type": "registry:ui",
+  "title": "Vinyl Pictogram",
+  "description": "A record with two grooves, a label, a spindle hole and a radial tick.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Music",
+    "theme": "violet",
+    "motion": "spin",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#8a6cff",
+        "#e06cff"
+      ],
+      "dark": [
+        "#a48cff",
+        "#ec8cff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/pictogram-vinyl.js",
+      "target": "components/prequelui/categories/pictogram-vinyl.js",
+      "type": "registry:ui",
+      "content": "import { createCategoryPictogram } from \"./category-core.js\";\n\nexport const definition = {\n  \"slug\": \"vinyl\",\n  \"name\": \"Vinyl\",\n  \"group\": \"Music\",\n  \"theme\": \"violet\",\n  \"keywords\": [\n    \"vinyl\",\n    \"record\",\n    \"disc\",\n    \"player\"\n  ],\n  \"description\": \"A record with two grooves, a label, a spindle hole and a radial tick.\",\n  \"motion\": \"spin\",\n  \"ink\": [\n    {\n      \"d\": \"M260 512A252 252 0 1 0 764 512A252 252 0 1 0 260 512Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M334 512A178 178 0 1 0 690 512A178 178 0 1 0 334 512Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M426 512A86 86 0 1 0 598 512A86 86 0 1 0 426 512Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M490 512A22 22 0 1 0 534 512A22 22 0 1 0 490 512Z\",\n      \"fill\": true\n    },\n    {\n      \"d\": \"M512 512L648 392\",\n      \"width\": 22\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-13 -89.06A90 90 0 1 0 -13 89.06Z\",\n      \"transform\": \"translate(780 300) rotate(0)\"\n    },\n    {\n      \"d\": \"M13 -89.06A90 90 0 0 1 13 89.06Z\",\n      \"transform\": \"translate(780 300) rotate(0)\"\n    },\n    {\n      \"d\": \"M108 0C59.4 -17 17 -17 0 -17A17 17 0 0 0 0 17C17 17 59.4 17 108 0Z\",\n      \"transform\": \"translate(280 300) rotate(148)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#8a6cff\",\n      \"#e06cff\"\n    ],\n    \"dark\": [\n      \"#a48cff\",\n      \"#ec8cff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"rotate\": 10\n    },\n    \"accent\": {\n      \"x\": 10\n    }\n  }\n};\n\nexport const meta = {\n  \"slug\": \"vinyl\",\n  \"name\": \"Vinyl\",\n  \"group\": \"Music\",\n  \"motion\": \"spin\",\n  \"component\": \"PrequelVinylPictogram\"\n};\n\nexport function createPrequelVinylPictogram(root, options = {}) {\n  return createCategoryPictogram(root, definition, options);\n}\n"
+    }
+  ]
+}

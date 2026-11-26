@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-steering-wheel",
+  "type": "registry:ui",
+  "title": "Steering wheel Pictogram",
+  "description": "A steering wheel with a double rim, a round hub and three spokes around a split orb.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vue/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Auto",
+    "theme": "steel",
+    "motion": "spin",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#7a8ba8",
+        "#4aa8ff"
+      ],
+      "dark": [
+        "#96a6c4",
+        "#74baff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/PrequelSteeringWheelPictogram.vue",
+      "target": "components/prequelui/categories/PrequelSteeringWheelPictogram.vue",
+      "type": "registry:ui",
+      "content": "<script>\nexport const definition = {\n  \"slug\": \"steering-wheel\",\n  \"name\": \"Steering wheel\",\n  \"group\": \"Auto\",\n  \"theme\": \"steel\",\n  \"keywords\": [\n    \"steering\",\n    \"wheel\",\n    \"drive\",\n    \"car\",\n    \"control\"\n  ],\n  \"description\": \"A steering wheel with a double rim, a round hub and three spokes around a split orb.\",\n  \"motion\": \"spin\",\n  \"ink\": [\n    {\n      \"d\": \"M226 512A286 286 0 1 0 798 512A286 286 0 1 0 226 512Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M286 512A226 226 0 1 0 738 512A226 226 0 1 0 286 512Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M430 520A82 82 0 1 0 594 520A82 82 0 1 0 430 520Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M512 294V438\",\n      \"width\": 20\n    },\n    {\n      \"d\": \"M324 610L462 552\",\n      \"width\": 20\n    },\n    {\n      \"d\": \"M700 610L562 552\",\n      \"width\": 20\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-16 -129.01A130 130 0 1 0 -16 129.01Z\",\n      \"transform\": \"translate(512 520) rotate(0)\"\n    },\n    {\n      \"d\": \"M16 -129.01A130 130 0 0 1 16 129.01Z\",\n      \"transform\": \"translate(512 520) rotate(0)\"\n    },\n    {\n      \"d\": \"M90 0C49.5 -14 14 -14 0 -14A14 14 0 0 0 0 14C14 14 49.5 14 90 0Z\",\n      \"transform\": \"translate(790 320) rotate(-30)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#7a8ba8\",\n      \"#4aa8ff\"\n    ],\n    \"dark\": [\n      \"#96a6c4\",\n      \"#74baff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"rotate\": 10\n    },\n    \"accent\": {\n      \"x\": 10\n    }\n  }\n};\n</script>\n\n<script setup>\nimport CategoryPictogram from \"./category-core.vue\";\n</script>\n\n<template>\n  <CategoryPictogram :definition=\"definition\" />\n</template>\n"
+    }
+  ]
+}

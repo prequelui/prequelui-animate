@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-heart-rate",
+  "type": "registry:ui",
+  "title": "Heart rate Pictogram",
+  "description": "A heart outline crossed by a pulse trace, with an orb and a comet behind.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Health",
+    "theme": "red",
+    "motion": "pulse",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#ff6a6a",
+        "#ff9a5c"
+      ],
+      "dark": [
+        "#ff8a8a",
+        "#ffb07c"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "src/components/prequelui/categories/pictogram-heart-rate.tsx",
+      "target": "src/components/prequelui/categories/pictogram-heart-rate.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { CategoryPictogram } from \"./category-core\";\n\nexport const definition = {\n  \"slug\": \"heart-rate\",\n  \"name\": \"Heart rate\",\n  \"group\": \"Health\",\n  \"theme\": \"red\",\n  \"keywords\": [\n    \"heart\",\n    \"pulse\",\n    \"health\",\n    \"care\"\n  ],\n  \"description\": \"A heart outline crossed by a pulse trace, with an orb and a comet behind.\",\n  \"motion\": \"pulse\",\n  \"ink\": [\n    {\n      \"d\": \"M512 690C420 622 280 536 280 414C280 334 340 282 410 282C462 282 500 312 512 352C524 312 562 282 614 282C684 282 744 334 744 414C744 536 604 622 512 690Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M340 470H426L466 402L520 542L560 470H684\",\n      \"width\": 22\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-13 -95.12A96 96 0 1 0 -13 95.12Z\",\n      \"transform\": \"translate(760 332) rotate(0)\"\n    },\n    {\n      \"d\": \"M13 -95.12A96 96 0 0 1 13 95.12Z\",\n      \"transform\": \"translate(760 332) rotate(0)\"\n    },\n    {\n      \"d\": \"M110 0C60.5 -17 17 -17 0 -17A17 17 0 0 0 0 17C17 17 60.5 17 110 0Z\",\n      \"transform\": \"translate(262 300) rotate(148)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#ff6a6a\",\n      \"#ff9a5c\"\n    ],\n    \"dark\": [\n      \"#ff8a8a\",\n      \"#ffb07c\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {},\n    \"accent\": {\n      \"scale\": 1.08\n    }\n  }\n};\n\nexport function PrequelHeartRatePictogram(props) {\n  return <CategoryPictogram definition={definition} {...props} />;\n}\n"
+    }
+  ]
+}

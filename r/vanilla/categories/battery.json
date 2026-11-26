@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-battery",
+  "type": "registry:ui",
+  "title": "Battery Pictogram",
+  "description": "A wide battery with a terminal and a lightning bolt cut through its face.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Energy",
+    "theme": "volt",
+    "motion": "pulse",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#a8d94a",
+        "#58c8ff"
+      ],
+      "dark": [
+        "#c0e87a",
+        "#7cd6ff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/pictogram-battery.js",
+      "target": "components/prequelui/categories/pictogram-battery.js",
+      "type": "registry:ui",
+      "content": "import { createCategoryPictogram } from \"./category-core.js\";\n\nexport const definition = {\n  \"slug\": \"battery\",\n  \"name\": \"Battery\",\n  \"group\": \"Energy\",\n  \"theme\": \"volt\",\n  \"keywords\": [\n    \"battery\",\n    \"energy\",\n    \"charge\",\n    \"power\",\n    \"cell\"\n  ],\n  \"description\": \"A wide battery with a terminal and a lightning bolt cut through its face.\",\n  \"motion\": \"pulse\",\n  \"ink\": [\n    {\n      \"d\": \"M284 360H666A34 34 0 0 1 700 394V626A34 34 0 0 1 666 660H284A34 34 0 0 1 250 626V394A34 34 0 0 1 284 360Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M716 450H764A16 16 0 0 1 780 466V554A16 16 0 0 1 764 570H716A16 16 0 0 1 700 554V466A16 16 0 0 1 716 450Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M520 408L430 532H510L468 618L600 486H518L558 408Z\",\n      \"width\": 20\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-15 -98.87A100 100 0 1 0 -15 98.87Z\",\n      \"transform\": \"translate(250 510) rotate(0)\"\n    },\n    {\n      \"d\": \"M15 -98.87A100 100 0 0 1 15 98.87Z\",\n      \"transform\": \"translate(250 510) rotate(0)\"\n    },\n    {\n      \"d\": \"M90 0C49.5 -14 14 -14 0 -14A14 14 0 0 0 0 14C14 14 49.5 14 90 0Z\",\n      \"transform\": \"translate(780 300) rotate(-30)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#a8d94a\",\n      \"#58c8ff\"\n    ],\n    \"dark\": [\n      \"#c0e87a\",\n      \"#7cd6ff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {},\n    \"accent\": {\n      \"scale\": 1.08\n    }\n  }\n};\n\nexport const meta = {\n  \"slug\": \"battery\",\n  \"name\": \"Battery\",\n  \"group\": \"Energy\",\n  \"motion\": \"pulse\",\n  \"component\": \"PrequelBatteryPictogram\"\n};\n\nexport function createPrequelBatteryPictogram(root, options = {}) {\n  return createCategoryPictogram(root, definition, options);\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-house",
+  "type": "registry:ui",
+  "title": "Home Pictogram",
+  "description": "A house with a pitched roof, a door and a round window, in front of a split orb.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vue/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Home",
+    "theme": "orange",
+    "motion": "float",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#ff7a5c",
+        "#ff5ca8"
+      ],
+      "dark": [
+        "#ff9a7c",
+        "#ff7cc0"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/PrequelHomePictogram.vue",
+      "target": "components/prequelui/categories/PrequelHomePictogram.vue",
+      "type": "registry:ui",
+      "content": "<script>\nexport const definition = {\n  \"slug\": \"house\",\n  \"name\": \"Home\",\n  \"group\": \"Home\",\n  \"theme\": \"orange\",\n  \"keywords\": [\n    \"house\",\n    \"home\",\n    \"building\",\n    \"roof\"\n  ],\n  \"description\": \"A house with a pitched roof, a door and a round window, in front of a split orb.\",\n  \"motion\": \"float\",\n  \"ink\": [\n    {\n      \"d\": \"M220 486L512 238L804 486\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M282 452V760H742V452\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M462 580H562A10 10 0 0 1 572 590V750A10 10 0 0 1 562 760H462A10 10 0 0 1 452 750V590A10 10 0 0 1 462 580Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M578 566A42 42 0 1 0 662 566A42 42 0 1 0 578 566Z\",\n      \"width\": 23\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-14 -99.02A100 100 0 1 0 -14 99.02Z\",\n      \"transform\": \"translate(700 470) rotate(0)\"\n    },\n    {\n      \"d\": \"M14 -99.02A100 100 0 0 1 14 99.02Z\",\n      \"transform\": \"translate(700 470) rotate(0)\"\n    },\n    {\n      \"d\": \"M108 0C59.4 -17 17 -17 0 -17A17 17 0 0 0 0 17C17 17 59.4 17 108 0Z\",\n      \"transform\": \"translate(280 300) rotate(148)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#ff7a5c\",\n      \"#ff5ca8\"\n    ],\n    \"dark\": [\n      \"#ff9a7c\",\n      \"#ff7cc0\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"y\": -10\n    },\n    \"accent\": {\n      \"y\": -14\n    }\n  }\n};\n</script>\n\n<script setup>\nimport CategoryPictogram from \"./category-core.vue\";\n</script>\n\n<template>\n  <CategoryPictogram :definition=\"definition\" />\n</template>\n"
+    }
+  ]
+}

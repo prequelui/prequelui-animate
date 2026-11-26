@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-megaphone",
+  "type": "registry:ui",
+  "title": "Megaphone Pictogram",
+  "description": "A handheld megaphone with a broad horn and three sound comets spreading to the right.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Jobs",
+    "theme": "blue",
+    "motion": "comet",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#4aa8ff",
+        "#7a6cff"
+      ],
+      "dark": [
+        "#74baff",
+        "#9a8cff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "src/components/prequelui/categories/pictogram-megaphone.tsx",
+      "target": "src/components/prequelui/categories/pictogram-megaphone.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { CategoryPictogram } from \"./category-core\";\n\nexport const definition = {\n  \"slug\": \"megaphone\",\n  \"name\": \"Megaphone\",\n  \"group\": \"Jobs\",\n  \"theme\": \"blue\",\n  \"keywords\": [\n    \"megaphone\",\n    \"hiring\",\n    \"announce\",\n    \"job\",\n    \"recruit\"\n  ],\n  \"description\": \"A handheld megaphone with a broad horn and three sound comets spreading to the right.\",\n  \"motion\": \"comet\",\n  \"ink\": [\n    {\n      \"d\": \"M300 470H500L700 340V684L500 554H300Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M380 554V680H470V554\",\n      \"width\": 20\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-15 -98.87A100 100 0 1 0 -15 98.87Z\",\n      \"transform\": \"translate(512 500) rotate(0)\"\n    },\n    {\n      \"d\": \"M15 -98.87A100 100 0 0 1 15 98.87Z\",\n      \"transform\": \"translate(512 500) rotate(0)\"\n    },\n    {\n      \"d\": \"M100 0C55 -14 14 -14 0 -14A14 14 0 0 0 0 14C14 14 55 14 100 0Z\",\n      \"transform\": \"translate(720 440) rotate(-20)\"\n    },\n    {\n      \"d\": \"M120 0C66 -16 16 -16 0 -16A16 16 0 0 0 0 16C16 16 66 16 120 0Z\",\n      \"transform\": \"translate(728 512) rotate(0)\"\n    },\n    {\n      \"d\": \"M90 0C49.5 -13 13 -13 0 -13A13 13 0 0 0 0 13C13 13 49.5 13 90 0Z\",\n      \"transform\": \"translate(720 584) rotate(20)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#4aa8ff\",\n      \"#7a6cff\"\n    ],\n    \"dark\": [\n      \"#74baff\",\n      \"#9a8cff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {},\n    \"accent\": {\n      \"x\": 22,\n      \"y\": -18\n    }\n  }\n};\n\nexport function PrequelMegaphonePictogram(props) {\n  return <CategoryPictogram definition={definition} {...props} />;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-plants",
+  "type": "registry:ui",
+  "title": "Plants Pictogram",
+  "description": "A potted plant with three leaves on a stem, an orb and a comet behind.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Home",
+    "theme": "orange",
+    "motion": "float",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#ff7a5c",
+        "#ff5ca8"
+      ],
+      "dark": [
+        "#ff9a7c",
+        "#ff7cc0"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "src/components/prequelui/categories/pictogram-plants.tsx",
+      "target": "src/components/prequelui/categories/pictogram-plants.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { CategoryPictogram } from \"./category-core\";\n\nexport const definition = {\n  \"slug\": \"plants\",\n  \"name\": \"Plants\",\n  \"group\": \"Home\",\n  \"theme\": \"orange\",\n  \"keywords\": [\n    \"plant\",\n    \"leaf\",\n    \"pot\",\n    \"garden\"\n  ],\n  \"description\": \"A potted plant with three leaves on a stem, an orb and a comet behind.\",\n  \"motion\": \"float\",\n  \"ink\": [\n    {\n      \"d\": \"M372 618H652L618 800H406Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M512 618V430\",\n      \"width\": 24\n    },\n    {\n      \"d\": \"M512 520C430 500 380 430 386 350C470 366 516 432 512 520Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M512 470C600 452 656 388 656 306C568 320 512 386 512 470Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M512 560C440 560 390 600 370 660C450 656 506 616 512 560Z\",\n      \"width\": 23\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-13 -95.12A96 96 0 1 0 -13 95.12Z\",\n      \"transform\": \"translate(280 340) rotate(0)\"\n    },\n    {\n      \"d\": \"M13 -95.12A96 96 0 0 1 13 95.12Z\",\n      \"transform\": \"translate(280 340) rotate(0)\"\n    },\n    {\n      \"d\": \"M100 0C55 -15 15 -15 0 -15A15 15 0 0 0 0 15C15 15 55 15 100 0Z\",\n      \"transform\": \"translate(700 300) rotate(-22)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#ff7a5c\",\n      \"#ff5ca8\"\n    ],\n    \"dark\": [\n      \"#ff9a7c\",\n      \"#ff7cc0\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"y\": -10\n    },\n    \"accent\": {\n      \"y\": -14\n    }\n  }\n};\n\nexport function PrequelPlantsPictogram(props) {\n  return <CategoryPictogram definition={definition} {...props} />;\n}\n"
+    }
+  ]
+}

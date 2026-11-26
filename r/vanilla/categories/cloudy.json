@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-cloudy",
+  "type": "registry:ui",
+  "title": "Cloudy Pictogram",
+  "description": "A billowed cloud with a split orb peeking over its shoulder.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Weather",
+    "theme": "sky",
+    "motion": "float",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#58c8ff",
+        "#8a6cff"
+      ],
+      "dark": [
+        "#7cd6ff",
+        "#a48cff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/pictogram-cloudy.js",
+      "target": "components/prequelui/categories/pictogram-cloudy.js",
+      "type": "registry:ui",
+      "content": "import { createCategoryPictogram } from \"./category-core.js\";\n\nexport const definition = {\n  \"slug\": \"cloudy\",\n  \"name\": \"Cloudy\",\n  \"group\": \"Weather\",\n  \"theme\": \"sky\",\n  \"keywords\": [\n    \"cloud\",\n    \"weather\",\n    \"sky\",\n    \"overcast\"\n  ],\n  \"description\": \"A billowed cloud with a split orb peeking over its shoulder.\",\n  \"motion\": \"float\",\n  \"ink\": [\n    {\n      \"d\": \"M332 664C252 664 200 606 200 544C200 474 256 424 326 424C342 344 410 290 492 290C590 290 660 360 668 452C748 452 800 502 800 560C800 620 748 664 688 664Z\",\n      \"width\": 23\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-13 -95.12A96 96 0 1 0 -13 95.12Z\",\n      \"transform\": \"translate(750 360) rotate(0)\"\n    },\n    {\n      \"d\": \"M13 -95.12A96 96 0 0 1 13 95.12Z\",\n      \"transform\": \"translate(750 360) rotate(0)\"\n    },\n    {\n      \"d\": \"M108 0C59.4 -17 17 -17 0 -17A17 17 0 0 0 0 17C17 17 59.4 17 108 0Z\",\n      \"transform\": \"translate(280 300) rotate(148)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#58c8ff\",\n      \"#8a6cff\"\n    ],\n    \"dark\": [\n      \"#7cd6ff\",\n      \"#a48cff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"y\": -10\n    },\n    \"accent\": {\n      \"y\": -14\n    }\n  }\n};\n\nexport const meta = {\n  \"slug\": \"cloudy\",\n  \"name\": \"Cloudy\",\n  \"group\": \"Weather\",\n  \"motion\": \"float\",\n  \"component\": \"PrequelCloudyPictogram\"\n};\n\nexport function createPrequelCloudyPictogram(root, options = {}) {\n  return createCategoryPictogram(root, definition, options);\n}\n"
+    }
+  ]
+}

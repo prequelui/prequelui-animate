@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-clapper",
+  "type": "registry:ui",
+  "title": "Clapperboard Pictogram",
+  "description": "A film clapperboard with a striped top bar, two hinges and a play mark.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Culture",
+    "theme": "plum",
+    "motion": "tilt",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#c06cff",
+        "#8a6cff"
+      ],
+      "dark": [
+        "#d08cff",
+        "#a48cff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/pictogram-clapper.js",
+      "target": "components/prequelui/categories/pictogram-clapper.js",
+      "type": "registry:ui",
+      "content": "import { createCategoryPictogram } from \"./category-core.js\";\n\nexport const definition = {\n  \"slug\": \"clapper\",\n  \"name\": \"Clapperboard\",\n  \"group\": \"Culture\",\n  \"theme\": \"plum\",\n  \"keywords\": [\n    \"clapper\",\n    \"film\",\n    \"cinema\",\n    \"culture\",\n    \"movie\"\n  ],\n  \"description\": \"A film clapperboard with a striped top bar, two hinges and a play mark.\",\n  \"motion\": \"tilt\",\n  \"ink\": [\n    {\n      \"d\": \"M260 432H764A22 22 0 0 1 786 454V742A22 22 0 0 1 764 764H260A22 22 0 0 1 238 742V454A22 22 0 0 1 260 432Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M238 432L300 326H848L786 432Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M360 326L420 432\",\n      \"width\": 18\n    },\n    {\n      \"d\": \"M470 326L530 432\",\n      \"width\": 18\n    },\n    {\n      \"d\": \"M580 326L640 432\",\n      \"width\": 18\n    },\n    {\n      \"d\": \"M690 326L750 432\",\n      \"width\": 18\n    },\n    {\n      \"d\": \"M470 540L620 596L470 652Z\",\n      \"width\": 20\n    },\n    {\n      \"d\": \"M286 432A14 14 0 1 0 314 432A14 14 0 1 0 286 432Z\",\n      \"fill\": true\n    },\n    {\n      \"d\": \"M710 432A14 14 0 1 0 738 432A14 14 0 1 0 710 432Z\",\n      \"fill\": true\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-15 -94.82A96 96 0 1 0 -15 94.82Z\",\n      \"transform\": \"translate(770 600) rotate(0)\"\n    },\n    {\n      \"d\": \"M15 -94.82A96 96 0 0 1 15 94.82Z\",\n      \"transform\": \"translate(770 600) rotate(0)\"\n    },\n    {\n      \"d\": \"M90 0C49.5 -14 14 -14 0 -14A14 14 0 0 0 0 14C14 14 49.5 14 90 0Z\",\n      \"transform\": \"translate(250 300) rotate(150)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#c06cff\",\n      \"#8a6cff\"\n    ],\n    \"dark\": [\n      \"#d08cff\",\n      \"#a48cff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"rotate\": -2.4\n    },\n    \"accent\": {\n      \"x\": 12,\n      \"y\": -6\n    }\n  }\n};\n\nexport const meta = {\n  \"slug\": \"clapper\",\n  \"name\": \"Clapperboard\",\n  \"group\": \"Culture\",\n  \"motion\": \"tilt\",\n  \"component\": \"PrequelClapperboardPictogram\"\n};\n\nexport function createPrequelClapperboardPictogram(root, options = {}) {\n  return createCategoryPictogram(root, definition, options);\n}\n"
+    }
+  ]
+}

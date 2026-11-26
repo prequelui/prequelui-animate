@@ -1,0 +1,73 @@
+<script>
+export const definition = {
+  "slug": "suitcase",
+  "name": "Suitcase",
+  "group": "Travel",
+  "theme": "blue",
+  "keywords": [
+    "luggage",
+    "case",
+    "trip",
+    "travel"
+  ],
+  "description": "A suitcase with a rounded handle, two latches and a split orb at the right wall.",
+  "motion": "orb",
+  "ink": [
+    {
+      "d": "M270 356H754A40 40 0 0 1 794 396V696A40 40 0 0 1 754 736H270A40 40 0 0 1 230 696V396A40 40 0 0 1 270 356Z",
+      "width": 23
+    },
+    {
+      "d": "M416 356V318Q416 236 512 236Q608 236 608 318V356",
+      "width": 23
+    },
+    {
+      "d": "M348 500H380A10 10 0 0 1 390 510V526A10 10 0 0 1 380 536H348A10 10 0 0 1 338 526V510A10 10 0 0 1 348 500Z",
+      "fill": true
+    },
+    {
+      "d": "M644 500H676A10 10 0 0 1 686 510V526A10 10 0 0 1 676 536H644A10 10 0 0 1 634 526V510A10 10 0 0 1 644 500Z",
+      "fill": true
+    }
+  ],
+  "accent": [
+    {
+      "d": "M-15 -108.97A110 110 0 1 0 -15 108.97Z",
+      "transform": "translate(742 480) rotate(0)"
+    },
+    {
+      "d": "M15 -108.97A110 110 0 0 1 15 108.97Z",
+      "transform": "translate(742 480) rotate(0)"
+    },
+    {
+      "d": "M108 0C59.4 -17 17 -17 0 -17A17 17 0 0 0 0 17C17 17 59.4 17 108 0Z",
+      "transform": "translate(300 300) rotate(148)"
+    }
+  ],
+  "palette": {
+    "light": [
+      "#4aa8ff",
+      "#7a6cff"
+    ],
+    "dark": [
+      "#74baff",
+      "#9a8cff"
+    ]
+  },
+  "motionConfig": {
+    "main": {},
+    "accent": {
+      "x": 16,
+      "y": -10
+    }
+  }
+};
+</script>
+
+<script setup>
+import CategoryPictogram from "./category-core.vue";
+</script>
+
+<template>
+  <CategoryPictogram :definition="definition" />
+</template>

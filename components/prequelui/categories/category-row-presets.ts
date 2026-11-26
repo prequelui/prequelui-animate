@@ -1,6 +1,7 @@
 import { categoryBySlug } from "./categories.generated";
 import type { CategoryPictogramDefinition } from "./category-core";
 import type { CategoryRowItem } from "./category-row";
+import { categoryFilePath, type FrameworkId } from "@/lib/frameworks";
 
 export type CategoryRowPresetId = "shop" | "media" | "saas";
 
@@ -111,24 +112,91 @@ export function resolveCategoryRowPreset(
   }));
 }
 
-export function categoryRowPresetCode(preset: CategoryRowPreset) {
+function modulePath(framework: FrameworkId, slug: string) {
+  const definition = definitionOf(slug);
+  const file = categoryFilePath(framework, slug, definition.name);
+  if (framework === "svelte") return `$lib/${file.replace(/^src\/lib\//, "")}`;
+  if (framework === "solid")
+    return `@/${file.replace(/^src\//, "").replace(/\.tsx$/, "")}`;
+  if (framework === "vanilla") return `./${file}`;
+  return `@/${file.replace(/\.tsx$/, "")}`;
+}
+
+function itemProps(
+  item: CategoryRowPreset["items"][number],
+  quote: '"' | "'",
+) {
+  const props = [
+    `definition: ${identifier(item.slug)}`,
+    `label: ${quote}${item.label}${quote}`,
+    item.href ? `href: ${quote}${item.href}${quote}` : null,
+    item.badge ? `badge: ${quote}${item.badge}${quote}` : null,
+  ].filter(Boolean);
+  return `{ ${props.join(", ")} }`;
+}
+
+export function categoryRowPresetCode(
+  preset: CategoryRowPreset,
+  framework: FrameworkId = "react",
+) {
   const imports = preset.items
     .map(
       (item) =>
-        `import { definition as ${identifier(item.slug)} } from "@/components/prequelui/categories/pictogram-${item.slug}";`,
+        `import { definition as ${identifier(item.slug)} } from "${modulePath(framework, item.slug)}";`,
     )
     .join("\n");
+
+  if (framework === "vue") {
+    const rows = preset.items
+      .map((item) => `      ${itemProps(item, "'")},`)
+      .join("\n");
+    return `<script setup>
+import CategoryRow from "@/components/prequelui/categories/category-row.vue";
+${imports}
+</script>
+
+<template>
+  <CategoryRow
+    aria-label="${preset.ariaLabel}"
+    :items="[
+${rows}
+    ]"
+  />
+</template>`;
+  }
+
+  if (framework === "svelte") {
+    const rows = preset.items
+      .map((item) => `    ${itemProps(item, '"')},`)
+      .join("\n");
+    return `<script>
+  import CategoryRow from "$lib/components/prequelui/categories/category-row.svelte";
+  ${imports.replace(/\n/g, "\n  ")}
+</script>
+
+<CategoryRow
+  ariaLabel="${preset.ariaLabel}"
+  items={[
+${rows}
+  ]}
+/>`;
+  }
+
   const rows = preset.items
-    .map((item) => {
-      const props = [
-        `definition: ${identifier(item.slug)}`,
-        `label: "${item.label}"`,
-        item.href ? `href: "${item.href}"` : null,
-        item.badge ? `badge: "${item.badge}"` : null,
-      ].filter(Boolean);
-      return `        { ${props.join(", ")} },`;
-    })
+    .map((item) => `        ${itemProps(item, '"')},`)
     .join("\n");
+
+  if (framework === "vanilla") {
+    return `import { createCategoryRow } from "./components/prequelui/categories/category-row.js";
+${imports}
+
+const row = createCategoryRow(document.querySelector("#categories"), {
+  ariaLabel: "${preset.ariaLabel}",
+  items: [
+${rows}
+  ],
+});`;
+  }
 
   return `import { CategoryRow } from "@/components/prequelui/categories/category-row";
 ${imports}

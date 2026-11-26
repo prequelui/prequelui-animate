@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-nature",
+  "type": "registry:ui",
+  "title": "Nature Pictogram",
+  "description": "A leaf with a midrib and two veins, in front of a split orb and a comet.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vue/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Weather",
+    "theme": "sky",
+    "motion": "swing",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#58c8ff",
+        "#8a6cff"
+      ],
+      "dark": [
+        "#7cd6ff",
+        "#a48cff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/PrequelNaturePictogram.vue",
+      "target": "components/prequelui/categories/PrequelNaturePictogram.vue",
+      "type": "registry:ui",
+      "content": "<script>\nexport const definition = {\n  \"slug\": \"nature\",\n  \"name\": \"Nature\",\n  \"group\": \"Weather\",\n  \"theme\": \"sky\",\n  \"keywords\": [\n    \"leaf\",\n    \"nature\",\n    \"eco\",\n    \"plant\"\n  ],\n  \"description\": \"A leaf with a midrib and two veins, in front of a split orb and a comet.\",\n  \"motion\": \"swing\",\n  \"ink\": [\n    {\n      \"d\": \"M290 724C290 476 470 298 752 278C752 540 588 724 290 724Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M290 724C446 606 596 470 752 278\",\n      \"width\": 22\n    },\n    {\n      \"d\": \"M390 640C420 560 470 500 540 456\",\n      \"width\": 20\n    },\n    {\n      \"d\": \"M470 574C500 512 550 462 614 426\",\n      \"width\": 20\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-13 -95.12A96 96 0 1 0 -13 95.12Z\",\n      \"transform\": \"translate(760 340) rotate(0)\"\n    },\n    {\n      \"d\": \"M13 -95.12A96 96 0 0 1 13 95.12Z\",\n      \"transform\": \"translate(760 340) rotate(0)\"\n    },\n    {\n      \"d\": \"M108 0C59.4 -17 17 -17 0 -17A17 17 0 0 0 0 17C17 17 59.4 17 108 0Z\",\n      \"transform\": \"translate(280 300) rotate(148)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#58c8ff\",\n      \"#8a6cff\"\n    ],\n    \"dark\": [\n      \"#7cd6ff\",\n      \"#a48cff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"rotate\": -3\n    },\n    \"accent\": {\n      \"y\": -8\n    }\n  }\n};\n</script>\n\n<script setup>\nimport CategoryPictogram from \"./category-core.vue\";\n</script>\n\n<template>\n  <CategoryPictogram :definition=\"definition\" />\n</template>\n"
+    }
+  ]
+}

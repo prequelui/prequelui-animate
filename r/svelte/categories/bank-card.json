@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-bank-card",
+  "type": "registry:component",
+  "title": "Bank card Pictogram",
+  "description": "A payment card with a magnetic stripe, a chip and a split orb behind the right edge.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Finance",
+    "theme": "green",
+    "motion": "orb",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#38d4b0",
+        "#5b6cff"
+      ],
+      "dark": [
+        "#6fe6c8",
+        "#7c8bff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/categories/PrequelBankCardPictogram.svelte",
+      "target": "~/src/lib/components/prequelui/categories/PrequelBankCardPictogram.svelte",
+      "type": "registry:file",
+      "content": "<script module>\n  export const definition = {\n  \"slug\": \"bank-card\",\n  \"name\": \"Bank card\",\n  \"group\": \"Finance\",\n  \"theme\": \"green\",\n  \"keywords\": [\n    \"card\",\n    \"payment\",\n    \"credit\",\n    \"bank\"\n  ],\n  \"description\": \"A payment card with a magnetic stripe, a chip and a split orb behind the right edge.\",\n  \"motion\": \"orb\",\n  \"ink\": [\n    {\n      \"d\": \"M230 336H794A40 40 0 0 1 834 376V652A40 40 0 0 1 794 692H230A40 40 0 0 1 190 652V376A40 40 0 0 1 230 336Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M224 398H800A10 10 0 0 1 810 408V436A10 10 0 0 1 800 446H224A10 10 0 0 1 214 436V408A10 10 0 0 1 224 398Z\",\n      \"fill\": true\n    },\n    {\n      \"d\": \"M286 492H344A14 14 0 0 1 358 506V544A14 14 0 0 1 344 558H286A14 14 0 0 1 272 544V506A14 14 0 0 1 286 492Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M556 540H700\",\n      \"width\": 22\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-15 -110.99A112 112 0 1 0 -15 110.99Z\",\n      \"transform\": \"translate(742 500) rotate(0)\"\n    },\n    {\n      \"d\": \"M15 -110.99A112 112 0 0 1 15 110.99Z\",\n      \"transform\": \"translate(742 500) rotate(0)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#38d4b0\",\n      \"#5b6cff\"\n    ],\n    \"dark\": [\n      \"#6fe6c8\",\n      \"#7c8bff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {},\n    \"accent\": {\n      \"x\": 16,\n      \"y\": -10\n    }\n  }\n};\n</script>\n\n<script>\n  import CategoryPictogram from \"./category-core.svelte\";\n  let { ...rest } = $props();\n</script>\n\n<CategoryPictogram definition={definition} {...rest} />\n"
+    }
+  ]
+}

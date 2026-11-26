@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-traffic-light",
+  "type": "registry:ui",
+  "title": "Traffic light Pictogram",
+  "description": "A three-lamp traffic signal with rounded visors, each lamp filled from the same gradient.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Auto",
+    "theme": "steel",
+    "motion": "pulse",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#7a8ba8",
+        "#4aa8ff"
+      ],
+      "dark": [
+        "#96a6c4",
+        "#74baff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/pictogram-traffic-light.js",
+      "target": "components/prequelui/categories/pictogram-traffic-light.js",
+      "type": "registry:ui",
+      "content": "import { createCategoryPictogram } from \"./category-core.js\";\n\nexport const definition = {\n  \"slug\": \"traffic-light\",\n  \"name\": \"Traffic light\",\n  \"group\": \"Auto\",\n  \"theme\": \"steel\",\n  \"keywords\": [\n    \"traffic\",\n    \"light\",\n    \"signal\",\n    \"road\",\n    \"auto\"\n  ],\n  \"description\": \"A three-lamp traffic signal with rounded visors, each lamp filled from the same gradient.\",\n  \"motion\": \"pulse\",\n  \"ink\": [\n    {\n      \"d\": \"M448 214H576A56 56 0 0 1 632 270V734A56 56 0 0 1 576 790H448A56 56 0 0 1 392 734V270A56 56 0 0 1 448 214Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M446 330A66 66 0 1 0 578 330A66 66 0 1 0 446 330Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M446 502A66 66 0 1 0 578 502A66 66 0 1 0 446 502Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M446 674A66 66 0 1 0 578 674A66 66 0 1 0 446 674Z\",\n      \"width\": 23\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M472 330A40 40 0 1 0 552 330A40 40 0 1 0 472 330Z\"\n    },\n    {\n      \"d\": \"M472 502A40 40 0 1 0 552 502A40 40 0 1 0 472 502Z\"\n    },\n    {\n      \"d\": \"M472 674A40 40 0 1 0 552 674A40 40 0 1 0 472 674Z\"\n    },\n    {\n      \"d\": \"M80 0C44 -13 13 -13 0 -13A13 13 0 0 0 0 13C13 13 44 13 80 0Z\",\n      \"transform\": \"translate(700 300) rotate(-30)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#7a8ba8\",\n      \"#4aa8ff\"\n    ],\n    \"dark\": [\n      \"#96a6c4\",\n      \"#74baff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {},\n    \"accent\": {\n      \"scale\": 1.08\n    }\n  }\n};\n\nexport const meta = {\n  \"slug\": \"traffic-light\",\n  \"name\": \"Traffic light\",\n  \"group\": \"Auto\",\n  \"motion\": \"pulse\",\n  \"component\": \"PrequelTrafficLightPictogram\"\n};\n\nexport function createPrequelTrafficLightPictogram(root, options = {}) {\n  return createCategoryPictogram(root, definition, options);\n}\n"
+    }
+  ]
+}

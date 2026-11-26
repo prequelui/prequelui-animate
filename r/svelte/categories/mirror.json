@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-mirror",
+  "type": "registry:component",
+  "title": "Hand mirror Pictogram",
+  "description": "A hand mirror with a double rim and a tapered handle, its glass holding a split orb.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Beauty",
+    "theme": "rose",
+    "motion": "orb",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#ff7ca8",
+        "#ff9a5c"
+      ],
+      "dark": [
+        "#ff9ac0",
+        "#ffb07c"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/categories/PrequelHandMirrorPictogram.svelte",
+      "target": "~/src/lib/components/prequelui/categories/PrequelHandMirrorPictogram.svelte",
+      "type": "registry:file",
+      "content": "<script module>\n  export const definition = {\n  \"slug\": \"mirror\",\n  \"name\": \"Hand mirror\",\n  \"group\": \"Beauty\",\n  \"theme\": \"rose\",\n  \"keywords\": [\n    \"mirror\",\n    \"beauty\",\n    \"vanity\",\n    \"reflection\",\n    \"salon\"\n  ],\n  \"description\": \"A hand mirror with a double rim and a tapered handle, its glass holding a split orb.\",\n  \"motion\": \"orb\",\n  \"ink\": [\n    {\n      \"d\": \"M314 400A198 198 0 1 0 710 400A198 198 0 1 0 314 400Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M362 400A150 150 0 1 0 662 400A150 150 0 1 0 362 400Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M486 596L470 794Q468 824 500 824H524Q556 824 554 794L538 596\",\n      \"width\": 23\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-15 -102.91A104 104 0 1 0 -15 102.91Z\",\n      \"transform\": \"translate(512 400) rotate(0)\"\n    },\n    {\n      \"d\": \"M15 -102.91A104 104 0 0 1 15 102.91Z\",\n      \"transform\": \"translate(512 400) rotate(0)\"\n    },\n    {\n      \"d\": \"M90 0C49.5 -14 14 -14 0 -14A14 14 0 0 0 0 14C14 14 49.5 14 90 0Z\",\n      \"transform\": \"translate(780 280) rotate(-30)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#ff7ca8\",\n      \"#ff9a5c\"\n    ],\n    \"dark\": [\n      \"#ff9ac0\",\n      \"#ffb07c\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {},\n    \"accent\": {\n      \"x\": 16,\n      \"y\": -10\n    }\n  }\n};\n</script>\n\n<script>\n  import CategoryPictogram from \"./category-core.svelte\";\n  let { ...rest } = $props();\n</script>\n\n<CategoryPictogram definition={definition} {...rest} />\n"
+    }
+  ]
+}

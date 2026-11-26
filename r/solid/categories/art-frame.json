@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-art-frame",
+  "type": "registry:ui",
+  "title": "Art frame Pictogram",
+  "description": "A double picture frame holding a mountain, a sun and a quiet horizon line.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Culture",
+    "theme": "plum",
+    "motion": "float",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#c06cff",
+        "#8a6cff"
+      ],
+      "dark": [
+        "#d08cff",
+        "#a48cff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "src/components/prequelui/categories/pictogram-art-frame.tsx",
+      "target": "src/components/prequelui/categories/pictogram-art-frame.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { CategoryPictogram } from \"./category-core\";\n\nexport const definition = {\n  \"slug\": \"art-frame\",\n  \"name\": \"Art frame\",\n  \"group\": \"Culture\",\n  \"theme\": \"plum\",\n  \"keywords\": [\n    \"art\",\n    \"frame\",\n    \"culture\",\n    \"gallery\",\n    \"picture\"\n  ],\n  \"description\": \"A double picture frame holding a mountain, a sun and a quiet horizon line.\",\n  \"motion\": \"float\",\n  \"ink\": [\n    {\n      \"d\": \"M278 256H746A22 22 0 0 1 768 278V746A22 22 0 0 1 746 768H278A22 22 0 0 1 256 746V278A22 22 0 0 1 278 256Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M316 304H708A12 12 0 0 1 720 316V708A12 12 0 0 1 708 720H316A12 12 0 0 1 304 708V316A12 12 0 0 1 316 304Z\",\n      \"width\": 18\n    },\n    {\n      \"d\": \"M330 656L448 480L538 580L606 506L702 656Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M584 390A44 44 0 1 0 672 390A44 44 0 1 0 584 390Z\",\n      \"width\": 20\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-15 -98.87A100 100 0 1 0 -15 98.87Z\",\n      \"transform\": \"translate(760 600) rotate(0)\"\n    },\n    {\n      \"d\": \"M15 -98.87A100 100 0 0 1 15 98.87Z\",\n      \"transform\": \"translate(760 600) rotate(0)\"\n    },\n    {\n      \"d\": \"M90 0C49.5 -14 14 -14 0 -14A14 14 0 0 0 0 14C14 14 49.5 14 90 0Z\",\n      \"transform\": \"translate(240 300) rotate(150)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#c06cff\",\n      \"#8a6cff\"\n    ],\n    \"dark\": [\n      \"#d08cff\",\n      \"#a48cff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"y\": -10\n    },\n    \"accent\": {\n      \"y\": -14\n    }\n  }\n};\n\nexport function PrequelArtFramePictogram(props) {\n  return <CategoryPictogram definition={definition} {...props} />;\n}\n"
+    }
+  ]
+}

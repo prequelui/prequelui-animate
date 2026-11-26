@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-id-badge",
+  "type": "registry:ui",
+  "title": "ID badge Pictogram",
+  "description": "A lanyard badge with a metal clip, a round portrait and two lines of identification.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vue/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Jobs",
+    "theme": "blue",
+    "motion": "swing",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#4aa8ff",
+        "#7a6cff"
+      ],
+      "dark": [
+        "#74baff",
+        "#9a8cff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/PrequelIDBadgePictogram.vue",
+      "target": "components/prequelui/categories/PrequelIDBadgePictogram.vue",
+      "type": "registry:ui",
+      "content": "<script>\nexport const definition = {\n  \"slug\": \"id-badge\",\n  \"name\": \"ID badge\",\n  \"group\": \"Jobs\",\n  \"theme\": \"blue\",\n  \"keywords\": [\n    \"badge\",\n    \"id\",\n    \"work\",\n    \"staff\",\n    \"access\"\n  ],\n  \"description\": \"A lanyard badge with a metal clip, a round portrait and two lines of identification.\",\n  \"motion\": \"swing\",\n  \"ink\": [\n    {\n      \"d\": \"M420 280L468 388\",\n      \"width\": 18\n    },\n    {\n      \"d\": \"M604 280L556 388\",\n      \"width\": 18\n    },\n    {\n      \"d\": \"M484 350H540A12 12 0 0 1 552 362V382A12 12 0 0 1 540 394H484A12 12 0 0 1 472 382V362A12 12 0 0 1 484 350Z\",\n      \"width\": 20\n    },\n    {\n      \"d\": \"M384 386H640A30 30 0 0 1 670 416V756A30 30 0 0 1 640 786H384A30 30 0 0 1 354 756V416A30 30 0 0 1 384 386Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M456 500A56 56 0 1 0 568 500A56 56 0 1 0 456 500Z\",\n      \"width\": 20\n    },\n    {\n      \"d\": \"M420 610H604\",\n      \"width\": 18\n    },\n    {\n      \"d\": \"M420 660H556\",\n      \"width\": 18\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-15 -94.82A96 96 0 1 0 -15 94.82Z\",\n      \"transform\": \"translate(760 420) rotate(0)\"\n    },\n    {\n      \"d\": \"M15 -94.82A96 96 0 0 1 15 94.82Z\",\n      \"transform\": \"translate(760 420) rotate(0)\"\n    },\n    {\n      \"d\": \"M90 0C49.5 -14 14 -14 0 -14A14 14 0 0 0 0 14C14 14 49.5 14 90 0Z\",\n      \"transform\": \"translate(260 300) rotate(150)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#4aa8ff\",\n      \"#7a6cff\"\n    ],\n    \"dark\": [\n      \"#74baff\",\n      \"#9a8cff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"rotate\": -3\n    },\n    \"accent\": {\n      \"y\": -8\n    }\n  }\n};\n</script>\n\n<script setup>\nimport CategoryPictogram from \"./category-core.vue\";\n</script>\n\n<template>\n  <CategoryPictogram :definition=\"definition\" />\n</template>\n"
+    }
+  ]
+}

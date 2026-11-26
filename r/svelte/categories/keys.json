@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-keys",
+  "type": "registry:component",
+  "title": "House keys Pictogram",
+  "description": "A house key turned across the grid, with a double-ring bow and three cut teeth.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Real estate",
+    "theme": "indigo",
+    "motion": "swing",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#5b6cff",
+        "#38d4b0"
+      ],
+      "dark": [
+        "#7c8bff",
+        "#6fe6c8"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/categories/PrequelHouseKeysPictogram.svelte",
+      "target": "~/src/lib/components/prequelui/categories/PrequelHouseKeysPictogram.svelte",
+      "type": "registry:file",
+      "content": "<script module>\n  export const definition = {\n  \"slug\": \"keys\",\n  \"name\": \"House keys\",\n  \"group\": \"Real estate\",\n  \"theme\": \"indigo\",\n  \"keywords\": [\n    \"keys\",\n    \"house\",\n    \"home\",\n    \"rent\",\n    \"estate\"\n  ],\n  \"description\": \"A house key turned across the grid, with a double-ring bow and three cut teeth.\",\n  \"motion\": \"swing\",\n  \"ink\": [\n    {\n      \"d\": \"M244 430A126 126 0 1 0 496 430A126 126 0 1 0 244 430Z\",\n      \"width\": 23,\n      \"transform\": \"rotate(-16 512 470)\"\n    },\n    {\n      \"d\": \"M312 430A58 58 0 1 0 428 430A58 58 0 1 0 312 430Z\",\n      \"width\": 20,\n      \"transform\": \"rotate(-16 512 470)\"\n    },\n    {\n      \"d\": \"M496 430H800\",\n      \"width\": 24,\n      \"transform\": \"rotate(-16 512 470)\"\n    },\n    {\n      \"d\": \"M700 430V500\",\n      \"width\": 20,\n      \"transform\": \"rotate(-16 512 470)\"\n    },\n    {\n      \"d\": \"M744 430V472\",\n      \"width\": 20,\n      \"transform\": \"rotate(-16 512 470)\"\n    },\n    {\n      \"d\": \"M790 430V520\",\n      \"width\": 20,\n      \"transform\": \"rotate(-16 512 470)\"\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-15 -98.87A100 100 0 1 0 -15 98.87Z\",\n      \"transform\": \"translate(306 430) rotate(0)\"\n    },\n    {\n      \"d\": \"M15 -98.87A100 100 0 0 1 15 98.87Z\",\n      \"transform\": \"translate(306 430) rotate(0)\"\n    },\n    {\n      \"d\": \"M90 0C49.5 -14 14 -14 0 -14A14 14 0 0 0 0 14C14 14 49.5 14 90 0Z\",\n      \"transform\": \"translate(800 300) rotate(-30)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#5b6cff\",\n      \"#38d4b0\"\n    ],\n    \"dark\": [\n      \"#7c8bff\",\n      \"#6fe6c8\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"rotate\": -3\n    },\n    \"accent\": {\n      \"y\": -8\n    }\n  }\n};\n</script>\n\n<script>\n  import CategoryPictogram from \"./category-core.svelte\";\n  let { ...rest } = $props();\n</script>\n\n<CategoryPictogram definition={definition} {...rest} />\n"
+    }
+  ]
+}

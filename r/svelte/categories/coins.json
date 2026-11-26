@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-coins",
+  "type": "registry:component",
+  "title": "Coins Pictogram",
+  "description": "A stack of coins built from three ridges, with an orb and a comet behind.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Finance",
+    "theme": "green",
+    "motion": "pulse",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#38d4b0",
+        "#5b6cff"
+      ],
+      "dark": [
+        "#6fe6c8",
+        "#7c8bff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/categories/PrequelCoinsPictogram.svelte",
+      "target": "~/src/lib/components/prequelui/categories/PrequelCoinsPictogram.svelte",
+      "type": "registry:file",
+      "content": "<script module>\n  export const definition = {\n  \"slug\": \"coins\",\n  \"name\": \"Coins\",\n  \"group\": \"Finance\",\n  \"theme\": \"green\",\n  \"keywords\": [\n    \"coins\",\n    \"savings\",\n    \"money\",\n    \"stack\"\n  ],\n  \"description\": \"A stack of coins built from three ridges, with an orb and a comet behind.\",\n  \"motion\": \"pulse\",\n  \"ink\": [\n    {\n      \"d\": \"M322 370A190 62 0 1 0 702 370A190 62 0 1 0 322 370Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M322 370V560\",\n      \"width\": 22\n    },\n    {\n      \"d\": \"M702 370V560\",\n      \"width\": 22\n    },\n    {\n      \"d\": \"M322 560A190 62 0 0 0 702 560\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M322 430A190 62 0 0 0 702 430\",\n      \"width\": 20\n    },\n    {\n      \"d\": \"M322 496A190 62 0 0 0 702 496\",\n      \"width\": 20\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-14 -99.02A100 100 0 1 0 -14 99.02Z\",\n      \"transform\": \"translate(752 420) rotate(0)\"\n    },\n    {\n      \"d\": \"M14 -99.02A100 100 0 0 1 14 99.02Z\",\n      \"transform\": \"translate(752 420) rotate(0)\"\n    },\n    {\n      \"d\": \"M110 0C60.5 -17 17 -17 0 -17A17 17 0 0 0 0 17C17 17 60.5 17 110 0Z\",\n      \"transform\": \"translate(286 300) rotate(146)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#38d4b0\",\n      \"#5b6cff\"\n    ],\n    \"dark\": [\n      \"#6fe6c8\",\n      \"#7c8bff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {},\n    \"accent\": {\n      \"scale\": 1.08\n    }\n  }\n};\n</script>\n\n<script>\n  import CategoryPictogram from \"./category-core.svelte\";\n  let { ...rest } = $props();\n</script>\n\n<CategoryPictogram definition={definition} {...rest} />\n"
+    }
+  ]
+}

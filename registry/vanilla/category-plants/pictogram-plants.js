@@ -1,0 +1,82 @@
+import { createCategoryPictogram } from "./category-core.js";
+
+export const definition = {
+  "slug": "plants",
+  "name": "Plants",
+  "group": "Home",
+  "theme": "orange",
+  "keywords": [
+    "plant",
+    "leaf",
+    "pot",
+    "garden"
+  ],
+  "description": "A potted plant with three leaves on a stem, an orb and a comet behind.",
+  "motion": "float",
+  "ink": [
+    {
+      "d": "M372 618H652L618 800H406Z",
+      "width": 23
+    },
+    {
+      "d": "M512 618V430",
+      "width": 24
+    },
+    {
+      "d": "M512 520C430 500 380 430 386 350C470 366 516 432 512 520Z",
+      "width": 23
+    },
+    {
+      "d": "M512 470C600 452 656 388 656 306C568 320 512 386 512 470Z",
+      "width": 23
+    },
+    {
+      "d": "M512 560C440 560 390 600 370 660C450 656 506 616 512 560Z",
+      "width": 23
+    }
+  ],
+  "accent": [
+    {
+      "d": "M-13 -95.12A96 96 0 1 0 -13 95.12Z",
+      "transform": "translate(280 340) rotate(0)"
+    },
+    {
+      "d": "M13 -95.12A96 96 0 0 1 13 95.12Z",
+      "transform": "translate(280 340) rotate(0)"
+    },
+    {
+      "d": "M100 0C55 -15 15 -15 0 -15A15 15 0 0 0 0 15C15 15 55 15 100 0Z",
+      "transform": "translate(700 300) rotate(-22)"
+    }
+  ],
+  "palette": {
+    "light": [
+      "#ff7a5c",
+      "#ff5ca8"
+    ],
+    "dark": [
+      "#ff9a7c",
+      "#ff7cc0"
+    ]
+  },
+  "motionConfig": {
+    "main": {
+      "y": -10
+    },
+    "accent": {
+      "y": -14
+    }
+  }
+};
+
+export const meta = {
+  "slug": "plants",
+  "name": "Plants",
+  "group": "Home",
+  "motion": "float",
+  "component": "PrequelPlantsPictogram"
+};
+
+export function createPrequelPlantsPictogram(root, options = {}) {
+  return createCategoryPictogram(root, definition, options);
+}

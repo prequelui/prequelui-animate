@@ -1,0 +1,76 @@
+// @ts-nocheck
+import { CategoryPictogram } from "./category-core";
+
+export const definition = {
+  "slug": "stamp",
+  "name": "Stamp",
+  "group": "Administration",
+  "theme": "slate",
+  "keywords": [
+    "stamp",
+    "approve",
+    "admin",
+    "official",
+    "document"
+  ],
+  "description": "A rubber stamp with a tall handle and a wide base, leaving a small checked mark.",
+  "motion": "bounce",
+  "ink": [
+    {
+      "d": "M462 248H562A30 30 0 0 1 592 278V328A30 30 0 0 1 562 358H462A30 30 0 0 1 432 328V278A30 30 0 0 1 462 248Z",
+      "width": 23
+    },
+    {
+      "d": "M474 350H550A20 20 0 0 1 570 370V540A20 20 0 0 1 550 560H474A20 20 0 0 1 454 540V370A20 20 0 0 1 474 350Z",
+      "width": 23
+    },
+    {
+      "d": "M340 560H684L720 760H304Z",
+      "width": 23
+    },
+    {
+      "d": "M304 760H720",
+      "width": 20
+    },
+    {
+      "d": "M410 690L470 738L596 640",
+      "width": 20
+    }
+  ],
+  "accent": [
+    {
+      "d": "M-15 -94.82A96 96 0 1 0 -15 94.82Z",
+      "transform": "translate(760 380) rotate(0)"
+    },
+    {
+      "d": "M15 -94.82A96 96 0 0 1 15 94.82Z",
+      "transform": "translate(760 380) rotate(0)"
+    },
+    {
+      "d": "M90 0C49.5 -14 14 -14 0 -14A14 14 0 0 0 0 14C14 14 49.5 14 90 0Z",
+      "transform": "translate(260 300) rotate(150)"
+    }
+  ],
+  "palette": {
+    "light": [
+      "#7a8ba8",
+      "#b06cff"
+    ],
+    "dark": [
+      "#96a6c4",
+      "#c58cff"
+    ]
+  },
+  "motionConfig": {
+    "main": {
+      "y": -12
+    },
+    "accent": {
+      "y": -10
+    }
+  }
+};
+
+export function PrequelStampPictogram(props) {
+  return <CategoryPictogram definition={definition} {...props} />;
+}

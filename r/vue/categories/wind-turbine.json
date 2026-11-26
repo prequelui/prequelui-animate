@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-wind-turbine",
+  "type": "registry:ui",
+  "title": "Wind turbine Pictogram",
+  "description": "A three-blade wind turbine on a tapered tower, its hub centred on a wide split orb.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vue/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Energy",
+    "theme": "forest",
+    "motion": "spin",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#38d4b0",
+        "#a8d94a"
+      ],
+      "dark": [
+        "#6fe6c8",
+        "#c0e87a"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/PrequelWindTurbinePictogram.vue",
+      "target": "components/prequelui/categories/PrequelWindTurbinePictogram.vue",
+      "type": "registry:ui",
+      "content": "<script>\nexport const definition = {\n  \"slug\": \"wind-turbine\",\n  \"name\": \"Wind turbine\",\n  \"group\": \"Energy\",\n  \"theme\": \"forest\",\n  \"keywords\": [\n    \"wind\",\n    \"turbine\",\n    \"energy\",\n    \"renewable\",\n    \"power\"\n  ],\n  \"description\": \"A three-blade wind turbine on a tapered tower, its hub centred on a wide split orb.\",\n  \"motion\": \"spin\",\n  \"ink\": [\n    {\n      \"d\": \"M488 786L505 430H519L536 786Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M474 400A38 38 0 1 0 550 400A38 38 0 1 0 474 400Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M500 400A12 12 0 1 0 524 400A12 12 0 1 0 500 400Z\",\n      \"fill\": true\n    },\n    {\n      \"d\": \"M512 400C520 312 558 234 618 194C628 272 588 360 512 400Z\",\n      \"width\": 20\n    },\n    {\n      \"d\": \"M512 400C520 312 558 234 618 194C628 272 588 360 512 400Z\",\n      \"width\": 20,\n      \"transform\": \"rotate(120 512 400)\"\n    },\n    {\n      \"d\": \"M512 400C520 312 558 234 618 194C628 272 588 360 512 400Z\",\n      \"width\": 20,\n      \"transform\": \"rotate(240 512 400)\"\n    },\n    {\n      \"d\": \"M454 786H570A10 10 0 0 1 580 796V806A10 10 0 0 1 570 816H454A10 10 0 0 1 444 806V796A10 10 0 0 1 454 786Z\",\n      \"width\": 23\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-16 -118.93A120 120 0 1 0 -16 118.93Z\",\n      \"transform\": \"translate(512 400) rotate(0)\"\n    },\n    {\n      \"d\": \"M16 -118.93A120 120 0 0 1 16 118.93Z\",\n      \"transform\": \"translate(512 400) rotate(0)\"\n    },\n    {\n      \"d\": \"M90 0C49.5 -14 14 -14 0 -14A14 14 0 0 0 0 14C14 14 49.5 14 90 0Z\",\n      \"transform\": \"translate(790 300) rotate(-30)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#38d4b0\",\n      \"#a8d94a\"\n    ],\n    \"dark\": [\n      \"#6fe6c8\",\n      \"#c0e87a\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"rotate\": 10\n    },\n    \"accent\": {\n      \"x\": 10\n    }\n  }\n};\n</script>\n\n<script setup>\nimport CategoryPictogram from \"./category-core.vue\";\n</script>\n\n<template>\n  <CategoryPictogram :definition=\"definition\" />\n</template>\n"
+    }
+  ]
+}

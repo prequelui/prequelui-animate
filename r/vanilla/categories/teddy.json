@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-teddy",
+  "type": "registry:ui",
+  "title": "Teddy bear Pictogram",
+  "description": "A round teddy head with two ears, a soft muzzle and a tiny stitched smile.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/vanilla/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Kids",
+    "theme": "candy",
+    "motion": "bounce",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#ff6ca8",
+        "#ffc24a"
+      ],
+      "dark": [
+        "#ff8cc0",
+        "#ffd06a"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "components/prequelui/categories/pictogram-teddy.js",
+      "target": "components/prequelui/categories/pictogram-teddy.js",
+      "type": "registry:ui",
+      "content": "import { createCategoryPictogram } from \"./category-core.js\";\n\nexport const definition = {\n  \"slug\": \"teddy\",\n  \"name\": \"Teddy bear\",\n  \"group\": \"Kids\",\n  \"theme\": \"candy\",\n  \"keywords\": [\n    \"teddy\",\n    \"bear\",\n    \"toy\",\n    \"kids\",\n    \"child\"\n  ],\n  \"description\": \"A round teddy head with two ears, a soft muzzle and a tiny stitched smile.\",\n  \"motion\": \"bounce\",\n  \"ink\": [\n    {\n      \"d\": \"M320 512A192 192 0 1 0 704 512A192 192 0 1 0 320 512Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M296 352A72 72 0 1 0 440 352A72 72 0 1 0 296 352Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M584 352A72 72 0 1 0 728 352A72 72 0 1 0 584 352Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M334 352A34 34 0 1 0 402 352A34 34 0 1 0 334 352Z\",\n      \"width\": 18\n    },\n    {\n      \"d\": \"M622 352A34 34 0 1 0 690 352A34 34 0 1 0 622 352Z\",\n      \"width\": 18\n    },\n    {\n      \"d\": \"M420 576A92 70 0 1 0 604 576A92 70 0 1 0 420 576Z\",\n      \"width\": 20\n    },\n    {\n      \"d\": \"M436 480A14 14 0 1 0 464 480A14 14 0 1 0 436 480Z\",\n      \"fill\": true\n    },\n    {\n      \"d\": \"M560 480A14 14 0 1 0 588 480A14 14 0 1 0 560 480Z\",\n      \"fill\": true\n    },\n    {\n      \"d\": \"M486 548A26 18 0 1 0 538 548A26 18 0 1 0 486 548Z\",\n      \"fill\": true\n    },\n    {\n      \"d\": \"M512 566V594\",\n      \"width\": 16\n    },\n    {\n      \"d\": \"M512 594Q486 618 464 600\",\n      \"width\": 16\n    },\n    {\n      \"d\": \"M512 594Q538 618 560 600\",\n      \"width\": 16\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-15 -98.87A100 100 0 1 0 -15 98.87Z\",\n      \"transform\": \"translate(756 486) rotate(0)\"\n    },\n    {\n      \"d\": \"M15 -98.87A100 100 0 0 1 15 98.87Z\",\n      \"transform\": \"translate(756 486) rotate(0)\"\n    },\n    {\n      \"d\": \"M90 0C49.5 -14 14 -14 0 -14A14 14 0 0 0 0 14C14 14 49.5 14 90 0Z\",\n      \"transform\": \"translate(260 300) rotate(150)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#ff6ca8\",\n      \"#ffc24a\"\n    ],\n    \"dark\": [\n      \"#ff8cc0\",\n      \"#ffd06a\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"y\": -12\n    },\n    \"accent\": {\n      \"y\": -10\n    }\n  }\n};\n\nexport const meta = {\n  \"slug\": \"teddy\",\n  \"name\": \"Teddy bear\",\n  \"group\": \"Kids\",\n  \"motion\": \"bounce\",\n  \"component\": \"PrequelTeddyBearPictogram\"\n};\n\nexport function createPrequelTeddyBearPictogram(root, options = {}) {\n  return createCategoryPictogram(root, definition, options);\n}\n"
+    }
+  ]
+}

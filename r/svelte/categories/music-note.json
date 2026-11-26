@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-music-note",
+  "type": "registry:component",
+  "title": "Music note Pictogram",
+  "description": "A beamed pair of notes with filled heads and a split orb behind the stem.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/svelte/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Music",
+    "theme": "violet",
+    "motion": "bounce",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#8a6cff",
+        "#e06cff"
+      ],
+      "dark": [
+        "#a48cff",
+        "#ec8cff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "src/lib/components/prequelui/categories/PrequelMusicNotePictogram.svelte",
+      "target": "~/src/lib/components/prequelui/categories/PrequelMusicNotePictogram.svelte",
+      "type": "registry:file",
+      "content": "<script module>\n  export const definition = {\n  \"slug\": \"music-note\",\n  \"name\": \"Music note\",\n  \"group\": \"Music\",\n  \"theme\": \"violet\",\n  \"keywords\": [\n    \"note\",\n    \"music\",\n    \"sound\",\n    \"audio\"\n  ],\n  \"description\": \"A beamed pair of notes with filled heads and a split orb behind the stem.\",\n  \"motion\": \"bounce\",\n  \"ink\": [\n    {\n      \"d\": \"M288 672A88 64 0 1 0 464 672A88 64 0 1 0 288 672Z\",\n      \"fill\": true,\n      \"transform\": \"rotate(-20 376 672)\"\n    },\n    {\n      \"d\": \"M536 608A88 64 0 1 0 712 608A88 64 0 1 0 536 608Z\",\n      \"fill\": true,\n      \"transform\": \"rotate(-20 624 608)\"\n    },\n    {\n      \"d\": \"M452 660V340M700 596V276\",\n      \"width\": 26\n    },\n    {\n      \"d\": \"M452 340L700 276\",\n      \"width\": 30\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-13 -95.12A96 96 0 1 0 -13 95.12Z\",\n      \"transform\": \"translate(760 400) rotate(0)\"\n    },\n    {\n      \"d\": \"M13 -95.12A96 96 0 0 1 13 95.12Z\",\n      \"transform\": \"translate(760 400) rotate(0)\"\n    },\n    {\n      \"d\": \"M108 0C59.4 -17 17 -17 0 -17A17 17 0 0 0 0 17C17 17 59.4 17 108 0Z\",\n      \"transform\": \"translate(280 300) rotate(148)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#8a6cff\",\n      \"#e06cff\"\n    ],\n    \"dark\": [\n      \"#a48cff\",\n      \"#ec8cff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"y\": -12\n    },\n    \"accent\": {\n      \"y\": -10\n    }\n  }\n};\n</script>\n\n<script>\n  import CategoryPictogram from \"./category-core.svelte\";\n  let { ...rest } = $props();\n</script>\n\n<CategoryPictogram definition={definition} {...rest} />\n"
+    }
+  ]
+}

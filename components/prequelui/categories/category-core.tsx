@@ -27,6 +27,7 @@ export type CategoryPictogramDefinition = {
   keywords: string[];
   description: string;
   motion: string;
+  isNew?: boolean;
   ink: CategoryPictogramPart[];
   accent: CategoryPictogramPart[];
   palette: { light: [string, string]; dark: [string, string] };

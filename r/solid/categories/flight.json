@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-flight",
+  "type": "registry:ui",
+  "title": "Flight Pictogram",
+  "description": "A plane seen from above, trailed by three comets instead of exhaust.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Travel",
+    "theme": "blue",
+    "motion": "comet",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#4aa8ff",
+        "#7a6cff"
+      ],
+      "dark": [
+        "#74baff",
+        "#9a8cff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "src/components/prequelui/categories/pictogram-flight.tsx",
+      "target": "src/components/prequelui/categories/pictogram-flight.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { CategoryPictogram } from \"./category-core\";\n\nexport const definition = {\n  \"slug\": \"flight\",\n  \"name\": \"Flight\",\n  \"group\": \"Travel\",\n  \"theme\": \"blue\",\n  \"keywords\": [\n    \"plane\",\n    \"flight\",\n    \"travel\",\n    \"trip\"\n  ],\n  \"description\": \"A plane seen from above, trailed by three comets instead of exhaust.\",\n  \"motion\": \"comet\",\n  \"ink\": [\n    {\n      \"d\": \"M512 214C548 214 562 254 562 314V396L796 520V594L562 520V648L654 706V758L512 716L370 758V706L462 648V520L228 594V520L462 396V314C462 254 476 214 512 214Z\",\n      \"width\": 23\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M116 0C63.8 -17 17 -17 0 -17A17 17 0 0 0 0 17C17 17 63.8 17 116 0Z\",\n      \"transform\": \"translate(420 798) rotate(150)\"\n    },\n    {\n      \"d\": \"M86 0C47.3 -14 14 -14 0 -14A14 14 0 0 0 0 14C14 14 47.3 14 86 0Z\",\n      \"transform\": \"translate(512 824) rotate(150)\"\n    },\n    {\n      \"d\": \"M84 0C46.2 -13 13 -13 0 -13A13 13 0 0 0 0 13C13 13 46.2 13 84 0Z\",\n      \"transform\": \"translate(334 780) rotate(150)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#4aa8ff\",\n      \"#7a6cff\"\n    ],\n    \"dark\": [\n      \"#74baff\",\n      \"#9a8cff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {},\n    \"accent\": {\n      \"x\": 22,\n      \"y\": -18\n    }\n  }\n};\n\nexport function PrequelFlightPictogram(props) {\n  return <CategoryPictogram definition={definition} {...props} />;\n}\n"
+    }
+  ]
+}

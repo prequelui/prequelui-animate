@@ -1,0 +1,40 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "category-stamp",
+  "type": "registry:ui",
+  "title": "Stamp Pictogram",
+  "description": "A rubber stamp with a tall handle and a wide base, leaving a small checked mark.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://prequeluianimate.terravidhal.me/r/solid/categories/category-core.json"
+  ],
+  "meta": {
+    "style": "category",
+    "group": "Administration",
+    "theme": "slate",
+    "motion": "bounce",
+    "grid": 1024,
+    "stroke": 23,
+    "display": 40,
+    "palette": {
+      "light": [
+        "#7a8ba8",
+        "#b06cff"
+      ],
+      "dark": [
+        "#96a6c4",
+        "#c58cff"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "src/components/prequelui/categories/pictogram-stamp.tsx",
+      "target": "src/components/prequelui/categories/pictogram-stamp.tsx",
+      "type": "registry:ui",
+      "content": "// @ts-nocheck\nimport { CategoryPictogram } from \"./category-core\";\n\nexport const definition = {\n  \"slug\": \"stamp\",\n  \"name\": \"Stamp\",\n  \"group\": \"Administration\",\n  \"theme\": \"slate\",\n  \"keywords\": [\n    \"stamp\",\n    \"approve\",\n    \"admin\",\n    \"official\",\n    \"document\"\n  ],\n  \"description\": \"A rubber stamp with a tall handle and a wide base, leaving a small checked mark.\",\n  \"motion\": \"bounce\",\n  \"ink\": [\n    {\n      \"d\": \"M462 248H562A30 30 0 0 1 592 278V328A30 30 0 0 1 562 358H462A30 30 0 0 1 432 328V278A30 30 0 0 1 462 248Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M474 350H550A20 20 0 0 1 570 370V540A20 20 0 0 1 550 560H474A20 20 0 0 1 454 540V370A20 20 0 0 1 474 350Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M340 560H684L720 760H304Z\",\n      \"width\": 23\n    },\n    {\n      \"d\": \"M304 760H720\",\n      \"width\": 20\n    },\n    {\n      \"d\": \"M410 690L470 738L596 640\",\n      \"width\": 20\n    }\n  ],\n  \"accent\": [\n    {\n      \"d\": \"M-15 -94.82A96 96 0 1 0 -15 94.82Z\",\n      \"transform\": \"translate(760 380) rotate(0)\"\n    },\n    {\n      \"d\": \"M15 -94.82A96 96 0 0 1 15 94.82Z\",\n      \"transform\": \"translate(760 380) rotate(0)\"\n    },\n    {\n      \"d\": \"M90 0C49.5 -14 14 -14 0 -14A14 14 0 0 0 0 14C14 14 49.5 14 90 0Z\",\n      \"transform\": \"translate(260 300) rotate(150)\"\n    }\n  ],\n  \"palette\": {\n    \"light\": [\n      \"#7a8ba8\",\n      \"#b06cff\"\n    ],\n    \"dark\": [\n      \"#96a6c4\",\n      \"#c58cff\"\n    ]\n  },\n  \"motionConfig\": {\n    \"main\": {\n      \"y\": -12\n    },\n    \"accent\": {\n      \"y\": -10\n    }\n  }\n};\n\nexport function PrequelStampPictogram(props) {\n  return <CategoryPictogram definition={definition} {...props} />;\n}\n"
+    }
+  ]
+}
