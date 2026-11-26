@@ -1,7 +1,8 @@
 import { categoryBySlug } from "./categories.generated";
 import type { CategoryPictogramDefinition } from "./category-core";
 import type { CategoryRowItem } from "./category-row";
-import { categoryFilePath, type FrameworkId } from "@/lib/frameworks";
+
+export type CategoryRowFramework = "react" | "vue" | "svelte" | "solid" | "vanilla";
 
 export type CategoryRowPresetId = "shop" | "media" | "saas";
 
@@ -112,14 +113,30 @@ export function resolveCategoryRowPreset(
   }));
 }
 
-function modulePath(framework: FrameworkId, slug: string) {
+function componentName(slug: string) {
   const definition = definitionOf(slug);
-  const file = categoryFilePath(framework, slug, definition.name);
-  if (framework === "svelte") return `$lib/${file.replace(/^src\/lib\//, "")}`;
-  if (framework === "solid")
-    return `@/${file.replace(/^src\//, "").replace(/\.tsx$/, "")}`;
-  if (framework === "vanilla") return `./${file}`;
-  return `@/${file.replace(/\.tsx$/, "")}`;
+  const pascal = definition.name
+    .split(/[^a-zA-Z0-9]+/)
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join("");
+  return `Prequel${pascal}Pictogram`;
+}
+
+function modulePath(framework: CategoryRowFramework, slug: string) {
+  if (framework === "vue") {
+    return `@/components/prequelui/categories/${componentName(slug)}.vue`;
+  }
+  if (framework === "svelte") {
+    return `$lib/components/prequelui/categories/${componentName(slug)}.svelte`;
+  }
+  if (framework === "solid") {
+    return `@/components/prequelui/categories/pictogram-${slug}`;
+  }
+  if (framework === "vanilla") {
+    return `./components/prequelui/categories/pictogram-${slug}.js`;
+  }
+  return `@/components/prequelui/categories/pictogram-${slug}`;
 }
 
 function itemProps(
@@ -137,7 +154,7 @@ function itemProps(
 
 export function categoryRowPresetCode(
   preset: CategoryRowPreset,
-  framework: FrameworkId = "react",
+  framework: CategoryRowFramework = "react",
 ) {
   const imports = preset.items
     .map(
